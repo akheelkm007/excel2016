@@ -1,0 +1,30 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="xl-schedule">
+  <template>
+
+    <h1> Excel Schedule </h1>
+
+    <template is="dom-repeat" items="{{schedule}}">
+        <div># <span>{{index}}</span></div>
+        <div>Event name: <span>{{item.name}}</span></div>
+        <div>Date: <span>{{item.date}}</span></div>
+    </template>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'xl-schedule',
+      ready: function() {
+        this.schedule = [
+            {name: 'Event1', date: '5/10/2016'},
+            {name: 'Event2', date: '5/10/2016'},
+            {name: 'Event3', date: '5/10/2016'}
+        ];
+      }
+
+    });
+  </script>
+
+</dom-module>

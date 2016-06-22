@@ -1,0 +1,9 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/xl-app.html",
+  "fragments": [
+    "src/xl-view1.html",
+    "src/xl-view2.html",
+    "src/xl-view3.html"
+  ]
+}

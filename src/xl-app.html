@@ -1,0 +1,163 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+
+<!-- <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+ -->
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="my-icons.html">
+
+
+
+<link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+
+
+
+<dom-module id="xl-app">
+
+  <template>
+
+    <style>
+
+      :host {
+        display: block;
+        --primary-color: #4285f4;
+        --app-secondary-color: black;
+      }
+
+      .drawer-list {
+        margin: 0 20px;
+      }
+      .drawer-list a {
+        display: block;
+        padding: 0 16px;
+        line-height: 40px;
+        text-decoration: none;
+        color: var(--app-secondary-color);
+      }
+      .drawer-list a.iron-selected {
+        color: black;
+        font-weight: bold;
+      }
+      .drawer-list a.subroute {
+        padding-left: 32px;
+      }
+
+      .nav-tool-bottom {
+      	padding-bottom: 16px;
+      }
+
+      .toolbar-img {
+      	width: 100%;
+      	padding-top: 36px;
+      }
+
+      paper-toolbar.drawer {
+		--paper-toolbar-background: #f5f5f5;
+		color: black;
+      }
+
+
+    </style>
+
+    <app-location route="{{route}}" use-hash-as-path></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+    <paper-drawer-panel force-narrow>
+
+      <paper-header-panel drawer>
+        <paper-toolbar class="tall drawer">
+        	<img src="/images/excel.png" class="toolbar-img">
+          <div class="bottom nav-tool-bottom">
+          	<div>October 5,6,7,8</div>
+          	<div>Govt. Model Engineering College, Kochi</div>
+          </div>
+        </paper-toolbar>
+        <div>
+        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+          <a name="view1" href="#/view1">View One</a>
+          <a name="view2" href="#/view2">View Two</a>
+          <a name="view3" href="#/view3">View Three</a>
+          <a name="schedule" href="#/schedule">Schedule</a>
+        </iron-selector>
+        </div>
+      </paper-header-panel>
+
+
+      <paper-header-panel main>
+        <paper-toolbar>
+          <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+          <div>Excel 2016</div>
+        </paper-toolbar>
+        <div>
+
+        <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+          <xl-view1 name="view1"></xl-view1>
+          <xl-view2 name="view2"></xl-view2>
+          <xl-view3 name="view3"></xl-view3>
+          <xl-schedule name="schedule"></xl-schedule>
+        </iron-pages>
+
+
+
+        </div>
+      </paper-header-panel>
+
+
+
+
+    </paper-drawer-panel>
+
+
+
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'xl-app',
+
+      properties: {
+
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged'
+        },
+
+      },
+
+      observers: [
+        '_routePageChanged(routeData.page)'
+      ],
+
+      _routePageChanged: function(page) {
+        this.page = page || 'view1';
+      },
+
+      _pageChanged: function(page) {
+        // load page import on demand.
+        this.importHref(
+          this.resolveUrl('xl-' + page + '.html'), null, null, true);
+      }
+
+    });
+
+  </script>
+
+</dom-module>
