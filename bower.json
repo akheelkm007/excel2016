@@ -1,7 +1,8 @@
 {
-  "name": "app-drawer-template",
+  "name": "Excel 2016",
   "authors": [
-    "The Polymer Authors"
+    "Akheel K M",
+    "Gokul A V"
   ],
   "private": true,
   "dependencies": {
