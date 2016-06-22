@@ -4,6 +4,7 @@
   "fragments": [
     "src/xl-view1.html",
     "src/xl-view2.html",
-    "src/xl-view3.html"
+    "src/xl-view3.html",
+    "src/xl-schedule.html"
   ]
 }
