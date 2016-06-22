@@ -2,23 +2,14 @@
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 
-<!-- <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
-<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
-<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
-<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
-<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
- -->
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="../bower_components/iron-selector/iron-selector.html">
-<link rel="import" href="my-icons.html">
-
-
 
 <link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
 
 
 
@@ -32,6 +23,11 @@
         display: block;
         --primary-color: #4285f4;
         --app-secondary-color: black;
+      }
+
+
+      .drawer {
+      	 height: calc(64px * 3);
       }
 
       .drawer-list {
@@ -57,14 +53,34 @@
       }
 
       .toolbar-img {
-      	width: 100%;
-      	padding-top: 36px;
-      }
+		width: 240px;
+		position: absolute;
+		left: 8px;
+		top: 8px;
+  	  }
 
       paper-toolbar.drawer {
-		--paper-toolbar-background: #f5f5f5;
+		--paper-toolbar-background: white;
 		color: black;
       }
+
+
+
+      .transition {
+      	will-change: transform;
+        transition : 300ms ease-in-out;        
+      }
+
+      .fade-out {
+        opacity: 0;
+        transform: translateY(300px);
+      }
+
+      .fade-in {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
 
 
     </style>
@@ -104,11 +120,13 @@
         </paper-toolbar>
         <div>
 
-        <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+        <iron-pages role="main" selected="[[page]]" attr-for-selected="name" id="mainContent">
           <xl-view1 name="view1"></xl-view1>
           <xl-view2 name="view2"></xl-view2>
           <xl-view3 name="view3"></xl-view3>
           <xl-schedule name="schedule"></xl-schedule>
+          <h1 name="spinner">Hold on... Loading awesomeness...</h1>
+          <!-- <paper-spinner name="spinner"></paper-spinner> -->
         </iron-pages>
 
 
@@ -145,13 +163,72 @@
       ],
 
       _routePageChanged: function(page) {
-        this.page = page || 'view1';
+
+          var x = this.$.mainContent;
+          var old = x.selectedItem;
+
+          if (!old) { //Initial loading of the page. No need of exit animation
+            console.log('initial');
+            this.page = page || 'view1';
+            return;
+          }
+
+          old.classList.add("transition");
+          old.classList.add("fade-out");
+          old.classList.remove("fade-in");
+
+
+
+          this.importHref(
+            this.resolveUrl('xl-' + page + '.html'), function() { 
+
+              this.page = page;
+              var x = this.$.mainContent;
+              var elem = x.selectedItem;
+
+
+              //Set to the faded out position
+              elem.classList.add("fade-out");
+              elem.classList.remove("fade-in");
+              elem.classList.remove("transition");
+              elem.getBoundingClientRect();
+
+
+              //Fade the page in
+              elem.classList.add("fade-in");
+              elem.classList.add("transition");
+
+            }, null, true);
+
+
+          setTimeout(function () {
+            if (x.selectedItem === old) {
+              console.log('show spinner');
+              x.selected = "spinner";
+            } 
+          }, 800);
+
       },
 
       _pageChanged: function(page) {
         // load page import on demand.
         this.importHref(
-          this.resolveUrl('xl-' + page + '.html'), null, null, true);
+          this.resolveUrl('xl-' + page + '.html'), function() { 
+
+            //For the initial load
+            var x = this.$.mainContent;
+            var elem = x.selectedItem;
+
+            //Set to the faded out position
+            elem.classList.add("fade-out");
+            elem.getBoundingClientRect();
+            
+
+            //Fade the page in
+            elem.classList.add("fade-in");
+            elem.classList.add("transition");
+
+          }, null, true);
       }
 
     });
