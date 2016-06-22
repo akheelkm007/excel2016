@@ -122,8 +122,8 @@
         </paper-toolbar>
         <div>
 
-		<paper-menu selected="[[page]]" attr-for-selected="name" role="navigation">
-			<a name="view1" href="#/view1">
+		<paper-menu selected="[[page]]" attr-for-selected="name" role="navigation" >
+			<a name="view1"  href="#/view1">
 				<paper-item>View One</paper-item>			
 			</a>
 			<a name="view2" href="#/view2">
@@ -152,9 +152,9 @@
         <div>
 
         <iron-pages role="main" selected="[[page]]" attr-for-selected="name" id="mainContent">
-          <xl-view1 name="view1"></xl-view1>
-          <xl-view2 name="view2"></xl-view2>
-          <xl-view3 name="view3"></xl-view3>
+          <xl-view1 name="view1" id="view1">hello boys</xl-view1>
+          <xl-view2 name="view2" id="view2"></xl-view2>
+          <xl-view3 name="view3" id="view3"></xl-view3>
           <xl-schedule name="schedule"></xl-schedule>
           <h1 name="spinner">Hold on... Loading awesomeness...</h1>
           <!-- <paper-spinner name="spinner"></paper-spinner> -->
@@ -192,6 +192,10 @@
       observers: [
         '_routePageChanged(routeData.page)'
       ],
+
+      ready:function(){
+        // alert(this.$.view1.innerHTML);
+      },
 
       _routePageChanged: function(page) {
 
@@ -260,7 +264,9 @@
             elem.classList.add("transition");
 
           }, null, true);
-      }
+
+
+   }
 
     });
 

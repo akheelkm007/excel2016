@@ -19,12 +19,21 @@
     Polymer({
       is: 'xl-schedule',
       ready: function() {
-        this.schedule = [
-            {name: 'Event1', date: '5/10/2016'},
-            {name: 'Event2', date: '5/10/2016'},
-            {name: 'Event3', date: '5/10/2016'}
-        ];
-
+            _self = this;
+            console.log("IMPORTING JSON");
+            var oReq = new XMLHttpRequest();
+            oReq.onload = reqListener;  //OR USE JQUERY IF ERROR!
+            oReq.open("get", "../resources/schedule.json", true);
+            oReq.send();
+            function reqListener(e) {
+              treeData = JSON.parse(this.responseText);
+              console.log("Imported JSON SUCCESS, CONTENTS: ");
+              console.log(treeData);
+              populate(treeData);
+            }
+            function populate(treeData){
+              _self.schedule = treeData;
+            }
       }
 
     });
