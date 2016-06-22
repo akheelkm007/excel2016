@@ -20,31 +20,14 @@
       is: 'xl-schedule',
       ready: function() {
 
-        // this.schedule = 
-        // [
-        //   {
-        //     "name": "Event1",
-        //     "date": "5/10/2016"
-        //   },
-
-        //   {
-        //     "name": "Event2",
-        //     "date": "5/10/2016"
-        //   },
-
-        //   {
-        //     "name": "Event3",
-        //     "date": "5/10/2016"
-        //   }
-        // ];
+        var _thisPage = this;
 
         fetch('resources/schedule.json').
         then(function (response) {
             return response.json();
         }).
         then(function (response) {
-          this.schedule = response;
-          console.log("response",JSON.stringify(response));
+          _thisPage.schedule = response;
         })
         .catch(function(err) {
           console.log("err",err);
