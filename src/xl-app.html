@@ -11,7 +11,10 @@
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
 
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 
+<link rel="import" href="../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
 
 <dom-module id="xl-app">
 
@@ -25,6 +28,21 @@
         --app-secondary-color: black;
       }
 
+      paper-item {
+      	font-weight: 500;
+      }
+
+
+      paper-icon-button {
+        --paper-icon-button-ink-color: white;      	
+      }
+
+
+	  a {
+    	font-weight: 500;
+    	text-decoration: none;
+    	color: inherit;
+     }
 
       .drawer {
       	 height: calc(64px * 3);
@@ -103,19 +121,32 @@
           </div>
         </paper-toolbar>
         <div>
-        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="#/view1">View One</a>
-          <a name="view2" href="#/view2">View Two</a>
-          <a name="view3" href="#/view3">View Three</a>
-          <a name="schedule" href="#/schedule">Schedule</a>
-        </iron-selector>
+
+		<paper-menu selected="[[page]]" attr-for-selected="name" role="navigation">
+			<a name="view1" href="#/view1">
+				<paper-item>View One</paper-item>			
+			</a>
+			<a name="view2" href="#/view2">
+				<paper-item>View Two</paper-item>			
+			</a>
+			<a name="view3" href="#/view3">
+				<paper-item>View </paper-item>			
+			</a>
+			<a name="schedule" href="#/schedule">
+				<paper-item>Schedule</paper-item>			
+			</a>
+		</paper-menu>
+
+
+
+
         </div>
       </paper-header-panel>
 
 
       <paper-header-panel main>
         <paper-toolbar>
-          <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+          <paper-icon-button icon="menu" paper-drawer-toggle style="color:white;"></paper-icon-button>
           <div>Excel 2016</div>
         </paper-toolbar>
         <div>
