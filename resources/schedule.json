@@ -1,16 +1,19 @@
 [
     {
     	"name": "Event1",
-    	"date": "5/10/2016"
+    	"date": "5/10/2016",
+    	"department": "cs"
     },
 
     {
     	"name": "Event2",
-    	"date": "5/10/2016"
+    	"date": "5/10/2016",
+    	"department": "ec"
     },
 
     {
     	"name": "Event3",
-    	"date": "5/10/2016"
+    	"date": "5/10/2016",
+    	"department": "cs"
     }
 ]

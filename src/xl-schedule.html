@@ -4,8 +4,15 @@
   <template>
 
     <h1> Excel Schedule </h1>
-
-    <template is="dom-repeat" items="{{schedule}}">
+    <div>
+      Show : 
+      <select id="filtervalue" autofocus value="{{searchString::input}}">
+        <option>all</option>
+        <option>cs</option>
+        <option>ec</option>
+      </select>
+    </div>
+    <template is="dom-repeat" items="{{schedule}}" filter="{{computeFilter(searchString)}}">
         <div># <span>{{index}}</span></div>
         <div>Event name: <span>{{item.name}}</span></div>
         <div>Date: <span>{{item.date}}</span></div>
@@ -15,25 +22,36 @@
    
   </template>
 
-  <script>
+  <script>;
+
     Polymer({
       is: 'xl-schedule',
       ready: function() {
 
-        var _thisPage = this;
+              var _thisPage = this;
 
-        fetch('resources/schedule.json').
-        then(function (response) {
-            return response.json();
-        }).
-        then(function (response) {
-          _thisPage.schedule = response;
-        })
-        .catch(function(err) {
-          console.log("err",err);
-        });
+              fetch('resources/schedule.json').
+              then(function (response) {
+                  return response.json();
+              }).
+              then(function (response) {
+                _thisPage.schedule = response;
+              })
+              .catch(function(err) {
+                console.log("err",err);
+              });
 
-      }
+     },
+     computeFilter: function(string){
+              if(!string || string=='all'){
+                return null
+              }
+              else{
+                return function(schedule){
+                  return(schedule.department==string)
+                }
+              }
+     }                    
 
     });
   </script>
