@@ -102,7 +102,6 @@
 
     </div>
 
-   
   </template>
 
   <script>;
@@ -112,11 +111,28 @@
       ready : function () {
 
         var _self = this;
-        window.addEventListener("resize", function() { _self.windowResize(); });
-        this.windowResize();
-
+        window.addEventListener("resize", function() {
+          _self.windowResize();
+        });
       },
+
+      attached : function () {
+        var _self = this;
+        setTimeout(function () { //This is just stupid. Must fix this.
+          _self.windowResize();
+        }, 500);
+        setTimeout(function () { //This is just stupid. Must fix this.
+          _self.windowResize();
+        }, 1000);
+        setTimeout(function () { //This is just stupid. Must fix this.
+          _self.windowResize();
+        }, 2000);
+         
+      },
+
+
       windowResize: function () {
+
 
         var departments = Array.from(this.shadowRoot.querySelectorAll('.dept'));
         var width = departments[0].getBoundingClientRect().width;
