@@ -5,14 +5,17 @@
 
     <h1> Excel Schedule </h1>
     <div>
-      Show : 
-      <select id="filtervalue" autofocus value="{{searchString::input}}">
-        <option>all</option>
-        <option>cs</option>
-        <option>ec</option>
+      Filter :  
+      <select id="DeptSelector" autofocus value="{{dept::input}}">
+        <option value="all" selected>All Departments</option>
+        <option value="cs">Computer Science</option>
+        <option value="ec">Electronics and Communication</option>
       </select>
-    </div>
-    <template is="dom-repeat" items="{{schedule}}" filter="{{computeFilter(searchString)}}">
+      &nbspEvents :
+        <input type="checkbox" value="online"  checked id="onlineBox" on-change="tweakFilter"> Online Events
+        <input type="checkbox" value="offline" checked id="offlineBox" on-change="tweakFilter">Offline Events<br>
+        </div>
+    <template is="dom-repeat" items="{{schedule}}" filter="{{computeFilter(dept)}}">
         <div># <span>{{index}}</span></div>
         <div>Event name: <span>{{item.name}}</span></div>
         <div>Date: <span>{{item.date}}</span></div>
@@ -42,16 +45,45 @@
               });
 
      },
+     properties: {
+              'dept':{
+                        type: String,
+                     }
+     },
      computeFilter: function(string){
+              _self = this;
+                var onlineState = (function()
+                                                {
+
+                                                  if(_self.$.onlineBox.checked)
+                                                    return("online");
+                                                  else
+                                                    return("Negative");
+                                                })();
+                                      
+                var offlineState = (function()
+                                                {
+                                                  if(_self.$.offlineBox.checked)
+                                                    return("offline");
+                                                  else
+                                                    return("Negative");
+                                                })();
               if(!string || string=='all'){
-                return null
+                return function(schedule){
+                  return((schedule.type==onlineState || schedule.type==offlineState));
+                }
               }
               else{
                 return function(schedule){
-                  return(schedule.department==string)
+                  return(schedule.department==string && (schedule.type==onlineState || schedule.type==offlineState));
                 }
               }
-     }                    
+     },
+     tweakFilter: function(){
+        temp=this.dept;
+        this.dept="haha";
+        this.dept=temp;
+     }
 
     });
   </script>

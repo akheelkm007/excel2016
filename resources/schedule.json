@@ -2,18 +2,21 @@
     {
     	"name": "Event1",
     	"date": "5/10/2016",
-    	"department": "cs"
+    	"department": "cs",
+    	"type":"online"
     },
 
     {
     	"name": "Event2",
     	"date": "5/10/2016",
-    	"department": "ec"
+    	"department": "ec",
+    	"type":"offline"
     },
 
     {
     	"name": "Event3",
     	"date": "5/10/2016",
-    	"department": "cs"
+    	"department": "cs",
+    	"type":"offline"
     }
 ]
