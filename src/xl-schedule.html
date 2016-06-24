@@ -6,16 +6,16 @@
     <h1> Excel Schedule </h1>
     <div>
       Filter :  
-      <select id="DeptSelector" autofocus value="{{dept::input}}">
+      <select autofocus value="{{department::input}}" on-change="refreshFilter">
         <option value="all" selected>All Departments</option>
         <option value="cs">Computer Science</option>
         <option value="ec">Electronics and Communication</option>
       </select>
       &nbspEvents :
-        <input type="checkbox" value="online"  checked id="onlineBox" on-change="tweakFilter"> Online Events
-        <input type="checkbox" value="offline" checked id="offlineBox" on-change="tweakFilter">Offline Events<br>
+        <input type="checkbox" value="online"  checked id="onlineBox" on-change="refreshFilter"> Online Events
+        <input type="checkbox" value="offline" checked id="offlineBox" on-change="refreshFilter">Offline Events<br>
         </div>
-    <template is="dom-repeat" items="{{schedule}}" filter="{{computeFilter(dept)}}">
+    <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
         <div># <span>{{index}}</span></div>
         <div>Event name: <span>{{item.name}}</span></div>
         <div>Date: <span>{{item.date}}</span></div>
@@ -46,45 +46,39 @@
 
      },
      properties: {
-              'dept':{
-                        type: String,
+              'department':{
+                        type: String
                      }
      },
-     computeFilter: function(string){
-              _self = this;
-                var onlineState = (function()
-                                                {
+     computeFilter: function(item){
+              var _self = this;
+              var _department = _self.department;
+              var _scheduleItem = item;
 
-                                                  if(_self.$.onlineBox.checked)
-                                                    return("online");
-                                                  else
-                                                    return("Negative");
-                                                })();
-                                      
-                var offlineState = (function()
-                                                {
-                                                  if(_self.$.offlineBox.checked)
-                                                    return("offline");
-                                                  else
-                                                    return("Negative");
-                                                })();
-              if(!string || string=='all'){
-                return function(schedule){
-                  return((schedule.type==onlineState || schedule.type==offlineState));
-                }
+              //Check if online and offline checkboxes are ticked
+              var onlineState = (_self.$.onlineBox.checked) ? "online" : "not online";
+              var offlineState = (_self.$.offlineBox.checked) ? "offline" : "not offline";
+
+              //if event type (online or offline) does not match either of the checked boxes, return false
+              if (!(_scheduleItem.type === onlineState || _scheduleItem.type === offlineState)) {
+                return false;
               }
-              else{
-                return function(schedule){
-                  return(schedule.department==string && (schedule.type==onlineState || schedule.type==offlineState));
-                }
+
+              //if no or all department(s) specified, return true
+              if(!_department || _department === 'all'){
+                return true;
               }
+
+              // check if department specified is same as data
+              return _scheduleItem.department === _department;
+
+
+
      },
-     tweakFilter: function(){
-        temp=this.dept;
-        this.dept="haha";
-        this.dept=temp;
-     }
 
+     refreshFilter : function () {
+        this.$.scheduleList.render();
+     }
     });
   </script>
 
