@@ -1,28 +1,53 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
 
 <dom-module id="xl-schedule">
   <template>
+  <style>
+    :host{
+      text-align: center;
+    }
+  </style>
 
-    <h1> Excel Schedule </h1>
-    <div>
-      Filter :  
-      <select autofocus value="{{department::input}}" on-change="refreshFilter">
-        <option value="all" selected>All Departments</option>
-        <option value="cs">Computer Science</option>
-        <option value="ec">Electronics and Communication</option>
-      </select>
-      &nbspEvents :
+    <paper-material>
+      <h1> Excel Schedule </h1> 
+      <div>
+        <select autofocus value="{{department::input}}" on-change="refreshFilter">
+          <option value="all" selected>All Departments</option>
+          <option value="cs">Computer Science</option>
+          <option value="ec">Electronics and Communication</option>
+        </select>
+        <!-- <paper-dropdown-menu autofocus value="{{department::input}}" on-change="refreshFilter" label="Filter">
+          <paper-listbox class="dropdown-content" selected="1">
+            <paper-item value="all">All Departments</paper-item>
+            <paper-item value="cs">Computer Science</paper-item>
+            <paper-item value="ec">Electronics and Communication</paper-item>
+          </paper-listbox>
+        </paper-dropdown-menu> -->
+        &nbspEvents :
         <input type="checkbox" value="online"  checked id="onlineBox" on-change="refreshFilter"> Online Events
         <input type="checkbox" value="offline" checked id="offlineBox" on-change="refreshFilter">Offline Events<br>
-        </div>
-    <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
-        <div># <span>{{index}}</span></div>
-        <div>Event name: <span>{{item.name}}</span></div>
-        <div>Date: <span>{{item.date}}</span></div>
-    </template>
+          <!-- <paper-checkbox value="online" id="onlinebox" checked>Online Events</paper-checkbox>
+          <paper-checkbox value="offline" id="offlinebox" checked>Offline Events</paper-checkbox> -->
 
-
-   
+        <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
+            <paper-card heading={{item.name}}>
+              <div class="card-content">
+                <div># <span>{{index}}</span></div>
+                <!-- <div>Event name: <span>{{item.name}}</span></div> -->
+                <div>Date: <span>{{item.date}}</span></div>
+              </div>
+              <div class="card-actions">
+                <paper-button>Know more</paper-button>
+              </div>
+            </paper-card>
+        </template>
+      </div>
+    </paper-material>
   </template>
 
   <script>;
