@@ -125,21 +125,23 @@
         </paper-toolbar>
         <div>
 
-		<paper-menu selected="[[page]]" attr-for-selected="name" role="navigation">
+		<paper-menu selected="[[page]]" attr-for-selected="name" role="navigation" activate-event="click">
+
+		<!-- iron-activate="closeDrawer" -->
 			<a name="view1" href="#/view1">
-				<paper-item>View One</paper-item>			
+				<paper-item paper-drawer-toggle>View One</paper-item>			
 			</a>
 			<a name="view2" href="#/view2">
-				<paper-item>View Two</paper-item>			
+				<paper-item paper-drawer-toggle>View Two</paper-item>			
 			</a>
 			<a name="view3" href="#/view3">
-				<paper-item>View Three</paper-item>			
+				<paper-item paper-drawer-toggle>View Three</paper-item>			
 			</a>
 			<a name="schedule" href="#/schedule">
-				<paper-item>Schedule</paper-item>			
+				<paper-item paper-drawer-toggle>Schedule</paper-item>			
 			</a>
 			<a name="competitions" href="#/competitions">
-				<paper-item>Competitions</paper-item>			
+				<paper-item paper-drawer-toggle>Competitions</paper-item>			
 			</a>
 		</paper-menu>
 
