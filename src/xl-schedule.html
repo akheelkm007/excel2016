@@ -11,34 +11,41 @@
     :host{
       text-align: center;
     }
+    .card {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        margin: 24px;
+        background-color: #fff;
+        color: #757575;
+    }
   </style>
 
-    <paper-material>
+    <div class="card">
       <h1> Excel Schedule </h1> 
       <div>
-        <select autofocus value="{{department::input}}" on-change="refreshFilter">
+        <!-- <select autofocus value="{{department::input}}" on-change="refreshFilter">
           <option value="all" selected>All Departments</option>
           <option value="cs">Computer Science</option>
           <option value="ec">Electronics and Communication</option>
-        </select>
-        <!-- <paper-dropdown-menu autofocus value="{{department::input}}" on-change="refreshFilter" label="Filter">
+        </select> -->
+        <paper-dropdown-menu autofocus value="{{department::input}}" on-change="refreshFilter" label="Filter">
           <paper-listbox class="dropdown-content" selected="1">
             <paper-item value="all">All Departments</paper-item>
             <paper-item value="cs">Computer Science</paper-item>
             <paper-item value="ec">Electronics and Communication</paper-item>
           </paper-listbox>
-        </paper-dropdown-menu> -->
+        </paper-dropdown-menu>
         &nbspEvents :
-        <input type="checkbox" value="online"  checked id="onlineBox" on-change="refreshFilter"> Online Events
-        <input type="checkbox" value="offline" checked id="offlineBox" on-change="refreshFilter">Offline Events<br>
-          <!-- <paper-checkbox value="online" id="onlinebox" checked>Online Events</paper-checkbox>
-          <paper-checkbox value="offline" id="offlinebox" checked>Offline Events</paper-checkbox> -->
-
+        <!-- <input type="checkbox" value="online"  checked id="onlineBox" on-change="refreshFilter"> Online Events -->
+        <!-- <input type="checkbox" value="offline" checked id="offlineBox" on-change="refreshFilter">Offline Events<br> -->
+        <paper-checkbox value="online" id="onlineBox" checked on-click="refreshFilter">Online Events</paper-checkbox>
+        <paper-checkbox value="offline" id="offlineBox" checked on-click="refreshFilter">Offline Events</paper-checkbox>
+        <br>
         <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
             <paper-card heading={{item.name}}>
               <div class="card-content">
                 <div># <span>{{index}}</span></div>
-                <!-- <div>Event name: <span>{{item.name}}</span></div> -->
+                <div>Event name: <span>{{item.name}}</span></div>
                 <div>Date: <span>{{item.date}}</span></div>
               </div>
               <div class="card-actions">
@@ -47,7 +54,7 @@
             </paper-card>
         </template>
       </div>
-    </paper-material>
+    </div>
   </template>
 
   <script>;
@@ -74,11 +81,9 @@
               var _self = this;
               var _department = _self.department;
               var _scheduleItem = item;
-
               //Check if online and offline checkboxes are ticked
               var onlineState = (_self.$.onlineBox.checked) ? "online" : "not online";
               var offlineState = (_self.$.offlineBox.checked) ? "offline" : "not offline";
-
               //if event type (online or offline) does not match either of the checked boxes, return false
               if (!(_scheduleItem.type === onlineState || _scheduleItem.type === offlineState)) {
                 return false;
