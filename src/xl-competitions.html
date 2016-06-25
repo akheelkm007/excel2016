@@ -1,4 +1,14 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+
+<link rel="import" href="xl-departments.html">
+<link rel="import" href="xl-events-cs.html">
+<link rel="import" href="xl-events-ec.html">
+<link rel="import" href="xl-events-eee.html">
+<link rel="import" href="xl-events-robo.html">
+<link rel="import" href="xl-events-general.html">
+<link rel="import" href="xl-events-nontech.html">
 
 <dom-module id="xl-competitions">
   <template>
@@ -8,138 +18,34 @@
         display: block
       }
 
-      h1 {
-        text-align: center;
-      }
-
-      .dept {
-        box-sizing: border-box;
-        background-color: white;
-        /*border-radius: 3px;*/
-        padding: 16px;
-        /*margin: 1%;*/
-        background-size: cover;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
-        font-size: 20px;
-        z-index: 0;
-      }
-
-      .dept:hover {
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-      }
-
-      .cs {
-        background-image: url('../images/departments/computer.svg');
-        background-color: #fef177;
-        /*color: #daca57;*/
-      }
-      .ec {
-        background-image: url('../images/departments/electronics.svg');
-        background-color: #88d3e1;
-        /*color: #41aeb6;*/
-      }
-      .eee {
-        background-image: url('../images/departments/electrical.svg');
-        background-color: #81c784;
-        /*color: #69a06a;*/
-      }
-      .robo {
-        background-image: url('../images/departments/robotics.svg');
-        background-color: #ab6bac; 
-        /*color: #85548c;*/
-      }
-      .gt {
-        background-image: url('../images/departments/general.svg');
-        background-color: #f58967;
-        /*color: #e27356;*/
-      }
-      .nontech {
-        background-image: url('../images/departments/nontech.svg');
-        background-color: #ef5350;
-        /*color: #d34242;*/
-      }
-
-
-
-      .links {
-        color: inherit;
-        text-decoration: none;
-        width: 48%;
-        /*margin: 1%;*/
-      }
-
-      .links:hover {
-        z-index: 10;
-      }
-
-
-      @media (max-width: 600px) {
-        .links {
-          width: 100%;
-        }
-
-        .dept {
-          margin: 0;
-
-        }
-      }
-
-
-
-      .container {
-        width: 100%;
-        max-width: 980px;
-        margin: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
     </style>
+    <app-location route="{{route}}" use-hash-as-path></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/competitions/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+
+        <iron-pages role="main" selected="[[page]]" attr-for-selected="name" id="mainContent">
+          <xl-departments name="departments"></xl-departments>
+
+          <xl-events-cs name="cs-events"></xl-events-cs>
+          <xl-events-ec name="ec-events"></xl-events-ec>
+          <xl-events-eee name="eee-events"></xl-events-eee>
+
+          <xl-events-general name="general-events"></xl-events-general>
+          <xl-events-robo name="robo-events"></xl-events-robo>
+          <xl-events-nontech name="nontech-events"></xl-events-nontech>
+
+        </iron-pages>
 
 
 
 
-    <h1>Competitions</h1>
-
-    <div class="container">
-
-
-      <a href="" class="links">
-        <div class="dept cs">
-          Computer Science
-        </div>  
-      </a>
-      <a href="" class="links">
-        <div class="dept ec">
-          Electronics
-        </div>  
-      </a>
-      <a href="" class="links">
-        <div class="dept eee">
-          Electrical
-        </div>  
-      </a>
-      <a href="" class="links">
-        <div class="dept robo">
-          Robotics
-        </div>  
-      </a>
-      <a href="" class="links">
-        <div class="dept gt">
-          General Tech
-        </div>  
-      </a>
-      <a href="" class="links">
-        <div class="dept nontech">
-          Non - Technical
-        </div>  
-      </a>
 
 
 
-    </div>
 
   </template>
 
@@ -147,40 +53,28 @@
 
     Polymer({
       is: 'xl-competitions',
-      ready : function () {
+      // properties : {
+      //   route : {
+      //     type : String
+      //   }
+      // },
+      properties: {
 
-        var _self = this;
-        window.addEventListener("resize", function() {
-          _self.windowResize();
-        });
+        page: {
+          type: String,
+          reflectToAttribute: true
+        },
+
       },
 
-      attached : function () {
-        var _self = this;
-        setTimeout(function () { //This is just stupid. Must fix this.
-          _self.windowResize();
-        }, 500);
-        setTimeout(function () { //This is just stupid. Must fix this.
-          _self.windowResize();
-        }, 1000);
-        setTimeout(function () { //This is just stupid. Must fix this.
-          _self.windowResize();
-        }, 2000);
-         
-      },
+      observers: [
+        '_routePageChanged(routeData.page)'
+      ],
 
-
-      windowResize: function () {
-
-
-        var departments = Array.from(this.shadowRoot.querySelectorAll('.dept'));
-        var width = departments[0].getBoundingClientRect().width;
-
-        departments.forEach( function(element, index) {
-          element.style.height = width+"px";
-        });
- 
+      _routePageChanged: function(page) {
+            this.page = page || 'departments';
       }
+
     });
   </script>
 

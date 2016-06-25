@@ -128,19 +128,19 @@
 		<paper-menu selected="[[page]]" attr-for-selected="name" role="navigation" activate-event="click">
 
 		<!-- iron-activate="closeDrawer" -->
-			<a name="view1" href="#/view1">
+			<a name="view1" href="#/view1/">
 				<paper-item paper-drawer-toggle>View One</paper-item>			
 			</a>
-			<a name="view2" href="#/view2">
+			<a name="view2" href="#/view2/">
 				<paper-item paper-drawer-toggle>View Two</paper-item>			
 			</a>
-			<a name="view3" href="#/view3">
+			<a name="view3" href="#/view3/">
 				<paper-item paper-drawer-toggle>View Three</paper-item>			
 			</a>
-			<a name="schedule" href="#/schedule">
+			<a name="schedule" href="#/schedule/">
 				<paper-item paper-drawer-toggle>Schedule</paper-item>			
 			</a>
-			<a name="competitions" href="#/competitions">
+			<a name="competitions" href="#/competitions/">
 				<paper-item paper-drawer-toggle>Competitions</paper-item>			
 			</a>
 		</paper-menu>
@@ -164,7 +164,7 @@
           <xl-view2 name="view2"></xl-view2>
           <xl-view3 name="view3"></xl-view3>
           <xl-schedule name="schedule"></xl-schedule>
-          <xl-competitions name="competitions"></xl-competitions>
+          <xl-competitions name="competitions" id="competitions"></xl-competitions>
           <div name="spinner">
             <h1 class="inline">Hold on... Loading awesomeness...</h1>
             <paper-spinner active></paper-spinner>            
@@ -208,6 +208,7 @@
 
           var x = this.$.mainContent;
           var old = x.selectedItem;
+          var competitions = this.$.competitions;
 
           if (!old) { //Initial loading of the page. No need of exit animation
             console.log('initial');
@@ -244,7 +245,8 @@
 
 
           setTimeout(function () {
-            if (x.selectedItem === old) {
+          	console.log('old',old);
+            if (x.selectedItem === old && old != competitions) {
               console.log('show spinner');
               x.selected = "spinner";
             } 
