@@ -7,6 +7,7 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
@@ -17,6 +18,28 @@
       text-align: center;
       display: block;
     }
+    h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+      }
+
+      @media( min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+      paper-tabs {
+        background-color: #00BCD4;
+        color: white;
+      }
+
+      .container {
+        width: 100%;
+        /*max-width: 980px;*/
+        margin: auto;
+      }
     .card {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
         margin: 24px;
@@ -62,7 +85,7 @@
       margin: 0;
     }
   </style>
-  <style is="custom-style" include="iron-flex iron-flex-alignment">
+  <style is="custom-style" >
     paper-card.event{
       @apply(--layout-horizontal);
       padding-top: 5px;
@@ -73,10 +96,19 @@
   </style>
 
     <div class="card">      
-      <div style="height:165px;">
+      <div style="height:300px;">
         <paper-header-panel mode="standard">
           <div class="paper-header">
             <h1> Excel Schedule </h1>
+            <div class="container">
+                <paper-tabs selected="0">
+                  <paper-tab>All Days</paper-tab>
+                  <paper-tab>Day 1</paper-tab>
+                  <paper-tab>Day 2</paper-tab>
+                  <paper-tab>Day 3</paper-tab>
+                  <paper-tab>Day 4</paper-tab>
+                </paper-tabs>
+            </div>
             <div class="filters">
               <paper-dropdown-menu-light on-click="refreshFilter" label="Filter">
                 <paper-listbox class="dropdown-content" attr-for-selected="value" selected="{{selectedFilter}}">
@@ -85,16 +117,6 @@
                   <paper-item value="ec">Electronics and Communication</paper-item>
                 </paper-listbox>
               </paper-dropdown-menu-light>
-              <div class="container">
-                <paper-tabs selected="0">
-                  <paper-tab>All Days</paper-tab>
-                  <paper-tab>Day 1</paper-tab>
-                  <paper-tab>Day 2</paper-tab>
-                  <paper-tab>Day 3</paper-tab>
-                  <paper-tab>Day 4</paper-tab>
-                </paper-tabs>
-              <div>
-
               <h3>Events :</h3>
               <paper-checkbox value="online" id="onlineBox" checked on-click="refreshFilter">Online Events</paper-checkbox>
               <paper-checkbox value="offline" id="offlineBox" checked on-click="refreshFilter">Offline Events</paper-checkbox>
