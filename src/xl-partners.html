@@ -1,0 +1,87 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="xl-event-desc.html">
+
+<dom-module id="xl-partners">
+  <template>
+
+    <style>
+      :host {
+        display: block
+      }
+
+      h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+      }
+
+      @media( min-width: 980px) {
+      	h1 {
+      		font-size: 56px;
+      	}
+      }
+
+
+      .container {
+      	margin: auto;
+      	width: 100%;
+      	max-width: 980px;
+      	background-color: white;
+      	box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        padding-top: 32px;
+      }
+
+      .logo {
+        width: 30%;
+        background-color: green;
+        margin-bottom: 32px;
+      }
+
+      @media( max-width: 500px) {
+        .logo {
+          width: 40%;
+        }
+      }
+
+    </style>
+
+
+      <h1>Partners</h1>
+
+      <div class="container">
+        <template is="dom-repeat" items="{{partners}}">
+          <img src="{{item.src}}" class="logo">
+        </template>             
+      </div>
+
+  </template>
+
+  <script>
+
+    Polymer({
+    	is: 'xl-partners',
+      ready : function () {        
+        var self = this;
+
+        fetch('resources/partners.json').
+        then(function (response) {
+            return response.json();
+        }).
+        then(function (response) {
+          self.partners = response;
+        })
+        .catch(function(err) {
+          console.log("err",err);
+        });
+      }
+    });
+  </script>
+
+</dom-module>
