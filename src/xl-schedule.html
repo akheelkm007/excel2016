@@ -1,12 +1,14 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+
 <link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
 <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu-light.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
-<link rel="import" href="../bower_components/paper-styles/shadow.html">
 
 <dom-module id="xl-schedule">
   <template>
@@ -23,18 +25,42 @@
         padding-top: 16px;
         padding-bottom: :16px;
     }
-    .paper-header{
+
+    div.page-header{
       padding-bottom: 10px;
     }
+
+    .filters{
+      display: flex;
+    }
+
+    .filters>paper-dropdown-menu-light{
+      margin:auto;
+    }
+
+    .filters>paper-checkbox{
+      margin-top: auto;
+      margin-bottom: auto;
+      padding: 10px;
+    }
+
+    .filters>paper-button{
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
     paper-card.event>div{
       text-align: center;
       order: 1;
       flex-grow: 1;
-    }
-    paper-card.event>div:last{
-      flex-shrink: 2;
+      transition: transform 1s;
     }
 
+    .newfilter{
+      position: absolute;
+      width: 100%;
+      margin: 0;
+    }
   </style>
   <style is="custom-style" include="iron-flex iron-flex-alignment">
     paper-card.event{
@@ -46,52 +72,45 @@
     }
   </style>
 
-    <div class="card">
-      
-        <div style="height:200px;">
-            <paper-header-panel mode="standard">
-              <div class="paper-header">
-              <h1> Excel Schedule </h1>
+    <div class="card">      
+      <div style="height:165px;">
+        <paper-header-panel mode="standard">
+          <div class="paper-header">
+            <h1> Excel Schedule </h1>
+            <div class="filters">
               <paper-dropdown-menu-light on-click="refreshFilter" label="Filter">
-              <paper-listbox class="dropdown-content" attr-for-selected="value" selected="{{selectedFilter}}">
-                <paper-item value="all">All Departments</paper-item>
-                <paper-item value="cs">Computer Science</paper-item>
-                <paper-item value="ec">Electronics and Communication</paper-item>
-              </paper-listbox>
-            </paper-dropdown-menu-light>
+                <paper-listbox class="dropdown-content" attr-for-selected="value" selected="{{selectedFilter}}">
+                  <paper-item value="all">All Departments</paper-item>
+                  <paper-item value="cs">Computer Science</paper-item>
+                  <paper-item value="ec">Electronics and Communication</paper-item>
+                </paper-listbox>
+              </paper-dropdown-menu-light>
 
-
-
-            &nbspEvents :
-            <paper-checkbox value="online" id="onlineBox" checked on-click="refreshFilter">Online Events</paper-checkbox>
-            <paper-checkbox value="offline" id="offlineBox" checked on-click="refreshFilter">Offline Events</paper-checkbox>
+              <h3>Events :</h3>
+              <paper-checkbox value="online" id="onlineBox" checked on-click="refreshFilter">Online Events</paper-checkbox>
+              <paper-checkbox value="offline" id="offlineBox" checked on-click="refreshFilter">Offline Events</paper-checkbox>
+              <paper-button active="{{stateChange}}">Filters</paper-button>
             </div>
-        
+          </div>
         </paper-header-panel>
-        </div>
-
-
-        <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
-            <paper-card class="event">              
-                <div>
-                  <h2>{{item.name}}</h2>
-                  <div><h4>Venue</h4></div>
-                </div>
-                <!-- <div># <span>{{index}}</span></div> -->
-                <!-- <div>Event name: <span>{{item.name}}</span></div> -->
-                <div><h6>{{item.date}}</h6></div>              
-            </paper-card>
-            <paper-card class="event">              
-                <div>
-                  <h2>{{item.name}}</h2>
-                  <div><h4>Venue</h4></div>
-                </div>
-                <!-- <div># <span>{{index}}</span></div> -->
-                <!-- <div>Event name: <span>{{item.name}}</span></div> -->
-                <div><h6>{{item.date}}</h6></div>              
-            </paper-card>
-        </template>
       </div>
+      <div class="card newfilter" style="z-index:99;">
+        <paper-checkbox value="online" id="onlineBox" checked on-click="refreshFilter">Online Events</paper-checkbox>
+        <paper-checkbox value="offline" id="offlineBox" checked on-click="refreshFilter">Offline Events</paper-checkbox>
+        <div>asgasg{{stateChange}}</div>
+      </div>
+
+      <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
+          <paper-card class="event">              
+              <div>
+                <h2>{{item.name}}</h2>
+                <div><h4>Venue</h4></div>
+              </div>
+              <!-- <div># <span>{{index}}</span></div> -->
+              <!-- <div>Event name: <span>{{item.name}}</span></div> -->
+              <div><h6>{{item.date}}</h6></div>              
+          </paper-card>
+      </template>
     </div>
   </template>
 
@@ -115,6 +134,7 @@
                 console.log("err",err);
               });
               this.selectedFilter = "all";
+              this.stateChange = false;
      },
      computeFilter: function(item){
               var _self = this;
@@ -136,12 +156,14 @@
               // check if department specified is same as data
               return _scheduleItem.department === _department;
 
-
-
      },
 
      refreshFilter : function () {
         this.$.scheduleList.render();
+     },
+
+     trial : function(some){
+        return some;
      }
     });
   </script>
