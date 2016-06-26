@@ -249,7 +249,7 @@
 
           setTimeout(function () {
             if (x.selectedItem === old && old != competitions) {
-              console.log('show spinner');
+              console.log('show spinner:');
               x.selected = "spinner";
             } 
           }, 800);
@@ -260,7 +260,7 @@
         // load page import on demand.
         this.importHref(
           this.resolveUrl('xl-' + page + '.html'), function() { 
-            console.log('xl'+page+' loaded');
+            
             //For the initial load
             var x = this.$.mainContent;
             var elem = x.selectedItem;
