@@ -167,7 +167,7 @@
           <xl-view2 name="view2"></xl-view2>
           <xl-view3 name="view3"></xl-view3>
           <xl-schedule name="schedule"></xl-schedule>
-          <xl-competitions name="competitions"></xl-competitions>
+          <xl-competitions name="competitions" id="competitions"></xl-competitions>
           <xl-gallery name="gallery"></xl-gallery>
           <div name="spinner">
             <h1 class="inline">Hold on... Loading awesomeness...</h1>
@@ -251,7 +251,7 @@
           setTimeout(function () {
           	console.log('old',old);
             if (x.selectedItem === old && old != competitions) {
-              console.log('show spinner');
+              console.log('show spinner:');
               x.selected = "spinner";
             } 
           }, 800);
@@ -262,7 +262,7 @@
         // load page import on demand.
         this.importHref(
           this.resolveUrl('xl-' + page + '.html'), function() { 
-            console.log('xl'+page+' loaded');
+            
             //For the initial load
             var x = this.$.mainContent;
             var elem = x.selectedItem;
