@@ -66,10 +66,7 @@
 		    </template>    	
 	    </div>
 
-
 	    <xl-event-desc id="descriptor"></xl-event-desc>
-
-
 
     </iron-pages>
 
@@ -90,7 +87,7 @@
 	        },
 
 	        route : {
-	        	observer : '_watchRoute'
+	        	observer : '_pageChanged'
 	        }
       	},
 
@@ -106,7 +103,7 @@
 			then(function (response) {
 			  _self.data = response;
 			  if (_self.routeData.page) {
-			  	_self._loadEventData(_self);
+			  	_self._loadEventData();
 			  }
 			})
 			.catch(function(err) {
@@ -115,11 +112,12 @@
 		},
 
 
-		_loadEventData : function (self,page) {
+		_loadEventData : function () {
 
-        	if (!page) {
-        		page = self.routeData.page;
-        	}
+			var self = this;
+			console.log('self', self);
+
+        	var page = self.routeData.page;        	
         	var descriptor = self.$.descriptor;
         	var dom = self.$.domRepeat;
 
@@ -140,41 +138,19 @@
 		},
 
 
-        _pageChanged: function(page) { // if page is undefined display list, else single event.
+        _pageChanged: function() {
         	var ironPages = this.$.mainContent;
-        	if (page === undefined) {
+        	var page = this.routeData.page;
+
+        	if (!page) {
         		ironPages.selected = "0";
         	}
 
         	else {
-        		this._loadEventData(this,page);
+        		this._loadEventData(page);
         		ironPages.selected = "1";
         	}
    		},
-
-   		_watchRoute : function () { //triggered whenever route changes...
-
-        if (this.routeData) {
-          console.log("this.routeData.page",this.routeData.page); //this value (routeData.page) does not update when the back button is pressed. So can't use it.
-        }
-          
-
-
-
-   			var len = '/competitions/cs-events/'.length;
-   			var page = this.route.path.substr(len);
-
-   			if (page == "" || page == "/") {
-   				page = undefined;
-   			}
-
-   			if (page && page.substr(-2,-1) == '/') {
-   				page.slice(0,-1);
-   			}
-
-   			console.log('page', page);
-   			this._pageChanged(page); //Call _pageChanged with the processed route.
-   		}
 
     });
   </script>
