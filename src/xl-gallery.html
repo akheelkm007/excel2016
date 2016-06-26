@@ -13,7 +13,7 @@
 		}
 
 		.imageele:hover{
-			transition: 0.2s;
+			transition: 0.2s ease-in-out;
 			transform: scale(1.25);
 		}
 		.imageDiv{
@@ -51,6 +51,10 @@
 		  width:85%;
 
 		  }
+		@media screen and (min-width: 760px) {
+			.imageDiv{
+				width: calc(25% - 1px);
+			}
 		}
 
 		/* -- Small screen size -- */
