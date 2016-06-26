@@ -8,7 +8,10 @@
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-radio-group/paper-radio-group.html">
+<!-- <link rel="import" href="../bower_components/paper-radio-button/paper-radio-button.html"> -->
 
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
 <dom-module id="xl-schedule">
@@ -55,25 +58,6 @@
       padding-bottom: 10px;
     }
 
-    .filters{
-      display: flex;
-    }
-
-    .filters>paper-dropdown-menu-light{
-      margin:auto;
-    }
-
-    .filters>paper-checkbox{
-      margin-top: auto;
-      margin-bottom: auto;
-      padding: 10px;
-    }
-
-    .filters>paper-button{
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-
     paper-card.event>div{
       text-align: center;
       order: 1;
@@ -93,12 +77,70 @@
       display: block;
       transform: translateY(0%);
       transition: transform 0.5s,opacity 0.5s;
-       
+      display: flex;  
     }
 
     .toggletrial{
       transform: translateY(-100%);
-      
+    }
+
+    .filter-buttons{
+      margin: auto;
+      margin-bottom: 0;
+      margin-right: 0;
+      float: right;
+      flex-grow: 1;
+    }
+
+    paper-radio-button{
+      display: flex;
+      text-align: left;
+    }
+
+    .department-filter{
+      flex-grow: 5;
+    }
+    .type-filter{
+      flex-grow: 5;
+    }
+    .revert{
+      color: #ff3838;
+    }
+    .apply{
+      color: #4f8a10;
+    }
+
+    @media (max-width: 700px){
+      .card{
+        margin:10px;
+      }
+      .newfilter{
+        display: block;
+        margin: 0;
+      }
+      paper-item paper-radio-button{
+        display: block;
+        margin: 0;
+        padding-top: 0 !important;
+        font-size: 15px !important;
+      }
+      h4{
+        margin: 0;
+      }
+      .department-filter{
+        padding: 0;
+      }
+      .type-filter{
+        display: flex ;
+        font-size: 15px;
+        padding: 0;
+      }
+      .revert{
+        font-size: 15px;
+      }
+      .apply{
+        font-size: 15px;
+      }
     }
   </style>
   <style is="custom-style" >
@@ -109,33 +151,47 @@
       /*border-top: 1px solid #b3b3b3;*/
       border-bottom: 1px solid #b3b3b3;
     }
+
+    paper-item{
+      --paper-item-selected-weight: normal;
+    }
   </style>
 
     <div class="card">      
-      <div style="height:300px;z-index:99;">
+      <div style="height:270px;z-index:99;">
         <paper-header-panel mode="standard">
           <div class="paper-header" style="background-color:white;">
             <h1> Excel Schedule </h1>
+            <paper-button active="{{stateChange}}" toggles on-click="toggleFilter" style="float:right;" noink>Filter<iron-icon icon="icons:filter-list"></iron-icon></paper-button>
             <div class="container" style="display:flex;">
-                <paper-tabs selected="0">
-                  <paper-tab>All Days</paper-tab>
-                  <paper-tab>Day 1</paper-tab>
-                  <paper-tab>Day 2</paper-tab>
-                  <paper-tab>Day 3</paper-tab>
-                  <paper-tab>Day 4</paper-tab>
-                </paper-tabs>
-                <paper-button active="{{stateChange}}" toggles on-click="toggleFilter">Filter</paper-button>
+              <paper-tabs selected="0">
+                <paper-tab>All Days</paper-tab>
+                <paper-tab>Day 1</paper-tab>
+                <paper-tab>Day 2</paper-tab>
+                <paper-tab>Day 3</paper-tab>
+                <paper-tab>Day 4</paper-tab>
+              </paper-tabs>
             </div>
             <div class="card newfilter toggletrial" id="filterList">
-              <paper-dropdown-menu-light label="Filter">
-                <paper-listbox class="dropdown-content" attr-for-selected="value" selected="{{selectedFilter}}" on-click="refreshFilter">
-                  <paper-item value="all">All Departments</paper-item>
-                  <paper-item value="cs">Computer Science</paper-item>
-                  <paper-item value="ec">Electronics and Communication</paper-item>
-                </paper-listbox>
-              </paper-dropdown-menu-light>
-              <paper-checkbox value="online" id="onlineBox" checked on-click="refreshFilter">Online Events</paper-checkbox>
-              <paper-checkbox value="offline" id="offlineBox" checked on-click="refreshFilter">Offline Events</paper-checkbox>
+              <paper-listbox class="department-filter">
+                <paper-item>
+                  <label id="departments"><h4>Departments:</h4></label>
+                </paper-item>
+                <paper-item>
+                  <paper-radio-group aria-labelledby="departments" attr-for-selected="value" selected="{{selectedFilter}}">
+                    <paper-radio-button value="all">All Departments</paper-radio-button>
+                    <paper-radio-button value="cs">Computer Science</paper-radio-button>
+                    <paper-radio-button value="ec">Electronics and Communication</paper-radio-button>
+                  </paper-radio-group>
+                </paper-item>
+              </paper-listbox>
+              <paper-listbox class="type-filter">
+                <paper-item><h4>Event Type:</h4></paper-item>
+                <paper-item><paper-checkbox value="online" id="onlineBox" checked>Online Events</paper-checkbox></paper-item>
+                <paper-item><paper-checkbox value="offline" id="offlineBox" checked>Offline Events</paper-checkbox></paper-item>
+              </paper-listbox>
+              <paper-button class="filter-buttons revert" noink on-click="resetFilter">Revert</paper-button>
+              <paper-button class="filter-buttons apply" noink on-click="applyFilter">Apply Changes</paper-button>
             </div>
           </div>
         </paper-header-panel>
@@ -146,8 +202,6 @@
                 <h2>{{item.name}}</h2>
                 <div><h4>Venue</h4></div>
               </div>
-              <!-- <div># <span>{{index}}</span></div> -->
-              <!-- <div>Event name: <span>{{item.name}}</span></div> -->
               <div><h6>{{item.date}}</h6></div>              
           </paper-card>
       </template>
@@ -201,13 +255,23 @@
         this.$.scheduleList.render();
      },
 
-      toggleFilter : function(e){
+      toggleFilter : function(){
         if(this.stateChange){
           this.$.filterList.classList.remove('toggletrial');
         }
         else{
           this.$.filterList.classList.add('toggletrial');
         }
+     },
+     applyFilter: function(){
+        this.refreshFilter();
+        this.stateChange=false;
+        this.toggleFilter();        
+     },
+     resetFilter : function(){
+        this.selectedFilter = "all";
+        this.$.onlineBox.checked = true;
+        this.$.offlineBox.checked = true;
      }
     });
   </script>
