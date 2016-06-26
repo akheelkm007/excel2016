@@ -127,7 +127,6 @@
 
 		<paper-menu selected="[[page]]" attr-for-selected="name" role="navigation" activate-event="click">
 
-		<!-- iron-activate="closeDrawer" -->
 			<a name="view1" href="#/view1/">
 				<paper-item paper-drawer-toggle>View One</paper-item>			
 			</a>
@@ -167,7 +166,7 @@
           <xl-view2 name="view2"></xl-view2>
           <xl-view3 name="view3"></xl-view3>
           <xl-schedule name="schedule"></xl-schedule>
-          <xl-competitions name="competitions"></xl-competitions>
+          <xl-competitions name="competitions" id="competitions"></xl-competitions>
           <xl-gallery name="gallery"></xl-gallery>
           <div name="spinner">
             <h1 class="inline">Hold on... Loading awesomeness...</h1>
@@ -249,7 +248,6 @@
 
 
           setTimeout(function () {
-          	console.log('old',old);
             if (x.selectedItem === old && old != competitions) {
               console.log('show spinner');
               x.selected = "spinner";
