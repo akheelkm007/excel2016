@@ -1,0 +1,87 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="xl-events-cs">
+  <template>
+
+    <style>
+      :host {
+        display: block
+      }
+
+      h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+      }
+
+      @media( min-width: 980px) {
+      	h1 {
+      		font-size: 56px;
+      	}
+      }
+
+
+      .container {
+      	margin: auto;
+      	width: 100%;
+      	max-width: 980px;
+      	background-color: white;
+      	box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+      }
+
+      .event {
+      	border-top: 1px solid rgba(0,0,0,0.2);
+      	font-size: 20px;
+      	padding: 32px 16px;
+      }
+    </style>
+
+
+
+
+    <h1>Computer Science Events</h1>
+
+    <div class="container">
+	    <template is="dom-repeat" items="{{data}}">
+	    	<div class="event">
+	    		{{item.name}}
+	    	</div>
+	    </template>    	
+    </div>
+
+  </template>
+
+  <script>;
+
+    Polymer({
+      is: 'xl-events-cs',
+      ready : function () {
+      	 this.data = [ 
+	      	 {
+	      	 	name : "Event 1",
+
+	      	 },
+	      	 {
+	      	 	name : "Event 2"
+	      	 },
+	      	 {
+	      	 	name : "Event 3"
+	      	 },
+	      	 {
+	      	 	name : "Event 4"
+	      	 },
+	      	 {
+	      	 	name : "Event 5"
+	      	 },
+	      	 {
+	      	 	name : "Event 6"
+	      	 },
+	      	 {
+	      	 	name : "Event 7"
+	      	 }
+      	 ];
+      },
+    });
+  </script>
+
+</dom-module>

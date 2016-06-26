@@ -1,0 +1,69 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+
+<dom-module id="xl-gallery">
+	<template>
+		<style>
+		.imageele{
+			width: 100%;
+			height: 100%;
+			/*height: 200px;*/
+			background-color: lightgray;
+			display: block;
+		}
+
+		.imageele:hover{
+			transition: 0.2s;
+			transform: scale(1.25);
+		}
+		.imageDiv{
+			overflow: hidden;
+			position: relative;
+			width: 33%;
+			height: 400px;
+			float: left;
+			margin: 0px 1px 0px 1px;
+		}
+		@media screen and (min-width: 760px)
+		.imageDiv{
+			width: calc(25% - 1px);
+		}
+		</style>
+
+	    <h1> Excel Gallery </h1>
+	    <!-- <iron-image src="http://lorempixel.com/400/400"></iron-image> -->
+	    <template id="galleryRow" is="dom-repeat" items="{{image}}" as="image">
+	        <div class="imageDiv">
+	        <iron-image preload src="{{image.small-src}}" sizing="cover" fade class="imageele" alt="{{image.description}}" on-hover="imageZoom"></iron-image>
+	        </div>
+
+	    </template>
+    </template>
+
+<script>
+
+    Polymer({
+      is: 'xl-gallery',
+      ready: function() {
+      		  
+              var _thisPage = this;
+
+              fetch('resources/gallery.json').
+              then(function (response) {
+                  return response.json();
+                  alert('Loaded');
+              }).
+              then(function (response) {
+                _thisPage.image = response;
+              })
+              .catch(function(err) {
+                console.log("Err",err);
+              });
+
+     },
+     imageZoom:function(){
+
+     }
+ });
+</script>
+</dom-module>
