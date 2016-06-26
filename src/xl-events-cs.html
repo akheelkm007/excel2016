@@ -1,4 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="xl-event-desc.html">
 
 <dom-module id="xl-events-cs">
@@ -76,7 +78,7 @@
 
   </template>
 
-  <script>;
+  <script>
 
     Polymer({
     	is: 'xl-events-cs',
@@ -128,7 +130,6 @@
 
 			self.data.forEach(function (elem) {
 
-					console.log('link and page',elem.link,page);
 				if(elem.link == page) {
 					descriptor.name = elem.name;
 					descriptor.description = elem.description;
@@ -153,8 +154,14 @@
 
    		_watchRoute : function () { //triggered whenever route changes...
 
+        if (this.routeData) {
+          console.log("this.routeData.page",this.routeData.page); //this value (routeData.page) does not update when the back button is pressed. So can't use it.
+        }
+          
+
+
+
    			var len = '/competitions/cs-events/'.length;
-   			console.log(len);
    			var page = this.route.path.substr(len);
 
    			if (page == "" || page == "/") {
