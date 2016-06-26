@@ -51,7 +51,12 @@
         margin: 24px;
         background-color: #fff;
         color: #757575;
-        padding-bottom: :16px;
+        padding-bottom:5px;
+    }
+
+    div.card>div{
+      height:270px;
+      z-index:99;
     }
 
     div.page-header{
@@ -76,8 +81,9 @@
       z-index: -1;
       display: block;
       transform: translateY(0%);
-      transition: transform 0.5s,opacity 0.5s;
-      display: flex;  
+      transition: transform 0.5s,opacity 0.2s;
+      display: flex;
+      opacity: 1;
     }
 
     .toggletrial{
@@ -142,6 +148,15 @@
         font-size: 15px;
       }
     }
+
+    @media (max-width: 800px){
+      div.card>div{
+        height: 200px;
+      }
+      .toggletrial{
+        opacity: 0;
+      }
+    }
   </style>
   <style is="custom-style" >
     paper-card.event{
@@ -158,7 +173,7 @@
   </style>
 
     <div class="card">      
-      <div style="height:270px;z-index:99;">
+      <div>
         <paper-header-panel mode="standard">
           <div class="paper-header" style="background-color:white;">
             <h1> Excel Schedule </h1>
