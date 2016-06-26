@@ -5,39 +5,101 @@
 	<template>
 		<style>
 		.imageele{
-			width: 100%;
-			height: 100%;
+			/*width: 100%;*/
+			/*height: 100%;*/
 			/*height: 200px;*/
 			background-color: lightgray;
-			display: block;
+			/*display: block;*/
 		}
 
 		.imageele:hover{
-			transition: 0.2s;
+			transition: 0.2s ease-in-out;
 			transform: scale(1.25);
 		}
 		.imageDiv{
 			overflow: hidden;
 			position: relative;
-			width: 33%;
-			height: 400px;
+			/*width: 33%;*/
+			/*height: 400px;*/
 			float: left;
 			margin: 0px 1px 0px 1px;
 		}
-		@media screen and (min-width: 760px)
-		.imageDiv{
-			width: calc(25% - 1px);
+		.imageGallery{
+			width:80%;
+  			margin:0 auto; 
 		}
-		</style>
+		.imageCC{
+			max-width:100%;
+  			margin-bottom:15px;
+  		}
+
+		/* -- Big screen size -- */ 
+		.imageGallery{  
+		  -webkit-column-count: 5;  -webkit-column-gap: 15px;
+		     -moz-column-count: 5;     -moz-column-gap: 15px;
+		          column-count: 5;          column-gap: 15px;  
+		}
+
+		/* -- Medium screen size -- */
+		@media screen and (max-width: 1100px) {
+		  .imageGallery{ 
+		    -webkit-column-count: 3;  -webkit-column-gap: 15px;
+		       -moz-column-count: 3;     -moz-column-gap: 15px;
+		            column-count: 3;          column-gap: 15px;  
+		  }
+		 .imageGallery{
+		  width:85%;
+
+		  }
+		@media screen and (min-width: 760px) {
+			.imageDiv{
+				width: calc(25% - 1px);
+			}
+		}
+
+		/* -- Small screen size -- */
+		@media screen and (max-width: 800px) {
+		  .imageGallery{ 
+		    -webkit-column-count: 2;  -webkit-column-gap: 15px;
+		       -moz-column-count: 2;     -moz-column-gap: 15px;
+		            column-count: 2;          column-gap: 15px;  
+		  }
+		  .imageGallery{
+		    width:90%;
+		  }
+		}
+
+		/* Micro screen size*/
+		@media screen and (max-width: 600px) {
+		  .imageGallery{ 
+		    -webkit-column-count: 1;  -webkit-column-gap: 0px;
+		       -moz-column-count: 1;     -moz-column-gap: 0px;
+		            column-count: 1;          column-gap: 0px;  
+		  }
+		  .imageGallery{
+		    width:95%;
+		  }
+		  
+		  .imageCC{ /* fills 100% width on small screen */
+		    width:100%;
+		    height:auto;
+		  }
+		}
+
+	</style>
 
 	    <h1> Excel Gallery </h1>
 	    <!-- <iron-image src="http://lorempixel.com/400/400"></iron-image> -->
+	    <div class="imageGallery">
 	    <template id="galleryRow" is="dom-repeat" items="{{image}}" as="image">
 	        <div class="imageDiv">
-	        <iron-image preload src="{{image.small-src}}" sizing="cover" fade class="imageele" alt="{{image.description}}" on-hover="imageZoom"></iron-image>
+	        <!-- <iron-image src="{{image.small-src}}" fade class="imageCC" alt="{{image.description}}"></iron-image> -->
+	        <img class="imageCC" src="{{image.small-src}}">
 	        </div>
+	        
 
 	    </template>
+	    <div>
     </template>
 
 <script>
