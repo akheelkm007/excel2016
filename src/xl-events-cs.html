@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="xl-event-desc.html">
 
 <dom-module id="xl-events-cs">
   <template>
@@ -6,6 +7,11 @@
     <style>
       :host {
         display: block
+      }
+
+      a {
+      	text-decoration: none;
+      	color: inherit;
       }
 
       h1 {
@@ -36,51 +42,133 @@
       }
     </style>
 
-
-
+    <app-location route="{{route}}" use-hash-as-path></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/competitions/cs-events/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
 
     <h1>Computer Science Events</h1>
 
-    <div class="container">
-	    <template is="dom-repeat" items="{{data}}">
-	    	<div class="event">
-	    		{{item.name}}
-	    	</div>
-	    </template>    	
-    </div>
+
+    <iron-pages id="mainContent">
+
+	    <div class="container">
+		    <template id="domRepeat" is="dom-repeat" items="{{data}}">
+		    	<a href="/#/competitions/cs-events/{{item.link}}">
+			    	<div class="event">
+			    		{{item.name}}
+			    	</div>		    		
+		    	</a>
+		    </template>    	
+	    </div>
+
+
+	    <xl-event-desc id="descriptor"></xl-event-desc>
+
+
+
+    </iron-pages>
+
+
+
 
   </template>
 
   <script>;
 
     Polymer({
-      is: 'xl-events-cs',
-      ready : function () {
-      	 this.data = [ 
-	      	 {
-	      	 	name : "Event 1",
+    	is: 'xl-events-cs',
+    	properties: {
 
-	      	 },
-	      	 {
-	      	 	name : "Event 2"
-	      	 },
-	      	 {
-	      	 	name : "Event 3"
-	      	 },
-	      	 {
-	      	 	name : "Event 4"
-	      	 },
-	      	 {
-	      	 	name : "Event 5"
-	      	 },
-	      	 {
-	      	 	name : "Event 6"
-	      	 },
-	      	 {
-	      	 	name : "Event 7"
-	      	 }
-      	 ];
-      },
+	        page: {
+	          type: String,
+	          reflectToAttribute: true
+	        },
+
+	        route : {
+	        	observer : '_watchRoute'
+	        }
+      	},
+
+		ready : function () {
+
+        	var ironPages = this.$.mainContent;
+			var _self = this;
+
+			fetch('resources/cs-events.json').
+			then(function (response) {
+			  return response.json();
+			}).
+			then(function (response) {
+			  _self.data = response;
+			  if (_self.routeData.page) {
+			  	_self._loadEventData(_self);
+			  }
+			})
+			.catch(function(err) {
+			  console.log("err",err);
+			});
+		},
+
+
+		_loadEventData : function (self,page) {
+
+        	if (!page) {
+        		page = self.routeData.page;
+        	}
+        	var descriptor = self.$.descriptor;
+        	var dom = self.$.domRepeat;
+
+        	if (!self.data) {
+        		return;
+        	}
+
+
+			self.data.forEach(function (elem) {
+
+					console.log('link and page',elem.link,page);
+				if(elem.link == page) {
+					descriptor.name = elem.name;
+					descriptor.description = elem.description;
+				}
+			});
+			dom.render();
+
+		},
+
+
+        _pageChanged: function(page) { // if page is undefined display list, else single event.
+        	var ironPages = this.$.mainContent;
+        	if (page === undefined) {
+        		ironPages.selected = "0";
+        	}
+
+        	else {
+        		this._loadEventData(this,page);
+        		ironPages.selected = "1";
+        	}
+   		},
+
+   		_watchRoute : function () { //triggered whenever route changes...
+
+   			var len = '/competitions/cs-events/'.length;
+   			console.log(len);
+   			var page = this.route.path.substr(len);
+
+   			if (page == "" || page == "/") {
+   				page = undefined;
+   			}
+
+   			if (page && page.substr(-2,-1) == '/') {
+   				page.slice(0,-1);
+   			}
+
+   			console.log('page', page);
+   			this._pageChanged(page); //Call _pageChanged with the processed route.
+   		}
+
     });
   </script>
 
