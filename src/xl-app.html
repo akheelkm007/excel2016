@@ -262,7 +262,7 @@
         // load page import on demand.
         this.importHref(
           this.resolveUrl('xl-' + page + '.html'), function() { 
-
+            console.log('xl'+page+' loaded');
             //For the initial load
             var x = this.$.mainContent;
             var elem = x.selectedItem;

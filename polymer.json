@@ -6,6 +6,7 @@
     "src/xl-view2.html",
     "src/xl-view3.html",
     "src/xl-schedule.html",
-    "src/xl-competitions.html"
+    "src/xl-competitions.html",
+    "src/xl-gallery.html"
   ]
 }

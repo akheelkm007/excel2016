@@ -1,19 +1,37 @@
 [
     {
     	"description": "Event1",
-    	"small-src": "",
-        "large-src": "ec"
+    	"small-src": "http://lorempixel.com/400/400",
+        "large-src": "http://lorempixel.com/400/400"
     },
 
     {
     	"description": "Event2",
-    	"small-src": "",
-    	"large-src": "ec"
+    	"small-src": "http://unsplash.it/620?image=10",
+    	"large-src": "images/gallery/image2.jpg"
     },
 
     {
     	"description": "Event3",
-    	"small-src": "",
-        "large-src": "ec"
+    	"small-src": "http://unsplash.it/620?image=20",
+        "large-src": "images/gallery/image3.jpg"
+    },
+
+    {
+        "description": "Event1",
+        "small-src": "https://unsplash.it/620?image=30",
+        "large-src": "http://lorempixel.com/400/400"
+    },
+
+    {
+        "description": "Event1",
+        "small-src": "https://unsplash.it/620?image=40",
+        "large-src": "http://lorempixel.com/400/400"
+    },
+
+     {
+        "description": "Event1",
+        "small-src": "https://unsplash.it/620?image=50",
+        "large-src": "http://lorempixel.com/400/400"
     }
 ]
