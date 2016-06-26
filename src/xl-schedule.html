@@ -33,19 +33,21 @@
       paper-tabs {
         background-color: #00BCD4;
         color: white;
+        flex-grow: 1;
+        margin: auto;
       }
 
       .container {
         width: 100%;
         /*max-width: 980px;*/
         margin: auto;
+        display: flex;
       }
     .card {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
         margin: 24px;
         background-color: #fff;
         color: #757575;
-        padding-top: 16px;
         padding-bottom: :16px;
     }
 
@@ -79,10 +81,24 @@
       transition: transform 1s;
     }
 
+    paper-header-panel{
+      z-index: 40;
+    }
+
     .newfilter{
       position: absolute;
       width: 100%;
       margin: 0;
+      z-index: -1;
+      display: block;
+      transform: translateY(0%);
+      transition: transform 0.5s,opacity 0.5s;
+       
+    }
+
+    .toggletrial{
+      transform: translateY(-100%);
+      
     }
   </style>
   <style is="custom-style" >
@@ -96,11 +112,11 @@
   </style>
 
     <div class="card">      
-      <div style="height:300px;">
+      <div style="height:300px;z-index:99;">
         <paper-header-panel mode="standard">
-          <div class="paper-header">
+          <div class="paper-header" style="background-color:white;">
             <h1> Excel Schedule </h1>
-            <div class="container">
+            <div class="container" style="display:flex;">
                 <paper-tabs selected="0">
                   <paper-tab>All Days</paper-tab>
                   <paper-tab>Day 1</paper-tab>
@@ -108,31 +124,24 @@
                   <paper-tab>Day 3</paper-tab>
                   <paper-tab>Day 4</paper-tab>
                 </paper-tabs>
+                <paper-button active="{{stateChange}}" toggles on-click="toggleFilter">Filter</paper-button>
             </div>
-            <div class="filters">
-              <paper-dropdown-menu-light on-click="refreshFilter" label="Filter">
-                <paper-listbox class="dropdown-content" attr-for-selected="value" selected="{{selectedFilter}}">
+            <div class="card newfilter toggletrial" id="filterList">
+              <paper-dropdown-menu-light label="Filter">
+                <paper-listbox class="dropdown-content" attr-for-selected="value" selected="{{selectedFilter}}" on-click="refreshFilter">
                   <paper-item value="all">All Departments</paper-item>
                   <paper-item value="cs">Computer Science</paper-item>
                   <paper-item value="ec">Electronics and Communication</paper-item>
                 </paper-listbox>
               </paper-dropdown-menu-light>
-              <h3>Events :</h3>
               <paper-checkbox value="online" id="onlineBox" checked on-click="refreshFilter">Online Events</paper-checkbox>
               <paper-checkbox value="offline" id="offlineBox" checked on-click="refreshFilter">Offline Events</paper-checkbox>
-              <paper-button active="{{stateChange}}">Filters</paper-button>
             </div>
           </div>
         </paper-header-panel>
       </div>
-      <div class="card newfilter" style="z-index:99;">
-        <paper-checkbox value="online" id="onlineBox" checked on-click="refreshFilter">Online Events</paper-checkbox>
-        <paper-checkbox value="offline" id="offlineBox" checked on-click="refreshFilter">Offline Events</paper-checkbox>
-        <div>asgasg{{stateChange}}</div>
-      </div>
-
       <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
-          <paper-card class="event">              
+          <paper-card class="event" >              
               <div>
                 <h2>{{item.name}}</h2>
                 <div><h4>Venue</h4></div>
@@ -165,7 +174,6 @@
                 console.log("err",err);
               });
               this.selectedFilter = "all";
-              this.stateChange = false;
      },
      computeFilter: function(item){
               var _self = this;
@@ -193,8 +201,13 @@
         this.$.scheduleList.render();
      },
 
-     trial : function(some){
-        return some;
+      toggleFilter : function(e){
+        if(this.stateChange){
+          this.$.filterList.classList.remove('toggletrial');
+        }
+        else{
+          this.$.filterList.classList.add('toggletrial');
+        }
      }
     });
   </script>
