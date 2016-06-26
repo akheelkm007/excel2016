@@ -1,37 +1,73 @@
 [
     {
     	"description": "Event1",
-    	"small-src": "http://lorempixel.com/400/400",
+    	"small-src": "http://lorempixel.com/540/340",
         "large-src": "http://lorempixel.com/400/400"
     },
 
     {
     	"description": "Event2",
-    	"small-src": "http://unsplash.it/620?image=10",
+    	"small-src": "http://lorempixel.com/740/740",
     	"large-src": "images/gallery/image2.jpg"
     },
 
     {
     	"description": "Event3",
-    	"small-src": "http://unsplash.it/620?image=20",
+    	"small-src": "http://lorempixel.com/340/340",
         "large-src": "images/gallery/image3.jpg"
     },
 
     {
         "description": "Event1",
-        "small-src": "https://unsplash.it/620?image=30",
+        "small-src": "http://lorempixel.com/440/440",
         "large-src": "http://lorempixel.com/400/400"
     },
 
     {
         "description": "Event1",
-        "small-src": "https://unsplash.it/620?image=40",
+        "small-src": "http://lorempixel.com/540/540",
         "large-src": "http://lorempixel.com/400/400"
     },
 
      {
         "description": "Event1",
-        "small-src": "https://unsplash.it/620?image=50",
+        "small-src": "http://lorempixel.com/640/540",
+        "large-src": "http://lorempixel.com/400/400"
+    },
+
+    {
+        "description": "Event1",
+        "small-src": "http://lorempixel.com/540/340",
+        "large-src": "http://lorempixel.com/400/400"
+    },
+
+    {
+        "description": "Event2",
+        "small-src": "http://lorempixel.com/740/740",
+        "large-src": "images/gallery/image2.jpg"
+    },
+
+    {
+        "description": "Event3",
+        "small-src": "http://lorempixel.com/340/340",
+        "large-src": "images/gallery/image3.jpg"
+    },
+
+    {
+        "description": "Event1",
+        "small-src": "http://lorempixel.com/440/440",
+        "large-src": "http://lorempixel.com/400/400"
+    },
+
+    {
+        "description": "Event1",
+        "small-src": "http://lorempixel.com/540/540",
+        "large-src": "http://lorempixel.com/400/400"
+    },
+
+     {
+        "description": "Event1",
+        "small-src": "http://lorempixel.com/640/540",
         "large-src": "http://lorempixel.com/400/400"
     }
 ]
