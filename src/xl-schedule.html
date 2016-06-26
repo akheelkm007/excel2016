@@ -1,25 +1,69 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <dom-module id="xl-schedule">
   <template>
 
+  <style>
+          h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+      }
+
+      @media( min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+      paper-tabs {
+        background-color: #00BCD4;
+        color: white;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 980px;
+        margin: auto;
+      }
+
+  </style>
+
     <h1> Excel Schedule </h1>
-    <div>
-      Filter :  
-      <select autofocus value="{{department::input}}" on-change="refreshFilter">
-        <option value="all" selected>All Departments</option>
-        <option value="cs">Computer Science</option>
-        <option value="ec">Electronics and Communication</option>
-      </select>
-      &nbspEvents :
-        <input type="checkbox" value="online"  checked id="onlineBox" on-change="refreshFilter"> Online Events
-        <input type="checkbox" value="offline" checked id="offlineBox" on-change="refreshFilter">Offline Events<br>
-        </div>
-    <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
-        <div># <span>{{index}}</span></div>
-        <div>Event name: <span>{{item.name}}</span></div>
-        <div>Date: <span>{{item.date}}</span></div>
-    </template>
+
+    <div class="container">
+      <paper-tabs selected="0">
+        <paper-tab>All Days</paper-tab>
+        <paper-tab>Day 1</paper-tab>
+        <paper-tab>Day 2</paper-tab>
+        <paper-tab>Day 3</paper-tab>
+        <paper-tab>Day 4</paper-tab>
+      </paper-tabs>
+      <div>
+
+
+        <paper-toolbar>
+        <div>Filter :</div>  
+          <select autofocus value="{{department::input}}" on-change="refreshFilter">
+            <option value="all" selected>All Departments</option>
+            <option value="cs">Computer Science</option>
+            <option value="ec">Electronics and Communication</option>
+          </select>
+          &nbspEvents :
+            <input type="checkbox" value="online"  checked id="onlineBox" on-change="refreshFilter"> <div>Online Events</div>
+            <input type="checkbox" value="offline" checked id="offlineBox" on-change="refreshFilter"><div>Offline Events</div>
+        </paper-toolbar>
+
+          </div>
+      <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
+          <div># <span>{{index}}</span></div>
+          <div>Event name: <span>{{item.name}}</span></div>
+          <div>Date: <span>{{item.date}}</span></div>
+      </template>      
+    </div>
+
+
 
 
    
