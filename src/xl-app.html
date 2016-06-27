@@ -127,9 +127,12 @@
 
 		<paper-menu selected="[[page]]" attr-for-selected="name" role="navigation" activate-event="click">
 
-			<a name="view1" href="#/view1/">
-				<paper-item paper-drawer-toggle>View One</paper-item>			
-			</a>
+      <a name="view1" href="#/home/">
+        <paper-item paper-drawer-toggle>Home</paper-item>     
+      </a>
+      <a name="view1" href="#/view1/">
+        <paper-item paper-drawer-toggle>View One</paper-item>     
+      </a>
 			<a name="view2" href="#/view2/">
 				<paper-item paper-drawer-toggle>View Two</paper-item>			
 			</a>
@@ -165,6 +168,7 @@
         <div>
 
         <iron-pages role="main" selected="[[page]]" attr-for-selected="name" id="mainContent">
+          <xl-home name="home"></xl-home>
           <xl-view1 name="view1"></xl-view1>
           <xl-view2 name="view2"></xl-view2>
           <xl-view3 name="view3"></xl-view3>
