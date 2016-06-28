@@ -179,7 +179,7 @@
             <h1> Excel Schedule </h1>
             <paper-button active="{{stateChange}}" toggles on-click="toggleFilter" style="float:right;" noink>Filter<iron-icon icon="icons:filter-list"></iron-icon></paper-button>
             <div class="container" style="display:flex;">
-              <paper-tabs selected="0">
+              <paper-tabs selected="{{selectedDay}}" id="dayFilter">
                 <paper-tab>All Days</paper-tab>
                 <paper-tab>Day 1</paper-tab>
                 <paper-tab>Day 2</paper-tab>
@@ -230,6 +230,7 @@
       is: 'xl-schedule',
 
       listeners : {
+        'dayFilter.click' : 'refreshFilter',
         'resetButton.tap' : 'resetFilter',
         'departmentFilter.click' : 'refreshFilter',
         'onlineBox.tap' : 'refreshFilter',
@@ -251,26 +252,35 @@
                 console.log("err",err);
               });
               this.selectedFilter = "all";
+              this.selectedDay = "0";
      },
+
      computeFilter: function(item){
               var _self = this;
               var _department = _self.selectedFilter;
               var _scheduleItem = item;
+              var _day;
+              if(this.selectedDay == "0")
+                _day = item.day;
+              else
+                _day = this.selectedDay;
+
               //Check if online and offline checkboxes are ticked
               var onlineState = (_self.$.onlineBox.checked) ? "online" : "not online";
               var offlineState = (_self.$.offlineBox.checked) ? "offline" : "not offline";
               //if event type (online or offline) does not match either of the checked boxes, return false
+
               if (!(_scheduleItem.type === onlineState || _scheduleItem.type === offlineState)) {
                 return false;
               }
 
               //if no or all department(s) specified, return true
               if(!_department || _department === 'all'){
-                return true;
+                return _day == item.day;
               }
 
               // check if department specified is same as data
-              return _scheduleItem.department === _department;
+              return _scheduleItem.department === _department && _day == item.day;
 
      },
 

@@ -9,7 +9,7 @@
 
     {
     	"name": "Event2",
-        "day" : "1",
+        "day" : "2",
     	"date": "5/10/2016",
     	"department": "ec",
     	"type":"offline"
@@ -17,9 +17,18 @@
 
     {
     	"name": "Event3",
-        "day" : "1",
+        "day" : "3",
     	"date": "5/10/2016",
     	"department": "cs",
     	"type":"offline"
+    },
+
+    {
+        "name": "Event4",
+        "day" : "1",
+        "date": "5/10/2016",
+        "department": "cs",
+        "type":"offline"
     }
+    
 ]
