@@ -1,5 +1,4 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/paper-button/paper-button.html">
 
 <dom-module id="xl-home">
 
@@ -29,7 +28,6 @@
       .links  {
         width: 40%;
         position: relative;
-        /*margin: 32px;*/
         text-decoration: none;
         color: inherit;
       }
@@ -83,13 +81,38 @@
       }
 
       .bkg-color {
-        /*background-color: white;*/
         width: 100%;
         max-width: 980px;
         margin: auto;
         box-sizing: border-box;
         padding-left: 16px;
         padding-right: 16px;
+      }
+
+      .btn-cntr {
+        display: flex;
+        justify-content: center;
+      }
+
+      paper-button {
+        background-color: #4285f4;
+        color: white;
+        margin: auto;
+        text-align: center;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .prev {
+        width: 64px;
+      }
+
+      .prev-cntr {
+        display: flex;
+        justify-content: space-around;
       }
 
     </style>
@@ -100,12 +123,6 @@
 
       <p>Excel, the nation’s second and South India’s first ever fest of its kind started in 2001 by the students of Govt. Model Engineering College with a motto, Inspire, Innovate, Engineer. Over the years, Excel has grown exponentially, consistently playing host to some of the most talented students, the most illustrious speakers and the most reputed companies. Now gearing towards its 17th edition, Excel continues to excite the participants with its wide array of technical and non-technical events and with a promise to live upto its motto.
       </p>
-
-
-<!--       <div class="container-two">
-        <h1>Online Content</h1>
-      </div>
- -->
 
       <div class="container">
 
@@ -127,19 +144,29 @@
         <h2>Getting here</h2>
         <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit. Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
         <h2>Location</h2>
-        <paper-button  raised elevation="2">View in Maps</paper-button>
+
+        <div class="btn-cntr">
+          <a target="_blank" href="https://www.google.co.in/maps/place/MEC+Workshop/@10.0285581,76.3277689,18z/data=!4m13!1m7!3m6!1s0x3b080c500d249f59:0x6a4f8fcb7841d91!2sMEC+Workshop!3b1!8m2!3d10.0285581!4d76.3283455!3m4!1s0x3b080c500d249f59:0x6a4f8fcb7841d91!8m2!3d10.0285581!4d76.3283455">
+            <paper-button raised>View in Maps</paper-button>
+          </a>
+        </div>
+
       </div>
       <div class="container-two">
         <h1>Evolution</h1>
-        <a href="/">
-          <p>Excel 2015</p>
-        </a>
-        <a href="/">
-          <p>Excel 2014</p>
-        </a>
-        <a href="/">
-          <p>Excel 2013</p>
-        </a>
+
+        <div class="prev-cntr">
+          <a href="/">
+            <img class="prev" src="../images/previous/2013.png">
+          </a>
+          <a href="/">
+            <img class="prev" src="../images/previous/2014.png">
+          </a>
+          <a href="/">
+            <img class="prev" src="../images/previous/2015.png">
+          </a>          
+        </div>
+
       </div>
       
     </div>

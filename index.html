@@ -11,8 +11,18 @@
   <meta name="theme-color" content="#25b1dd">
   <link rel="manifest" href="/manifest.json">
 
+  <!-- Google Analytics -->
   <script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+	ga('create', 'UA-79978428-1', 'none'); // need to change third parameter to 'auto' on production
+	ga('send', 'pageview');
+  </script>
+
+  <script>
     // setup Polymer options
     window.Polymer = {lazyRegister: true, dom: 'shadow'};
 
@@ -29,6 +39,38 @@
         document.head.appendChild(e);
       }
     })();
+
+	if (window.Promise) {
+		console.log('promises supported');
+		ga('send', 'event', 'Feature detection', 'promises', 'YES');
+	}
+
+	else {
+		console.log('No promises');
+        // polyfill promises
+        var p = document.createElement('script');
+        p.src = 'resources/polyfill/promise.min.js';
+        document.head.appendChild(p);
+		ga('send', 'event', 'Feature detection', 'promises', 'NO');
+
+	}
+
+
+    if(window.fetch) {
+    	console.log('fetch API supported');
+		ga('send', 'event', 'Feature detection', 'fetch API', 'YES');
+    }
+
+    else {
+    	console.log('No fetch API');
+        // polyfill fetch API
+        var f = document.createElement('script');
+        f.src = 'resources/polyfill/fetch.min.js';
+        document.head.appendChild(f);
+		ga('send', 'event', 'Feature detection', 'fetch API', 'NO');
+    }
+
+
 
     // load pre-caching service worker
     // if ('serviceWorker' in navigator) {
