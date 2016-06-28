@@ -42,7 +42,7 @@
 
       .container {
         width: 100%;
-        /*max-width: 980px;*/
+        max-width: 980px;
         margin: auto;
         display: flex;
       }
@@ -54,24 +54,38 @@
         padding-bottom:5px;
     }
 
-    div.card>div{
-      height:270px;
+    div.card>div.header-panel-container{
+      height:210px;
       z-index:99;
+      position: relative;
+      background-color: white;
     }
 
-    div.page-header{
-      padding-bottom: 10px;
+    .titlebar{
+      background-color: white;
     }
 
     paper-card.event>div{
       text-align: center;
-      order: 1;
-      flex-grow: 1;
+      margin: auto;
       transition: transform 1s;
     }
 
     paper-header-panel{
       z-index: 40;
+    }
+
+    .filter-button{
+      right:0;
+      position:absolute;
+    }
+
+    @media (max-width: 1300px){
+      .filter-button{
+        position: relative;
+        float: right;
+        font-size: 14px;
+      }
     }
 
     .newfilter{
@@ -81,16 +95,17 @@
       z-index: -1;
       display: block;
       transform: translateY(0%);
-      transition: transform 0.5s,opacity 0.2s;
+      transition: transform 0.5s,opacity 0.5s;
       display: flex;
       opacity: 1;
     }
 
     .toggletrial{
       transform: translateY(-100%);
+      opacity: 0;
     }
 
-    .filter-buttons{
+    .revert-buttons{
       margin: auto;
       margin-bottom: 0;
       margin-right: 0;
@@ -112,8 +127,14 @@
     .revert{
       color: #ff3838;
     }
-    .apply{
-      color: #4f8a10;
+
+    .event-desc h2{
+      color: black;
+      margin: 0;
+    }
+
+    .event-desc h4{
+      margin: 0;
     }
 
     @media (max-width: 700px){
@@ -160,10 +181,10 @@
   </style>
   <style is="custom-style" >
     paper-card.event{
-      @apply(--layout-horizontal);
+      /*@apply(--layout-horizontal);*/
+      display: flex;
       padding-top: 5px;
       padding-bottom: 5px;
-      /*border-top: 1px solid #b3b3b3;*/
       border-bottom: 1px solid #b3b3b3;
     }
 
@@ -173,11 +194,11 @@
   </style>
 
     <div class="card" id='card'>      
-      <div>
+      <div class="header-panel-container">
         <paper-header-panel mode="standard">
-          <div class="paper-header" style="background-color:white;">
+          <div class="paper-header titlebar">
             <h1> Excel Schedule </h1>
-            <paper-button active="{{stateChange}}" toggles on-click="toggleFilter" style="float:right;" noink>Filter<iron-icon icon="icons:filter-list"></iron-icon></paper-button>
+            <paper-button active="{{stateChange}}" toggles id="filterButton" class="filter-button" noink>Filter<iron-icon icon="icons:{{icon}}"></iron-icon></paper-button>
             <div class="container" style="display:flex;">
               <paper-tabs selected="{{selectedDay}}" id="dayFilter">
                 <paper-tab>All Days</paper-tab>
@@ -205,21 +226,23 @@
                 <paper-item><paper-checkbox value="online" id="onlineBox" checked>Online Events</paper-checkbox></paper-item>
                 <paper-item><paper-checkbox value="offline" id="offlineBox" checked>Offline Events</paper-checkbox></paper-item>
               </paper-listbox>
-              <paper-button class="filter-buttons revert" noink id="resetButton">Revert</paper-button>
-              <!-- <paper-button class="filter-buttons apply" noink on-click="applyFilter">Apply Changes</paper-button> -->
+              <paper-button class="revert-buttons revert" noink id="resetButton">Revert</paper-button>
             </div>
           </div>
         </paper-header-panel>
       </div>
+      <div>
+      
       <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
-          <paper-card class="event" >              
-              <div>
+          <paper-card class="event card">
+            <div class="event-desc">
                 <h2>{{item.name}}</h2>
                 <div><h4>Venue</h4></div>
-              </div>
-              <div><h6>{{item.date}}</h6></div>              
+            </div>
+            <div><h6>{{item.date}}</h6></div>              
           </paper-card>
       </template>
+      
     </div>
   </template>
 
@@ -234,7 +257,8 @@
         'resetButton.tap' : 'resetFilter',
         'departmentFilter.click' : 'refreshFilter',
         'onlineBox.tap' : 'refreshFilter',
-        'offlineBox.tap' : 'refreshFilter'
+        'offlineBox.tap' : 'refreshFilter',
+        'filterButton.tap' : 'toggleFilter',
       },
 
       ready: function() {
@@ -253,6 +277,7 @@
               });
               this.selectedFilter = "all";
               this.selectedDay = "0";
+              this.icon = "filter-list"
      },
 
      computeFilter: function(item){
@@ -291,9 +316,11 @@
      toggleFilter : function(){
         if(this.stateChange){
           this.$.filterList.classList.remove('toggletrial');
+          this.icon = "close";
         }
         else{
           this.$.filterList.classList.add('toggletrial');
+          this.icon = "filter-list";
         }
      },
      closeDrawer : function(){
