@@ -29,6 +29,14 @@
         "date": "5/10/2016",
         "department": "cs",
         "type":"offline"
+    },
+
+    {
+        "name": "Event5",
+        "day" : "1",
+        "date": "5/10/2016",
+        "department": "ec",
+        "type":"offline"
     }
     
 ]
