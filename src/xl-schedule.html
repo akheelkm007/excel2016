@@ -172,7 +172,7 @@
     }
   </style>
 
-    <div class="card">      
+    <div class="card" id='card'>      
       <div>
         <paper-header-panel mode="standard">
           <div class="paper-header" style="background-color:white;">
@@ -193,7 +193,7 @@
                   <label id="departments"><h4>Departments:</h4></label>
                 </paper-item>
                 <paper-item>
-                  <paper-radio-group aria-labelledby="departments" attr-for-selected="value" selected="{{selectedFilter}}">
+                  <paper-radio-group aria-labelledby="departments" attr-for-selected="value" selected="{{selectedFilter}}" id="departmentFilter" >
                     <paper-radio-button value="all">All Departments</paper-radio-button>
                     <paper-radio-button value="cs">Computer Science</paper-radio-button>
                     <paper-radio-button value="ec">Electronics and Communication</paper-radio-button>
@@ -205,8 +205,8 @@
                 <paper-item><paper-checkbox value="online" id="onlineBox" checked>Online Events</paper-checkbox></paper-item>
                 <paper-item><paper-checkbox value="offline" id="offlineBox" checked>Offline Events</paper-checkbox></paper-item>
               </paper-listbox>
-              <paper-button class="filter-buttons revert" noink on-click="resetFilter">Revert</paper-button>
-              <paper-button class="filter-buttons apply" noink on-click="applyFilter">Apply Changes</paper-button>
+              <paper-button class="filter-buttons revert" noink id="resetButton">Revert</paper-button>
+              <!-- <paper-button class="filter-buttons apply" noink on-click="applyFilter">Apply Changes</paper-button> -->
             </div>
           </div>
         </paper-header-panel>
@@ -228,6 +228,14 @@
 
     Polymer({
       is: 'xl-schedule',
+
+      listeners : {
+        'resetButton.tap' : 'resetFilter',
+        'departmentFilter.click' : 'refreshFilter',
+        'onlineBox.tap' : 'refreshFilter',
+        'offlineBox.tap' : 'refreshFilter'
+      },
+
       ready: function() {
 
               var _thisPage = this;
@@ -270,7 +278,7 @@
         this.$.scheduleList.render();
      },
 
-      toggleFilter : function(){
+     toggleFilter : function(){
         if(this.stateChange){
           this.$.filterList.classList.remove('toggletrial');
         }
@@ -278,15 +286,17 @@
           this.$.filterList.classList.add('toggletrial');
         }
      },
-     applyFilter: function(){
-        this.refreshFilter();
-        this.stateChange=false;
-        this.toggleFilter();        
+     closeDrawer : function(){
+        this.stateChange = false;
+        this.toggleFilter();
      },
+
      resetFilter : function(){
         this.selectedFilter = "all";
         this.$.onlineBox.checked = true;
         this.$.offlineBox.checked = true;
+        this.refreshFilter();
+        this.closeDrawer();
      }
     });
   </script>

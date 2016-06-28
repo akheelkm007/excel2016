@@ -1,6 +1,7 @@
 [
     {
     	"name": "Event1",
+        "day" : "1",
     	"date": "5/10/2016",
     	"department": "cs",
     	"type":"online"
@@ -8,6 +9,7 @@
 
     {
     	"name": "Event2",
+        "day" : "1",
     	"date": "5/10/2016",
     	"department": "ec",
     	"type":"offline"
@@ -15,6 +17,7 @@
 
     {
     	"name": "Event3",
+        "day" : "1",
     	"date": "5/10/2016",
     	"department": "cs",
     	"type":"offline"
