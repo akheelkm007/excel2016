@@ -1,0 +1,161 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="xl-home">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+      }
+
+      h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+      }
+
+      h2 {
+        font-weight: 400;
+      }
+
+      @media( min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+      .links  {
+        width: 40%;
+        position: relative;
+        /*margin: 32px;*/
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .links:hover {
+        z-index: 10;
+      }
+
+      .blocks {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        padding: 16px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+        box-sizing: border-box;
+      }
+
+      .blocks:hover {
+        box-shadow: 0 0px 28px 5px rgba(0,0,0,0.25), 0 0px 10px rgba(0,0,0,0.22);
+
+      }
+
+      .android {
+        background-image: url('../images/home/android.png');
+      }
+
+      .play {
+        background-image: url('../images/home/play.png'); 
+      }
+
+      .location {
+        background-image: url('../images/home/location.png'); 
+      }
+      .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: auto;
+        margin-top: 32px;
+      }
+
+      .container-two {
+        width: 100%;
+        margin: auto;
+        margin-top: 32px;        
+      }
+
+      .bkg-color {
+        /*background-color: white;*/
+        width: 100%;
+        max-width: 980px;
+        margin: auto;
+        box-sizing: border-box;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+    </style>
+
+    <div class="bkg-color">
+
+      <h1>About us</h1>
+
+      <p>Excel, the nation’s second and South India’s first ever fest of its kind started in 2001 by the students of Govt. Model Engineering College with a motto, Inspire, Innovate, Engineer. Over the years, Excel has grown exponentially, consistently playing host to some of the most talented students, the most illustrious speakers and the most reputed companies. Now gearing towards its 17th edition, Excel continues to excite the participants with its wide array of technical and non-technical events and with a promise to live upto its motto.
+      </p>
+
+
+<!--       <div class="container-two">
+        <h1>Online Content</h1>
+      </div>
+ -->
+
+      <div class="container">
+
+          <a target="_blank" href="/" class="links">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img" />
+            <div class="blocks android">
+            Check out our Android App
+            </div>  
+          </a>
+          <a target="_blank" href="/" class="links">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img" />
+            <div class="blocks play">
+            Check out our online Events
+            </div>  
+          </a>
+      </div>
+      <div class="container-two">
+        <h1>Attending ?</h1>
+        <h2>Getting here</h2>
+        <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit. Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+        <h2>Location</h2>
+        <paper-button  raised elevation="2">View in Maps</paper-button>
+      </div>
+      <div class="container-two">
+        <h1>Evolution</h1>
+        <a href="/">
+          <p>Excel 2015</p>
+        </a>
+        <a href="/">
+          <p>Excel 2014</p>
+        </a>
+        <a href="/">
+          <p>Excel 2013</p>
+        </a>
+      </div>
+      
+    </div>
+
+
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'xl-home'
+
+    });
+
+  </script>
+
+</dom-module>
