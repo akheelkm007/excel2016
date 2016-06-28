@@ -128,7 +128,7 @@
       color: #ff3838;
     }
 
-    .event-desc h2{
+    .event-desc>span{
       color: black;
       margin: 0;
     }
@@ -234,12 +234,15 @@
       <div>
       
       <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
-          <paper-card class="event card">
+          <paper-card class="event">
             <div class="event-desc">
-                <h2>{{item.name}}</h2>
-                <div><h4>Venue</h4></div>
+                <span>{{item.name}}</span>
+                <div style="display:flex;transform:translateX(25%);">
+                  <span>Venue</span>
+                  <span>@ 9am</span>
+                </div>
             </div>
-            <div><h6>{{item.date}}</h6></div>              
+            <div><span style="font-size:x-small;">{{item.date}}</span></div>              
           </paper-card>
       </template>
       
