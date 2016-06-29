@@ -1,6 +1,6 @@
 a=0
-for file in *.jpg
+for file in ./large/*.jpg
 do
-  mv "$file" "${a}.jpg"
+  convert -resize 10% "$file" "./small/$file"
   a=$((a+1))
 done
