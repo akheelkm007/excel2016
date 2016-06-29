@@ -77,20 +77,20 @@
       <img class="thumb" src="../images/gallery/small/7.jpg" data-full="../images/gallery/large/7.jpg" on-tap="handleTap">      
       <img class="thumb" src="../images/gallery/small/8.jpg" data-full="../images/gallery/large/8.jpg" on-tap="handleTap">      
       <img class="thumb" src="../images/gallery/small/9.jpg" data-full="../images/gallery/large/9.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/10.jpg" data-full="../images/gallery/large10.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/11.jpg" data-full="../images/gallery/large11.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/12.jpg" data-full="../images/gallery/large12.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/13.jpg" data-full="../images/gallery/large13.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/14.jpg" data-full="../images/gallery/large14.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/15.jpg" data-full="../images/gallery/large15.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/16.jpg" data-full="../images/gallery/large16.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/17.jpg" data-full="../images/gallery/large17.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/18.jpg" data-full="../images/gallery/large18.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/19.jpg" data-full="../images/gallery/large19.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/20.jpg" data-full="../images/gallery/large20.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/21.jpg" data-full="../images/gallery/large21.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/22.jpg" data-full="../images/gallery/large22.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/23.jpg" data-full="../images/gallery/large23.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/10.jpg" data-full="../images/gallery/large/10.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/11.jpg" data-full="../images/gallery/large/11.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/12.jpg" data-full="../images/gallery/large/12.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/13.jpg" data-full="../images/gallery/large/13.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/14.jpg" data-full="../images/gallery/large/14.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/15.jpg" data-full="../images/gallery/large/15.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/16.jpg" data-full="../images/gallery/large/16.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/17.jpg" data-full="../images/gallery/large/17.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/18.jpg" data-full="../images/gallery/large/18.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/19.jpg" data-full="../images/gallery/large/19.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/20.jpg" data-full="../images/gallery/large/20.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/21.jpg" data-full="../images/gallery/large/21.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/22.jpg" data-full="../images/gallery/large/22.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/23.jpg" data-full="../images/gallery/large/23.jpg" on-tap="handleTap">
       <!-- <img class="thumb" src="../images/gallery/small/24.jpg" on-tap="handleTap"> -->
   </div>
 
@@ -203,7 +203,6 @@
 
       var lhs = overlayDim.width;
       var rhs = (initialPos.width/initialPos.height)*overlayDim.height;
-      console.log('lhs & rhs',lhs, rhs);
 
       if( lhs > rhs ) {
         largeImage.style.height = "90%";
@@ -214,10 +213,6 @@
       }
 
       var finalPos = largeImage.getBoundingClientRect();
-
-      console.log('initialPos', initialPos);
-      console.log('finalPos', finalPos);
-
 
       var tx = (initialPos.left - finalPos.left) + "px";
       var ty = (initialPos.top - finalPos.top) + "px";
