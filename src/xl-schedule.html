@@ -22,7 +22,7 @@
       text-align: center;
       display: flex;
     }
-    h1 {
+    paper-header-panel h1 {
         text-align: center;
         font-weight: 400;
         font-size: 34px;
@@ -30,7 +30,7 @@
       }
 
       @media( min-width: 980px) {
-        h1 {
+      paper-header-panel  h1 {
           font-size: 56px;
         }
       }
@@ -167,6 +167,15 @@
       right: 20px;
 
     }
+    .hide{
+      display: none !important;
+    }
+
+    .result404 span{
+      margin: auto;
+      font-size: 27px;
+      display: block;
+    }
 
     @media (min-width: 700px){
       paper-card.event div.event-desc{
@@ -214,7 +223,7 @@
         text-align: center;
       }
 
-      .event-desc>span{
+      .result404 span,.event-desc>span{
         font-size: 20px;
       }
 
@@ -251,6 +260,7 @@
         font-size: 15px;
       }
     }
+    
   </style>
   <style is="custom-style" >
     paper-card.event{
@@ -315,7 +325,7 @@
       <div>
       <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
           <paper-card class="event">
-            <div class="event-image"><img src="../images/icons/hackathon.png"></div>
+            <div class="event-image"><img src="{{item.cover}}"></div>
             <div class="event-desc">
                 <span>{{item.name}}</span>
                 <div class="event-detail">
@@ -326,6 +336,9 @@
             <div class="event-date"><span>{{item.date}}</span></div>              
           </paper-card>
       </template>
+      <paper-card class="result404 hide" id="C404">
+        <span>No events!</span>     
+      </paper-card>
     </div>
     
   </template>
@@ -361,7 +374,8 @@
               });
               this.selectedFilter = "all";
               this.selectedDay = "0";
-              this.icon = "filter-list"
+              this.icon = "filter-list";
+              this.nonEmpty = false;
      },
 
      computeFilter: function(item){
@@ -384,17 +398,29 @@
               }
 
               //if no or all department(s) specified, return true
-              if(!_department || _department === 'all'){
-                return _day == item.day;
+              if(!_department || _department === "all"){
+                if(_day == item.day){
+                  this.nonEmpty=true;
+                  return true;
+                }
+                return false;
               }
 
               // check if department specified is same as data
-              return _scheduleItem.department === _department && _day == item.day;
+              if(_scheduleItem.department === _department && _day == item.day){
+                this.nonEmpty=true;
+                return true;
+              }
+              return false;
 
      },
 
      refreshFilter : function () {
+        this.nonEmpty = false;
+        this.hideMessage();
         this.$.scheduleList.render();
+        if(this.nonEmpty==false)
+          this.noResults();
      },
 
      toggleFilter : function(){
@@ -418,6 +444,13 @@
         this.$.offlineBox.checked = true;
         this.refreshFilter();
         this.closeDrawer();
+     },
+     noResults : function(){
+        this.$.C404.classList.remove("hide");
+     },
+
+     hideMessage : function(){
+        this.$.C404.classList.add("hide");
      }
     });
   </script>
