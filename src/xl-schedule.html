@@ -9,6 +9,7 @@
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
 <!-- <link rel="import" href="../bower_components/paper-radio-button/paper-radio-button.html"> -->
 
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
@@ -19,12 +20,13 @@
   <style >
     :host{
       text-align: center;
-      display: block;
+      display: flex;
     }
     h1 {
         text-align: center;
         font-weight: 400;
         font-size: 34px;
+        color: white;
       }
 
       @media( min-width: 980px) {
@@ -48,36 +50,34 @@
       }
     .card {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-        margin: 24px;
+        margin: auto;
+        margin-top: 24px;
+        margin-bottom: 24px;
         background-color: #fff;
         color: #757575;
         padding-bottom:5px;
+        width: 70%;
     }
 
     div.card>div.header-panel-container{
       height:210px;
-      z-index:99;
+      z-index:59;
       position: relative;
-      background-color: white;
     }
 
     .titlebar{
-      background-color: white;
+      background-color: #00BCD4;
     }
 
     paper-card.event>div{
-      text-align: center;
-      margin: auto;
       transition: transform 1s;
-    }
-
-    paper-header-panel{
-      z-index: 40;
+      margin: auto;
     }
 
     .filter-button{
       right:0;
       position:absolute;
+      display: none;
     }
 
     @media (max-width: 1300px){
@@ -90,18 +90,21 @@
 
     .newfilter{
       position: absolute;
-      width: 100%;
-      margin: 0;
-      z-index: -1;
+      margin: auto;
+      width: 60%;
+      top: 50%;
+      z-index: 99;
       display: block;
-      transform: translateY(0%);
-      transition: transform 0.5s,opacity 0.5s;
+      left:50%;
+      transform: translateY(-50%)translateX(-50%);
+      transition: transform 0.5s,top 0.5s,opacity 0.5s;
       display: flex;
       opacity: 1;
     }
 
     .toggletrial{
-      transform: translateY(-100%);
+      top: 0;
+      transform: translateY(-100%)translateX(-50%);
       opacity: 0;
     }
 
@@ -128,23 +131,105 @@
       color: #ff3838;
     }
 
+    paper-card.event div.event-desc{
+      width: 50%;
+      text-align: left;
+    }
+
     .event-desc>span{
       color: black;
+      font-size: 27px;
       margin: 0;
     }
 
-    .event-desc h4{
-      margin: 0;
+    .event-image{
+      width: 20%;
+      text-align: right;
+      padding-right: 20px;
+    }
+    .event-image img{
+      border-radius: 100%;
+      width: 100px; 
+      height: 100px;
+      vertical-align: middle;
+    }
+
+    paper-card.event div.event-date{
+      width: 20%;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .fab-filter{
+      position: fixed;
+      top: 10px;
+      z-index: 999;
+      right: 20px;
+
+    }
+
+    @media (min-width: 700px){
+      paper-card.event div.event-desc{
+        margin-top: 0px;
+      }
+      paper-card.event div.event-detail{
+        font-size: 22px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+      }
+      paper-card.event div.event-date{
+        font-size: large;
+      }
+    }
+
+    @media (max-width: 800px){
+      .card{
+        width: 80%;
+      }
+
+      div.card>div.header-panel-container{
+        height: 150px;
+      }
+      .toggletrial{
+        opacity: 0;
+      }
+      .event-date{
+        font-size: medium;
+      }
+      .event-desc>span {
+        font-size: 27px;
+      }
     }
 
     @media (max-width: 700px){
+      .event-image img{
+        border-radius: 100%;
+        width: 50px; 
+        height: 50px;
+        vertical-align: middle;
+      }
+      .event-image{
+        padding-right: 0;
+        text-align: center;
+      }
+
+      .event-desc>span{
+        font-size: 20px;
+      }
+
+      .event-date{
+        font-size: x-small;
+      }
       .card{
         margin:10px;
+        width: 100%;
       }
       .newfilter{
         display: block;
         margin: 0;
       }
+
       paper-item paper-radio-button{
         display: block;
         margin: 0;
@@ -165,24 +250,11 @@
       .revert{
         font-size: 15px;
       }
-      .apply{
-        font-size: 15px;
-      }
-    }
-
-    @media (max-width: 800px){
-      div.card>div{
-        height: 200px;
-      }
-      .toggletrial{
-        opacity: 0;
-      }
     }
   </style>
   <style is="custom-style" >
     paper-card.event{
-      /*@apply(--layout-horizontal);*/
-      display: flex;
+      @apply(--layout-horizontal);
       padding-top: 5px;
       padding-bottom: 5px;
       border-bottom: 1px solid #b3b3b3;
@@ -191,14 +263,43 @@
     paper-item{
       --paper-item-selected-weight: normal;
     }
-  </style>
 
+    #onlineBox,#offlineBox{
+      --paper-checkbox-checked-color : #00BCD4;
+    }
+    paper-radio-group>paper-radio-button{
+      --paper-radio-button-checked-color: #00BCD4;
+    }
+  </style>
+    <!-- <div class="fab-filter"> -->
+      <paper-fab class="fab-filter" style="-webkit-transform: translateZ(0);" id="filterButton" active="{{stateChange}}" toggles icon="{{icon}}"></paper-fab>
+    <!-- </div> -->
+    <div class="card newfilter toggletrial" id="filterList">
+      <paper-listbox class="department-filter">
+        <paper-item>
+          <label id="departments"><h4>Departments:</h4></label>
+        </paper-item>
+        <paper-item>
+          <paper-radio-group aria-labelledby="departments" attr-for-selected="value" selected="{{selectedFilter}}" id="departmentFilter" >
+            <paper-radio-button value="all">All Departments</paper-radio-button>
+            <paper-radio-button value="cs">Computer Science</paper-radio-button>
+            <paper-radio-button value="ec">Electronics and Communication</paper-radio-button>
+          </paper-radio-group>
+        </paper-item>
+      </paper-listbox>
+      <paper-listbox class="type-filter">
+        <paper-item><h4>Event Type:</h4></paper-item>
+        <paper-item><paper-checkbox value="online" id="onlineBox" checked>Online Events</paper-checkbox></paper-item>
+        <paper-item><paper-checkbox value="offline" id="offlineBox" checked>Offline Events</paper-checkbox></paper-item>
+      </paper-listbox>
+      <paper-button class="revert-buttons revert" noink id="resetButton">Revert</paper-button>
+    </div>
     <div class="card" id='card'>      
       <div class="header-panel-container">
         <paper-header-panel mode="standard">
           <div class="paper-header titlebar">
             <h1> Excel Schedule </h1>
-            <paper-button active="{{stateChange}}" toggles id="filterButton" class="filter-button" noink>Filter<iron-icon icon="icons:{{icon}}"></iron-icon></paper-button>
+            <paper-button active="{{stateChange}}" toggles  class="filter-button" noink>Filter<iron-icon icon="icons:{{icon}}"></iron-icon></paper-button>
             <div class="container" style="display:flex;">
               <paper-tabs selected="{{selectedDay}}" id="dayFilter">
                 <paper-tab>All Days</paper-tab>
@@ -208,45 +309,25 @@
                 <paper-tab>Day 4</paper-tab>
               </paper-tabs>
             </div>
-            <div class="card newfilter toggletrial" id="filterList">
-              <paper-listbox class="department-filter">
-                <paper-item>
-                  <label id="departments"><h4>Departments:</h4></label>
-                </paper-item>
-                <paper-item>
-                  <paper-radio-group aria-labelledby="departments" attr-for-selected="value" selected="{{selectedFilter}}" id="departmentFilter" >
-                    <paper-radio-button value="all">All Departments</paper-radio-button>
-                    <paper-radio-button value="cs">Computer Science</paper-radio-button>
-                    <paper-radio-button value="ec">Electronics and Communication</paper-radio-button>
-                  </paper-radio-group>
-                </paper-item>
-              </paper-listbox>
-              <paper-listbox class="type-filter">
-                <paper-item><h4>Event Type:</h4></paper-item>
-                <paper-item><paper-checkbox value="online" id="onlineBox" checked>Online Events</paper-checkbox></paper-item>
-                <paper-item><paper-checkbox value="offline" id="offlineBox" checked>Offline Events</paper-checkbox></paper-item>
-              </paper-listbox>
-              <paper-button class="revert-buttons revert" noink id="resetButton">Revert</paper-button>
-            </div>
           </div>
         </paper-header-panel>
       </div>
       <div>
-      
       <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
           <paper-card class="event">
+            <div class="event-image"><img src="../images/icons/hackathon.png"></div>
             <div class="event-desc">
                 <span>{{item.name}}</span>
-                <div style="display:flex;transform:translateX(25%);">
+                <div class="event-detail">
                   <span>Venue</span>
-                  <span>@ 9am</span>
+                  <span>9am</span>
                 </div>
             </div>
-            <div><span style="font-size:x-small;">{{item.date}}</span></div>              
+            <div class="event-date"><span>{{item.date}}</span></div>              
           </paper-card>
       </template>
-      
     </div>
+    
   </template>
 
 
@@ -261,7 +342,7 @@
         'departmentFilter.click' : 'refreshFilter',
         'onlineBox.tap' : 'refreshFilter',
         'offlineBox.tap' : 'refreshFilter',
-        'filterButton.tap' : 'toggleFilter',
+        'filterButton.click' : 'toggleFilter',
       },
 
       ready: function() {
