@@ -3,18 +3,6 @@
 <dom-module id="xl-gallery">
 	<template>
   <style>
-
-	h1 {
-		text-align: center;
-		font-weight: 400;
-		font-size: 34px;
-	}
-
-	@media( min-width: 980px) {
-		h1 {
-			font-size: 56px;
-		}
-	}
     img {
       margin: 0;
       padding: 0;
@@ -35,7 +23,6 @@
       max-width: 980px;
       margin: auto;
       margin-top: 32px;
-      margin-bottom: 32px;
       background-color: white;
       display: flex;
       flex-wrap: wrap;
@@ -61,7 +48,7 @@
     #largeImg {
       transform-origin: 0 0;
       box-sizing: border-box;
-      padding: 32px;
+      /*padding: 32px;*/
       will-change: transform;
     }
 
@@ -72,18 +59,39 @@
       width: 100%;
       height: 100%;
       transition: all 0.25s cubic-bezier(.25,.8,.25,1);
-      background-color: rgba(0,0,0,0.9);
+      background-color: rgba(0,0,0,0.75);
       opacity: 0;
 
     }
 
   </style>
-  <h1>Gallery</h1>
-  <div class="container"> 
-      <template id="galleryRow" is="dom-repeat" items="{{image}}" as="image">
-              <img class="thumb" src="{{image.small-src}}" data-full="{{image.large-src}}" on-tap="handleTap" on-load="loadfullimages"/>
-          
-        </template>
+
+  <div class="container">
+      <img class="thumb" src="../images/gallery/small/0.jpg" data-full="../images/gallery/large/0.jpg" on-tap="handleTap">      
+      <img class="thumb" src="../images/gallery/small/1.jpg" data-full="../images/gallery/large/1.jpg" on-tap="handleTap">      
+      <img class="thumb" src="../images/gallery/small/2.jpg" data-full="../images/gallery/large/2.jpg" on-tap="handleTap">      
+      <img class="thumb" src="../images/gallery/small/3.jpg" data-full="../images/gallery/large/3.jpg" on-tap="handleTap">      
+      <img class="thumb" src="../images/gallery/small/4.jpg" data-full="../images/gallery/large/4.jpg" on-tap="handleTap">      
+      <img class="thumb" src="../images/gallery/small/5.jpg" data-full="../images/gallery/large/5.jpg" on-tap="handleTap">      
+      <img class="thumb" src="../images/gallery/small/6.jpg" data-full="../images/gallery/large/6.jpg" on-tap="handleTap">      
+      <img class="thumb" src="../images/gallery/small/7.jpg" data-full="../images/gallery/large/7.jpg" on-tap="handleTap">      
+      <img class="thumb" src="../images/gallery/small/8.jpg" data-full="../images/gallery/large/8.jpg" on-tap="handleTap">      
+      <img class="thumb" src="../images/gallery/small/9.jpg" data-full="../images/gallery/large/9.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/10.jpg" data-full="../images/gallery/large/10.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/11.jpg" data-full="../images/gallery/large/11.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/12.jpg" data-full="../images/gallery/large/12.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/13.jpg" data-full="../images/gallery/large/13.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/14.jpg" data-full="../images/gallery/large/14.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/15.jpg" data-full="../images/gallery/large/15.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/16.jpg" data-full="../images/gallery/large/16.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/17.jpg" data-full="../images/gallery/large/17.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/18.jpg" data-full="../images/gallery/large/18.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/19.jpg" data-full="../images/gallery/large/19.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/20.jpg" data-full="../images/gallery/large/20.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/21.jpg" data-full="../images/gallery/large/21.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/22.jpg" data-full="../images/gallery/large/22.jpg" on-tap="handleTap">
+      <img class="thumb" src="../images/gallery/small/23.jpg" data-full="../images/gallery/large/23.jpg" on-tap="handleTap">
+      <!-- <img class="thumb" src="../images/gallery/small/24.jpg" on-tap="handleTap"> -->
   </div>
 
   <div id="overlay">
@@ -103,68 +111,24 @@
 
       var self = this;
       self.noOfImagesInRow = 3;
-      self.counter = 0;
-      self.fullImagesloadStatus = false;
-      self.fullImageIndex = 0;
-       if (window.innerWidth < 600) {
-        self.noOfImagesInRow = 2;
+      if (window.innerWidth < 600) {
+	      self.noOfImagesInRow = 2;
       }
-              fetch('resources/gallery.json').
-              then(function (response) {
-                  return response.json();
-              }).
-              then(function (response) {
-                self.image = response;
-              })
-              .then(function(){
-                self.listOfImages = Array.from(self.shadowRoot.querySelectorAll('.thumb'));
-                self.target = self.listOfImages.length;
-                self.listOfImages.forEach(function (elem) {
+      self.counter = 0;
+      self.listOfImages = Array.from(self.shadowRoot.querySelectorAll('.thumb'));
+      self.target = self.listOfImages.length;
 
-                  var wait = setInterval(function () {
-                    if(elem.naturalWidth > 0) {
-                      self.onHasSize(wait,self);
-                    }
-                  }, 100);
-                });
-              }).
-              then(function(){
-                if(self.noOfImagesInRow === 3){
-                  console.log('entered');
-                }
-              });
+      self.listOfImages.forEach(function (elem) {
+
+        var wait = setInterval(function () {
+          if(elem.naturalWidth > 0) {
+            self.onHasSize(wait,self);
+          }
+        }, 100);
+
+      });
     },
 
-    loadfullimages: function(){
-        loadCriteria = this.listOfImages.every(function(elem){
-          if(elem.complete )
-            return true;
-          else
-            return false;
-        });
-        if(loadCriteria && !this.fullImagesloadStatus && this.noOfImagesInRow === 3){
-          console.log("All thumbnails loaded");
-          this.fullImagesloadStatus = true;
-          this.loadfullimagesStep2();
-        }
-    },
-    loadfullimagesStep2:function(){
-        self = this;
-         if(this.fullImageIndex<this.listOfImages.length){
-          fetch(this.listOfImages[this.fullImageIndex].dataFull)
-          .then(function(response){
-            if(response.status === 200)
-              return response.blob();
-            else
-              console.error("Full image load error.No: "+this.fullImageIndex);
-          })
-          .then(function(imageBlob){
-            self.listOfImages[self.fullImageIndex].src  = URL.createObjectURL(imageBlob);
-            self.fullImageIndex++;
-            self.loadfullimagesStep2();
-          });
-         }
-    },
     onHasSize : function (loop,self) {
       clearInterval(loop);
       self.counter += 1;
@@ -175,6 +139,8 @@
       st.innerHTML = "img{max-width : none;}";
       self.shadowRoot.appendChild(st);
       }
+
+
     },
 
     displayImages : function (self) {
@@ -190,14 +156,10 @@
         var naturalDimensions = []
 
         for(var j = 0; j < self.noOfImagesInRow; j++) {
-
-          if (self.listOfImages[i+j]) {
-	          naturalDimensions.push({
-	            w : self.listOfImages[i+j].naturalWidth,
-	            h : self.listOfImages[i+j].naturalHeight
-	          });                    	
-          }
-
+          naturalDimensions.push({
+            w : self.listOfImages[i+j].naturalWidth,
+            h : self.listOfImages[i+j].naturalHeight
+          });          
         }
 
         var denominator = 0;
@@ -216,12 +178,8 @@
 
 
         for(var j = 0; j < noOfImagesInRow; j++) {
-
-          if (self.listOfImages[i+j]) {
-	          self.listOfImages[i+j].style.width = widthNew[j]+"px";
-	          self.listOfImages[i+j].style.height = commonHeight+"px";          	
-          }	
-
+          self.listOfImages[i+j].style.width = widthNew[j]+"px";
+          self.listOfImages[i+j].style.height = commonHeight+"px";
         }
       }
 
@@ -229,7 +187,7 @@
 
     handleTap : function (evt) {
       var image = evt.target;
-      var largeSizeLink = image.dataFull;
+      var largeSizeLink = image.dataset.full;
       var smallSizeLink = image.src;
       this.fetchLargeImage(largeSizeLink,smallSizeLink);
       var largeImage = this.$.largeImg;
@@ -282,7 +240,6 @@
       overlay.style.pointerEvents = "none";
       largeImage.style.transform = this.transform;
       this.$.bkgColor.style.opacity = "0";
-      // largeImage.opacity = "0";
       setTimeout(function () {
         largeImage.src = "";
       }, 250)
