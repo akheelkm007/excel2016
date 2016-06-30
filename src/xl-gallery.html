@@ -59,39 +59,18 @@
       width: 100%;
       height: 100%;
       transition: all 0.25s cubic-bezier(.25,.8,.25,1);
-      background-color: rgba(0,0,0,0.75);
+      background-color: rgba(0,0,0,0.9);
       opacity: 0;
 
     }
 
   </style>
 
-  <div class="container">
-      <img class="thumb" src="../images/gallery/small/0.jpg" data-full="../images/gallery/large/0.jpg" on-tap="handleTap">      
-      <img class="thumb" src="../images/gallery/small/1.jpg" data-full="../images/gallery/large/1.jpg" on-tap="handleTap">      
-      <img class="thumb" src="../images/gallery/small/2.jpg" data-full="../images/gallery/large/2.jpg" on-tap="handleTap">      
-      <img class="thumb" src="../images/gallery/small/3.jpg" data-full="../images/gallery/large/3.jpg" on-tap="handleTap">      
-      <img class="thumb" src="../images/gallery/small/4.jpg" data-full="../images/gallery/large/4.jpg" on-tap="handleTap">      
-      <img class="thumb" src="../images/gallery/small/5.jpg" data-full="../images/gallery/large/5.jpg" on-tap="handleTap">      
-      <img class="thumb" src="../images/gallery/small/6.jpg" data-full="../images/gallery/large/6.jpg" on-tap="handleTap">      
-      <img class="thumb" src="../images/gallery/small/7.jpg" data-full="../images/gallery/large/7.jpg" on-tap="handleTap">      
-      <img class="thumb" src="../images/gallery/small/8.jpg" data-full="../images/gallery/large/8.jpg" on-tap="handleTap">      
-      <img class="thumb" src="../images/gallery/small/9.jpg" data-full="../images/gallery/large/9.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/10.jpg" data-full="../images/gallery/large/10.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/11.jpg" data-full="../images/gallery/large/11.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/12.jpg" data-full="../images/gallery/large/12.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/13.jpg" data-full="../images/gallery/large/13.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/14.jpg" data-full="../images/gallery/large/14.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/15.jpg" data-full="../images/gallery/large/15.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/16.jpg" data-full="../images/gallery/large/16.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/17.jpg" data-full="../images/gallery/large/17.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/18.jpg" data-full="../images/gallery/large/18.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/19.jpg" data-full="../images/gallery/large/19.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/20.jpg" data-full="../images/gallery/large/20.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/21.jpg" data-full="../images/gallery/large/21.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/22.jpg" data-full="../images/gallery/large/22.jpg" on-tap="handleTap">
-      <img class="thumb" src="../images/gallery/small/23.jpg" data-full="../images/gallery/large/23.jpg" on-tap="handleTap">
-      <!-- <img class="thumb" src="../images/gallery/small/24.jpg" on-tap="handleTap"> -->
+  <div class="container"> 
+      <template id="galleryRow" is="dom-repeat" items="{{image}}" as="image">
+              <img class="thumb" src="{{image.small-src}}" data-full="{{image.large-src}}" on-tap="handleTap"/>
+          
+        </template>
   </div>
 
   <div id="overlay">
@@ -111,21 +90,56 @@
 
       var self = this;
       self.noOfImagesInRow = 3;
-      if (window.innerWidth < 600) {
-	      self.noOfImagesInRow = 2;
-      }
       self.counter = 0;
-      self.listOfImages = Array.from(self.shadowRoot.querySelectorAll('.thumb'));
-      self.target = self.listOfImages.length;
+       if (window.innerWidth < 600) {
+        self.noOfImagesInRow = 2;
+      }
+              fetch('resources/gallery.json').
+              then(function (response) {
+                  return response.json();
+              }).
+              then(function (response) {
+                self.image = response;
+              })
+              .then(function(){
+                self.listOfImages = Array.from(self.shadowRoot.querySelectorAll('.thumb'));
+                self.target = self.listOfImages.length;
+                self.listOfImages.forEach(function (elem) {
 
-      self.listOfImages.forEach(function (elem) {
+                  var wait = setInterval(function () {
+                    if(elem.naturalWidth > 0) {
+                      self.onHasSize(wait,self);
+                    }
+                  }, 100);
+                });
+              }).
+              then(function(){
+                console.log(self.listOfImages);
+              })
+              .catch(function(err) {
+                console.log("Err",err);
+              });
 
-        var wait = setInterval(function () {
-          if(elem.naturalWidth > 0) {
-            self.onHasSize(wait,self);
-          }
-        }, 100);
+     
+     
+      
+      
 
+      
+
+    },
+
+    loadfullimages: function(){
+      // alert("called");
+      this.listOfImages.forEach(function(elem){
+        fetch(elem.dataset.full)
+        .then(function(response){
+          console.log(response.status);
+          return response.blob()
+        }).then(function(imageBlob){
+            elem.src=URL.createObjectURL(imageBlob);  
+        });
+        
       });
     },
 
@@ -187,7 +201,7 @@
 
     handleTap : function (evt) {
       var image = evt.target;
-      var largeSizeLink = image.dataset.full;
+      var largeSizeLink = image.dataFull;
       var smallSizeLink = image.src;
       this.fetchLargeImage(largeSizeLink,smallSizeLink);
       var largeImage = this.$.largeImg;
@@ -240,6 +254,7 @@
       overlay.style.pointerEvents = "none";
       largeImage.style.transform = this.transform;
       this.$.bkgColor.style.opacity = "0";
+      // largeImage.opacity = "0";
       setTimeout(function () {
         largeImage.src = "";
       }, 250)
