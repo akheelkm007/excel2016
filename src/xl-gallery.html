@@ -123,8 +123,6 @@
     },
 
     loadfullimages: function(){
-
-        
         loadCriteria = this.listOfImages.every(function(elem){
           if(elem.complete )
             return true;
@@ -136,21 +134,24 @@
           this.fullImagesloadStatus = true;
           this.loadfullimagesStep2();
         }
-
     },
     loadfullimagesStep2:function(){
-        var fullImage = new Image();
         self = this;
-        if(this.fullImageIndex<this.listOfImages.length){
-          fullImage.onload = function(){
-            self.listOfImages[self.fullImageIndex].src = fullImage.src;
-            self.fullImageIndex++;
+         if(this.fullImageIndex<this.listOfImages.length){
+          fetch(this.listOfImages[this.fullImageIndex].dataFull)
+          .then(function(response){
+            if(response.status === 200)
+              return response.blob();
+            else
+              console.error("Full image load error.No: "+this.fullImageIndex);
+          })
+          .then(function(imageBlob){
             console.log(self.fullImageIndex);
+            self.listOfImages[self.fullImageIndex].src  = URL.createObjectURL(imageBlob);
+            self.fullImageIndex++;
             self.loadfullimagesStep2();
-          }
-         fullImage.src = this.listOfImages[this.fullImageIndex].dataFull; 
-        };
-      
+          });
+         }
     },
     onHasSize : function (loop,self) {
       clearInterval(loop);
@@ -162,8 +163,6 @@
       st.innerHTML = "img{max-width : none;}";
       self.shadowRoot.appendChild(st);
       }
-
-
     },
 
     displayImages : function (self) {
