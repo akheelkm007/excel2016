@@ -119,6 +119,26 @@
        if (window.innerWidth < 600) {
         self.noOfImagesInRow = 2;
       }
+
+
+		window.onkeyup = function(e) {
+		   var key = e.keyCode ? e.keyCode : e.which;
+		   console.log('key', key);
+
+		   if (key == 37) {
+		   	self.goLeft();
+		   }
+
+		   if (key == 39) {
+		   	self.goRight();
+		   }
+
+
+		}
+
+
+
+
               fetch('resources/gallery.json').
               then(function (response) {
                   return response.json();

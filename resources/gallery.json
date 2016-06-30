@@ -101,5 +101,53 @@
     {
         "small-src": "../images/gallery/small/23.jpg",
         "large-src": "../images/gallery/large/23.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/24.jpg",
+        "large-src": "../images/gallery/large/24.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/25.jpg",
+        "large-src": "../images/gallery/large/25.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/26.jpg",
+        "large-src": "../images/gallery/large/27.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/28.jpg",
+        "large-src": "../images/gallery/large/28.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/29.jpg",
+        "large-src": "../images/gallery/large/29.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/30.jpg",
+        "large-src": "../images/gallery/large/30.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/31.jpg",
+        "large-src": "../images/gallery/large/31.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/32.jpg",
+        "large-src": "../images/gallery/large/32.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/33.jpg",
+        "large-src": "../images/gallery/large/33.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/34.jpg",
+        "large-src": "../images/gallery/large/34.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/35.jpg",
+        "large-src": "../images/gallery/large/35.jpg"
+    },
+    {
+        "small-src": "../images/gallery/small/36.jpg",
+        "large-src": "../images/gallery/large/36.jpg"
     }
 ]
