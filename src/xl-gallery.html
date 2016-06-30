@@ -92,6 +92,7 @@
       self.noOfImagesInRow = 3;
       self.counter = 0;
       self.fullImagesloadStatus = false;
+      self.fullImageIndex = 0;
        if (window.innerWidth < 600) {
         self.noOfImagesInRow = 2;
       }
@@ -131,26 +132,26 @@
             return false;
         });
         if(loadCriteria && !this.fullImagesloadStatus && this.noOfImagesInRow === 3){
-          console.log("Yes");
+          console.log("All thumbnails loaded");
           this.fullImagesloadStatus = true;
-          this.listOfImages.forEach(function (elem){
-            fetch(elem.dataFull)
-            .then(function(response){
-              console.log(response.status);
-              return response.blob()
-            }).then(function(imageBlob){
-                elem.src=URL.createObjectURL(imageBlob);  
-            });
-            console.log('changing');          
-          });
+          this.loadfullimagesStep2();
         }
-        // this.listOfImages.forEach(function (elem){
-        //   console.log(elem.complete);
-        // });
-        // console.log(loadCriteria);
 
     },
-
+    loadfullimagesStep2:function(){
+        var fullImage = new Image();
+        self = this;
+        if(this.fullImageIndex<this.listOfImages.length){
+          fullImage.onload = function(){
+            self.listOfImages[self.fullImageIndex].src = fullImage.src;
+            self.fullImageIndex++;
+            console.log(self.fullImageIndex);
+            self.loadfullimagesStep2();
+          }
+         fullImage.src = this.listOfImages[this.fullImageIndex].dataFull; 
+        };
+      
+    },
     onHasSize : function (loop,self) {
       clearInterval(loop);
       self.counter += 1;
