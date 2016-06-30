@@ -68,7 +68,7 @@
 
   <div class="container"> 
       <template id="galleryRow" is="dom-repeat" items="{{image}}" as="image">
-              <img class="thumb" src="{{image.small-src}}" data-full="{{image.large-src}}" on-tap="handleTap"/>
+              <img class="thumb" src="{{image.small-src}}" data-full="{{image.large-src}}" on-tap="handleTap" on-load="loadfullimages"/>
           
         </template>
   </div>
@@ -91,6 +91,7 @@
       var self = this;
       self.noOfImagesInRow = 3;
       self.counter = 0;
+      self.fullImagesloadStatus = false;
        if (window.innerWidth < 600) {
         self.noOfImagesInRow = 2;
       }
@@ -114,33 +115,40 @@
                 });
               }).
               then(function(){
-                console.log(self.listOfImages);
-              })
-              .catch(function(err) {
-                console.log("Err",err);
+                if(self.noOfImagesInRow === 3){
+                  console.log('entered');
+                }
               });
-
-     
-     
-      
-      
-
-      
-
     },
 
     loadfullimages: function(){
-      // alert("called");
-      this.listOfImages.forEach(function(elem){
-        fetch(elem.dataset.full)
-        .then(function(response){
-          console.log(response.status);
-          return response.blob()
-        }).then(function(imageBlob){
-            elem.src=URL.createObjectURL(imageBlob);  
-        });
+
         
-      });
+        loadCriteria = this.listOfImages.every(function(elem){
+          if(elem.complete )
+            return true;
+          else
+            return false;
+        });
+        if(loadCriteria && !this.fullImagesloadStatus && this.noOfImagesInRow === 3){
+          console.log("Yes");
+          this.fullImagesloadStatus = true;
+          this.listOfImages.forEach(function (elem){
+            fetch(elem.dataFull)
+            .then(function(response){
+              console.log(response.status);
+              return response.blob()
+            }).then(function(imageBlob){
+                elem.src=URL.createObjectURL(imageBlob);  
+            });
+            console.log('changing');          
+          });
+        }
+        // this.listOfImages.forEach(function (elem){
+        //   console.log(elem.complete);
+        // });
+        // console.log(loadCriteria);
+
     },
 
     onHasSize : function (loop,self) {
