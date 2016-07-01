@@ -65,6 +65,11 @@
       padding: 32px;
       will-change: transform;
     }
+	@media( max-width: 600px) {
+		#largeImg {
+			padding: 0;
+		}
+	}
 
     #bkgColor {
       position: absolute;
@@ -279,12 +284,20 @@
       var lhs = overlayDim.width;
       var rhs = (initialPos.width/initialPos.height)*overlayDim.height;
 
+      var pValue = "90%";
+
+      if (window.innerWidth < 600) {
+      	pValue = "100%";
+      }
+
+
+
       if( lhs > rhs ) {
-        largeImage.style.height = "90%";
+        largeImage.style.height = pValue;
       }
 
       else {
-        largeImage.style.width = "90%";
+        largeImage.style.width = pValue;
       }
 
       var finalPos = largeImage.getBoundingClientRect();
@@ -305,8 +318,11 @@
       largeImage.style.transform = "none";
       this.$.bkgColor.style.opacity = "1";
       overlay.style.pointerEvents = "auto";
-      leftArrow.style.display = "block";
-      rightArrow.style.display = "block";
+
+      if (window.innerWidth > 600) {
+	    leftArrow.style.display = "block";
+    	rightArrow.style.display = "block";
+      }
 
     },
 
