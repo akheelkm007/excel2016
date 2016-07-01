@@ -228,8 +228,8 @@
 
           if (self.listOfImages[i+j]) {
 	          naturalDimensions.push({
-	            w : self.listOfImages[i+j].naturalWidth,
-	            h : self.listOfImages[i+j].naturalHeight
+              w : self.listOfImages[i+j].naturalWidth != 0 ? self.listOfImages[i+j].naturalWidth : 0,
+              h : self.listOfImages[i+j].naturalHeight != 0 ? self.listOfImages[i+j].naturalHeight : 1
 	          });                    	
           }
 
