@@ -1,153 +1,157 @@
 [
     {
-    	"small-src": "../images/gallery/small/0.jpg",
-        "large-src": "../images/gallery/large/0.jpg"
+    	"small-src": "images/gallery/small/0.jpg",
+        "large-src": "images/gallery/large/0.jpg"
     },
 
     {
-    	"small-src": "../images/gallery/small/1.jpg",
-    	"large-src": "../images/gallery/large/1.jpg"
+    	"small-src": "images/gallery/small/1.jpg",
+    	"large-src": "images/gallery/large/1.jpg"
     },
 
     {
-    	"small-src": "../images/gallery/small/2.jpg",
-        "large-src": "../images/gallery/large/2.jpg"
+    	"small-src": "images/gallery/small/2.jpg",
+        "large-src": "images/gallery/large/2.jpg"
     },
 
     {
-        "small-src": "../images/gallery/small/3.jpg",
-        "large-src": "../images/gallery/large/3.jpg"
+        "small-src": "images/gallery/small/3.jpg",
+        "large-src": "images/gallery/large/3.jpg"
     },
 
     {
-        "small-src": "../images/gallery/small/4.jpg",
-        "large-src": "../images/gallery/large/4.jpg"
-    },
-
-     {
-        "small-src": "../images/gallery/small/5.jpg",
-        "large-src": "../images/gallery/large/5.jpg"
+        "small-src": "images/gallery/small/4.jpg",
+        "large-src": "images/gallery/large/4.jpg"
     },
 
     {
-        "small-src": "../images/gallery/small/6.jpg",
-        "large-src": "../images/gallery/large/6.jpg"
+        "small-src": "images/gallery/small/5.jpg",
+        "large-src": "images/gallery/large/5.jpg"
     },
 
     {
-        "small-src": "../images/gallery/small/7.jpg",
-        "large-src": "../images/gallery/large/7.jpg"
+        "small-src": "images/gallery/small/6.jpg",
+        "large-src": "images/gallery/large/6.jpg"
+    },
+
+    {
+        "small-src": "images/gallery/small/7.jpg",
+        "large-src": "images/gallery/large/7.jpg"
     },
     {
-        "small-src": "../images/gallery/small/8.jpg",
-        "large-src": "../images/gallery/large/8.jpg"
+        "small-src": "images/gallery/small/8.jpg",
+        "large-src": "images/gallery/large/8.jpg"
     },
     {
-        "small-src": "../images/gallery/small/9.jpg",
-        "large-src": "../images/gallery/large/9.jpg"
+        "small-src": "images/gallery/small/9.jpg",
+        "large-src": "images/gallery/large/9.jpg"
     },
     {
-        "small-src": "../images/gallery/small/10.jpg",
-        "large-src": "../images/gallery/large/10.jpg"
+        "small-src": "images/gallery/small/10.jpg",
+        "large-src": "images/gallery/large/10.jpg"
     },
     {
-        "small-src": "../images/gallery/small/11.jpg",
-        "large-src": "../images/gallery/large/11.jpg"
+        "small-src": "images/gallery/small/11.jpg",
+        "large-src": "images/gallery/large/11.jpg"
     },
     {
-        "small-src": "../images/gallery/small/12.jpg",
-        "large-src": "../images/gallery/large/12.jpg"
+        "small-src": "images/gallery/small/12.jpg",
+        "large-src": "images/gallery/large/12.jpg"
     },
     {
-        "small-src": "../images/gallery/small/13.jpg",
-        "large-src": "../images/gallery/large/13.jpg"
+        "small-src": "images/gallery/small/13.jpg",
+        "large-src": "images/gallery/large/13.jpg"
     },
     {
-        "small-src": "../images/gallery/small/14.jpg",
-        "large-src": "../images/gallery/large/14.jpg"
+        "small-src": "images/gallery/small/14.jpg",
+        "large-src": "images/gallery/large/14.jpg"
     },
     {
-        "small-src": "../images/gallery/small/15.jpg",
-        "large-src": "../images/gallery/large/15.jpg"
+        "small-src": "images/gallery/small/15.jpg",
+        "large-src": "images/gallery/large/15.jpg"
     },
     {
-        "small-src": "../images/gallery/small/16.jpg",
-        "large-src": "../images/gallery/large/16.jpg"
+        "small-src": "images/gallery/small/16.jpg",
+        "large-src": "images/gallery/large/16.jpg"
     },
     {
-        "small-src": "../images/gallery/small/17.jpg",
-        "large-src": "../images/gallery/large/17.jpg"
+        "small-src": "images/gallery/small/17.jpg",
+        "large-src": "images/gallery/large/17.jpg"
     },
     {
-        "small-src": "../images/gallery/small/18.jpg",
-        "large-src": "../images/gallery/large/18.jpg"
+        "small-src": "images/gallery/small/18.jpg",
+        "large-src": "images/gallery/large/18.jpg"
     },
     {
-        "small-src": "../images/gallery/small/19.jpg",
-        "large-src": "../images/gallery/large/19.jpg"
+        "small-src": "images/gallery/small/19.jpg",
+        "large-src": "images/gallery/large/19.jpg"
     },
     {
-        "small-src": "../images/gallery/small/20.jpg",
-        "large-src": "../images/gallery/large/20.jpg"
+        "small-src": "images/gallery/small/20.jpg",
+        "large-src": "images/gallery/large/20.jpg"
     },
     {
-        "small-src": "../images/gallery/small/21.jpg",
-        "large-src": "../images/gallery/large/21.jpg"
+        "small-src": "images/gallery/small/21.jpg",
+        "large-src": "images/gallery/large/21.jpg"
     },
     {
-        "small-src": "../images/gallery/small/22.jpg",
-        "large-src": "../images/gallery/large/22.jpg"
+        "small-src": "images/gallery/small/22.jpg",
+        "large-src": "images/gallery/large/22.jpg"
     },
     {
-        "small-src": "../images/gallery/small/23.jpg",
-        "large-src": "../images/gallery/large/23.jpg"
+        "small-src": "images/gallery/small/23.jpg",
+        "large-src": "images/gallery/large/23.jpg"
     },
     {
-        "small-src": "../images/gallery/small/24.jpg",
-        "large-src": "../images/gallery/large/24.jpg"
+        "small-src": "images/gallery/small/24.jpg",
+        "large-src": "images/gallery/large/24.jpg"
     },
     {
-        "small-src": "../images/gallery/small/25.jpg",
-        "large-src": "../images/gallery/large/25.jpg"
+        "small-src": "images/gallery/small/25.jpg",
+        "large-src": "images/gallery/large/25.jpg"
     },
     {
-        "small-src": "../images/gallery/small/26.jpg",
-        "large-src": "../images/gallery/large/27.jpg"
+        "small-src": "images/gallery/small/26.jpg",
+        "large-src": "images/gallery/large/26.jpg"
     },
     {
-        "small-src": "../images/gallery/small/28.jpg",
-        "large-src": "../images/gallery/large/28.jpg"
+        "small-src": "images/gallery/small/27.jpg",
+        "large-src": "images/gallery/large/27.jpg"
     },
     {
-        "small-src": "../images/gallery/small/29.jpg",
-        "large-src": "../images/gallery/large/29.jpg"
+        "small-src": "images/gallery/small/28.jpg",
+        "large-src": "images/gallery/large/28.jpg"
     },
     {
-        "small-src": "../images/gallery/small/30.jpg",
-        "large-src": "../images/gallery/large/30.jpg"
+        "small-src": "images/gallery/small/29.jpg",
+        "large-src": "images/gallery/large/29.jpg"
     },
     {
-        "small-src": "../images/gallery/small/31.jpg",
-        "large-src": "../images/gallery/large/31.jpg"
+        "small-src": "images/gallery/small/30.jpg",
+        "large-src": "images/gallery/large/30.jpg"
     },
     {
-        "small-src": "../images/gallery/small/32.jpg",
-        "large-src": "../images/gallery/large/32.jpg"
+        "small-src": "images/gallery/small/31.jpg",
+        "large-src": "images/gallery/large/31.jpg"
     },
     {
-        "small-src": "../images/gallery/small/33.jpg",
-        "large-src": "../images/gallery/large/33.jpg"
+        "small-src": "images/gallery/small/32.jpg",
+        "large-src": "images/gallery/large/32.jpg"
     },
     {
-        "small-src": "../images/gallery/small/34.jpg",
-        "large-src": "../images/gallery/large/34.jpg"
+        "small-src": "images/gallery/small/33.jpg",
+        "large-src": "images/gallery/large/33.jpg"
     },
     {
-        "small-src": "../images/gallery/small/35.jpg",
-        "large-src": "../images/gallery/large/35.jpg"
+        "small-src": "images/gallery/small/34.jpg",
+        "large-src": "images/gallery/large/34.jpg"
     },
     {
-        "small-src": "../images/gallery/small/36.jpg",
-        "large-src": "../images/gallery/large/36.jpg"
+        "small-src": "images/gallery/small/35.jpg",
+        "large-src": "images/gallery/large/35.jpg"
+    },
+    {
+        "small-src": "images/gallery/small/36.jpg",
+        "large-src": "images/gallery/large/36.jpg"
     }
 ]
