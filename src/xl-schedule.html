@@ -4,16 +4,14 @@
 <link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu-light.html">
 <link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-radio-group/paper-radio-group.html">
 <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
-<link rel="import" href="../bower_components/iron-overlay-behavior/iron-overlay-behavior.html">
-<link rel="import" href="../bower_components/iron-overlay-behavior/iron-overlay-backdrop.html">
-<link rel="import" href="../bower_components/iron-overlay-behavior/iron-overlay-manager.html">
-<!-- <link rel="import" href="../bower_components/paper-radio-button/paper-radio-button.html"> -->
 
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
@@ -27,7 +25,7 @@
 
     :host{
       text-align: center;
-      display: flex;
+      display: static;
     }
     paper-header-panel h1 {
         text-align: center;
@@ -62,13 +60,11 @@
         margin-bottom: 24px;
         background-color: #fff;
         color: #757575;
-        
         width: 70%;
     }
 
     div.card>div.header-panel-container{
       height:210px;
-      z-index:59;
       position: relative;
     }
 
@@ -81,38 +77,21 @@
       margin: auto;
     }
 
-    .filter-button{
-      right:0;
-      position:absolute;
-      display: none;
-    }
-
-    @media (max-width: 1300px){
-      .filter-button{
-        position: relative;
-        float: right;
-        font-size: 14px;
-      }
-    }
-
     .newfilter{
-      position: absolute;
-      margin: auto;
+      position: fixed;
       width: 60%;
-      top: 50%;
+      top: 100%;
       z-index: 99;
       display: block;
       left:50%;
-      transform: translateY(-50%)translateX(-50%);
-      transition: transform 0.5s,top 0.5s,opacity 0.5s;
-      display: flex;
-      opacity: 1;
+      transform: translate(-50%,100%);
+      transition: transform 0.5s,top 0.5s;
+      background-color: white;
     }
 
-    .toggletrial{
-      top: 0;
-      transform: translateY(-100%)translateX(-50%);
-      opacity: 0;
+    .toggle{
+      top: 50%;
+      transform: translate(-50%,-50%);
     }
 
     .revert-buttons{
@@ -169,10 +148,11 @@
 
     .fab-filter{
       position: fixed;
-      top: 10px;
       z-index: 999;
-      right: 20px;
-
+      right: 10%;
+      bottom:20px;
+      transition: background 0.5s;
+      background-color: #006064; 
     }
     .hide{
       display: none !important;
@@ -186,6 +166,26 @@
       margin: auto;
       font-size: 27px;
       display: block;
+    }
+
+    .fab-bg{
+      background-color: #ff3838;
+    }
+
+    .filter-header{
+      height: 80px;
+      background-color: #006064;
+      display: flex;
+      text-align: left;
+    }
+    .filter-header>span{
+      margin:auto;
+      color: white;
+      font-size: 27px;
+    }
+
+    .filter-group{
+      display: flex;
     }
 
     @media (min-width: 700px){
@@ -206,6 +206,10 @@
     @media (max-width: 800px){
       .card{
         width: 80%;
+      }
+
+      .fab-filter{
+        right: 12%;
       }
 
       div.card>div.header-panel-container{
@@ -238,16 +242,24 @@
         font-size: 20px;
       }
 
+      .fab-filter{
+        right: 5%;
+      }
+
       .event-date{
         font-size: x-small;
       }
       .card{
-        margin:10px;
-        width: 100%;
+        width: 95%;
       }
       .newfilter{
         display: block;
         margin: 0;
+        width: 85%;
+      }
+
+      .filter-group{
+        display: block;
       }
 
       paper-item paper-radio-button{
@@ -286,20 +298,27 @@
     }
 
     #onlineBox,#offlineBox{
-      --paper-checkbox-checked-color : #00BCD4;
+      --paper-checkbox-checked-color : #006064;
     }
     paper-radio-group>paper-radio-button{
-      --paper-radio-button-checked-color: #00BCD4;
+      --paper-radio-button-checked-color: #006064;
+    }
+    paper-fab{
+      --background: #00BCD4; 
     }
   </style>
-    <!-- <div class="fab-filter"> -->
-      <paper-fab class="fab-filter" style="-webkit-transform: translateZ(0);" id="filterButton" active="{{stateChange}}" toggles icon="{{icon}}" ></paper-fab>
-    <!-- </div> -->
-    <simple-overlay >
-    <div class="card newfilter toggletrial" id="filterList">
+    <div>
+    <paper-fab class="fab-filter" id="filterButton" icon="{{icon}}" ></paper-fab>
+    <paper-material class="newfilter" id="filterList" elevation="5">
+      <div class="filter-header">
+        <span>Filters</span>
+      </div>
+      <div class="filter-group">
       <paper-listbox class="department-filter">
-        <paper-item>
-          <label id="departments"><h4>Departments:</h4></label>
+        <paper-item style="color:black">
+          <paper-item-body>
+            <div id="departments">Departments:</div>
+          </paper-item-body>
         </paper-item>
         <paper-item>
           <paper-radio-group aria-labelledby="departments" attr-for-selected="value" selected="{{selectedFilter}}" id="departmentFilter" >
@@ -310,19 +329,23 @@
         </paper-item>
       </paper-listbox>
       <paper-listbox class="type-filter">
-        <paper-item><h4>Event Type:</h4></paper-item>
+        <paper-item>
+          <paper-item-body>
+            <div>Event Type:</div>
+          </paper-item-body>
+        </paper-item>
         <paper-item><paper-checkbox value="online" id="onlineBox" checked>Online Events</paper-checkbox></paper-item>
         <paper-item><paper-checkbox value="offline" id="offlineBox" checked>Offline Events</paper-checkbox></paper-item>
       </paper-listbox>
+      </div>
       <paper-button class="revert-buttons revert" noink id="resetButton">Revert</paper-button>
-    </div>
-    </simple-overlay>
+      
+    </paper-material>
     <div class="card" id='card'>      
       <div class="header-panel-container">
         <paper-header-panel mode="standard">
           <div class="paper-header titlebar">
             <h1> Excel Schedule </h1>
-            <paper-button active="{{stateChange}}" toggles  class="filter-button" noink>Filter<iron-icon icon="icons:{{icon}}"></iron-icon></paper-button>
             <div class="container" style="display:flex;">
               <paper-tabs selected="{{selectedDay}}" id="dayFilter">
                 <paper-tab>All Days</paper-tab>
@@ -353,9 +376,9 @@
         <span>No events!</span>     
       </paper-card>
     </div>
+  </div>
+  </div>
   </template>
-
-
   <script>;
 
     Polymer({
@@ -363,7 +386,7 @@
 
       listeners : {
         'dayFilter.click' : 'refreshFilter',
-        'resetButton.tap' : 'resetFilter',
+        'resetButton.tap' : 'toggleFilter',
         'departmentFilter.click' : 'refreshFilter',
         'onlineBox.tap' : 'refreshFilter',
         'offlineBox.tap' : 'refreshFilter',
@@ -436,20 +459,11 @@
      },
 
      toggleFilter : function(){
-        if(this.stateChange){
-          this.$.filterList.classList.remove('toggletrial');
-          this.icon = "close";
-        }
-        else{
-          this.$.filterList.classList.add('toggletrial');
-          this.icon = "filter-list";
-        }
+        this.$.filterList.classList.toggle('toggle');
+        this.$.filterButton.classList.toggle('fab-bg');
+        this.icon = (this.stateChange) ? "filter-list" : "close";
+        this.stateChange = !this.stateChange;       
      },
-     closeDrawer : function(){
-        this.stateChange = false;
-        this.toggleFilter();
-     },
-
      resetFilter : function(){
         this.selectedFilter = "all";
         this.$.onlineBox.checked = true;
