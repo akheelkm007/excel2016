@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 
 <dom-module id="xl-gallery">
 	<template>
@@ -64,6 +65,11 @@
       padding: 32px;
       will-change: transform;
     }
+	@media( max-width: 600px) {
+		#largeImg {
+			padding: 0;
+		}
+	}
 
     #bkgColor {
       position: absolute;
@@ -76,19 +82,28 @@
       opacity: 0;
 
     }
+    paper-icon-button {
+    	display: none;
+    	--paper-icon-button-ink-color : white;
+    }
+
+    #largeImg {
+      transition: all 0.25s cubic-bezier(.25,.8,.25,1);    	
+    }
 
   </style>
   <h1>Gallery</h1>
   <div class="container"> 
       <template id="galleryRow" is="dom-repeat" items="{{image}}" as="image">
               <img class="thumb" src="{{image.small-src}}" data-full="{{image.large-src}}" on-tap="handleTap" on-load="loadfullimages"/>
-          
-        </template>
+      </template>
   </div>
 
   <div id="overlay">
     <div id="bkgColor"></div>
+	<paper-icon-button icon="arrow-back" style="color:white;" id="arrowL" on-tap="goLeft"></paper-icon-button>
     <img src="" id="largeImg" on-tap="closeImage">
+	<paper-icon-button icon="arrow-forward" style="color:white;" id="arrowR" on-tap="goRight"></paper-icon-button>
   </div>
 
 
@@ -109,6 +124,26 @@
        if (window.innerWidth < 600) {
         self.noOfImagesInRow = 2;
       }
+
+
+		window.onkeyup = function(e) {
+		   var key = e.keyCode ? e.keyCode : e.which;
+		   console.log('key', key);
+
+		   if (key == 37) {
+		   	self.goLeft();
+		   }
+
+		   if (key == 39) {
+		   	self.goRight();
+		   }
+
+
+		}
+
+
+
+
               fetch('resources/gallery.json').
               then(function (response) {
                   return response.json();
@@ -193,8 +228,8 @@
 
           if (self.listOfImages[i+j]) {
 	          naturalDimensions.push({
-	            w : self.listOfImages[i+j].naturalWidth,
-	            h : self.listOfImages[i+j].naturalHeight
+              w : self.listOfImages[i+j].naturalWidth != 0 ? self.listOfImages[i+j].naturalWidth : 0,
+              h : self.listOfImages[i+j].naturalHeight != 0 ? self.listOfImages[i+j].naturalHeight : 1
 	          });                    	
           }
 
@@ -229,8 +264,11 @@
 
     handleTap : function (evt) {
       var image = evt.target;
+      this.lastSelected = image;
       var largeSizeLink = image.dataFull;
       var smallSizeLink = image.src;
+      var leftArrow = this.$.arrowL;
+      var rightArrow = this.$.arrowR;
       this.fetchLargeImage(largeSizeLink,smallSizeLink);
       var largeImage = this.$.largeImg;
       largeImage.style.transition = "none";
@@ -246,12 +284,20 @@
       var lhs = overlayDim.width;
       var rhs = (initialPos.width/initialPos.height)*overlayDim.height;
 
+      var pValue = "90%";
+
+      if (window.innerWidth < 600) {
+      	pValue = "100%";
+      }
+
+
+
       if( lhs > rhs ) {
-        largeImage.style.height = "90%";
+        largeImage.style.height = pValue;
       }
 
       else {
-        largeImage.style.width = "90%";
+        largeImage.style.width = pValue;
       }
 
       var finalPos = largeImage.getBoundingClientRect();
@@ -273,16 +319,23 @@
       this.$.bkgColor.style.opacity = "1";
       overlay.style.pointerEvents = "auto";
 
+      if (window.innerWidth > 600) {
+	    leftArrow.style.display = "block";
+    	rightArrow.style.display = "block";
+      }
 
     },
 
     closeImage : function () {
+      var leftArrow = this.$.arrowL;
+      var rightArrow = this.$.arrowR;
       var overlay = this.$.overlay;
       var largeImage = this.$.largeImg;
       overlay.style.pointerEvents = "none";
       largeImage.style.transform = this.transform;
       this.$.bkgColor.style.opacity = "0";
-      // largeImage.opacity = "0";
+      leftArrow.style.display = "none";
+      rightArrow.style.display = "none";
       setTimeout(function () {
         largeImage.src = "";
       }, 250)
@@ -299,7 +352,50 @@
 				largeImage.src = URL.createObjectURL(imageBlob);				
 			}
 		});
-    }
+    },
+
+    goLeft : function () {
+	    var largeImage = this.$.largeImg;
+    	var currentImage = this.lastSelected;
+    	var nextImage = currentImage.previousElementSibling;
+    	this.lastSelected = nextImage;
+	    largeImage.src = nextImage.src;
+        var largeSizeLink = nextImage.dataFull;
+        var smallSizeLink = nextImage.src;
+        this.fetchLargeImage(largeSizeLink,smallSizeLink);
+
+        var initialPos = largeImage.getBoundingClientRect();
+        var finalPos = this.lastSelected.getBoundingClientRect();
+        this.setTransform(finalPos,initialPos);
+
+    },
+
+    goRight : function () {
+	    var largeImage = this.$.largeImg;
+    	var currentImage = this.lastSelected;
+    	var nextImage = currentImage.nextElementSibling;
+    	this.lastSelected = nextImage;
+	    largeImage.src = nextImage.src;
+        var largeSizeLink = nextImage.dataFull;
+        var smallSizeLink = nextImage.src;
+        this.fetchLargeImage(largeSizeLink,smallSizeLink);
+
+        var initialPos = largeImage.getBoundingClientRect();
+        var finalPos = this.lastSelected.getBoundingClientRect();
+        this.setTransform(finalPos,initialPos);
+    },
+
+    setTransform : function (initialPos,finalPos) {
+      var tx = (initialPos.left - finalPos.left) + "px";
+      var ty = (initialPos.top - finalPos.top) + "px";
+      var translate = "translate("+tx+","+ty+")";
+
+      var sx = initialPos.width/finalPos.width;
+      var sy = initialPos.height/finalPos.height;
+      var scale = "scale("+sx+","+sy+")";
+
+      var transform = translate+" "+scale;
+      this.transform = transform;    }
 
   });
 </script>
