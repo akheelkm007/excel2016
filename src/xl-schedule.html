@@ -1,19 +1,49 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
+<link rel="import" href="../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu-light.html">
+<link rel="import" href="../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
 <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <dom-module id="xl-schedule">
   <template>
 
   <style>
-          h1 {
+    :root{
+      width: 1920px;
+      height: 1080px;
+    }
+
+    :host{
+      /*text-align: center;*/
+      /*display: inline-block;*/
+      display: block;
+      /*visibility: visible;*/
+      /*float: right;*/
+
+    }
+    paper-header-panel h1 {
         text-align: center;
         font-weight: 400;
         font-size: 34px;
+        color: white;
       }
 
       @media( min-width: 980px) {
-        h1 {
+      paper-header-panel  h1 {
           font-size: 56px;
         }
       }
@@ -21,54 +51,369 @@
       paper-tabs {
         background-color: #00BCD4;
         color: white;
+        flex-grow: 1;
+        margin: auto;
       }
 
       .container {
         width: 100%;
         max-width: 980px;
         margin: auto;
+        display: flex;
+      }
+    .card {
+        margin: auto;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        background-color: #fff;
+        color: #757575;
+        width: 70%;
+        display: block;
+    }
+
+    div.card>div.header-panel-container{
+      height:210px;
+      position: relative;
+    }
+
+    .titlebar{
+      background-color: #00BCD4;
+    }
+
+    paper-card.event>div{
+      transition: transform 1s;
+      margin: auto;
+    }
+
+    .newfilter{
+      position: fixed;
+      width: 60%;
+      top: 100%;
+      z-index: 99;
+      display: block;
+      left:50%;
+      transform: translate(-50%,100%);
+      transition: transform 0.5s,top 0.5s;
+      background-color: white;
+    }
+
+    .toggle{
+      top: 50%;
+      transform: translate(-50%,-50%);
+    }
+
+    .revert-buttons{
+      margin: auto;
+      margin-bottom: 0;
+      margin-right: 0;
+      float: right;
+      flex-grow: 1;
+    }
+
+    paper-radio-button{
+      display: flex;
+      text-align: left;
+    }
+
+    .department-filter{
+      flex-grow: 6;
+    }
+    .type-filter{
+      flex-grow: 6;
+    }
+    .revert{
+      color: #ff3838;
+    }
+
+    paper-card.event div.event-desc{
+      width: 50%;
+      text-align: left;
+    }
+
+    .event-desc>span{
+      color: black;
+      font-size: 27px;
+      margin: 0;
+    }
+
+    .event-image{
+      width: 20%;
+      text-align: right;
+      padding-right: 20px;
+    }
+    .event-image img{
+      border-radius: 100%;
+      width: 100px; 
+      height: 100px;
+      vertical-align: middle;
+    }
+
+    paper-card.event div.event-date{
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .fab-filter{
+      position: absolute;
+      z-index: 999;
+      transition: background 0.5s;
+      background-color: #4285f4;
+      right: 0;
+      color: white;
+      background-color: transparent;
+      margin:0;
+    }
+    .hide{
+      display: none !important;
+    }
+
+    .result404{
+      width: 100%;
+    }
+
+    .result404 span{
+      margin: auto;
+      font-size: 27px;
+      display: block;
+    }
+
+    .fab-bg{
+      background-color: #ff3838;
+    }
+
+    .filter-header{
+      height: 80px;
+      background-color: #006064;
+      display: flex;
+      text-align: left;
+    }
+    .filter-header>span{
+      margin:auto;
+      color: white;
+      font-size: 27px;
+    }
+
+    .filter-group{
+      display: flex;
+    }
+
+    @media (min-width: 700px){
+      paper-card.event div.event-desc{
+        margin-top: 0px;
+      }
+      paper-card.event div.event-detail{
+        font-size: 22px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+      }
+      paper-card.event div.event-date{
+        font-size: large;
+      }
+    }
+
+    @media (max-width: 800px){
+      .card{
+        width: 80%;
       }
 
+      .filter-header{
+        height: 60px;
+      }
+
+      .filter-header>span{
+        font-size: 23px;
+      }
+
+      .fab-filter{
+        font-size: 15px;
+      }
+
+      div.card>div.header-panel-container{
+        height: 150px;
+      }
+      .toggletrial{
+        opacity: 0;
+      }
+      .event-date{
+        font-size: medium;
+      }
+      .event-desc>span {
+        font-size: 27px;
+      }
+    }
+
+    @media (max-width: 700px){
+      .event-image img{
+        border-radius: 100%;
+        width: 50px; 
+        height: 50px;
+        vertical-align: middle;
+      }
+      .event-image{
+        padding-right: 0;
+        text-align: center;
+      }
+
+      .result404 span,.event-desc>span{
+        font-size: 20px;
+      }
+
+      .fab-filter{
+        font-size: 10px;
+      }
+
+      .event-date{
+        font-size: x-small;
+      }
+      .card{
+        width: 95%;
+      }
+      .newfilter{
+        display: block;
+        margin: 0;
+        width: 85%;
+      }
+
+      .filter-group{
+        display: block;
+      }
+
+      paper-item paper-radio-button{
+        display: block;
+        margin: 0;
+        padding-top: 0 !important;
+        font-size: 15px !important;
+      }
+      h4{
+        margin: 0;
+      }
+      .department-filter{
+        padding: 0;
+      }
+      .type-filter{
+        display: flex ;
+        font-size: 15px;
+        padding: 0;
+      }
+      .revert{
+        font-size: 15px;
+      }
+    }
+    
+>>>>>>> schedule
   </style>
+  <style is="custom-style" >
+    paper-card.event{
+      @apply(--layout-horizontal);
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #b3b3b3;
+    }
+    paper-item{
+      --paper-item-selected-weight: normal;
+    }
 
-    <h1> Excel Schedule </h1>
-
-    <div class="container">
-      <paper-tabs selected="0">
-        <paper-tab>All Days</paper-tab>
-        <paper-tab>Day 1</paper-tab>
-        <paper-tab>Day 2</paper-tab>
-        <paper-tab>Day 3</paper-tab>
-        <paper-tab>Day 4</paper-tab>
-      </paper-tabs>
-      <div>
-
-
-        <paper-toolbar>
-        <div>Filter :</div>  
-          <select autofocus value="{{department::input}}" on-change="refreshFilter">
-            <option value="all" selected>All Departments</option>
-            <option value="cs">Computer Science</option>
-            <option value="ec">Electronics and Communication</option>
-          </select>
-          &nbspEvents :
-            <input type="checkbox" value="online"  checked id="onlineBox" on-change="refreshFilter"> <div>Online Events</div>
-            <input type="checkbox" value="offline" checked id="offlineBox" on-change="refreshFilter"><div>Offline Events</div>
-        </paper-toolbar>
-
+    #onlineBox,#offlineBox{
+      --paper-checkbox-checked-color : #006064;
+    }
+    paper-radio-group>paper-radio-button{
+      --paper-radio-button-checked-color: #006064;
+    }
+    paper-fab{
+      --background: #4285f4; 
+    }
+  </style>
+  <div>
+    
+  
+    <paper-material class="newfilter" id="filterList" elevation="5">
+      <div class="filter-header">
+        <span>Filters</span>
+      </div>
+      <div class="filter-group">
+      <paper-listbox class="department-filter">
+        <paper-item style="color:black">
+          <paper-item-body>
+            <div id="departments">Departments:</div>
+          </paper-item-body>
+        </paper-item>
+        <paper-item>
+          <paper-radio-group aria-labelledby="departments" attr-for-selected="value" selected="{{selectedFilter}}" id="departmentFilter" >
+            <paper-radio-button value="all">All Departments</paper-radio-button>
+            <paper-radio-button value="cs">Computer Science</paper-radio-button>
+            <paper-radio-button value="ec">Electronics and Communication</paper-radio-button>
+          </paper-radio-group>
+        </paper-item>
+      </paper-listbox>
+      <paper-listbox class="type-filter">
+        <paper-item>
+          <paper-item-body>
+            <div>Event Type:</div>
+          </paper-item-body>
+        </paper-item>
+        <paper-item><paper-checkbox value="online" id="onlineBox" checked>Online Events</paper-checkbox></paper-item>
+        <paper-item><paper-checkbox value="offline" id="offlineBox" checked>Offline Events</paper-checkbox></paper-item>
+      </paper-listbox>
+      </div>
+      <paper-button class="revert-buttons revert" noink id="resetButton">Revert</paper-button>
+      
+    </paper-material>
+    <div class="card" id='card'>
+      <div class="header-panel-container">
+        <paper-button class="fab-filter" id="filterButton">
+          <iron-icon icon="{{icon}}"></iron-icon>
+        </paper-button> 
+        <paper-header-panel mode="standard">
+          <div class="paper-header titlebar">
+            <h1> Excel Schedule </h1>
+            <div class="container" style="display:flex;">
+              <paper-tabs selected="{{selectedDay}}" id="dayFilter">
+                <paper-tab>All Days</paper-tab>
+                <paper-tab>Day 1</paper-tab>
+                <paper-tab>Day 2</paper-tab>
+                <paper-tab>Day 3</paper-tab>
+                <paper-tab>Day 4</paper-tab>
+              </paper-tabs>
+            </div>
           </div>
+        </paper-header-panel>
+      </div>
+      <div>
       <template id="scheduleList" is="dom-repeat" items="{{schedule}}" filter="computeFilter">
-          <div># <span>{{index}}</span></div>
-          <div>Event name: <span>{{item.name}}</span></div>
-          <div>Date: <span>{{item.date}}</span></div>
-      </template>      
+          <paper-card class="event">
+            <div class="event-image"><img src="{{item.cover}}"></div>
+            <div class="event-desc">
+                <span>{{item.name}}</span>
+                <div class="event-detail">
+                  <span>Venue</span>
+                  <span>9am</span>
+                </div>
+            </div>
+            <div class="event-date"><span>{{item.date}}</span></div>              
+          </paper-card>
+      </template>
+      <paper-card class="result404 hide" id="C404">
+        <span>No events!</span>     
+      </paper-card>
     </div>
+  </div>
+  </div>
   </template>
-
   <script>
 
     Polymer({
       is: 'xl-schedule',
+
+      listeners : {
+        'dayFilter.click' : 'refreshFilter',
+        'resetButton.tap' : 'toggleFilter',
+        'departmentFilter.click' : 'refreshFilter',
+        'onlineBox.tap' : 'refreshFilter',
+        'offlineBox.tap' : 'refreshFilter',
+        'filterButton.click' : 'toggleFilter',
+      },
+
       ready: function() {
 
               var _thisPage = this;
@@ -83,36 +428,75 @@
               .catch(function(err) {
                 console.log("err",err);
               });
-
+              this.selectedFilter = "all";
+              this.selectedDay = "0";
+              this.icon = "filter-list";
+              this.nonEmpty = false;
      },
+
      computeFilter: function(item){
               var _self = this;
-              var _department = _self.department;
+              var _department = _self.selectedFilter;
               var _scheduleItem = item;
+              var _day;
+              if(this.selectedDay == "0")
+                _day = item.day;
+              else
+                _day = this.selectedDay;
 
               //Check if online and offline checkboxes are ticked
               var onlineState = (_self.$.onlineBox.checked) ? "online" : "not online";
               var offlineState = (_self.$.offlineBox.checked) ? "offline" : "not offline";
-
               //if event type (online or offline) does not match either of the checked boxes, return false
+
               if (!(_scheduleItem.type === onlineState || _scheduleItem.type === offlineState)) {
                 return false;
               }
 
               //if no or all department(s) specified, return true
-              if(!_department || _department === 'all'){
-                return true;
+              if(!_department || _department === "all"){
+                if(_day == item.day){
+                  this.nonEmpty=true;
+                  return true;
+                }
+                return false;
               }
 
               // check if department specified is same as data
-              return _scheduleItem.department === _department;
-
-
+              if(_scheduleItem.department === _department && _day == item.day){
+                this.nonEmpty=true;
+                return true;
+              }
+              return false;
 
      },
 
      refreshFilter : function () {
+        this.nonEmpty = false;
+        this.hideMessage();
         this.$.scheduleList.render();
+        if(this.nonEmpty==false)
+          this.noResults();
+     },
+
+     toggleFilter : function(){
+        this.$.filterList.classList.toggle('toggle');
+        this.icon = (this.stateChange) ? "filter-list" : "close";
+        this.stateChange = !this.stateChange;       
+     },
+     resetFilter : function(){
+        this.selectedFilter = "all";
+        this.$.onlineBox.checked = true;
+        this.$.offlineBox.checked = true;
+        this.refreshFilter();
+        this.closeDrawer();
+     },
+     noResults : function(){
+        this.$.C404.classList.remove("hide");
+     },
+
+     hideMessage : function(){
+        this.$.C404.classList.add("hide");
      }
     });
   </script>
