@@ -20,12 +20,17 @@
   <template>
   <style >
     :root{
-      min-height: 100%;
+      width: 1920px;
+      height: 1080px;
     }
 
     :host{
-      text-align: center;
+      /*text-align: center;*/
       /*display: inline-block;*/
+      display: block;
+      /*visibility: visible;*/
+      /*float: right;*/
+
     }
     paper-header-panel h1 {
         text-align: center;
@@ -60,6 +65,7 @@
         background-color: #fff;
         color: #757575;
         width: 70%;
+        display: block;
     }
 
     div.card>div.header-panel-container{
@@ -145,12 +151,14 @@
     }
 
     .fab-filter{
-      position: fixed;
+      position: absolute;
       z-index: 999;
-      right: 10%;
-      bottom:20px;
       transition: background 0.5s;
-      background-color: #4285f4; 
+      background-color: #4285f4;
+      right: 0;
+      color: white;
+      background-color: transparent;
+      margin:0;
     }
     .hide{
       display: none !important;
@@ -215,7 +223,7 @@
       }
 
       .fab-filter{
-        right: 12%;
+        font-size: 15px;
       }
 
       div.card>div.header-panel-container{
@@ -249,7 +257,7 @@
       }
 
       .fab-filter{
-        right: 5%;
+        font-size: 10px;
       }
 
       .event-date{
@@ -313,8 +321,9 @@
       --background: #4285f4; 
     }
   </style>
-    <div>
-    <paper-fab class="fab-filter" id="filterButton" icon="{{icon}}" ></paper-fab>
+  <div>
+    
+  
     <paper-material class="newfilter" id="filterList" elevation="5">
       <div class="filter-header">
         <span>Filters</span>
@@ -347,8 +356,11 @@
       <paper-button class="revert-buttons revert" noink id="resetButton">Revert</paper-button>
       
     </paper-material>
-    <div class="card" id='card'>      
+    <div class="card" id='card'>
       <div class="header-panel-container">
+        <paper-button class="fab-filter" id="filterButton">
+          <iron-icon icon="{{icon}}"></iron-icon>
+        </paper-button> 
         <paper-header-panel mode="standard">
           <div class="paper-header titlebar">
             <h1> Excel Schedule </h1>
@@ -466,7 +478,6 @@
 
      toggleFilter : function(){
         this.$.filterList.classList.toggle('toggle');
-        this.$.filterButton.classList.toggle('fab-bg');
         this.icon = (this.stateChange) ? "filter-list" : "close";
         this.stateChange = !this.stateChange;       
      },
