@@ -1,6 +1,15 @@
 [
     {
-    	"small-src": "images/gallery/small/0.jpg",
+        "small-src": "images/gallery/small/38.jpg",
+        "large-src": "images/gallery/large/38.jpg"
+    },
+    {
+        "small-src": "images/gallery/small/37.jpg",
+        "large-src": "images/gallery/large/37.jpg"
+    },
+
+    {
+        "small-src": "images/gallery/small/0.jpg",
         "large-src": "images/gallery/large/0.jpg"
     },
 

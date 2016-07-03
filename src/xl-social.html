@@ -1,4 +1,5 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<!-- <link rel="import" href="../bower_components/paper-button/paper-button.html"> -->
 
 <dom-module id="xl-social">
   <template>
@@ -25,7 +26,15 @@
         font-size: 17px;
       }
 
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
 
+      paper-button {
+        background-color: #4285f4;
+        color: white;
+      }
 
 
 
@@ -71,6 +80,12 @@
         background-size: cover;
       }
 
+      .btn-cntr {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+
       .img-1 {
         background-image: url('../images/social/1.JPG');
       }
@@ -95,6 +110,13 @@
         background-image: url('../images/social/6.JPG');
       }
 
+      .img-7 {
+        background-image: url('../images/social/7.JPG');
+      }
+
+      .img-8 {
+        background-image: url('../images/social/8.JPG');
+      }
 
     </style>
 
@@ -167,9 +189,26 @@
         IBeTo or “Innovations for a Better Tomorrow” is the national level pursuit, hosted by Excel for extraordinary innovative minds with ideas capable of aiding social upliftment through technology.
       </p> 
 
+      <div class="img-div img-7">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 649" class="bkg-svg" />
+      </div>
+
       <p>
-        IBeTo 2015 is the fourth edition of IBeTo which promises to be as exciting as ever and with a commitment to bring the trailblazers to the forefront and change tomorrow for the better.
+        IBeTo 2016 is the fifth edition of IBeTo which promises to be as exciting as ever and with a commitment to bring the trailblazers to the forefront and change tomorrow for the better.
       </p>
+
+      <p>IBeTo 2016 was inaugrated by Kris Gopalakrishnan, Co-Founder of Infosys.</p>
+
+      <div class="img-div img-8">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 649" class="bkg-svg" />
+      </div>
+
+      <div class="btn-cntr">
+        <a target="_blank" href="http://ibeto.excelmec.org">
+          <paper-button raised>Go to site</paper-button>                  
+        </a>
+      </div>
+
 
 
       <div class="divider"></div>
@@ -181,6 +220,11 @@
         IBeTo Junior is an initiative to encourage the imaginative science lovers, the budding engineers among school level students to pursue their creative ideas to completion. The best sixty budding entries will be favoured with technical guidance to help them through the development phase. Coming on the back of two great editions, IBeTo Junior has set a mark at a whole new level and promises to be an inspiration for the years to come.
       </p>
 
+      <div class="btn-cntr">
+        <a target="_blank" href="http://ibeto.excelmec.org/junior">
+          <paper-button raised>Go to site</paper-button>                  
+        </a>
+      </div>
 
 
     </div>
