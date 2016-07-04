@@ -26,6 +26,11 @@
     :host{
       display: block;
     }
+
+    paper-header-panel{
+      z-index: 1;
+    }
+
     paper-header-panel h1 {
         text-align: center;
         font-weight: 400;
@@ -77,20 +82,20 @@
     }
 
     .newfilter{
-      position: fixed;
+      position: absolute;
       width: 60%;
-      top: 100%;
-      z-index: 99;
+      z-index: 999;
       display: block;
       left:50%;
-      transform: translate(-50%,100%);
+      top: 0;
+      transform: translate(-50%,-200%);
       transition: transform 0.5s,top 0.5s;
       background-color: white;
     }
 
     .toggle{
-      top: 50%;
-      transform: translate(-50%,-50%);
+      top: 0%;
+      transform: translate(-50%,0%);
     }
 
     .revert-buttons{
@@ -154,12 +159,16 @@
       background-color: transparent;
       margin:0;
     }
+
     .hide{
       display: none !important;
     }
 
     .result404{
       width: 100%;
+      text-align: center;
+      padding-top: 25px;
+      padding-bottom: 25px;  
     }
 
     .result404 span{
@@ -177,6 +186,7 @@
       background-color: #006064;
       display: flex;
       text-align: left;
+      position: relative;
     }
     .filter-header>span{
       margin:auto;
@@ -186,6 +196,13 @@
 
     .filter-group{
       display: flex;
+    }
+
+    .fab-filter-close{
+      color: white;
+      right: 0;
+      position: absolute;
+      height: 100%;
     }
 
     @media (min-width: 700px){
@@ -263,7 +280,7 @@
       .newfilter{
         display: block;
         margin: 0;
-        width: 85%;
+        width: 90%;
       }
 
       .filter-group{
@@ -314,12 +331,18 @@
     }
   </style>
   <div>
-    
-  
-    <paper-material class="newfilter" id="filterList" elevation="5">
-      <div class="filter-header">
-        <span>Filters</span>
-      </div>
+    <div class="card" id='card'>
+      <div class="header-panel-container">
+        <paper-button class="fab-filter" id="filterButton">
+          <iron-icon icon="{{icon}}"></iron-icon>
+        </paper-button> 
+        <paper-material class="newfilter" id="filterList" elevation="5">
+        <div class="filter-header">
+          <span>Filters</span>
+          <paper-button class="fab-filter-close" id="filterClose" noink>
+          <iron-icon icon="close"></iron-icon>
+        </paper-button>
+        </div>
       <div class="filter-group">
       <paper-listbox class="department-filter">
         <paper-item style="color:black">
@@ -346,13 +369,7 @@
       </paper-listbox>
       </div>
       <paper-button class="revert-buttons revert" noink id="resetButton">Revert</paper-button>
-      
     </paper-material>
-    <div class="card" id='card'>
-      <div class="header-panel-container">
-        <paper-button class="fab-filter" id="filterButton">
-          <iron-icon icon="{{icon}}"></iron-icon>
-        </paper-button> 
         <paper-header-panel mode="standard">
           <div class="paper-header titlebar">
             <h1> Excel Schedule </h1>
@@ -385,7 +402,6 @@
       <paper-card class="result404 hide" id="C404">
         <span>No events!</span>     
       </paper-card>
-    </div>
   </div>
   </div>
   </template>
@@ -396,11 +412,12 @@
 
       listeners : {
         'dayFilter.click' : 'refreshFilter',
-        'resetButton.tap' : 'toggleFilter',
+        'resetButton.tap' : 'resetFilter',
         'departmentFilter.click' : 'refreshFilter',
         'onlineBox.tap' : 'refreshFilter',
         'offlineBox.tap' : 'refreshFilter',
-        'filterButton.click' : 'toggleFilter',
+        'filterButton.click' : 'showFilter',
+        'filterClose.click' : 'hideFilter',
       },
 
       ready: function() {
@@ -468,17 +485,18 @@
           this.noResults();
      },
 
-     toggleFilter : function(){
-        this.$.filterList.classList.toggle('toggle');
-        this.icon = (this.stateChange) ? "filter-list" : "close";
-        this.stateChange = !this.stateChange;       
+     showFilter : function(){
+        this.$.filterList.classList.add('toggle');
      },
+     hideFilter : function(){
+        this.$.filterList.classList.remove('toggle');
+     },
+
      resetFilter : function(){
         this.selectedFilter = "all";
         this.$.onlineBox.checked = true;
         this.$.offlineBox.checked = true;
         this.refreshFilter();
-        this.closeDrawer();
      },
      noResults : function(){
         this.$.C404.classList.remove("hide");
