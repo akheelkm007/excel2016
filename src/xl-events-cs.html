@@ -59,7 +59,7 @@
 
 	    <div class="container">
 		    <template id="domRepeat" is="dom-repeat" items="{{data}}">
-		    	<a href="/#/competitions/cs-events/{{item.link}}">
+		    	<a href="#/competitions/cs-events/{{item.link}}">
 			    	<div class="event">
 			    		{{item.name}}
 			    	</div>		    		
@@ -94,7 +94,7 @@
 
 		ready : function () {
 
-        	var ironPages = this.$.mainContent;
+      var ironPages = this.$.mainContent;
 			var _self = this;
 
 			fetch('resources/cs-events.json').
@@ -114,44 +114,38 @@
 
 
 		_loadEventData : function () {
-
 			var self = this;
-			console.log('self', self);
+    	var page = self.routeData.page;        	
+    	var descriptor = self.$.descriptor;
+    	var dom = self.$.domRepeat;
 
-        	var page = self.routeData.page;        	
-        	var descriptor = self.$.descriptor;
-        	var dom = self.$.domRepeat;
-
-        	if (!self.data) {
-        		return;
-        	}
-
+    	if (!self.data) {
+    		return;
+    	}
 
 			self.data.forEach(function (elem) {
-
 				if(elem.link == page) {
 					descriptor.name = elem.name;
 					descriptor.description = elem.description;
 				}
 			});
 			dom.render();
-
 		},
 
 
-        _pageChanged: function() {
-        	var ironPages = this.$.mainContent;
-        	var page = this.routeData.page;
+    _pageChanged: function() {
+    	var ironPages = this.$.mainContent;
+    	var page = this.routeData.page;
 
-        	if (!page) {
-        		ironPages.selected = "0";
-        	}
+    	if (!page) {
+    		ironPages.selected = "0";
+    	}
 
-        	else {
-        		this._loadEventData(page);
-        		ironPages.selected = "1";
-        	}
-   		},
+    	else {
+    		this._loadEventData(page);
+    		ironPages.selected = "1";
+    	}
+		},
 
     });
   </script>

@@ -1,0 +1,59 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="list-all-events">
+  <template>
+
+    <style>
+      :host {
+        display: block
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+      }
+
+      @media( min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+
+      .container {
+        margin: auto;
+        width: 100%;
+        max-width: 980px;
+        background-color: white;
+        box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+      }
+
+      .event {
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+        font-size: 20px;
+        padding: 32px 16px;
+      }
+    </style>
+
+    <template id="domRepeat" is="dom-repeat" items="{{data}}">
+      <a href="#/competitions/{{dept}}/{{item.link}}">
+        <div class="event">
+          {{item.name}}
+        </div>            
+      </a>
+    </template>             
+  </template>
+
+  <script>
+    Polymer({
+    is: 'list-all-events'
+    });
+  </script>
+
+</dom-module>

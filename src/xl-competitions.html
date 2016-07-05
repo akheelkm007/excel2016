@@ -29,11 +29,9 @@
 
         <iron-pages role="main" selected="[[page]]" attr-for-selected="name" id="mainContent">
           <xl-departments name="departments"></xl-departments>
-
           <xl-events-cs name="cs-events"></xl-events-cs>
           <xl-events-ec name="ec-events"></xl-events-ec>
           <xl-events-eee name="eee-events"></xl-events-eee>
-
           <xl-events-general name="general-events"></xl-events-general>
           <xl-events-robo name="robo-events"></xl-events-robo>
           <xl-events-nontech name="nontech-events"></xl-events-nontech>
@@ -53,24 +51,15 @@
 
     Polymer({
       is: 'xl-competitions',
-      // properties : {
-      //   route : {
-      //     type : String
-      //   }
-      // },
       properties: {
-
         page: {
           type: String,
           reflectToAttribute: true
         },
-
       },
-
       observers: [
         '_routePageChanged(routeData.page)'
       ],
-
       _routePageChanged: function(page) {
             this.page = page || 'departments';
       }

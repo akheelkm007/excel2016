@@ -1,0 +1,23 @@
+[ 
+	{
+		"name": "Best Manager",
+		"link" : "best-manager"
+	},
+
+	{
+		"name": "Kluge",
+		"link" : "kluge"
+	},
+	{
+		"name": "Defacto",
+		"link" : "defacto"
+	},
+	{
+		"name": "Tiki Taka",
+		"link" : "tiki-taka"
+	},
+	{
+		"name": "Treasure Hunt",
+		"link" : "treasure-hunt"
+	}
+]

@@ -1,4 +1,17 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="list-all-events.html">
+
+
+<link rel="import" href="event-bm.html">
+<link rel="import" href="event-kluge.html">
+<link rel="import" href="event-defacto.html">
+<link rel="import" href="event-tiki.html">
+<link rel="import" href="event-th.html">
+
+
 
 <dom-module id="xl-events-nontech">
   <template>
@@ -8,24 +21,122 @@
         display: block
       }
 
-      h1 {
-        text-align: center;
+      a {
+        text-decoration: none;
+        color: inherit;
       }
 
+      h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+      }
+
+      h2 {
+        font-weight: 400;
+      }
+
+
+      @media( min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+
+      .container {
+        margin: auto;
+        width: 100%;
+        max-width: 980px;
+        background-color: white;
+        box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+      }
+
+      .event {
+        border-top: 1px solid rgba(0,0,0,0.2);
+        font-size: 20px;
+        padding: 32px 16px;
+      }
     </style>
 
+    <app-location route="{{route}}" use-hash-as-path></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/competitions/nontech-events/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+    <h1>Non Tech Events</h1>
 
 
+    <div class="container">
+      <iron-pages role="main" selected="{{page}}" attr-for-selected="name" id="mainContent">
+        <list-all-events id="list" name="list" dept="nontech-events"></list-all-events>
+        <event-tiki name="tiki-taka"></event-tiki>
+        <event-th name="treasure-hunt"></event-th>
+        <event-bm name="best-manager"></event-bm>
+        <event-kluge name="kluge"></event-kluge>
+        <event-defacto name="defacto"></event-defacto>
+      </iron-pages>
+    </div>
 
-    <h1>nontech Events</h1>
+
 
 
   </template>
 
-  <script>;
+  <script>
 
     Polymer({
-      is: 'xl-events-nontech'
+      is: 'xl-events-nontech',
+      properties: {
+
+          page: {
+            type: String,
+            reflectToAttribute: true
+          },
+
+          route : {
+            observer : '_pageChanged'
+          }
+        },
+
+    ready : function () {
+
+      var list = this.$.list;
+      var ironPages = this.$.mainContent;
+      var _self = this;
+
+      fetch('resources/nontech-events.json').
+      then(function (response) {
+        return response.json();
+      }).
+      then(function (response) {
+        _self.data = response;
+        console.log('list',list);
+        console.log('response',response);
+        list.data = response;
+      })
+      .catch(function(err) {
+        console.log("err",err);
+      });
+    },
+
+
+    _pageChanged: function() {
+      console.log('_pageChanged');
+      var ironPages = this.$.mainContent;
+      var page = this.routeData.page;
+      console.log('page', page);
+      if (!page) {
+        ironPages.selected = "list";
+      }
+      else {
+        ironPages.selected = page;
+      }
+
+    },
+
     });
   </script>
 
