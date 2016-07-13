@@ -1,0 +1,40 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+
+<link rel="import" href="talks-nutshell.html">
+<link rel="import" href="talks-issue.html">
+<link rel="import" href="talks-untitled.html">
+<link rel="import" href="talks-guest-lectures.html">
+
+<dom-module id="xl-talks">
+<style>
+	:host{
+		display: block;
+	}
+</style>
+<template>
+
+	<app-location route="{{ route }}" use-hash-as-path></app-location>
+	<app-route
+		route="{{ route }}"
+		pattern="/talks/:page"
+		data ="{{ routeData }}"
+		tail="{{ tailData }}">
+	</app-route>
+	<iron-pages attr-for-selected="name" selected="[[ routeData.page ]]">
+		<talks-nutshell name=""></talks-nutshell>
+		<talks-issue name="issue"></talks-issue>
+		<talks-untitled name="untitled"></talks-untitled>
+		<talks-guest-lectures name="guest-lectures"></talks-guest-lectures>
+	</iron-pages>
+</template>
+
+<script>
+	Polymer({
+		'is':'xl-talks',
+	});
+</script>
+</dom-module>
