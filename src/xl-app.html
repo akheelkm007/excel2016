@@ -167,7 +167,7 @@
           <xl-home name="home"></xl-home>
           <xl-schedule name="schedule"></xl-schedule>
           <xl-competitions name="competitions" id="competitions"></xl-competitions>
-          <xl-talks name="talks"></xl-talks>
+          <xl-talks name="talks" id="talks"></xl-talks>
           <xl-gallery name="gallery"></xl-gallery>
           <xl-partners name="partners"></xl-partners>
           <xl-social name="social"></xl-social>
@@ -215,6 +215,7 @@
           var x = this.$.mainContent;
           var old = x.selectedItem;
           var competitions = this.$.competitions;
+          var talks = this.$.talks;
 
           if (!old) { //Initial loading of the page. No need of exit animation
             this.page = page || 'home';
@@ -250,7 +251,7 @@
 
 
           setTimeout(function () {
-            if (x.selectedItem === old && old != competitions) {
+            if (x.selectedItem === old && old != competitions && old != talks) {
               console.log('show spinner:');
               x.selected = "spinner";
             } 
