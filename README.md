@@ -3,6 +3,9 @@
 
 ### Setup
 
+
+
+
 ##### Prerequisites
 
 Install [polymer-cli](https://github.com/Polymer/polymer-cli):
@@ -43,3 +46,44 @@ This command serves the minified version of the app generated using fragment bun
 
     polymer serve build/bundled
 
+####EDITS TO DO
+<code>
+
+      #mainContainer::-webkit-scrollbar-track
+      {
+        border-radius: 10px;
+      }
+      #mainContainer::-webkit-scrollbar
+      {
+        width: 10px;
+        /*width: 8px;*/
+        background-color: #F5F5F5;
+      }
+
+      #mainContainer::-webkit-scrollbar-thumb
+      {
+        /*width: 10px;*/
+        border-radius: 10px;
+        background-color: #cabfbe;
+        /*border-right: 2px solid rgba(0,0,0,0.00001);*/
+        border-right-width: 2px;
+        border-right-style: solid;
+        border-right-color: white;
+      }
+
+      @media (max-width: 600px) {
+        #mainContainer::-webkit-scrollbar-thumb
+        {
+          border-radius: 5px;
+          background-color: #cabfbe;
+          border-right-width: 1px;
+          border-right-style: solid;
+          border-right-color: white;
+        }
+        #mainContainer::-webkit-scrollbar
+        {
+          width: 5px;
+          background-color: #F5F5F5;
+        }
+      }
+</code>
