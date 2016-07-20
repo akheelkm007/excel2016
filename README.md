@@ -48,7 +48,9 @@ This command serves the minified version of the app generated using fragment bun
 
 ###EDITS TO DO
 <code>
-
+ 
+ @bower_components/paper-header-panel/paper-header-panel.html
+ 
       #mainContainer::-webkit-scrollbar-track
       {
         border-radius: 10px;
