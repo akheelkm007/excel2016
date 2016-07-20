@@ -30,12 +30,24 @@
       }
 
       paper-item {
+        --paper-item-focused:{
+            background: darkgrey ;
+        };   
+      }
+      paper-menu {
       	/*font-weight: 500;*/
+        --paper-menu-selected-item: {
+          color: red;
+          background: red!important;
+        };
       }
 
       paper-item:hover {
         background: rgba(0,0,0,0.15);
       }
+      /*paper-item:active{
+        background: red;
+      }*/
 
       paper-icon-button {
         --paper-icon-button-ink-color: white;      	
@@ -82,8 +94,8 @@
   	  }
 
       paper-toolbar.drawer {
-		--paper-toolbar-background: #4dd0e1;
-		color: black;
+  		--paper-toolbar-background: #4dd0e1;
+  		color: black;
       }
 
       .transition {
@@ -127,27 +139,27 @@
         </paper-toolbar>
         <div>
 
-		<paper-menu selected="[[page]]" attr-for-selected="name" role="navigation" activate-event="click">
+		<paper-menu selected="[[page]]" attr-for-selected="name" role="navigation" activate-event="click"  tabindex="0">
 
-      <a name="home" href="#/home/">
+      <a name="home" href="#/home/" tabindex="-1">
         <paper-item paper-drawer-toggle>Home</paper-item>     
       </a>
-			<a name="schedule" href="#/schedule/">
+			<a name="schedule" href="#/schedule/" tabindex="-1">
 				<paper-item paper-drawer-toggle>Schedule</paper-item>			
 			</a>
-      <a name="competitions" href="#/competitions/">
+      <a name="competitions" href="#/competitions/" tabindex="-1">
         <paper-item paper-drawer-toggle>Competitions</paper-item>     
       </a>
-      <a name="talks" href="#/talks/">
+      <a name="talks" href="#/talks/" tabindex="-1">
         <paper-item paper-drawer-toggle>Talks</paper-item>
       </a>
-      <a name="social" href="#/social/">
+      <a name="social" href="#/social/" tabindex="-1">
         <paper-item paper-drawer-toggle>Social Initiatives</paper-item>     
       </a>
-      <a name="gallery" href="#/gallery">
+      <a name="gallery" href="#/gallery" tabindex="-1">
         <paper-item paper-drawer-toggle>Gallery</paper-item>     
       </a>
-      <a name="partners" href="#/partners">
+      <a name="partners" href="#/partners" tabindex="-1">
         <paper-item paper-drawer-toggle>Partners</paper-item>     
       </a>
 		</paper-menu>
