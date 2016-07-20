@@ -46,7 +46,7 @@ This command serves the minified version of the app generated using fragment bun
 
     polymer serve build/bundled
 
-####EDITS TO DO
+###EDITS TO DO
 <code>
 
       #mainContainer::-webkit-scrollbar-track
