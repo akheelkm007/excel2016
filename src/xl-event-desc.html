@@ -1,0 +1,18 @@
+<html><head><link rel="import" href="../bower_components/polymer/polymer.html">
+
+</head><body><dom-module id="xl-event-desc">
+  <template>
+
+    <style>:host{display:block;}h1{text-align:center;font-weight:400;font-size:34px;}@media ( min-width: 980px){h1{font-size:56px;}}.container{width:100%;max-width:980px;margin:auto;}</style>
+
+    <h1>{{name}}</h1>
+
+    <div class="container">
+	    <p>{{description}}</p>    	
+    </div>
+
+  </template>
+
+  <script>Polymer({is:"xl-event-desc",properties:{name:{type:String,reflectToAttribute:!0,notify:!0},description:{type:String,reflectToAttribute:!0,notify:!0}}});</script>
+
+</dom-module></body></html>

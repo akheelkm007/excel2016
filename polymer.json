@@ -1,0 +1,12 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/xl-app.html",
+  "fragments": [
+    "src/xl-schedule.html",
+    "src/xl-competitions.html",
+    "src/xl-gallery.html",
+    "src/xl-partners.html",
+    "src/xl-home.html",
+    "src/xl-social.html"
+  ]
+}

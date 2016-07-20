@@ -1,0 +1,41 @@
+<html><head><link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="xl-event-desc.html">
+
+</head><body><dom-module id="xl-events-cs">
+  <template>
+
+    <style>:host{display:block;}a{text-decoration:none;color:inherit;}h1{text-align:center;font-weight:400;font-size:34px;}@media ( min-width: 980px){h1{font-size:56px;}}.container{margin:auto;width:100%;max-width:980px;background-color:white;box-shadow:0 0 5px 0px rgba(0,0,0,0.2);}.event{border-top:1px solid rgba(0,0,0,0.2);font-size:20px;padding:32px 16px;}</style>
+
+    <app-location route="{{route}}" use-hash-as-path=""></app-location>
+    <app-route route="{{route}}" pattern="/competitions/cs-events/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+
+    <h1>Computer Science Events</h1>
+
+
+    <iron-pages id="mainContent">
+
+	    <div class="container">
+		    <template id="domRepeat" is="dom-repeat" items="{{data}}">
+		    	<a href="#/competitions/cs-events/{{item.link}}">
+			    	<div class="event">
+			    		{{item.name}}
+			    	</div>		    		
+		    	</a>
+		    </template>    	
+	    </div>
+
+	    <xl-event-desc id="descriptor"></xl-event-desc>
+
+    </iron-pages>
+
+
+
+
+  </template>
+
+  <script>Polymer({is:"xl-events-cs",properties:{page:{type:String,reflectToAttribute:!0},route:{observer:"_pageChanged"}},ready:function(){var e=(this.$.mainContent,this);fetch("resources/cs-events.json").then(function(e){return e.json()}).then(function(t){e.data=t,e.routeData.page&&e._loadEventData()}).catch(function(e){console.log("err",e)})},_loadEventData:function(){var e=this,t=e.routeData.page,a=e.$.descriptor,n=e.$.domRepeat;e.data&&(e.data.forEach(function(e){e.link==t&&(a.name=e.name,a.description=e.description)}),n.render())},_pageChanged:function(){var e=this.$.mainContent,t=this.routeData.page;t?(this._loadEventData(t),e.selected="1"):e.selected="0"}});</script>
+
+</dom-module></body></html>

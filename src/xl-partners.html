@@ -1,0 +1,19 @@
+<html><head><meta charset="UTF-8"><link rel="import" href="xl-app.html"></head><body><dom-module id="xl-partners">
+  <template>
+
+    <style>:host{display:block;}h1{text-align:center;font-weight:400;font-size:34px;}@media ( min-width: 980px){h1{font-size:56px;}}.container{margin:auto;width:100%;max-width:980px;background-color:white;box-shadow:0 0 5px 0px rgba(0,0,0,0.2);display:flex;flex-wrap:wrap;justify-content:space-around;align-items:center;padding-top:32px;}.logo{width:30%;background-color:green;margin-bottom:32px;}@media ( max-width: 500px){.logo{width:40%;}}</style>
+
+
+      <h1>Partners</h1>
+
+      <div class="container">
+        <template is="dom-repeat" items="{{partners}}">
+          <img src="{{item.src}}" class="logo">
+        </template>             
+      </div>
+
+  </template>
+
+  <script>Polymer({is:"xl-partners",ready:function(){var n=this;fetch("resources/partners.json").then(function(n){return n.json()}).then(function(r){n.partners=r}).catch(function(n){console.log("err",n)})}});</script>
+
+</dom-module></body></html>

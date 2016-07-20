@@ -1,0 +1,68 @@
+<html><head><meta charset="UTF-8"><link rel="import" href="xl-app.html"></head><body><dom-module id="xl-home">
+
+  <template>
+
+    <style>:host{display:block;}h1{text-align:center;font-weight:400;font-size:34px;}h2{font-weight:400;}@media ( min-width: 980px){h1{font-size:56px;}}.links{width:40%;position:relative;text-decoration:none;color:inherit;}.links:hover{z-index:10;}.blocks{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);transition:box-shadow 0.3s cubic-bezier(.25,.8,.25,1);box-sizing:border-box;}.blocks:hover{box-shadow:0 0px 28px 5px rgba(0,0,0,0.25), 0 0px 10px rgba(0,0,0,0.22);}.android{background-image:url('../images/home/android.png');}.play{background-image:url('../images/home/play.png');}.location{background-image:url('../images/home/location.png');}.container{width:100%;display:flex;justify-content:center;flex-wrap:wrap;margin:auto;margin-top:32px;}.container-two{width:100%;margin:auto;margin-top:32px;}.bkg-color{width:100%;max-width:980px;margin:auto;box-sizing:border-box;padding-left:16px;padding-right:16px;}.btn-cntr{display:flex;justify-content:center;}paper-button{background-color:#4285f4;color:white;margin:auto;text-align:center;}a{text-decoration:none;color:inherit;}.prev{width:64px;}.prev-cntr{display:flex;justify-content:space-around;}</style>
+
+    <div class="bkg-color">
+
+      <h1>About us</h1>
+
+      <p>Excel, the nation’s second and South India’s first ever fest of its kind started in 2001 by the students of Govt. Model Engineering College with a motto, Inspire, Innovate, Engineer. Over the years, Excel has grown exponentially, consistently playing host to some of the most talented students, the most illustrious speakers and the most reputed companies. Now gearing towards its 17th edition, Excel continues to excite the participants with its wide array of technical and non-technical events and with a promise to live upto its motto.
+      </p>
+
+      <div class="container">
+
+          <a target="_blank" href="/" class="links">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img"></svg>
+            <div class="blocks android">
+            Check out our Android App
+            </div>  
+          </a>
+          <a target="_blank" href="/" class="links">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img"></svg>
+            <div class="blocks play">
+            Check out our online Events
+            </div>  
+          </a>
+      </div>
+      <div class="container-two">
+        <h1>Attending ?</h1>
+        <h2>Getting here</h2>
+        <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit. Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+        <h2>Location</h2>
+
+        <div class="btn-cntr">
+          <a target="_blank" href="https://www.google.co.in/maps/place/MEC+Workshop/@10.0285581,76.3277689,18z/data=!4m13!1m7!3m6!1s0x3b080c500d249f59:0x6a4f8fcb7841d91!2sMEC+Workshop!3b1!8m2!3d10.0285581!4d76.3283455!3m4!1s0x3b080c500d249f59:0x6a4f8fcb7841d91!8m2!3d10.0285581!4d76.3283455">
+            <paper-button raised="">View in Maps</paper-button>
+          </a>
+        </div>
+
+      </div>
+      <div class="container-two">
+        <h1>Evolution</h1>
+
+        <div class="prev-cntr">
+          <a href="/">
+            <img class="prev" src="../images/previous/2013.png">
+          </a>
+          <a href="/">
+            <img class="prev" src="../images/previous/2014.png">
+          </a>
+          <a href="/">
+            <img class="prev" src="../images/previous/excel2015.png">
+          </a>          
+        </div>
+
+      </div>
+      
+    </div>
+
+
+
+  </template>
+
+  <script>Polymer({is:"xl-home"});</script>
+
+</dom-module>
+</body></html>

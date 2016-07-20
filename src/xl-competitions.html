@@ -1,0 +1,575 @@
+<html><head><meta charset="UTF-8"><link rel="import" href="xl-app.html"></head><body><div hidden="" by-vulcanize=""><dom-module id="xl-departments" assetpath="/">
+  <template>
+
+    <style>:host{display:block;}h1{text-align:center;font-weight:400;font-size:34px;}@media ( min-width: 980px){h1{font-size:56px;}}.dept{position:absolute;top:0;left:0;width:100%;height:100%;box-sizing:border-box;background-color:white;padding:16px;box-shadow:0 0px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);transition:box-shadow 0.3s cubic-bezier(.25,.8,.25,1);font-size:20px;z-index:0;color:rgba(0,0,0,0.7);}.dept:hover{box-shadow:0 0px 28px 0px rgba(0,0,0,0.25), 0 0px 10px rgba(0,0,0,0.22);}.cs{background-image:url("../images/departments/computer.svg");background-color:#fef177;}.ec{background-image:url("../images/departments/electronics.svg");background-color:#88d3e1;}.eee{background-image:url("../images/departments/electrical.svg");background-color:#81c784;}.robo{background-image:url("../images/departments/robotics.svg");background-color:#ab6bac;}.gt{background-image:url("../images/departments/general.svg");background-color:#f58967;}.nontech{background-image:url("../images/departments/nontech.svg");background-color:#ef5350;}.links{color:inherit;text-decoration:none;width:48%;position:relative;}.links:hover{z-index:10;}.bkg-img{width:100%;}@media (max-width: 600px){.links{width:100%;}.dept{margin:0;}}.container{width:100%;max-width:980px;margin:auto;display:flex;flex-wrap:wrap;justify-content:center;}</style>
+
+    <h1>Competitions</h1>
+
+    <div class="container">
+
+
+      <a href="#/competitions/cs-events" class="links">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img"></svg>
+        <div class="dept cs">
+          Computer Science
+        </div>  
+      </a>
+
+      <a href="#/competitions/ec-events" class="links">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img"></svg>
+        <div class="dept ec">
+          Electronics
+        </div>  
+      </a>
+      <a href="#/competitions/eee-events" class="links">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img"></svg>
+        <div class="dept eee">
+          Electrical
+        </div>  
+      </a>
+      <a href="#/competitions/robo-events" class="links">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img"></svg>
+        <div class="dept robo">
+          Robotics
+        </div>  
+      </a>
+      <a href="#/competitions/general-events" class="links">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img"></svg>
+        <div class="dept gt">
+          General Tech
+        </div>  
+      </a>
+      <a href="#/competitions/nontech-events" class="links">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img"></svg>
+        <div class="dept nontech">
+          Non - Technical
+        </div>  
+      </a>
+
+
+
+    </div>
+
+  </template>
+
+  <script>Polymer({is:"xl-departments"});</script>
+
+</dom-module><dom-module id="xl-events-cs" assetpath="/">
+  <template>
+
+    <style>:host{display:block;}a{text-decoration:none;color:inherit;}h1{text-align:center;font-weight:400;font-size:34px;}@media ( min-width: 980px){h1{font-size:56px;}}.container{margin:auto;width:100%;max-width:980px;background-color:white;box-shadow:0 0 5px 0px rgba(0,0,0,0.2);}.event{border-top:1px solid rgba(0,0,0,0.2);font-size:20px;padding:32px 16px;}</style>
+
+    <app-location route="{{route}}" use-hash-as-path=""></app-location>
+    <app-route route="{{route}}" pattern="/competitions/cs-events/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+
+    <h1>Computer Science Events</h1>
+
+
+    <iron-pages id="mainContent">
+
+	    <div class="container">
+		    <template id="domRepeat" is="dom-repeat" items="{{data}}">
+		    	<a href="#/competitions/cs-events/{{item.link}}">
+			    	<div class="event">
+			    		{{item.name}}
+			    	</div>		    		
+		    	</a>
+		    </template>    	
+	    </div>
+
+	    <xl-event-desc id="descriptor"></xl-event-desc>
+
+    </iron-pages>
+
+
+
+
+  </template>
+
+  <script>Polymer({is:"xl-events-cs",properties:{page:{type:String,reflectToAttribute:!0},route:{observer:"_pageChanged"}},ready:function(){var e=(this.$.mainContent,this);fetch("resources/cs-events.json").then(function(e){return e.json()}).then(function(t){e.data=t,e.routeData.page&&e._loadEventData()}).catch(function(e){console.log("err",e)})},_loadEventData:function(){var e=this,t=e.routeData.page,a=e.$.descriptor,n=e.$.domRepeat;e.data&&(e.data.forEach(function(e){e.link==t&&(a.name=e.name,a.description=e.description)}),n.render())},_pageChanged:function(){var e=this.$.mainContent,t=this.routeData.page;t?(this._loadEventData(t),e.selected="1"):e.selected="0"}});</script>
+
+</dom-module><dom-module id="xl-events-ec" assetpath="/">
+  <template>
+
+    <style>:host{display:block;}h1{text-align:center;}</style>
+
+
+
+
+    <h1>ec Events</h1>
+
+
+  </template>
+
+  <script>Polymer({is:"xl-events-ec"});</script>
+
+</dom-module><dom-module id="xl-events-eee" assetpath="/">
+  <template>
+
+    <style>:host{display:block;}h1{text-align:center;}</style>
+
+
+
+
+    <h1>eee Events</h1>
+
+
+  </template>
+
+  <script>Polymer({is:"xl-events-eee"});</script>
+
+</dom-module><dom-module id="xl-events-robo" assetpath="/">
+  <template>
+
+    <style>:host{display:block;}h1{text-align:center;}</style>
+
+
+
+
+    <h1>robo Events</h1>
+
+
+  </template>
+
+  <script>Polymer({is:"xl-events-robo"});</script>
+
+</dom-module><dom-module id="xl-events-general" assetpath="/">
+  <template>
+
+    <style>:host{display:block;}h1{text-align:center;}</style>
+
+
+
+
+    <h1>general Events</h1>
+
+
+  </template>
+
+  <script>Polymer({is:"xl-events-general"});</script>
+
+</dom-module><dom-module id="list-all-events" assetpath="/">
+  <template>
+
+    <style>:host{display:block;}a{text-decoration:none;color:inherit;}h1{text-align:center;font-weight:400;font-size:34px;}@media ( min-width: 980px){h1{font-size:56px;}}.container{margin:auto;width:100%;max-width:980px;background-color:white;box-shadow:0 0 5px 0px rgba(0,0,0,0.2);}.event{border-bottom:1px solid rgba(0,0,0,0.2);font-size:20px;padding:32px 16px;}</style>
+
+    <template id="domRepeat" is="dom-repeat" items="{{data}}">
+      <a href="#/competitions/{{dept}}/{{item.link}}">
+        <div class="event">
+          {{item.name}}
+        </div>            
+      </a>
+    </template>             
+  </template>
+
+  <script>Polymer({is:"list-all-events"});</script>
+
+</dom-module><dom-module id="shared-styles" assetpath="/">
+  <template>
+    <style>h2,h3{font-weight:400;}h2,h3,p{padding:0 16px;}.title{padding:16px;}</style>
+  </template>
+</dom-module><dom-module id="event-bm" assetpath="/">
+  <template>
+  <style include="shared-styles"></style>
+
+
+
+    <style>:host{display:block;}</style>
+
+
+    <h2 class="title">Best Manager</h2>
+
+    <p>“Contrary to popular opinion, leadership is not a reserved position for a particular group of people who were elected or appointed, ordained or enthroned. Leadership is self-made, self-retained, elf-inculcated and then exposed through a faithful, sincere and exemplary life.”&nbsp;―&nbsp;Israelmore Ayivor</p>
+
+    <p>Are you someone with deep managerial vibe ready to conquer the corporate world in the days to come? Do you put yourself next to Satya Nadela , Tim cook ,Jack Welch or Indira Nooyi</p>
+
+    <p>Well if you are confident to crack the nut in this part of the world, Welcome Aboard Best Manager 2016</p>
+    
+    <h2>Round 1</h2>
+
+    <h3>Written Aptitude test</h3>
+
+    <p>Do you have the appetite to solve questions of logical connect, mathematics of common rationale ? Then all you need is a pen. This first section of this test will have multiple choice questions that will see your mathematical and logical insights ,Don’t worry !!!! what better than business knowledge would fit into this slot better off ,We have it too.The second section that is descriptive in nature would make you frame up your notions on business, public policy current affairs or everyday life.</p>
+
+    <h2>Round 2</h2>
+
+    <h3>The Boardroom</h3>
+
+    <p>This is a stage all set for the manager in you . It is easy to speak ,hard to convince If you are better at the latter then this is the place for you to be in. This is a platform where you can demonstrate how innovative and imaginative you can be and how you can convince your Board members in launching a product. We will help you with a raw material, All you need to do is innovate a product, make the strategy, identify the addressable market ,make the value proposition .In short put up a business plan and pitch it to the board…..STAY COOL You are not doing it alone …….Obviously you can form teams. Not everyone can perform good with a team of strangers, it will be mixing up with fellow contestants that will be a milestone you will have to reach here and Remember your team members are people with very high business and intellectual temper as you are. A fixed number of members from each team will proceed to the next round.</p>
+
+    <h2>Round 3</h2>
+
+    <h3>Devils Advocate</h3>
+
+    <p>As the sun begins to charm brighter ,we have yet another enthralling session of Group Discussion for you, You need not speak Shakespearean but you certainly need to advocate as you do for your devil client ,Where in you can vent all your energy and ideas on the events that unfolded in the near regime .Be it political, social or business You will have your stake.</p>
+
+    <h2>Round 4</h2>
+
+    <h3>Cannon Fire Round</h3> 
+
+    <p>All eyes on you. This is certainly going to be the most sporty and exorbitant session you ever encountered in a competition of this repute. As you proceed and wave to our jam-packed auditorium ,you will be put in the shoes of an inspirable or controversial person who has ruled or is continuing to rule the newsprint. Yes Ladies and Gentlemen We have a Press Conference for you .Be ready to bear the brunt. Moving on the onus is again on you ,it will be a personal interview session very little personal as the crowd seems to be eager about all you do. The buck stops here right as you champ at the bit as the name of “THE BEST MANAGER 2016” falls out of the microphone</p>
+
+
+    <h2>Rules</h2>
+
+    <p>Individual participation only.</p>
+    <p>Improper behaviour of any means at any stage will lead to immediate disqualification.</p>
+    <p>The decision of the organizers and the judges will be final.</p>
+    <p>Rules are subject to change at any point in time.</p>
+    <p>Participants will be duly notified of any change.</p>
+
+    <h2>Contact</h2>
+
+    <p>Nandagopal. B +91 9895827525 nandagopalb.mec@gmail.com</p>
+    <p>Merin George +91 7736555186 merin.george.mec@gmail.com</p>
+    <p>Meghna Mariam Alias +91 9497493835 meghnamariamalias.mec@gmail.com</p>
+    <p>Navaneeth Paliath +91 8547539163 paliath123@gmail.com</p>
+
+  </template>
+
+  <script>Polymer({is:"event-bm"});</script>
+
+</dom-module><dom-module id="event-kluge" assetpath="/">
+  <template>
+  <style include="shared-styles"></style>
+
+
+
+    <style>:host{display:block;}</style>
+
+
+    <h2 class="title">Kluge</h2>
+
+    <p>Do u think your idea is the best thing since sliced bread ? Then brace yourself to twist your ideas, spill your creativity, get absorbed in thoughts and carve your artistry. Forget simplicity, the more crooked your mind works, the better. So wake up the dextrous, inventive, fantasizer in you through - KLUGE</p>
+    
+    <h2>Event Format</h2>
+    <p>A 3 stage, 4 member team event where you have to create a contraption out of scrap materials to do a given task.</p>
+
+
+
+    <h2>Round 1</h2>
+    <h3>Prelims</h3>
+
+    <p>A written round basically testing the logical and reasoning skills. 6 top scoring teams will be selected to next round.</p>
+
+    <h2>Round 2</h2>
+
+    <h3>Crossword Puzzle</h3>
+
+    <p>4 teams out of the six who manage to crack a crossword puzzle under certain conditions within a limited time will qualify for the final round.</p>
+
+    <h2>Round 3</h2>
+
+    <h3>Finals</h3>
+
+    <p>The teams need to develop a contraption to make the final product that will be announced at the time of the event using items provided on the spot. The team who completes the task with more number of steps will be declared as winners.</p>
+
+    <h2>Rules</h2>
+
+    <p>Event is open for all.</p>
+    <p>Teams can have 4 members.</p>
+    <p>Cross-college teams are allowed.</p>
+    <p>Only the provided set of materials may be used in the creation of the machines.</p>
+    <p>Malpractices and sabotaging other teams' machines will lead to immediate disqualification.</p>
+    <p>Judges' decision will be final.</p>
+    <p>Organizers reserve the right to make decisions in case of conflicts and other issues.</p>
+    <p>Rules are subject to change at any point in time. All rules will be explained at the event as well.</p>
+
+    <h2>Contact</h2>
+
+    <p>Kavya Pradeep, 9567644473</p>
+    <p>Lakshmi Jayakumar, 8547047867</p>
+    <p>Nandini M Nair, 9995659654</p>
+
+  </template>
+
+  <script>Polymer({is:"event-kluge"});</script>
+
+</dom-module><dom-module id="event-defacto" assetpath="/">
+  <template>
+  <style include="shared-styles"></style>
+
+
+
+    <style>:host{display:block;}</style>
+
+
+    <h2 class="title">DeFacto</h2>
+
+    <p>A quiz solely aimed at school students, Defacto promises to be fun and interactive session, combining the innovation of college quizzing and the inquisitiveness of school quizzing consisting of a variety of interactive sessions, Defacto wishes to reach out to the young Einsteins and Madam Curies in school.</p>
+    
+    <h2>Event Format</h2>
+
+    <h2>Round 1</h2>
+
+    <h3>Prelims</h3>
+
+    <p>A written selection round where teams of two have to answer a set of questions.</p>
+
+    <h2>Round 2</h2>
+
+    <h3>Finals</h3>
+
+    <p>Six teams qualify for the finals.</p>
+
+
+    <h2>Rules</h2>
+
+    <p>School students from classes 7-12 can participate.</p>
+    <p>A team should comprise of 2 members.</p>
+    <p>Cross school teams allowed.</p>
+    <p>Online registration and spot registration available for the teams. Spot registration will be closed half an hour before the prelims.</p>
+    <p>School ID cards is mandatory.</p>
+    <p>Winners and runners up of the quiz will be rewarded.</p>
+    <p>The team with the most innovative ‘name’ will be rewarded.</p>
+    <p>The school with the maximum participation will also be rewarded.</p>
+    <p>Decision of the quizmaster will be final and binding.</p>
+
+    <h2>Contact</h2>
+
+    <p>Arjun Nair, 9656472356</p>
+    <p>Adit Raghunath, 9020776176</p>
+
+  </template>
+
+  <script>Polymer({is:"event-defacto"});</script>
+
+</dom-module><dom-module id="event-tiki" assetpath="/">
+  <template>
+  <style include="shared-styles"></style>
+
+
+
+    <style>:host{display:block;}</style>
+
+
+    <h2 class="title">Tiki Taka</h2>
+
+    <p>Tiki Taka is a 3 on 3 football tournament. The matches will be played in the knockout format. Contestants can register exclusively for this event at the venue, i.e., no need for Excel registration.</p>
+    
+    <p>The 3’s football which will be held at the MEC grounds over 2 excel days. The matches will be played in the knockout format. Contestants can register exclusively for this event at the venue</p>
+
+    <h2>Event Rules</h2>
+
+    <p>Players: Only three field players at one time plus a maximum of one sub per team.</p>
+    <p>Players cannot play for multiple teams. There are no goalkeepers allowed. Substitutions may occur at any dead ball situation, but players must get referee's attention to enter.</p>
+
+    <p>No Offsides</p>
+    <p>No Sliding tackles allowed</p>
+    <p>Goal Area : The Goal Area, which will be marked, is directly in front of the goal.</p>
+    <p>Defenders cannot touch the ball within the goal area, however any player may move through the goal area. If a defender touches the ball in the goal area, a penalty kick is awarded to the offensive team.</p>
+    <p>Game Duration : Each game will last 10 minutes. If no goals have been scored after the allotted time or if the scores are tied, then a penalty shootout shall follow. In a penalty shootout each team is awarded 3 penalty kicks each.</p>
+    <p>Three Yard Rule : In all dead ball situations, defending players must stand at least 3 yards away from the ball. If the defensive player's goal area is closer than 3 yards, the ball shall be placed 3 yards from the goal area in line with the place of the penalty.</p>
+    <p>Dead Balls : All dead ball kicks (kick-ins, free kicks, kick-offs) are indirect with exception of penalty kicks.</p>
+    <p>Kick Off : May be taken in any direction.</p>
+    <p>Penalty Kicks : Shall be awarded if, in the referee's opinion, a scoring opportunity was nullified by the infraction. Penalty kicks have to be taken from the center of the field and no goalkeeper is allowed.</p>
+    <p>Player Ejection (Yellow/Red Card): Referee has the right to eject a player from the game for continual disobedience or as a result of an incident that warrants sending the player off. A Yellow Card will be issued as a warning and a Red Card will be issued for a serious offence or on receipt of a second Yellow Card. The tournament organizers will decide suspension from additional games.</p>
+
+    <h2>General Rules</h2>
+
+    <p>Players and spectators are expected to act in the nature of good sportsmanship at all times.</p>
+    <p>Abuse of the referees will not be tolerated.</p>
+    <p>Any instance of misconduct will disqualify the responsible team from the event.</p>
+    <p>Organizers reserve the right to make decisions regarding conflicts and other issues.</p>
+
+
+    <h2>Contact</h2>
+
+    <p>Abhilash K.B, 8943720860</p>
+    <p>Jithiin G Manoj EEE 9567661077</p>
+
+  </template>
+
+  <script>Polymer({is:"event-tiki"});</script>
+
+</dom-module><dom-module id="event-th" assetpath="/">
+  <template>
+  <style include="shared-styles"></style>
+
+
+
+    <style>:host{display:block;}</style>
+
+
+    <h2 class="title">Treasure Hunt</h2>
+
+    <p>This event is for the adventurous, who would venture out into places unknown, to find treasures unseen. A total of 3 rounds: a written round followed by certain tasks and the final round where teams will be given clues, which they need to decode and ultimately find the treasure.</p>
+    
+    <h2>Event Format</h2>
+
+    <h2>Round 1</h2>
+
+    <p>A written round comprising of questions on just about anything. Treasure hunters must be well informed you know.</p>
+
+    <h3>Round 2</h3>
+
+    <p>Qualifying teams will be given clues, which they need to decode and ultimately find the treasure.</p>
+
+    <h2>Rules</h2>
+
+    <p>Registration for the event is onsite, at the event venue.</p>
+    <p>Each team may consist of 4 - 5 members.</p>
+    <p>Any team found guilty of tampering with/mutilating the clues will be disqualified.</p>
+    <p>The decision of the coordinators will be final and binding case of all disputes.</p>
+    <p>Rules are subject to change at any point in time. All rules will be explained at the event as well</p>
+
+    <h2>Contact</h2>
+
+    <p>Jose George</p>
+    <p>Athul Antony</p>
+
+  </template>
+
+  <script>Polymer({is:"event-th"});</script>
+
+</dom-module><dom-module id="event-csi" assetpath="/">
+  <template>
+  <style include="shared-styles"></style>
+
+
+
+    <style>:host{display:block;}</style>
+
+
+    <h2 class="title">Crime Scene Investigation 2k16</h2>
+
+    <p>Every man at the bottom of his heart believes he is a born detective. Do you believe in that? Then CRIME SCENE INVESTIGATION 2016 is the best platform to find the detective in you..!!</p>
+    
+    <blockquote>
+      <h2>CRIME SCENE INVESTIGATION 2016</h2>
+      <p>UNLOCK THE SHERLOCK IN YOU..!!</p>
+      <hr>
+    </blockquote>
+
+    <blockquote>
+      <p><i>“The world is full of obvious things which nobody by any chance ever observes. There is nothing more deceptive than an obvious fact”</i> - <b>Sherlock Holmes</b></p>
+    </blockquote>
+
+    <p>Do you have passion in detective stories? Are you someone who observes efficiently?  Do you think you have a crooked brain to solve mysteries?</p>
+    <p>If you are confident,<br>Let's play <b>Crime Scene Investigation</b>..!!</p>
+
+    <h2>Event Format</h2>
+
+    <h3><b>Round 1</b></h3>
+    <h3>Written Aptitude test</h3>
+    <p>Are you enthusiastic about detective stories? Do you have a brain to solve logical reasoning, mathematics?</p>
+    <p>The first section of this test will have multiple choice questions that will see your mathematical and logical insights. This section also includes the questions related to forensic and crimes.</p>
+    <p>The second section that is descriptive in nature would make you frame up a crime scene. 8 groups from this round will break into next round.</p>
+    <p>8 groups from this round will break into next round.</p>
+
+    <h3>Online round</h3>
+    <p>An online CSI questionnaire will be posted in Excel FB page a week prior to Excel, and the ones with maximum number of likes for their response can form a group and proceed into the intermediate round without attending the prelims. Two such teams will be selected.</p>
+
+    <br>
+
+    <h3><b>Round 2</b></h3>
+    <h3>Road to Finals</h3>
+    <h3>This round includes 3 levels</h3>
+    <h3>1.Let's test your identification skill..!!</h3>
+    <p>A detective should be sharp in his identification skill. Are you good enough in it? Let’s check it out..!!</p>
+    <p>The sketch will be provided. Run fast..!! Find the person. Did you find it difficult to locate the person in the campus? Don’t worry. The location of the person will be provided. You will be provided with a band of a certain colour. Go find the person and get the band. Get back to the starting point fast.</p>
+
+    <p>30 minutes is the time limit. The first 8 teams who come up with the band will get in to next level.</p>
+    <h3>2.Concentrate, play your game..!!</h3>
+    <p> A perfect investigator will be perfect in concentration. The way he/ she handle the pressure plays an important role in the investigation. Yes, this level test your concentration skill and the way you manage the pressure. Not a big deal right?? Play some fascinating games..!! A task will be given to the 8 teams simultaneously. The teams, that complete first will get more points. Time limit of each task will be 2 minutes. 5-6 tasks will be given.</p>
+    <p>Top 6 teams will jump in to next level.</p>
+
+    <h3>3. Your Head’s got to be in it to win it..!!</h3>
+    <p>Are you the one with sharp brain? Let us find the top four.  4-5 questionnaire will be given. The best four will proceed to Finals..!!</p>
+
+    <h3><b>Round 3</b></h3>
+    <h3>Lets find the perfect detective..!!</h3>
+    <p>How will you handle a case? The ability to see beyond the mere facts presented and take into consideration other factors and motivators for people's behavior makes a perfect detective. Are you such a detective? Let’s find that. Who is the perfect detective among four groups? A crime scene will be given to you  and few clues also. Now it’s your turn to find the culprit. Just find it and present the report.</p>
+
+    <h2>Event Rules</h2>
+
+    <p>The written aptitude test consists of 30 mcq and 1 essay question.contestants will be shortlisted to the second round based on merit.</p>
+    <p>Two groups will be selected from the online round</p>
+    <p>Those selected from online should participate from second round itself</p>
+    <p>All the levels in second round will be strictly time limited.</p>
+
+    <h2>General Rules</h2>
+
+    <p>This is a team event consisting of 2 members per team.</p>
+    <p>Cross-college teams are allowed.</p>
+    <p>The contest is open to students from all colleges.</p>
+    <p>Participants need to produce a valid identity card of their respective institutes.</p>
+    <p>The organizers reserve all rights to disqualify any team for using unfair means at any stage of the event.</p>
+    <p>In case of any discrepancies, decision of the coordinators shall be considered final and binding for all the teams.</p>
+    <p>Additional rules will be provided by the organizers onsite.</p>
+    <p>Any violation of the rules provided by the organizers, will lead to immediate disqualification.</p>
+    <p>The judges' decision will be final.</p>
+    <p>Rules are subject to change at any point in time.</p>
+    <p>Participants will be duly notified of any changes. </p>
+
+
+    <h2>Contact</h2>
+
+    <p>Shafna Shah - 9526980317</p>
+    <p>Akhil K J - 9745597175</p>
+
+  </template>
+
+  <script>Polymer({is:"event-csi"});</script>
+
+</dom-module><dom-module id="xl-events-nontech" assetpath="/">
+  <template>
+
+    <style>:host{display:block;}a{text-decoration:none;color:inherit;}h1{text-align:center;font-weight:400;font-size:34px;}h2{font-weight:400;}@media ( min-width: 980px){h1{font-size:56px;}}.container{margin:auto;width:100%;max-width:980px;background-color:white;box-shadow:0 0 5px 0px rgba(0,0,0,0.2);}.event{border-top:1px solid rgba(0,0,0,0.2);font-size:20px;padding:32px 16px;}</style>
+
+    <app-location route="{{route}}" use-hash-as-path=""></app-location>
+    <app-route route="{{route}}" pattern="/competitions/nontech-events/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+
+    <h1>Non Tech Events</h1>
+
+
+    <div class="container">
+      <iron-pages role="main" selected="{{page}}" attr-for-selected="name" id="mainContent">
+        <list-all-events id="list" name="list" dept="nontech-events"></list-all-events>
+        <event-tiki name="tiki-taka"></event-tiki>
+        <event-th name="treasure-hunt"></event-th>
+        <event-bm name="best-manager"></event-bm>
+        <event-kluge name="kluge"></event-kluge>
+        <event-defacto name="defacto"></event-defacto>
+        <event-csi name="crime-scene-investigation"></event-csi>
+      </iron-pages>
+    </div>
+
+
+
+
+  </template>
+
+  <script>Polymer({is:"xl-events-nontech",properties:{page:{type:String,reflectToAttribute:!0},route:{observer:"_pageChanged"}},ready:function(){var e=this.$.list,t=(this.$.mainContent,this);fetch("resources/nontech-events.json").then(function(e){return e.json()}).then(function(n){t.data=n,console.log("list",e),console.log("response",n),e.data=n}).catch(function(e){console.log("err",e)})},_pageChanged:function(){console.log("_pageChanged");var e=this.$.mainContent,t=this.routeData.page;console.log("page",t),t?e.selected=t:e.selected="list"}});</script>
+
+</dom-module></div><dom-module id="xl-competitions">
+  <template>
+
+    <style>:host{display:block;}</style>
+    <app-location route="{{route}}" use-hash-as-path=""></app-location>
+    <app-route route="{{route}}" pattern="/competitions/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+
+
+        <iron-pages role="main" selected="[[page]]" attr-for-selected="name" id="mainContent">
+          <xl-departments name="departments"></xl-departments>
+          <xl-events-cs name="cs-events"></xl-events-cs>
+          <xl-events-ec name="ec-events"></xl-events-ec>
+          <xl-events-eee name="eee-events"></xl-events-eee>
+          <xl-events-general name="general-events"></xl-events-general>
+          <xl-events-robo name="robo-events"></xl-events-robo>
+          <xl-events-nontech name="nontech-events"></xl-events-nontech>
+
+        </iron-pages>
+
+
+
+
+
+
+
+
+  </template>
+
+  <script>Polymer({is:"xl-competitions",properties:{page:{type:String,reflectToAttribute:!0}},observers:["_routePageChanged(routeData.page)"],_routePageChanged:function(e){this.page=e||"departments"}});</script>
+
+</dom-module></body></html>

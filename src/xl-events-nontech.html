@@ -1,0 +1,47 @@
+<html><head><link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="list-all-events.html">
+
+
+<link rel="import" href="event-bm.html">
+<link rel="import" href="event-kluge.html">
+<link rel="import" href="event-defacto.html">
+<link rel="import" href="event-tiki.html">
+<link rel="import" href="event-th.html">
+<link rel="import" href="event-csi.html">
+
+
+
+</head><body><dom-module id="xl-events-nontech">
+  <template>
+
+    <style>:host{display:block;}a{text-decoration:none;color:inherit;}h1{text-align:center;font-weight:400;font-size:34px;}h2{font-weight:400;}@media ( min-width: 980px){h1{font-size:56px;}}.container{margin:auto;width:100%;max-width:980px;background-color:white;box-shadow:0 0 5px 0px rgba(0,0,0,0.2);}.event{border-top:1px solid rgba(0,0,0,0.2);font-size:20px;padding:32px 16px;}</style>
+
+    <app-location route="{{route}}" use-hash-as-path=""></app-location>
+    <app-route route="{{route}}" pattern="/competitions/nontech-events/:page" data="{{routeData}}" tail="{{subroute}}"></app-route>
+
+    <h1>Non Tech Events</h1>
+
+
+    <div class="container">
+      <iron-pages role="main" selected="{{page}}" attr-for-selected="name" id="mainContent">
+        <list-all-events id="list" name="list" dept="nontech-events"></list-all-events>
+        <event-tiki name="tiki-taka"></event-tiki>
+        <event-th name="treasure-hunt"></event-th>
+        <event-bm name="best-manager"></event-bm>
+        <event-kluge name="kluge"></event-kluge>
+        <event-defacto name="defacto"></event-defacto>
+        <event-csi name="crime-scene-investigation"></event-csi>
+      </iron-pages>
+    </div>
+
+
+
+
+  </template>
+
+  <script>Polymer({is:"xl-events-nontech",properties:{page:{type:String,reflectToAttribute:!0},route:{observer:"_pageChanged"}},ready:function(){var e=this.$.list,t=(this.$.mainContent,this);fetch("resources/nontech-events.json").then(function(e){return e.json()}).then(function(n){t.data=n,console.log("list",e),console.log("response",n),e.data=n}).catch(function(e){console.log("err",e)})},_pageChanged:function(){console.log("_pageChanged");var e=this.$.mainContent,t=this.routeData.page;console.log("page",t),t?e.selected=t:e.selected="list"}});</script>
+
+</dom-module></body></html>
