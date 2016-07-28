@@ -8,24 +8,65 @@
         display: block
       }
 
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
       h1 {
         text-align: center;
       }
 
+      .container {
+        margin: auto;
+        width: 100%;
+        max-width: 980px;
+        background-color: white;
+        box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+      }
+
+      .event {
+        border-top: 1px solid rgba(0,0,0,0.2);
+        font-size: 20px;
+        padding: 32px 16px;
+      }
+
     </style>
 
-
-
-
-    <h1>general Events</h1>
-
+    <h1>General Events</h1>
+    <div class="container">
+      <template id="general-list" is="dom-repeat" items="{{data}}">
+        <a href="#/competitions/general-events/{{item.link}}">
+          <div class="event">
+            {{item.name}}
+          </div>            
+        </a>
+      </template>
+    </div>
 
   </template>
 
   <script>;
 
     Polymer({
-      is: 'xl-events-general'
+      is: 'xl-events-general',
+      ready : function(){
+        var _self = this;
+        fetch('resources/general-events.json').
+        then(function (response) {
+          return response.json();
+
+        }).
+        then(function (response) {
+          _self.data = response;
+          // if (_self.routeData.page) {
+          //   _self._loadEventData();
+          // }
+        })
+        .catch(function(err) {
+          console.log("err",err);
+        });
+      }
     });
   </script>
 
