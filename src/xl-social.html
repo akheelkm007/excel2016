@@ -76,6 +76,7 @@
 
       .img-div,.bkg-svg {
         width: 100%;
+        will-change: transform;
       }
 
       .img-div {
@@ -300,28 +301,30 @@
     		requestAnimationFrame(function () {
   				self.images.forEach(function (elem, index) {
             var imageTop = elem.getBoundingClientRect().top;
-  					self.imagePosValues[index] = ( (imageTop - self.imagePosValues[index]) / bodyHeight)*150;
-  					if(imageTop > 0  &&  imageTop < bodyHeight) {
-	  					elem.style.transform = "translateY(" + self.imagePosValues[index] +  "px)";
-  					}
+
+            var numerator = (imageTop - self.imagePosValues[index]) - (bodyHeight/2);
+            var denominator = bodyHeight/2;
+  					self.imagePosValues[index] = ( numerator / denominator)*50;
+
+	  				elem.style.transform = "translateY(" + self.imagePosValues[index] +  "px)";
 
   				});
     		});
       },
       ready : function () {
-		var self = this;
-		self.prevScrollPosition = self.scrollTop;
-		self.value = 0;
-		self.ticking = false;
-		self.images = Array.from(self.shadowRoot.querySelectorAll('.img-div'));
-		self.imagePosValues = [];
-		self.images.forEach(function (elem, index) {
-			self.imagePosValues.push(0);
-		});
+    		var self = this;
+    		self.prevScrollPosition = self.scrollTop;
+    		self.value = 0;
+    		self.ticking = false;
+    		self.images = Array.from(self.shadowRoot.querySelectorAll('.img-div'));
+    		self.imagePosValues = [];
+    		self.images.forEach(function (elem, index) {
+    			self.imagePosValues.push(0);
+    		});
 
-		console.log('self', self);
-		console.log('self.images', self.images);
-		this.listen(this, 'scroll', 'onScroll');
+        if (document.body.getBoundingClientRect().width > 980) {
+          this.listen(this, 'scroll', 'onScroll');
+        }
       }
 
     });

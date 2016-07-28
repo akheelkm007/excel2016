@@ -369,6 +369,10 @@
 	    var largeImage = this.$.largeImg;
     	var currentImage = this.lastSelected;
     	var nextImage = currentImage.previousElementSibling;
+    	console.log('nextImage',nextImage);
+    	if (!nextImage) {
+    		return;
+    	}
     	this.lastSelected = nextImage;
 	    largeImage.src = nextImage.src;
         var largeSizeLink = nextImage.dataFull;
@@ -385,6 +389,10 @@
 	    var largeImage = this.$.largeImg;
     	var currentImage = this.lastSelected;
     	var nextImage = currentImage.nextElementSibling;
+    	console.log('nextImage',nextImage);
+    	if (nextImage == this.$.galleryRow) {
+    		return;
+    	}
     	this.lastSelected = nextImage;
 	    largeImage.src = nextImage.src;
         var largeSizeLink = nextImage.dataFull;
