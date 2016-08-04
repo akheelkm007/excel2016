@@ -1,0 +1,59 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="list-events">
+<style>
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.container {
+		margin: auto;
+		width: 100%;
+		max-width: 980px;
+		background-color: white;
+		box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+	}
+
+	.event {
+		border-top: 1px solid rgba(0,0,0,0.2);
+		font-size: 20px;
+		padding: 32px 16px;
+	}
+</style>
+<template>
+	<div class="container">
+	      <template is="dom-repeat" items="{{data}}">
+	        <a href="#/competitions/{{ file }}-events/{{item.link}}">
+	          <div class="event">
+	            {{item.name}}
+	          </div>            
+	        </a>
+	      </template>
+		</div>
+</template>
+<script>
+	Polymer({
+		is : 'list-events',
+		properties:{
+			file:{
+				type: String
+			}
+		},
+		ready: function(){
+			var _self = this;
+	        alert(this.file);
+	        fetch('resources/'+_self.file+'-events.json').
+	        then(function (response) {
+	          return response.json();
+	        }).
+	        then(function (response) {
+	          _self.data = response;
+	        })
+	        .catch(function(err) {
+	          console.log("err",err);
+	        });
+		}
+	});
+</script>
+</dom-module>

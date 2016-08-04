@@ -1,14 +1,13 @@
 [ 
 	{
-		"name": "Event1",
+		"name": "Techathon",
 		"description" : "The description about the first Event ",
-		"link" : "event1"
+		"link" : "techathon"
 	},
 
 	{
-		"name": "Event2",
-		"description" : "event2 description lorem ipsum chakka manga...............",
-		"link" : "event2"
+		"name":"Ultimate Engineer",
+		"link":"techathon"
 	},
 	{
 		"name": "Event3",

@@ -24,7 +24,7 @@
 		data ="{{ routeData }}"
 		tail="{{ tailData }}">
 	</app-route>
-	<iron-pages attr-for-selected="name" selected="[[ routeData.page ]]">
+	<iron-pages attr-for-selected="name" selected="{{ page }}">
 		<talks-nutshell name=""></talks-nutshell>
 		<talks-issue name="issue"></talks-issue>
 		<talks-untitled name="untitled"></talks-untitled>
@@ -35,6 +35,19 @@
 <script>
 	Polymer({
 		'is':'xl-talks',
+		properties:{
+			page:{
+				type: String,
+				reflectToAttribute: true,
+			},
+			route:{
+				observer: '_pageChanged'
+			}
+		},
+		_pageChanged: function(){
+			this.page = this.routeData.page ? this.routeData.page : "";
+			// alert(this.page);
+		}
 	});
 </script>
 </dom-module>

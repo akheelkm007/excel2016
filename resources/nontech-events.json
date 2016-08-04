@@ -3,7 +3,6 @@
 		"name": "Best Manager",
 		"link" : "best-manager"
 	},
-
 	{
 		"name": "Kluge",
 		"link" : "kluge"
@@ -23,5 +22,9 @@
 	{
 		"name": "Crime Scene Investigation 2k16",
 		"link": "crime-scene-investigation"
+	},
+	{
+		"name":"Papyrus Of Ani",
+		"link":"papyrus-of-ani"
 	}
 ]

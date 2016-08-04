@@ -4,51 +4,15 @@
 		"link":"techathon"
 	},
 	{
-		"name":"Extrinsicity",
-		"link":"techathon"
-	},
-	{
-		"name":"The Hurtlocker",
-		"link":"techathon"
-	},
-	{
-		"name":"Circuimstance Online",
-		"link":"techathon"
-	},
-	{
-		"name":"Ultimate Engineer",
-		"link":"techathon"
-	},
-	{
-		"name":"Lumiere",
-		"link":"techathon"
-	},
-	{
-		"name":"Lifeline",
-		"link":"techathon"
-	},
-	{
 		"name":"Elequest-technical Treasure Hunt",
-		"link":"techathon"
-	},
-	{
-		"name":"Papyrus Of Ani",
-		"link":"techathon"
-	},
+		"link":"elequest-technical-treasure-hunt"
+	},	
 	{
 		"name":"Tech Zone(sponsored By Geogit Technologies)",
-		"link":"techathon"
+		"link":"tech-zone"
 	},
 	{
 		"name":"Tequiz",
-		"link":"techathon"
-	},
-	{
-		"name":"Robo War",
-		"link":"techathon"
-	},
-	{
-		"name":"Robo Soccer",
-		"link":"techathon"
+		"link":"tequiz"
 	}
 ]

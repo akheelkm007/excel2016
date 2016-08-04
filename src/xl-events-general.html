@@ -1,4 +1,8 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+
+<link rel="import" href="list-events.html">
 
 <dom-module id="xl-events-general">
   <template>
@@ -7,42 +11,27 @@
       :host {
         display: block
       }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-
       h1 {
         text-align: center;
-      }
-
-      .container {
-        margin: auto;
-        width: 100%;
-        max-width: 980px;
-        background-color: white;
-        box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
-      }
-
-      .event {
-        border-top: 1px solid rgba(0,0,0,0.2);
-        font-size: 20px;
-        padding: 32px 16px;
       }
 
     </style>
 
     <h1>General Events</h1>
-    <div class="container">
-      <template id="general-list" is="dom-repeat" items="{{data}}">
-        <a href="#/competitions/general-events/{{item.link}}">
-          <div class="event">
-            {{item.name}}
-          </div>            
-        </a>
-      </template>
-    </div>
+
+    <app-location route="{{ route }}" use-hash-as-path></app-location>
+    <app-route
+        route="{{ route }}"
+        pattern="/competitions/general-events/:path"
+        data="{{ routeData }}"
+        tail="{{ tailData }}">
+    </app-route>
+
+    <iron-pages selected="{{ page }}" attr-for-selected="name">
+      <list-events file="general" name=""></list-events>
+      <general-somename name="somename"></general-somename>
+    </iron-pages>
+    
 
   </template>
 
@@ -50,22 +39,17 @@
 
     Polymer({
       is: 'xl-events-general',
-      ready : function(){
-        var _self = this;
-        fetch('resources/general-events.json').
-        then(function (response) {
-          return response.json();
-
-        }).
-        then(function (response) {
-          _self.data = response;
-          // if (_self.routeData.page) {
-          //   _self._loadEventData();
-          // }
-        })
-        .catch(function(err) {
-          console.log("err",err);
-        });
+      properties:{
+        page:{
+          type: String,
+          reflectToAttribute: true
+        },
+        route:{
+          observer: '_pageChanged'
+        }
+      },
+      _pageChanged: function(){
+        this.page = this.routeData.path ? this.routeData.path:"";
       }
     });
   </script>

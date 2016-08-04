@@ -1,5 +1,10 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+
+<link rel="import" href="list-events.html">
+
 <dom-module id="xl-events-ec">
   <template>
 
@@ -13,19 +18,36 @@
       }
 
     </style>
+    <app-location route="{{ route }}" use-hash-as-path></app-location>
+    <app-route
+        route="{{ route }}"
+        pattern="/competitions/ec-events/:path"
+        data="{{ routeData }}"
+        tail="{{ tailData }}">
+    </app-route>
 
-
-
-
-    <h1>ec Events</h1>
-
-
+    <h1>EC events</h1>
+    <iron-pages attr-for-selected="name" selected="{{ page }}">
+      <list-events file="ec" name="" id="list"></list-events>
+    </iron-pages>
   </template>
 
-  <script>;
+  <script>
 
     Polymer({
-      is: 'xl-events-ec'
+      is: 'xl-events-ec',
+      properties: {
+        page: {
+          type: String,
+          reflectToAttribute: true
+        },
+        route: {
+          observer: '_pageChanged'
+        }
+      },
+      _pageChanged: function(){
+        this.page = this.routeData.path? this.routeData.path : "";
+      }
     });
   </script>
 
