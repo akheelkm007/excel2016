@@ -42,7 +42,8 @@
 		},
 		ready: function(){
 			var _self = this;
-	        // alert(this.file);
+
+			console.log('this.file : ',this.file);
 	        fetch('resources/'+_self.file+'-events.json').
 	        then(function (response) {
 	          return response.json();
