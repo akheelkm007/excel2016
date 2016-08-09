@@ -73,6 +73,7 @@
 
     <div class="container">
       <iron-pages role="main" selected="{{page}}" attr-for-selected="name" id="mainContent">
+
         <list-all-events id="list" name="list" dept="nontech-events"></list-all-events>
         <event-tiki name="tiki-taka"></event-tiki>
         <event-th name="treasure-hunt"></event-th>
@@ -117,8 +118,6 @@
       }).
       then(function (response) {
         _self.data = response;
-        console.log('list',list);
-        console.log('response',response);
         list.data = response;
       })
       .catch(function(err) {
