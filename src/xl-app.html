@@ -12,16 +12,19 @@
 <link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
 
 <link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-scroll-threshold/iron-scroll-threshold.html">
 
 <link rel="import" href="../bower_components/paper-menu/paper-menu.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 
+<link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+
 <dom-module id="xl-app">
 
   <template>
 
-    <style>
+    <style is="custom-style">
 
       :host {
         display: block;
@@ -35,19 +38,13 @@
         };   
       }
       paper-menu {
-      	/*font-weight: 500;*/
         --paper-menu-selected-item: {
-          /* color: red; 
-          background: red!important;*/
         };
       }
 
       paper-item:hover {
-        background: rgba(0,0,0,0.15);
+        background: rgba(180,227,250,0.5);
       }
-      /*paper-item:active{
-        background: red;
-      }*/
 
       paper-icon-button {
         --paper-icon-button-ink-color: white;      	
@@ -87,16 +84,23 @@
       }
 
       .toolbar-img {
-		width: 100%;
-		position: absolute;
-		left: 0;
-		top: 0;
+    	 width: 100%;
+    	 position: absolute;
+		   left: 0;
+		   top: 0;
   	  }
 
       paper-toolbar.drawer {
-  		--paper-toolbar-background: #45aed6;
+      --paper-toolbar-background: #45aed6;
   		color: black;
       }
+
+      paper-toolbar.main {
+      --paper-toolbar-background: #b4e3fa;
+      --paper-toolbar-background: transparent;
+      color: white;
+      }
+
 
       .transition {
       	will-change: transform;
@@ -116,6 +120,30 @@
       .inline {
         display: inline-block;
       }
+
+      .social-divider {
+        border-left: 1px solid rgba(255,255,255,0.15);
+        height:60%;
+      }
+
+  paper-scroll-header-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      /* background for toolbar when it is at its full size */
+      --paper-scroll-header-panel-full-header: {
+      	background-color: #b4e3fa;
+      };
+
+      /* background for toolbar when it is condensed */
+      --paper-scroll-header-panel-condensed-header: {
+        background-color: red;
+      };
+
+    }
 
 
     </style>
@@ -171,36 +199,48 @@
       </paper-header-panel>
 
 
-      <paper-header-panel main>
-        <paper-toolbar>
+      <paper-scroll-header-panel main condenses keep-condensed-header header-height="68" condensed-header-height="63">
+       <!-- mode="waterfall"> -->
+
+        <paper-toolbar class="main" id="mainToolBar">
           <paper-icon-button icon="menu" paper-drawer-toggle style="color:white;"></paper-icon-button>
-          <div class="title">Excel 2016</div>
-          <paper-icon-button src="../images/social-icons/google-plus.svg"></paper-icon-button> 
-          <div style="border-left: 2px solid rgba(105,105,105,0.9);height:60%"></div>
-          <paper-icon-button src="../images/social-icons/twitter.svg"></paper-icon-button> 
-          <div style="border-left: 2px solid rgba(105,105,105,0.9);height:60%"></div>
-          <paper-icon-button src="../images/social-icons/facebook.svg"></paper-icon-button> 
+          <div class="title"></div>
+          <paper-icon-button src="../images/social-icons/share-facebook.svg"></paper-icon-button> 
+          <div class="social-divider"></div>
+          <paper-icon-button src="../images/social-icons/share-gplus.svg"></paper-icon-button> 
+          <div class="social-divider"></div>
+          <paper-icon-button src="../images/social-icons/share-twitter.svg"></paper-icon-button> 
         </paper-toolbar>
-        <div>
 
-        <iron-pages role="main" selected="[[page]]" attr-for-selected="name" id="mainContent">
-          <xl-home name="home"></xl-home>
-          <xl-schedule name="schedule"></xl-schedule>
-          <xl-competitions name="competitions" id="competitions"></xl-competitions>
-          <xl-talks name="talks" id="talks"></xl-talks>
-          <xl-gallery name="gallery"></xl-gallery>
-          <xl-partners name="partners"></xl-partners>
-          <xl-social name="social"></xl-social>
-          <div name="spinner">
-            <h1 class="inline">Hold on... Loading awesomeness...</h1>
-            <paper-spinner active></paper-spinner>            
-          </div>
-        </iron-pages>
+		    <div>
+		    	<iron-pages role="main" selected="[[page]]" attr-for-selected="name" id="mainContent">
+		    		<xl-home name="home"></xl-home>
+		      		<xl-schedule name="schedule"></xl-schedule>
+		      		<xl-competitions name="competitions" id="competitions"></xl-competitions>
+		      		<xl-talks name="talks" id="talks"></xl-talks>
+		      		<xl-gallery name="gallery"></xl-gallery>
+		      		<xl-partners name="partners"></xl-partners>
+		      		<xl-social name="social"></xl-social>
+		      		<div name="spinner">
+		        		<h1 class="inline">Hold on... Loading awesomeness...</h1>
+		        		<paper-spinner active></paper-spinner>            
+		    		</div>
+				</iron-pages>
+			</div>
 
 
 
-        </div>
-      </paper-header-panel>
+
+
+
+
+
+
+
+
+
+
+      </paper-scroll-header-panel>
 
 
 
@@ -231,6 +271,18 @@
       ],
 
       _routePageChanged: function(page) {
+
+          console.log('page : ',page);
+
+
+          if (page != "home") {
+	          this.$.mainToolBar.style.backgroundColor = "red";
+          }
+
+          else {
+	          this.$.mainToolBar.style.backgroundColor = "inherit";
+          }
+
 
           var x = this.$.mainContent;
           var old = x.selectedItem;
