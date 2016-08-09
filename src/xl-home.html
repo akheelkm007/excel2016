@@ -115,62 +115,364 @@
         justify-content: space-around;
       }
 
-    </style>
+      .about-us,.getting-here {
+        margin: 14px;
+        margin-bottom: 0;
+        color: #6b6e6c;
+        font-weight: 500;
+        line-height: 1;
+        font-size: 45px;
+      }
 
-    <div class="bkg-color">
+  .nav-bar {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 56px;
+   background: #00c6ed;
+   background: transparent;
+   z-index: 10;
+   line-height: 56px;
+   font-family: Roboto, Arial, sans-serif;
+   color: white;
+   padding-left: 16px;
+   font-size: 20px;
+   box-shadow: 0 1px 4px 1px rgba(0,0,0,0.14);
+   box-sizing: border-box;
+  }
 
-      <h1>About us</h1>
 
-      <p>Excel, the nation’s second and South India’s first ever fest of its kind started in 2001 by the students of Govt. Model Engineering College with a motto, Inspire, Innovate, Engineer. Over the years, Excel has grown exponentially, consistently playing host to some of the most talented students, the most illustrious speakers and the most reputed companies. Now gearing towards its 17th edition, Excel continues to excite the participants with its wide array of technical and non-technical events and with a promise to live upto its motto.
-      </p>
 
-      <div class="container">
 
-          <a target="_blank" href="/" class="links">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img" />
-            <div class="blocks android">
-            Check out our Android App
-            </div>  
-          </a>
-          <a target="_blank" href="/" class="links">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="bkg-img" />
-            <div class="blocks play">
-            Check out our online Events
-            </div>  
-          </a>
-      </div>
-      <div class="container-two">
-        <h1>Attending ?</h1>
-        <h2>Getting here</h2>
-        <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit. Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
-        <h2>Location</h2>
+  /*CSS for the Animation*/
 
-        <div class="btn-cntr">
-          <a target="_blank" href="https://www.google.co.in/maps/place/MEC+Workshop/@10.0285581,76.3277689,18z/data=!4m13!1m7!3m6!1s0x3b080c500d249f59:0x6a4f8fcb7841d91!2sMEC+Workshop!3b1!8m2!3d10.0285581!4d76.3283455!3m4!1s0x3b080c500d249f59:0x6a4f8fcb7841d91!8m2!3d10.0285581!4d76.3283455">
-            <paper-button raised>View in Maps</paper-button>
-          </a>
-        </div>
 
-      </div>
-      <div class="container-two">
-        <h1>Evolution</h1>
+  .background-image {
+   width: 100%;
+   /*position: absolute;*/
+   /*top: 56px;*/
+   left: 0;
+   /*transform: translateY(-56px);*/
+   background-image: url('../images/animation/bkg.png');
+   background-size: cover;
+   overflow: hidden;
+   z-index: 2; 
+   box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  }
 
-        <div class="prev-cntr">
-          <a href="/">
-            <img class="prev" src="../images/previous/2013.png">
-          </a>
-          <a href="/">
-            <img class="prev" src="../images/previous/2014.png">
-          </a>
-          <a href="/">
-            <img class="prev" src="../images/previous/excel2015.png">
-          </a>          
-        </div>
+  .aspect-ratio {
+   width: 100%;
+  }
 
-      </div>
-      
-    </div>
+  .sun {
+   position: absolute;
+   top: 4vw;
+   right: 10%;
+   width: 5%;
+  }
+  .wind {
+   position: absolute;
+   top:31vw;
+   right: 15%;
+   width: 10%;
+  }
 
+  .w1 {
+    right: 12%;
+  }
+  
+  .w2 {
+    right: 8%;
+    transform: scale(0.75);
+  }
+
+  .airship {
+   position: absolute;
+   top: 19vw;
+   left: 35%;
+   width: 33.5%;
+   animation: airship-animation 5s ease-in-out infinite;
+   will-change: transform;
+  }
+
+  .wings1 {
+   transform-origin: center;
+   animation: spin 5s linear infinite;
+  }
+  .wings2 {
+   transform-origin: center;
+   animation: spin 2.5s linear infinite;
+  }
+
+  .wings3 {
+   transform-origin: center;
+   animation: spin 2.5s linear infinite;
+  }
+  .cloud {
+   position: absolute;
+   width: 10%;
+   animation-name: cloud-animation;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   left: 0%;
+   transform: translateX(-100%);
+   will-change: transform;
+  }
+
+  .copter {
+   position: absolute;
+   width: 10%;
+   animation-name: copter-animation;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   animation-duration : 20s;
+   animation-delay: 5s;
+   left: -20%;
+   top: 5vw;
+   will-change: transform;
+  }
+
+  .skulbus {
+   position: absolute;
+   width: 10%;
+   animation-name: skulbus-animation;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   animation-duration : 25s;
+   left: 91%;
+   top: 42vw;
+   will-change: transform;
+   transform: scale(0.75);
+  }
+
+  .college {
+    position: absolute;
+    left: 48%;
+    top: 40.1vw;
+    width: 10%;
+  }
+
+  .c1 {
+   top: 4vw;
+   animation-delay: 1s;
+   animation-duration : 60s;
+  }
+
+
+  .c2 {
+   top: 6vw;
+   animation-delay: 5s;
+   animation-duration : 80s;
+  }
+
+  .c3 {
+   top: 5.5vw;
+   animation-delay: 7s;
+   animation-duration : 100s;
+  }
+
+  #chirag {
+    will-change: opacity;
+    animation: chirag-animation 0.1s infinite;
+  }
+
+  #bakchirag {
+    will-change: transform;
+    transform-origin: center center;
+    animation: bakchirag-animation 0.1s infinite;
+  }
+
+  /*Keyframe Animations*/
+
+  @keyframes bakchirag-animation {
+   0% {
+    transform: rotate(0deg);
+   }
+
+   100% {
+    transform: rotate(360deg);
+   }
+  }
+
+
+  @keyframes chirag-animation {
+
+   0% {
+    opacity: 1;
+   }
+
+   50% {
+    opacity: 0
+   }
+
+   100% {
+    opacity: 1;
+   }
+  }
+
+
+
+
+
+
+
+
+  @keyframes airship-animation {
+
+   0% {
+    transform: translateX(0px) rotate(0deg);
+   }
+
+   50% {
+    transform: translateX(0.5vw) rotate(2deg);
+   }
+
+   100% {
+    transform: translateX(0px) rotate(0deg);
+   }
+  }
+
+  @keyframes cloud-animation {
+   from {
+    left: 0%;
+    transform: translateX(-100%);
+   }
+
+   to {
+    left: 0%;
+    transform: translateX(100vw);    
+   }
+  }
+
+
+  @keyframes copter-animation {
+   from {
+    left: 100%;
+    transform: translateX(0);    
+   }
+
+   to {
+    left: 100%;
+    transform: translateX(-100vw);    
+   }
+  }
+
+  @keyframes skulbus-animation {
+   0% {
+    left: 91%;
+    top: 42vw;
+   }
+
+
+   100% {
+    left: -16%;
+    top: 43vw;
+   }
+
+  }
+
+
+  @keyframes spin{
+   0% {
+
+   transform: rotate(0deg);
+   }
+   100% {
+
+   transform: rotate(359deg);
+   }
+  }
+
+  .xl {
+    padding-top: 6px;
+    padding-left: 6px;
+    padding-bottom: 6px;
+    height: 80px;
+    /*opacity: 0.7;*/
+  }
+
+
+.divider {
+    height: 3px;
+    width: 6%;
+    margin: auto;
+    background: #bceef7;
+}
+
+.mec-image {
+  width: 40%;
+  display: block;
+  margin: auto;
+  margin-top: 16px;
+}
+
+.about-us-p {
+  font-size: 15px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.app-sticker {
+  width: 20%;
+  margin: auto;
+  display: block;
+}
+
+.green-bkg {
+  background: #66bb6a;
+}
+
+.getting-here {
+  color: white;
+  /*margin-top: 32px;*/
+}
+
+.white {
+  background: white;
+}
+
+.container-two {
+  padding-top: 8px;
+  padding-bottom: 50px;
+}
+
+.small-line {
+  width: 3%
+}
+ </style>
+
+ <div class="background-image">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 2738" class="aspect-ratio"/>
+  <img class="sun" src="../images/animation/sun.svg">
+  <svg class="wind w1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.3 841.9"><g id="pillar" fill="#14A9C1"><path d="M291.3 407.9h7l4 172.2h-15z"/><path d="M280.1 587.3h28.5l3.6-.1s.3-6-6.3-8.2h-23c-6.7 2.2-6.3 8.2-6.3 8.2l3.5.1z"/></g><g class="wings wings1"><path id="sqlar" fill="none" stroke="#D7D1D0" stroke-miterlimit="10" visibility="hidden" d="M198.4 302.2h189.9v189.9H198.4z"/><g fill="#F28B8B"><path d="M298 388.3c7.3-14.3 7.4-40.8-3-85.3h-.4c-10.4 44.4-10.3 71-3 85.3 1-.3 2.1-.5 3.2-.5s2.2.2 3.2.5zM213.1 443.4l.2.4c41.9-12.7 64.7-25.5 74.2-38.4-1.8-1.8-2.9-4.3-2.9-7.1-16.1 1.2-38.9 14.4-71.5 45.1zM305.2 398.3c-.1 3-1.4 5.7-3.5 7.6 9.7 12.7 32.5 25.3 73.7 37.8l.2-.4c-31.9-29.9-54.5-43.2-70.4-45z"/></g><path fill="#F28B8B" d="M293.3 390.7c5.9-1.3 11 4.3 8.8 10.3-.7 1.9-2.3 3.5-4.2 4.2-6 2.2-11.6-2.9-10.3-8.8.6-2.8 2.8-5.1 5.7-5.7z"/></g></svg>
+  <svg class="wind w2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.3 841.9"><g id="pillar" fill="#14A9C1"><path d="M291.3 407.9h7l4 172.2h-15z"/><path d="M280.1 587.3h28.5l3.6-.1s.3-6-6.3-8.2h-23c-6.7 2.2-6.3 8.2-6.3 8.2l3.5.1z"/></g><g class="wings wings2"><path id="sqlar" fill="none" stroke="#D7D1D0" stroke-miterlimit="10" visibility="hidden" d="M198.4 302.2h189.9v189.9H198.4z"/><g fill="#F28B8B"><path d="M298 388.3c7.3-14.3 7.4-40.8-3-85.3h-.4c-10.4 44.4-10.3 71-3 85.3 1-.3 2.1-.5 3.2-.5s2.2.2 3.2.5zM213.1 443.4l.2.4c41.9-12.7 64.7-25.5 74.2-38.4-1.8-1.8-2.9-4.3-2.9-7.1-16.1 1.2-38.9 14.4-71.5 45.1zM305.2 398.3c-.1 3-1.4 5.7-3.5 7.6 9.7 12.7 32.5 25.3 73.7 37.8l.2-.4c-31.9-29.9-54.5-43.2-70.4-45z"/></g><path fill="#F28B8B" d="M293.3 390.7c5.9-1.3 11 4.3 8.8 10.3-.7 1.9-2.3 3.5-4.2 4.2-6 2.2-11.6-2.9-10.3-8.8.6-2.8 2.8-5.1 5.7-5.7z"/></g></svg>
+  <svg class="wind w3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 595.3 841.9"><g id="pillar" fill="#14A9C1"><path d="M291.3 407.9h7l4 172.2h-15z"/><path d="M280.1 587.3h28.5l3.6-.1s.3-6-6.3-8.2h-23c-6.7 2.2-6.3 8.2-6.3 8.2l3.5.1z"/></g><g class ="wings wings3"><path id="sqlar" fill="none" stroke="#D7D1D0" stroke-miterlimit="10" visibility="hidden" d="M198.4 302.2h189.9v189.9H198.4z"/><g fill="#F28B8B"><path d="M298 388.3c7.3-14.3 7.4-40.8-3-85.3h-.4c-10.4 44.4-10.3 71-3 85.3 1-.3 2.1-.5 3.2-.5s2.2.2 3.2.5zM213.1 443.4l.2.4c41.9-12.7 64.7-25.5 74.2-38.4-1.8-1.8-2.9-4.3-2.9-7.1-16.1 1.2-38.9 14.4-71.5 45.1zM305.2 398.3c-.1 3-1.4 5.7-3.5 7.6 9.7 12.7 32.5 25.3 73.7 37.8l.2-.4c-31.9-29.9-54.5-43.2-70.4-45z"/></g><path fill="#F28B8B" d="M293.3 390.7c5.9-1.3 11 4.3 8.8 10.3-.7 1.9-2.3 3.5-4.2 4.2-6 2.2-11.6-2.9-10.3-8.8.6-2.8 2.8-5.1 5.7-5.7z"/></g></svg>
+  <img class="airship" src="../images/animation/airship.png">
+  <svg class="copter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480"><g fill-rule="evenodd" clip-rule="evenodd"><path fill="#4CBAF2" d="M314.1 146.9c2.1 0 3.8 1.7 3.8 3.8v79.4c0 2.1-1.7 3.8-3.8 3.8-2.1 0-3.8-1.7-3.8-3.8v-79.4c0-2.1 1.7-3.8 3.8-3.8z"/><path fill="#369CD0" d="M314.1 208c17.3 0 31.5-10.1 31.5-22.5S331.5 163 314.1 163c-17.3 0-31.5 10.1-31.5 22.5s14.1 22.5 31.5 22.5z"/><path fill="#4CBAF2" d="M279.9 176.7h68.3c4.8 0 8.7 3.9 8.7 8.7v12.2c0 4.8-3.9 8.7-8.7 8.7h-68.3c-4.8 0-8.7-3.9-8.7-8.7v-12.2c0-4.8 3.9-8.7 8.7-8.7z"/><path fill="#454C54" d="M241.5 275.8h5.5v24.6h-5.5zM332.5 275.8h5.5v24.6h-5.5z"/><path fill="#E84E2F" d="M532.9 185.4H256.4c-9.5 0-20 5.6-25.2 13.5l-32.4 48.8c-11 16.5 5.6 32.7 18 32.7h121.9c7.3 0 14.6-2.8 20.7-6.7l57.7-36.3 116.5-35.8c5.1-1.5 13.2-16.2-.7-16.2z"/><path fill="#B32E23" d="M195.3 261.5c1.6 10.7 12.5 18.9 21.4 18.9h121.9c7.3 0 14.6-2.8 20.7-6.7l19.5-12.3H195.3z"/><g id="chirag" fill="#454C54"><path d="M314.1 148.4l178.9 2.7v-6.9l-178.9 2.7zM314.1 148.4l-178.9 2.7v-6.9l178.9 2.7z"/></g><path fill="#E84E2F" d="M539 216.7c3.6-20.4 7.2-40.8 10.9-61.2-18.3 0-28.9 61.1-10.9 61.2z"/><g id="bakchirag" fill="#454C54"><path d="M536 193.6l20.8 17.6 3.7-5.3-23.7-13.4z"/><path d="M536 193.6l-23.7-13.4 3.7-5.3 20.8 17.6z"/><path d="M535.8 192.6l-17.6 20.8 5.3 3.7 13.4-23.7z"/><path d="M535.8 192.6l13.4-23.7 5.3 3.7-17.6 20.8z"/></g><path fill="#7D8590" d="M264.7 185.4h-8.3c-9.5 0-20 5.6-25.2 13.5l-32.4 48.8c-11 16.5 5.6 32.7 18 32.7h9.6l38.3-95z"/><path fill="#454C54" d="M195.6 263c.1.5.2 1 .4 1.5.6 1.7 1.3 3.4 2.3 4.9.3.4.5.8.8 1.2.1.1.2.3.3.4.2.2.4.5.6.7l.3.3.1.1c.3.3.6.6.9 1l.1.1.3.3.1.1.5.5.2.1.3.2.2.1c.1.1.2.2.3.2.1.1.3.2.4.3l.3.2.2.1.3.2.3.2c.1.1.2.2.4.3l.3.2.2.1.3.2.2.2c.1.1.3.2.4.3l.2.1c.1.1.2.1.3.2l.2.1c.1.1.3.1.4.2l.2.1c.1.1.3.1.4.2l.2.1.3.2.2.1c.2.1.3.2.5.2l.1.1c.1.1.3.1.4.2l.2.1c.2.1.3.1.5.2h.1c.2.1.3.1.5.2l.2.1c.1 0 .3.1.4.1h.2c.2.1.4.1.5.1h.1c.1 0 .3.1.4.1h.1c.2 0 .4.1.5.1.2 0 .4.1.5.1h.2c.1 0 .3 0 .4.1h.1c.2 0 .4 0 .5.1H226.2l7.7-18.9h-38.6c.1.8.2 1.3.3 1.8z"/><g fill="#98DCFF"><path d="M320.4 196.9H276c-4.1 0-8.7 3.9-10.2 7.6l-10.7 27.9c-1.6 4.2.5 7.6 4.7 7.6h60.5c4.2 0 7.6-3.4 7.6-7.6v-27.9c0-4.1-3.2-7.4-7.2-7.6H320.4zM242.6 240.1l17.5-43.2H245.6c-4.2.2-9.5 3.6-12.1 7.6l-17.9 27.9c-2.7 4.2-1.5 7.6 2.7 7.6h24.3z"/></g><path fill="#454C54" d="M347.8 303.2c0 1.5-1.2 2.7-2.7 2.7h-117c-1.5 0-2.7-1.2-2.7-2.7 0-1.5 1.2-2.7 2.7-2.7h117c1.5 0 2.7 1.2 2.7 2.7z"/><path fill="#454C54" d="M218.5 295c1-1.1 2.7-1.3 3.9-.3l7.5 6.4c1.1 1 1.3 2.7.3 3.9-1 1.1-2.7 1.3-3.9.3l-7.5-6.4c-1.2-1-1.3-2.7-.3-3.9z"/><g fill="#BEE9FF"><path d="M318.6 196.9L285 240.1h-12.1l33.6-43.2zM302.4 196.9l-33.6 43.2h-7.5l33.7-43.2zM327.1 200.9l-30.6 39.2h-7.4l33.4-42.9c1.9.6 3.6 1.9 4.6 3.7zM259.3 196.9l-33.6 43.2h-7.5l33.6-43.2z"/></g></g></svg>
+  <svg class="college" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480"><path fill="#FFE082" d="M252.4 108.6l-229 68.7 32.7 112h196.3"/><path fill="#FFA000" d="M28.353 173.244l220.23-62.792 3.48 12.214-220.228 62.792zM51.322 217.818l197.26-56.553 3.5 12.208-197.26 56.554zM60.02 269.256l182.264-52.254 3.334 11.632-182.262 52.253z"/><path fill="#F9D075" d="M114.1 289.3h-58l-38-130.5 53.1-23.2"/><g><path fill="#FFE082" d="M371.3 108.6l229 68.7-32.7 112H371.3"/><path fill="#FFA000" d="M591.81 185.43l-220.23-62.792 3.483-12.214 220.23 62.792zM568.918 230.054L371.66 173.5l3.5-12.208 197.26 56.554zM560.42 280.793L378.158 228.54l3.334-11.632 182.263 52.253z"/><path fill="#F9D075" d="M509.6 289.3h58l38-130.5-53.1-23.2"/></g><g><path fill="#F9D075" d="M249.1 105.2l-25.3-25.3-24.7 24.7 34 34v79.3h-10.7v70.7h177.7v-70.7h-10.7v-79.3l34-34-24.6-24.7-25.4 25.3H249.1"/><path fill="#FFA000" d="M355.6 123.4h-88.8l-17.7 17.7h124.2M355.7 175.4h-88.9l-17.6 17.7h124.1M355.6 224.2h-88.8l-17.7 17.7h124.2"/></g><g><path fill="#9B7F48" d="M270.3 144.3h83.3v25.3h-83.3zM270.3 198.9h83.3v21.4h-83.3zM270.3 248.9h83.3v34.8h-83.3z"/><g fill="#9B7F48"><path d="M121.417 186.748l-4.65-15.31 16.265-4.94 4.65 15.308zM91.75 195.74l-4.65-15.31 14.35-4.36 4.652 15.31zM183.563 167.888l-4.652-15.31 15.31-4.65 4.65 15.31zM152.94 177.17l-4.652-15.308 15.31-4.652 4.65 15.31zM209.52 143.265l15.31-4.65 4.65 15.307-15.308 4.652z"/></g><g fill="#9B7F48"><path d="M142.314 233.53l-4.652-15.31 16.266-4.942 4.65 15.31zM112.647 242.52l-4.65-15.31 14.35-4.36L127 238.16zM204.555 214.64l-4.65-15.31 15.307-4.65 4.652 15.31zM173.93 223.922l-4.65-15.31 15.31-4.65 4.65 15.31z"/></g><g fill="#9B7F48"><path d="M133.458 285.653l-3.477-15.617 16.595-3.694 3.477 15.617zM196.913 271.483l-3.477-15.617 15.618-3.477 3.477 15.617zM165.715 278.394l-3.477-15.618 15.618-3.477 3.476 15.617z"/></g><g fill="#9B7F48"><path d="M484.906 183.023l4.65-15.31 16.267 4.943-4.652 15.31zM516.476 192.633l4.65-15.308 14.353 4.36-4.652 15.31zM423.716 164.417l4.65-15.308 15.31 4.65-4.65 15.31zM454.33 173.737l4.65-15.31 15.31 4.652-4.652 15.308zM408.35 159.746l-15.308-4.65 4.65-15.31 15.31 4.65z"/></g><g fill="#9B7F48"><path d="M463.938 229.83l4.65-15.31 16.267 4.942-4.65 15.31zM495.508 239.44l4.652-15.31 14.352 4.36-4.652 15.31zM402.748 211.223l4.652-15.31 15.308 4.653-4.65 15.308zM433.36 220.543l4.653-15.31 15.308 4.652-4.65 15.31z"/></g><g fill="#9B7F48"><path d="M472.446 283.115l3.477-15.617 16.594 3.694-3.477 15.617zM410.006 269.153l3.477-15.617 15.618 3.477-3.476 15.617zM441.278 276.152l3.476-15.618 15.618 3.477-3.477 15.618z"/></g><g fill="#9B7F48"><path d="M76.194 204.71l-11.116 3.65-3.652-11.116 11.116-3.652zM68.566 218.803l11.116-3.652 3.433 10.452L72 229.254zM65.696 172.59l3.433 10.452-11.118 3.65-3.433-10.45zM75.48 239.815l11.115-3.652 3.652 11.116-11.116 3.65zM84.954 268.78l-2.434-7.412 11.116-3.652 2.434 7.41z"/><g><path d="M58.314 210.556l-11.116 3.652-3.652-11.116 11.116-3.652zM50.674 224.706l11.116-3.65 3.433 10.45-11.116 3.65zM47.78 178.46l3.434 10.45-11.116 3.652-3.433-10.45zM57.587 245.718l11.116-3.652 3.65 11.117-11.115 3.65zM67.096 274.66l-2.435-7.41 11.117-3.652 2.435 7.41z"/></g></g><g fill="#9B7F48"><path d="M551.245 193.594l11.116 3.65-3.65 11.118-11.117-3.652zM551.696 229.31l-11.116-3.65 3.433-10.452 11.117 3.652zM569.196 176.323l-3.433 10.45-11.116-3.65 3.433-10.452zM544.63 250.856l-11.117-3.652 3.652-11.116 11.116 3.652zM527.698 265.062l2.434-7.41 11.117 3.65-2.436 7.412z"/><g><path d="M569.137 199.497l11.117 3.652-3.652 11.115-11.116-3.65zM569.577 235.158l-11.117-3.65 3.433-10.452 11.117 3.65zM587.054 182.205l-3.433 10.45-11.115-3.65 3.433-10.452zM562.51 256.704l-11.117-3.652 3.652-11.116 11.116 3.65zM545.58 271.026l2.435-7.41 11.117 3.65-2.435 7.412z"/></g></g></g></svg>
+  <img class="skulbus" src="../images/animation/skulbus.svg">
+  <img class="cloud c1" src="../images/animation/cloud.png">
+  <img class="cloud c2" src="../images/animation/cloud.png">
+  <img class="cloud c3" src="../images/animation/cloud.png">
+ </div>
+
+ <div class="bkg-color">
+   <h1 class="about-us">ABOUT US</h1>
+   <div class="divider"></div>
+   <img class="mec-image" src="../images/mec.png">
+   <p class="about-us-p">Excel, the nation’s second and South India’s first ever fest of its kind started in 2001 by the students of Govt. Model Engineering College with a motto, Inspire, Innovate, Engineer. Over the years, Excel has grown exponentially, consistently playing host to some of the most talented students, the most illustrious speakers and the most reputed companies. Now gearing towards its 17th edition, Excel continues to excite the participants with its wide array of technical and non-technical events and with a promise to live upto its motto.</p>
+   <div class="container-two">
+       <img class="app-sticker" src="../images/google-play.png">
+   </div>      
+ </div>
+
+ <div class="green-bkg">
+  <div class="container-two">
+    <h1 class="getting-here">GETTING HERE</h1>
+    <div class="divider white small-line"></div>
+  </div>      
+ </div>
 
 
   </template>
