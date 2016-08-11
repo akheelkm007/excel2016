@@ -8,6 +8,10 @@
 
 ##### Prerequisites
 
+Install [bower](https://github.com/bower/bower):
+
+    npm install -g bower
+
 Install [polymer-cli](https://github.com/Polymer/polymer-cli):
 
     npm install -g polymer-cli
