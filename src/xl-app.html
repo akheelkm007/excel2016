@@ -140,7 +140,7 @@
 
       /* background for toolbar when it is condensed */
       --paper-scroll-header-panel-condensed-header: {
-        background-color: red;
+        background-color: #2696c2;
       };
 
     }
@@ -221,10 +221,12 @@
 		      		<xl-gallery name="gallery"></xl-gallery>
 		      		<xl-partners name="partners"></xl-partners>
 		      		<xl-social name="social"></xl-social>
-		      		<div name="spinner">
+
+<!-- 		      		<div name="spinner">
 		        		<h1 class="inline">Hold on... Loading awesomeness...</h1>
 		        		<paper-spinner active></paper-spinner>            
 		    		</div>
+ -->
 				</iron-pages>
 			</div>
 
@@ -275,14 +277,17 @@
           console.log('page : ',page);
 
 
-          if (page != "home") {
-	          this.$.mainToolBar.style.backgroundColor = "red";
+          if ( page != "home") {
+	          this.$.mainToolBar.style.backgroundColor = "#2696c2";
           }
 
           else {
 	          this.$.mainToolBar.style.backgroundColor = "inherit";
           }
 
+          if(page == undefined) {
+            this.$.mainToolBar.style.backgroundColor = "inherit";
+          }
 
           var x = this.$.mainContent;
           var old = x.selectedItem;
@@ -322,12 +327,12 @@
             }, null, true);
 
 
-          setTimeout(function () {
-            if (x.selectedItem === old && old != competitions && old != talks) {
-              console.log('show spinner:');
-              x.selected = "spinner";
-            } 
-          }, 800);
+          // setTimeout(function () {
+          //   if (x.selectedItem === old && old != competitions && old != talks) {
+          //     console.log('show spinner:');
+          //     x.selected = "spinner";
+          //   } 
+          // }, 800);
 
       },
 

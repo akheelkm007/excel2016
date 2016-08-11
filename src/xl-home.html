@@ -432,6 +432,9 @@
   background: white;
 }
 
+.white-text {
+  color: white;
+}
 .container-two {
   padding-top: 8px;
   padding-bottom: 50px;
@@ -440,6 +443,16 @@
 .small-line {
   width: 3%
 }
+
+.maps-button {
+}
+
+.maps-btn-cntr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
  </style>
 
  <div class="background-image">
@@ -460,19 +473,39 @@
  <div class="bkg-color">
    <h1 class="about-us">ABOUT US</h1>
    <div class="divider"></div>
-   <img class="mec-image" src="../images/mec.png">
+   <img class="mec-image" src="../images/mec-small.png">
    <p class="about-us-p">Excel, the nation’s second and South India’s first ever fest of its kind started in 2001 by the students of Govt. Model Engineering College with a motto, Inspire, Innovate, Engineer. Over the years, Excel has grown exponentially, consistently playing host to some of the most talented students, the most illustrious speakers and the most reputed companies. Now gearing towards its 17th edition, Excel continues to excite the participants with its wide array of technical and non-technical events and with a promise to live upto its motto.</p>
+ </div>
+
+<div class="green-bkg">
+  <div class="bkg-color green-bkg">
+    <div class="container-two">
+      <h1 class="getting-here">GETTING HERE</h1>
+      <div class="divider white"></div>
+      <p class="about-us-p white-text">Connected by both train and bus. Nearest stop Edapally Janka Jaga Jaga</p>
+
+      <div class="maps-btn-cntr">
+        <paper-button class="maps-button">View in Maps</paper-button>       
+      </div>
+
+
+
+    </div>      
+  </div>
+</div>
+
+ <div class="bkg-color">
+   <h1 class="about-us">ANDROID APP</h1>
+   <div class="divider"></div>
    <div class="container-two">
        <img class="app-sticker" src="../images/google-play.png">
    </div>      
  </div>
 
- <div class="green-bkg">
-  <div class="container-two">
-    <h1 class="getting-here">GETTING HERE</h1>
-    <div class="divider white small-line"></div>
-  </div>      
- </div>
+
+
+
+
 
 
   </template>
