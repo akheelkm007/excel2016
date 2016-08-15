@@ -32,22 +32,36 @@
         max-width: 980px;
         background-color: white;
         box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
       }
 
       .event {
-        border-bottom: 1px solid rgba(0,0,0,0.2);
+        /*border-bottom: 1px solid rgba(0,0,0,0.2);*/
         font-size: 20px;
-        padding: 32px 16px;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 32px;
+        background-color: #eee;
+      }
+
+      .icon {
+        width: 100%;
       }
     </style>
 
-    <template id="domRepeat" is="dom-repeat" items="{{data}}">
-      <a href="#/competitions/{{dept}}/{{item.link}}">
-        <div class="event">
-          {{item.name}}
-        </div>            
-      </a>
-    </template>             
+
+    <div class="container">
+      <template id="domRepeat" is="dom-repeat" items="{{data}}">
+        <a href="#/competitions/{{dept}}/{{item.link}}">
+          <div class="event">
+            <img class="icon" src="../images/icons/android.png">
+            {{item.name}}
+          </div>            
+        </a>
+      </template>             
+    </div>
   </template>
 
   <script>
