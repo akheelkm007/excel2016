@@ -7,8 +7,8 @@
       :host {
         display: block;
         width: 100%;
-        height: calc( 100vh - 64px );
-       	overflow: auto;
+        background: #fafafa;
+       	color: #212121;
       }
 
       h1,h2 {
@@ -26,7 +26,8 @@
 
 
       p {
-        font-size: 17px;
+        font-size: 13px;
+        margin: 32px 0;
       }
 
       a {
@@ -50,10 +51,6 @@
           font-size: 40px;
         }
 
-        p {
-          font-size: 20px;
-        }
-
       }
 
       .divider {
@@ -67,7 +64,7 @@
 
       .container {
         width: 100%;
-        max-width: 1200px;
+        max-width: 980px;
         margin: auto;
         box-sizing: border-box;
         padding-left: 16px;
@@ -82,6 +79,11 @@
       .img-div {
         background-color: white;
         background-size: cover;
+        margin: 64px 0;
+      }
+
+      .img-1 {
+      	margin: 0;
       }
 
       .btn-cntr {
@@ -122,58 +124,48 @@
         background-image: url('../images/social/8.JPG');
       }
 
-      @media( min-width: 980px) {
-      	.parallax-section {
-      		display: flex;
-      		margin-bottom: 64px;
-      	}
+      .cover-pic {
 
-      	.reverse {
-      		flex-direction: row-reverse;
-      	}
-
-      	.img-div,p {
-      		width: 50%;
-      	}
-
-      	p {
-      		box-sizing: border-box;
-      		padding: 16px;
-      	}
       }
 
+      .cover-pic-overlay {
+      	position: absolute;
+      	top: 0;
+      	left: 0;
+      	width: 100%;
+      	height: 100%;
+      	background-color: rgba(0,0,0,0.45);
+      	display: flex;
+      	justify-content: center;
+      	align-items: center;
+      }
 
-
-
-
-
-
-
-
-
-
-
+      .overlay-heading {
+      	margin:  16px 0;
+      	color: white;
+      	position: absolute;
+      	display: block;
+      	width: 100%;
+      	text-align: center;
+      }
 
     </style>
 
-    <h1>Social Initiatives</h1>
+	      <div class="img-div img-1 cover-pic">
+	      	<div class="cover-pic-overlay">
+		    <h1 class="overlay-heading">Social Initiatives</h1>	      		
+	      	</div>
+	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 979 400" class="bkg-svg" />
+	      </div>  	
 
     <div class="container">
       <h2>Ente Kulam</h2>
 
 
-      <div class="parallax-section reverse">
 	      <p>
 	        On February 28, Kochi witnessed something very unique. More than 150 students of Govt. Model Engineering College, took part in the Ente Kulam Ernakulam project launched by District Collector M.G. Rajamanickam in association with Anbodu Kochi, a social media-based group. 
 	      </p>
 
-	      <div class="img-div img-1">
-	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 979 653" class="bkg-svg" />
-	      </div>  	
-      </div>
-
-
-      <div class="parallax-section">
 	      <p>
 	        Led by the Social Initiatives wing of Excel 2016, the students, and a group of volunteers took part in cleaning ponds at Kurumattam, Methala, Nellikuzhy, Pallikkara, Rayamangalam, Vattakkattupady, and Vengoor. The cleaning drive started at around 9 AM, and continued till the evening. The campaign was successful, with  the students being able to drive home the need for clean water bodies in all localities. They were also able to convince the locals to stop dumping waste into the ponds, marking the first step towards the conservation of these waterbodies.   
 	      </p>
@@ -181,10 +173,7 @@
 	      <div class="img-div img-2">
 	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 979 653" class="bkg-svg" />
 	      </div>    	
-      </div>
 
-
-      <div class="parallax-section reverse">
 	      <p>
 	        Sign boards provided by Anbodu Kochi were set up at all the venues.The accumulation of waste and dirt over the years had led to the clogging of most ponds in the district, rendering them useless. The project, a brainchild of the District Collector, is aimed at the revival and conservation of ponds and waterbodies.
 	      </p>
@@ -192,12 +181,11 @@
 	      <div class="img-div img-3">
 	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 979 653" class="bkg-svg" />
 	      </div>
-      </div>
+
       <div class="divider"></div>
       
       <h2>Street Play</h2>
 
-      <div class="parallax-section reverse">
 	      <p>
 	        On the 27th of June, a street play was conducted by the students of Government Model Engineering College, Thrikkakara as a part of the Swachh Bharath Packhwada Mission conducted by Petronet LNG Ltd. with the idea “Shuchitwa Keralam, Haritha Keralam”, in association with Excel 2016.
 	      </p>
@@ -206,9 +194,6 @@
 	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 735" class="bkg-svg" />
 	      </div>
 
-      </div>
-
-      <div class="parallax-section">
 	      <p>
 	        The play was held at 5 locations in and around Vypin, namely Malippuram,Valappu, PuthuVypeen(ochanthuruthu), Murikkumpadam and Kaalamukku. The event was officially inaugurated by the CI of Malipuram and presided over by the president of the Vypeen panchayath . The play was conducted with a vision of enhancing awareness about cleanliness and waste management among the general public. It was held under the Prime Minister of India's undertaking, Swachh Bharath Pakhwada, and was blessed with the presence of a good number of spectators.
 	      </p>
@@ -216,9 +201,7 @@
 	      <div class="img-div img-5">
 	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 591" class="bkg-svg" />
 	      </div>
-      </div>
 
-      <div class="parallax-section reverse">
 	      <p>
 	        The street play was one among the many such initiatives taken up by the Petronet LNG Limited and the social initiatives team of Excel 2016 in order to educate and raise awareness in the society about socially relevant issues.
 	      </p>
@@ -226,13 +209,11 @@
 	      <div class="img-div img-6">
 	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 735" class="bkg-svg" />
 	      </div>
-	  </div>
+
       <div class="divider"></div>
 
 
       <h2>Ibeto</h2>
-
-      <div class="parallax-section reverse">
 
 	      <p>
 	        IBeTo or “Innovations for a Better Tomorrow” is the national level pursuit, hosted by Excel for extraordinary innovative minds with ideas capable of aiding social upliftment through technology.
@@ -241,9 +222,6 @@
 	      <div class="img-div img-7">
 	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 649" class="bkg-svg" />
 	      </div>
-	  </div>
-
-	  <div class="parallax-section">
 	  	
 	      <p>
 	        IBeTo 2016 is the fifth edition of IBeTo which promises to be as exciting as ever and with a commitment to bring the trailblazers to the forefront and change tomorrow for the better.
@@ -257,7 +235,6 @@
 	      </div>
 
 
-	  </div>
 
 
       <div class="btn-cntr">
@@ -293,40 +270,7 @@
   <script>;
 
     Polymer({
-      is: 'xl-social',
-
-      onScroll : function () {
-      	var self = this;
-        var bodyHeight = document.body.getBoundingClientRect().height;
-    		requestAnimationFrame(function () {
-  				self.images.forEach(function (elem, index) {
-            var imageTop = elem.getBoundingClientRect().top;
-
-            var numerator = (imageTop - self.imagePosValues[index]) - (bodyHeight/2);
-            var denominator = bodyHeight/2;
-  					self.imagePosValues[index] = ( numerator / denominator)*50;
-
-	  				elem.style.transform = "translateY(" + self.imagePosValues[index] +  "px)";
-
-  				});
-    		});
-      },
-      ready : function () {
-    		var self = this;
-    		self.prevScrollPosition = self.scrollTop;
-    		self.value = 0;
-    		self.ticking = false;
-    		self.images = Array.from(self.shadowRoot.querySelectorAll('.img-div'));
-    		self.imagePosValues = [];
-    		self.images.forEach(function (elem, index) {
-    			self.imagePosValues.push(0);
-    		});
-
-        if (document.body.getBoundingClientRect().width > 980) {
-          this.listen(this, 'scroll', 'onScroll');
-        }
-      }
-
+      is: 'xl-social'
     });
   </script>
 
