@@ -31,7 +31,7 @@
         width: 100%;
         max-width: 980px;
         background-color: white;
-        box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+        /*box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);*/
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -43,11 +43,25 @@
         width: 100%;
         max-width: 300px;
         margin-bottom: 32px;
-        background-color: #eee;
+        background-color: #e1e1e1;
+        padding: 3px;
+        border-radius: 3px;
+        transition: 150ms ease-in-out all;
+        box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+      }
+
+      .event:hover {
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
+
       }
 
       .icon {
         width: 100%;
+      }
+
+      .event-name {
+        margin: 1px 0;
+        text-align: center;
       }
     </style>
 
@@ -56,8 +70,9 @@
       <template id="domRepeat" is="dom-repeat" items="{{data}}">
         <a href="#/competitions/{{dept}}/{{item.link}}">
           <div class="event">
-            <img class="icon" src="../images/icons/android.png">
-            {{item.name}}
+            <img class="icon" src="{{item.icon}}">
+            <p class="event-name">{{item.name}}</p>
+            
           </div>            
         </a>
       </template>             

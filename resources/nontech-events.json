@@ -1,30 +1,37 @@
 [ 
 	{
 		"name": "Best Manager",
-		"link" : "best-manager"
+		"link" : "best-manager",
+		"icon" : "images/icons/BestManager.png"
 	},
 	{
 		"name": "Kluge",
-		"link" : "kluge"
+		"link" : "kluge",
+		"icon" : "images/icons/jersey.png"
 	},
 	{
 		"name": "Defacto",
-		"link" : "defacto"
+		"link" : "defacto",
+		"icon" : "images/icons/defacto.png"
 	},
 	{
 		"name": "Tiki Taka",
-		"link" : "tiki-taka"
+		"link" : "tiki-taka",
+		"icon" : "images/icons/Soccer.png"
 	},
 	{
 		"name": "Treasure Hunt",
-		"link" : "treasure-hunt"
+		"link" : "treasure-hunt",
+		"icon" : "images/icons/kryptos.png"
 	},
 	{
 		"name": "Crime Scene Investigation 2k16",
-		"link": "crime-scene-investigation"
+		"link": "crime-scene-investigation",
+		"icon" : "images/icons/Detective.png"
 	},
 	{
 		"name":"Papyrus Of Ani",
-		"link":"papyrus-of-ani"
+		"link":"papyrus-of-ani",
+		"icon" : "images/icons/papyrus.jpg"
 	}
 ]
