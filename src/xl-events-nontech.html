@@ -69,13 +69,14 @@
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
-    <h1>Non Tech Events</h1>
 
 
     <div class="container">
       <iron-pages role="main" selected="{{page}}" attr-for-selected="name" id="mainContent">
-
-        <list-all-events id="list" name="list" dept="nontech-events"></list-all-events>
+        <div name="list">
+          <h1>Non Tech Events</h1>
+          <list-all-events id="list"  dept="nontech-events"></list-all-events>
+        </div>
         <event-tiki name="tiki-taka"></event-tiki>
         <event-th name="treasure-hunt"></event-th>
         <event-bm name="best-manager"></event-bm>
