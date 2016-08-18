@@ -59,8 +59,8 @@
       observers: [
         '_routePageChanged(routeData.page)'
       ],
-      _routePageChanged: function(page) {
-            this.page = page || 'departments';
+      _routePageChanged: function(newpage) {
+            this.page = newpage || 'departments';
       }
 
     });

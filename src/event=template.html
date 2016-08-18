@@ -1,0 +1,48 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="event-">
+<template>
+	<style include="shared-styles"></style>
+	<style>
+		:host{
+			display: block;
+		}
+	</style>
+
+	<div class="title">
+		<p class="event-name"></p>
+	</div>
+	<div class="description">
+		<p></p>
+	</div>
+
+	<section>
+        <img class="section-icon" src="../images/content/round1.png">
+        <div>
+        </div>
+    </section>
+
+	<section>
+		<img class="section-icon" src="../images/content/rules.png">
+		<div class="padd-top">
+			<p>&#10003; </p>
+		</div>
+	</section>
+
+	<section>
+		<img class="section-icon" src="../images/content/phone.png">
+		<div class="padd-top contacts">
+			<div>
+				<p>&#9679;</p>
+			</div>
+		</div>
+	</section>
+
+</template>
+<script>
+	Polymer({
+		is : 'event-'
+	});
+</script>
+</dom-module>

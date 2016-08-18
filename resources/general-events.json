@@ -1,18 +1,17 @@
 [
 	{
-		"name":"Techathon",
-		"link":"techathon"
-	},
-	{
 		"name":"Elequest-technical Treasure Hunt",
+		"icon" : "images/icons/jersey.png",
 		"link":"elequest-technical-treasure-hunt"
 	},	
 	{
 		"name":"Tech Zone(sponsored By Geogit Technologies)",
+		"icon" : "images/icons/jersey.png",
 		"link":"tech-zone"
 	},
 	{
 		"name":"Tequiz",
+		"icon" : "images/icons/jersey.png",
 		"link":"tequiz"
 	}
 ]

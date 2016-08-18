@@ -4,6 +4,10 @@
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 <link rel="import" href="xl-event-desc.html">
 
+<link rel="import" href="list-events.html">
+
+<link rel="import" href="event-techathon.html">
+
 <dom-module id="xl-events-cs">
   <template>
 
@@ -35,7 +39,7 @@
       	width: 100%;
       	max-width: 980px;
       	background-color: white;
-      	box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+      	/*box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);*/
       }
 
       .event {
@@ -48,29 +52,33 @@
     <app-location route="{{route}}" use-hash-as-path></app-location>
     <app-route
         route="{{route}}"
-        pattern="/competitions/cs-events/:page"
+        pattern="/competitions/cs-events/:path"
         data="{{routeData}}"
         tail="{{subroute}}"></app-route>
 
-    <h1>Computer Science Events</h1>
+    
 
+    <div class="container">
+      <iron-pages id="mainContent" attr-for-selected="name" selected="{{ page }}">
+        <div name="">
+          <h1>Computer Science Events</h1>
+          <list-events file="cs"></list-events>
+        </div>
+        <event-techathon name="techathon"></event-techathon>
+  	    <!-- <div class="container">
+  		    <template id="domRepeat" is="dom-repeat" items="{{data}}">
+  		    	<a href="#/competitions/cs-events/{{item.link}}">
+  			    	<div class="event">
+  			    		{{item.name}}
+  			    	</div>		    		
+  		    	</a>
+  		    </template>    	
+  	    </div>
 
-    <iron-pages id="mainContent">
+  	    <xl-event-desc id="descriptor"></xl-event-desc> -->
 
-	    <div class="container">
-		    <template id="domRepeat" is="dom-repeat" items="{{data}}">
-		    	<a href="#/competitions/cs-events/{{item.link}}">
-			    	<div class="event">
-			    		{{item.name}}
-			    	</div>		    		
-		    	</a>
-		    </template>    	
-	    </div>
-
-	    <xl-event-desc id="descriptor"></xl-event-desc>
-
-    </iron-pages>
-
+      </iron-pages>
+    </div>
 
 
 
@@ -103,9 +111,9 @@
 			}).
 			then(function (response) {
 			  _self.data = response;
-			  if (_self.routeData.page) {
-			  	_self._loadEventData();
-			  }
+			  // if (_self.routeData.page) {
+			  // 	_self._loadEventData();
+			  // }
 			})
 			.catch(function(err) {
 			  console.log("err",err);
@@ -113,38 +121,39 @@
 		},
 
 
-		_loadEventData : function () {
-			var self = this;
-    	var page = self.routeData.page;        	
-    	var descriptor = self.$.descriptor;
-    	var dom = self.$.domRepeat;
+		// _loadEventData : function () {
+		// 	var self = this;
+  //   	var page = self.routeData.page;        	
+  //   	var descriptor = self.$.descriptor;
+  //   	var dom = self.$.domRepeat;
 
-    	if (!self.data) {
-    		return;
-    	}
+  //   	if (!self.data) {
+  //   		return;
+  //   	}
 
-			self.data.forEach(function (elem) {
-				if(elem.link == page) {
-					descriptor.name = elem.name;
-					descriptor.description = elem.description;
-				}
-			});
-			dom.render();
-		},
+		// 	self.data.forEach(function (elem) {
+		// 		if(elem.link == page) {
+		// 			descriptor.name = elem.name;
+		// 			descriptor.description = elem.description;
+		// 		}
+		// 	});
+		// 	dom.render();
+		// },
 
 
     _pageChanged: function() {
-    	var ironPages = this.$.mainContent;
-    	var page = this.routeData.page;
+    	// var ironPages = this.$.mainContent;
+    	// var page = this.routeData.page;
 
-    	if (!page) {
-    		ironPages.selected = "0";
-    	}
+    	// if (!page) {
+    	// 	ironPages.selected = "0";
+    	// }
 
-    	else {
-    		this._loadEventData(page);
-    		ironPages.selected = "1";
-    	}
+    	// else {
+    	// 	this._loadEventData(page);
+    	// 	ironPages.selected = "1";
+    	// }
+      this.page = this.routeData.path? this.routeData.path : "";
 		},
 
     });

@@ -1,14 +1,17 @@
 [
 	{
 		"name":"Extrinsicity",
+		"icon" : "images/icons/jersey.png",
 		"link":"extrinsicity"
 	},
 	{
 		"name":"Circuimstance Online",
+		"icon" : "images/icons/jersey.png",
 		"link":"circuimstance-online"
 	},
 	{
 		"name":"The Hurtlocker",
+		"icon" : "images/icons/jersey.png",
 		"link":"hurtlocker"
 	}
 ]

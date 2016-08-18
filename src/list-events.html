@@ -2,31 +2,82 @@
 
 <dom-module id="list-events">
 <style>
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
+	:host {
+        display: block
+      }
 
-	.container {
-		margin: auto;
-		width: 100%;
-		max-width: 980px;
-		background-color: white;
-		box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
-	}
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
 
-	.event {
-		border-top: 1px solid rgba(0,0,0,0.2);
-		font-size: 20px;
-		padding: 32px 16px;
-	}
+      h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+      }
+
+      @media( min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+
+      .container {
+        margin: auto;
+        width: 100%;
+        max-width: 980px;
+        background-color: white;
+        /*box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);*/
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      @media(max-width: 600px) {
+        .container {
+          justify-content: center;
+        }
+
+      }
+
+
+
+      .event {
+        /*border-bottom: 1px solid rgba(0,0,0,0.2);*/
+        font-size: 20px;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 32px;
+        background-color: #e1e1e1;
+        padding: 3px;
+        border-radius: 3px;
+        transition: 150ms ease-in-out all;
+        box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+      }
+
+      .event:hover {
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
+
+      }
+
+      .icon {
+        width: 100%;
+      }
+
+      .event-name {
+        margin: 1px 0;
+        text-align: center;
+      }
 </style>
 <template>
 	<div class="container">
 	      <template is="dom-repeat" items="{{data}}">
 	        <a href="#/competitions/{{ file }}-events/{{item.link}}">
 	          <div class="event">
-	            {{item.name}}
+          		<img src="{{ item.icon }}" class="icon">
+	            <p class="event-name">{{item.name}}</p>
 	          </div>            
 	        </a>
 	      </template>
