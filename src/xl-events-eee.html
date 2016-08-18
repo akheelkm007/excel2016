@@ -6,6 +6,8 @@
 
 <link rel="import" href="list-events.html">
 
+<link rel="import" href="event-lumiere.html">
+
 <dom-module id="xl-events-eee">
   <template>
 
@@ -14,8 +16,36 @@
         display: block
       }
 
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
       h1 {
         text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+      }
+
+      @media(min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+
+      .container {
+        margin: auto;
+        width: 100%;
+        max-width: 980px;
+        background-color: white;
+        /*box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);*/
+      }
+
+      .event {
+        border-top: 1px solid rgba(0,0,0,0.2);
+        font-size: 20px;
+        padding: 32px 16px;
       }
 
     </style>
@@ -30,10 +60,15 @@
         tail="{{ tailData }}">
     </app-route>
 
-    <h1>EE events</h1>
-    <iron-pages attr-for-selected="name" selected="{{ page }}">
-      <list-events file="eee" name="" id="list"></list-events>
-    </iron-pages>
+    <div class="container">
+      <iron-pages attr-for-selected="name" selected="{{ page }}">
+        <div name="">
+          <h1>EE events</h1>
+          <list-events file="eee" name="" id="list"></list-events>
+        </div>
+        <event-lumiere name="lumiere"></event-lumiere>
+      </iron-pages>
+    </div>
   </template>
 
   <script>;

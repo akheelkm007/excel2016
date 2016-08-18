@@ -5,6 +5,10 @@
 
 <link rel="import" href="list-events.html">
 
+<link rel="import" href="event-extrinsicity.html">
+<link rel="import" href="event-circuimstance.html">
+<link rel="import" href="event-hurtlocker.html">
+
 <dom-module id="xl-events-ec">
   <template>
 
@@ -13,8 +17,36 @@
         display: block
       }
 
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
       h1 {
         text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+      }
+
+      @media(min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+
+      .container {
+        margin: auto;
+        width: 100%;
+        max-width: 980px;
+        background-color: white;
+        /*box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);*/
+      }
+
+      .event {
+        border-top: 1px solid rgba(0,0,0,0.2);
+        font-size: 20px;
+        padding: 32px 16px;
       }
 
     </style>
@@ -26,10 +58,17 @@
         tail="{{ tailData }}">
     </app-route>
 
-    <h1>EC events</h1>
-    <iron-pages attr-for-selected="name" selected="{{ page }}">
-      <list-events file="ec" name="" id="list"></list-events>
-    </iron-pages>
+    <div class="container"> 
+      <iron-pages attr-for-selected="name" selected="{{ page }}">
+        <div name="">
+          <h1>EC events</h1>    
+          <list-events file="ec" id="list"></list-events>
+        </div>
+        <event-extrinsicity name="extrinsicity"></event-extrinsicity>
+        <event-circuimstance name="circuimstance-online"></event-circuimstance>
+        <event-hurtlocker name="hurtlocker"></event-hurtlocker>
+      </iron-pages>
+    </div>
   </template>
 
   <script>
