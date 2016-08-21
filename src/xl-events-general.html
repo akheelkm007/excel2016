@@ -4,20 +4,60 @@
 
 <link rel="import" href="list-events.html">
 
+<link rel="import" href="event-techth.html">
+<link rel="import" href="event-techzone.html">
+<link rel="import" href="event-tequiz.html">
+
 <dom-module id="xl-events-general">
   <template>
 
     <style>
       :host {
-        display: block
+        display: block;
+        background: white;
       }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
       h1 {
         text-align: center;
+        font-weight: 400;
+        font-size: 34px;
       }
 
-    </style>
+      h2 {
+        font-weight: 400;
+      }
 
-    <h1>General Events</h1>
+
+      @media( min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+
+      .container {
+        margin: auto;
+        width: 100%;
+        max-width: 980px;
+        background-color: white;
+        /*box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);*/
+      }
+
+      h1 {
+        font-weight: 600;
+      }
+
+      .event {
+        border-top: 1px solid rgba(0,0,0,0.2);
+        font-size: 20px;
+        padding: 32px 16px;
+      }
+    </style>
 
     <app-location route="{{ route }}" use-hash-as-path></app-location>
     <app-route
@@ -27,11 +67,17 @@
         tail="{{ tailData }}">
     </app-route>
 
-    <iron-pages selected="{{ page }}" attr-for-selected="name">
-      <list-events file="general" name=""></list-events>
-      <!-- <general-somename name="somename"></general-somename> -->
-    </iron-pages>
-    
+    <div class="container">
+      <iron-pages selected="{{ page }}" attr-for-selected="name">
+        <div name="">
+          <h1>General Events</h1>
+          <list-events file="general"></list-events>
+        </div>
+        <event-techth name="technical-treasure-hunt"></event-techth>
+        <event-techzone name="tech-zone"></event-techzone>
+        <event-tequiz name="tequiz"></event-tequiz>
+      </iron-pages>
+    </div>   
 
   </template>
 
