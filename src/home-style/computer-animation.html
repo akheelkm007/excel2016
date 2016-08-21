@@ -1,0 +1,56 @@
+<dom-module id="computer-animation">
+  <template>
+    <style>
+
+    #path2219,#path2221,#path2229,#path2223,#path2225,#path2227,#path2231,#path2219,#path2233,#path2235,#path2237,#path2219,#path2239 {
+      will-change: opacity;
+    }
+
+
+    #path2219,#path2221 {
+    animation: blink-animation 0.8s linear infinite;
+    }
+ 
+    #path2229,#path2223 {
+    animation: blink-animation 1s linear infinite;
+    }
+
+    #path2225,#path2227 {
+    animation: blink-animation 0.4s linear infinite;
+    }
+
+    #path2231,#path2219 {
+    animation: blink-animation 0.6s linear infinite;
+    }
+
+    #path2233,#path2235 {
+    animation: blink-animation 1.2s linear infinite;
+    }
+
+    #path2237,#path2219,#path2239 {
+    animation: blink-animation 1.4s linear infinite;
+    }
+
+     @keyframes blink-animation {
+
+     0% {
+      opacity: 1;
+     }
+
+     50% {
+      opacity: 1
+     }
+     50.01% {
+      opacity: 0
+     }
+
+     100% {
+      opacity: 0
+     }
+
+    }
+   
+    </style>
+  </template>
+</dom-module>
+

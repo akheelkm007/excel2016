@@ -1,0 +1,26 @@
+<dom-module id="thottil-animation">
+  <template>
+    <style>
+
+    #thttil,#rect1204,#rect1222,#rect1230,#rect1226 {
+      -webkit-animation: thottil-animation 30s linear infinite;
+      transform-origin: center;
+      will-change: transform;
+    }
+
+    @keyframes thottil-animation {
+
+     0% {
+      transform: rotate(0deg);
+     }
+
+     100% {
+      transform: rotate(360deg);
+     }
+
+    }
+   
+    </style>
+  </template>
+</dom-module>
+
