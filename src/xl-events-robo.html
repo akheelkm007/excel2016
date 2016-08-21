@@ -7,21 +7,61 @@
 
 <link rel="import" href="list-events.html">
 
+<link rel="import" href="event-robowar.html">
+<link rel="import" href="event-robosoccer.html">
+
 <dom-module id="xl-events-robo">
   <template>
 
     <style>
       :host {
-        display: block
+        display: block;
+        background: white;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
       }
 
       h1 {
         text-align: center;
+        font-weight: 400;
+        font-size: 34px;
       }
 
+      h2 {
+        font-weight: 400;
+      }
+
+
+      @media( min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+
+      .container {
+        margin: auto;
+        width: 100%;
+        max-width: 980px;
+        background-color: white;
+        /*box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);*/
+      }
+
+      h1 {
+        font-weight: 600;
+      }
+
+
+      .event {
+        border-top: 1px solid rgba(0,0,0,0.2);
+        font-size: 20px;
+        padding: 32px 16px;
+      }
     </style>
 
-    <h1>robo Events</h1>
     <app-location route="{{ route }}" use-hash-as-path></app-location>
     <app-route
         route="{{ route }}"
@@ -29,9 +69,17 @@
         data="{{ routeData }}"
         tail="{{ tailData }}">
     </app-route>
-    <iron-pages attr-for-selected="name" selected="{{ page }}">
-      <list-events file="robo" id="list" name=""></list-events>
-    </iron-pages>
+    
+    <div class="container">
+      <iron-pages attr-for-selected="name" selected="{{ page }}">
+        <div name="">
+          <h1>robo Events</h1>
+          <list-events file="robo" id="list"></list-events>
+        </div>
+        <event-robowar name="robo-war"></event-robowar>
+        <event-robosoccer name="robo-soccer"></event-robosoccer>
+      </iron-pages>
+    </div>
   </template>
 
   <script>;
@@ -47,6 +95,7 @@
         }
       },
       _pageChanged: function(){
+        // alert(this.routeData.path);
         this.page = this.routeData.path? this.routeData.path : "";
       }
     });
