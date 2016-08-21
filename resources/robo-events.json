@@ -1,12 +1,12 @@
 [
 	{
 		"name":"Robo War",
-		"icon" : "images/icons/jersey.png",
+		"icon" : "images/icons/RoboWars.png",
 		"link":"robo-war"
 	},
 	{
 		"name":"Robo Soccer",
-		"icon" : "images/icons/jersey.png",
+		"icon" : "images/icons/Soccer.png",
 		"link":"robo-soccer"
 	}
 
