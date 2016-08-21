@@ -1,0 +1,330 @@
+<dom-module id="shared-styles">
+  <template>
+    <style>
+  .aspect-ratio {
+   width: 100%;
+  }
+
+  .wind {
+   position: absolute;
+   top:31vw;
+   right: 15%;
+   width: 10%;
+  }
+
+  .w1 {
+    right: 12%;
+  }
+  
+  .w2 {
+    right: 8%;
+    transform: scale(0.75);
+  }
+
+  #balloon {
+   position: absolute;
+   top: 19vw;
+   left: 35%;
+   width: 33.5%;
+   animation: airship-animation 5s ease-in-out infinite;
+   will-change: transform;
+   transform-origin: 1000px 619px;
+  }
+
+  .wings1 {
+   transform-origin: center;
+   animation: spin 5s linear infinite;
+  }
+  .wings2 {
+   transform-origin: center;
+   animation: spin 2.5s linear infinite;
+  }
+
+  .wings3 {
+   transform-origin: center;
+   animation: spin 2.5s linear infinite;
+  }
+  .cloud {
+   position: absolute;
+   width: 10%;
+   animation-name: cloud-animation;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   left: 0%;
+   transform: translateX(-100%);
+   will-change: transform;
+  }
+
+  #copter {
+   position: absolute;
+   width: 10%;
+   animation-name: copter-animation;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   animation-duration : 20s;
+   animation-delay: 5s;
+   left: -20%;
+   top: 5vw;
+   will-change: transform;
+  }
+
+  .skulbus {
+   position: absolute;
+   width: 10%;
+   animation-name: skulbus-animation;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   animation-duration : 25s;
+   left: 91%;
+   top: 49vw;
+   will-change: transform;
+   transform: scale(0.75);
+  }
+
+  .boat {
+   position: absolute;
+   width: 10%;
+   animation-name: boat-animation;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;
+   animation-duration : 25s;
+
+/*   left: 91%;
+   top: 49vw;
+*/
+    left: 94%;
+    top: 84vw;
+
+   will-change: transform;
+   transform: scale(0.75);
+  }
+
+  .college {
+    position: absolute;
+    left: 48%;
+    top: 40.1vw;
+    width: 10%;
+  }
+
+  .c1 {
+   top: 4vw;
+   animation-delay: 1s;
+   animation-duration : 60s;
+  }
+
+
+  .c2 {
+   top: 6vw;
+   animation-delay: 5s;
+   animation-duration : 80s;
+  }
+
+  .c3 {
+   top: 5.5vw;
+   animation-delay: 7s;
+   animation-duration : 100s;
+  }
+
+  #chirag {
+    will-change: opacity;
+    animation: chirag-animation 0.1s infinite;
+  }
+
+  #bakchirag {
+    will-change: transform;
+    transform-origin: 536px 192px;
+    animation: bakchirag-animation 0.1s infinite;
+  }
+
+  /*Keyframe Animations*/
+
+  @keyframes bakchirag-animation {
+   0% {
+    transform: rotate(0deg);
+   }
+
+   100% {
+    transform: rotate(360deg);
+   }
+  }
+
+
+  @keyframes chirag-animation {
+
+   0% {
+    opacity: 1;
+   }
+
+   50% {
+    opacity: 0
+   }
+
+   100% {
+    opacity: 1;
+   }
+  }
+
+  @keyframes airship-animation {
+
+   0% {
+    transform: translateX(0px) rotate(0deg);
+   }
+
+   50% {
+    transform: translateX(0.5vw) rotate(2deg);
+   }
+
+   100% {
+    transform: translateX(0px) rotate(0deg);
+   }
+  }
+
+  @keyframes cloud-animation {
+   from {
+    left: 0%;
+    transform: translateX(-100%);
+   }
+
+   to {
+    left: 0%;
+    transform: translateX(100vw);    
+   }
+  }
+
+
+  @keyframes copter-animation {
+   from {
+    left: 100%;
+    transform: translateX(0);    
+   }
+
+   to {
+    left: 100%;
+    transform: translateX(-100vw);    
+   }
+  }
+
+  @keyframes skulbus-animation {
+   0% {
+    left: 100%;
+    top: 53vw;
+    transform: translateX(0%);
+   }
+
+
+   10% {
+    left: 90%;
+    top: 52.5vw;
+   }
+
+   20% {
+    left: 80%;
+    top: 51.5vw;
+   }
+
+   30% {
+    left: 70%;
+    top: 49.5vw;
+   }
+
+   40% {
+    left: 60%;
+    top: 49vw;
+   }
+
+   50% {
+    left: 50%;
+    top: 49vw;
+   }
+
+   60% {
+    left: 40%;
+    top: 49vw;
+   }
+
+   70% {
+    left: 30%;
+    top: 49vw;
+   }
+   80% {
+    left: 20%;
+    top: 49.5vw;
+   }
+   90% {
+    left: 10%;
+    top: 50.5vw;
+   }
+
+   100% {
+    left: 0%;
+    top: 50.5vw;
+    transform: translateX(-100%);
+   }
+
+  }
+
+  @keyframes boat-animation {
+   6% {
+    left: 94%;
+    top: 84vw;
+    transform: rotate(-45deg);
+   }
+
+
+   16% {
+    left: 84%;
+    top: 89vw;
+    transform: rotate(0deg);
+   }
+
+   57% {
+    left: 43%;
+    top: 94vw;
+    transform: rotate(-8deg);
+   }
+
+   62% {
+    left: 38%;
+    top: 95vw;
+    transform: rotate(-14deg);
+   }
+
+
+   76% {
+    left: 24%;
+    top: 101vw;
+    transform: rotate(-14deg);
+   }
+
+
+   94% {
+    left: 6%;
+    top: 104vw;
+    transform: rotate(-14deg);
+   }
+
+
+   100% {
+    left: 0%;
+    top: 105vw;
+    transform: rotate(-24deg);
+   }
+
+  }
+
+  @keyframes spin{
+   0% {
+
+   transform: rotate(0deg);
+   }
+   100% {
+
+   transform: rotate(359deg);
+   }
+  }
+
+
+    </style>
+  </template>
+</dom-module>
+

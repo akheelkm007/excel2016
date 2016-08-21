@@ -1,0 +1,39 @@
+<dom-module id="wind-mill-animation">
+  <template>
+    <style>
+
+    #wings,#wings_1_,#wings_2_ {
+      will-change: transform;
+      transform-origin: center;
+    }
+
+
+    #wings {
+      -webkit-animation: wind-animation 7s linear infinite;
+    }
+
+    #wings_1_ {
+      -webkit-animation: wind-animation 5s linear infinite;
+    }
+
+
+    #wings_2_ {
+      -webkit-animation: wind-animation 10s linear infinite;
+    }
+
+    @keyframes wind-animation {
+
+     0% {
+      transform: rotate(0deg);
+     }
+
+     100% {
+      transform: rotate(360deg);
+     }
+
+    }
+   
+    </style>
+  </template>
+</dom-module>
+

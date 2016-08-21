@@ -1,0 +1,30 @@
+<dom-module id="balloon-animation">
+  <template>
+    <style>
+
+    #balloon {
+      animation: airship-animation 5s ease-in-out infinite;
+      will-change: transform;
+      /*transform-origin: bottom center;      */
+      transform-origin: 1000px 1100px;      
+    }
+
+    @keyframes airship-animation {
+
+     0% {
+      transform: translateX(0px) rotate(0deg);
+     }
+
+     50% {
+      transform: translateX(0.5vw) rotate(2deg);
+     }
+
+     100% {
+      transform: translateX(0px) rotate(0deg);
+     }
+    }
+   
+    </style>
+  </template>
+</dom-module>
+

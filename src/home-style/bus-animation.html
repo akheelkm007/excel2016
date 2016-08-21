@@ -1,0 +1,72 @@
+<dom-module id="bus-animation">
+  <template>
+    <style>
+
+    #schoolbus {
+      animation: bus-animation 25s linear infinite;
+      will-change: transform;
+    }
+
+
+/*
+waiting         : 50vw
+left-offscreen  : 12vw
+wait-offscreen  : 50vw
+right-offscreen : 95vw
+
+total : 207vw
+
+waiting : 
+
+*/
+    @keyframes bus-animation {
+
+      0% {
+        transform: translate(0,0);
+      }
+
+      24.1% {
+        transform: translate(0.1vw,0);
+      }
+
+      29.8% {
+        transform: translate(-12vw,-1vw);
+      }
+
+      53.9% {
+        transform: translate(-12.1vw,-1vw);
+      }
+
+      53.91% {
+        transform: translate(95vw,2vw);
+      }
+
+      60.8% {
+        transform:translate(81vw,1.5vw);
+      }
+
+      64.7%{
+        transform: translate(73,0vw);
+      }
+
+      70% {
+        transform: translate(62vw,-1vw);
+      }
+
+      72.9% {
+        transform: translate(56vw,-2vw);
+      }
+
+      89.8% {
+        transform: translate(21vw,-1.45vw);
+      }
+      100% {
+        transform: translate(0,0);
+      }
+
+    }
+   
+    </style>
+  </template>
+</dom-module>
+
