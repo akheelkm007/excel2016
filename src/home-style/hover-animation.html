@@ -3,45 +3,46 @@
     <style>
 
 
-    #g3037,#electric,#New_Symbol_83,#object,#g1906,#g1198 {
+    #electronics,#electrical,#general,#robotics,#playstore {
       cursor: pointer;
     }
 
-    #tspan5734,#tspan5715,#tspan5719,#tspan5727,#tspan5731,#tspan5739 {
+
+    #POPUP,#POPUP_1_,#POPUP_2_,#POPUP_3_,#pop-general,#pop-nontec,#pop-robotics {
     	opacity: 0;
     	transform: translateY(50px);
     	transition: all 300ms ease-in-out;
+        will-change: transform opacity;
     }
 
-    #g3037:hover #tspan5734{
+    #electronics:hover #POPUP_3_{
     	opacity: 1;
     	transform: translateY(0);
     }
 
-	#electric:hover #tspan5715 {
+	#electrical:hover #POPUP_2_ {
     	opacity: 1;
     	transform: translateY(0);
 	}
 
-	#New_Symbol_83:hover #tspan5719{
+	#general:hover #pop-general{
 		opacity: 1;
     	transform: translateY(0);
 	}
 
-	#g1198:hover #tspan5727 {
+	#robotics:hover  #pop-robotics{
 		opacity: 1;	
     	transform: translateY(0);
 	}
 
-	#object:hover #tspan5731 {
+	#playstore:hover #POPUP_1_ {
 		opacity: 1;
     	transform: translateY(0);
 	}
 
-	#g1906:hover #tspan5739 {
-		opacity: 1;	
-    	transform: translateY(0);
-	}
+    /*CS and Non tech */
+
+
     </style>
   </template>
 </dom-module>
