@@ -1,0 +1,30 @@
+<dom-module id="jcb-animation">
+  <template>
+    <style>
+
+    #hanger {
+      animation: jcb-animation 5s ease-in-out infinite;
+      -moz-animation: none;
+      will-change: transform;
+      transform-origin: top center;
+    }
+
+    @keyframes jcb-animation {
+
+     0% {
+      transform: rotate(-5deg);
+     }
+
+     50% {
+      transform: rotate(5deg);
+     }
+
+     100% {
+      transform: rotate(-5deg);
+     }
+    }
+   
+    </style>
+  </template>
+</dom-module>
+
