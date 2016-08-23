@@ -26,7 +26,7 @@
 
 
       p {
-        font-size: 13px;
+        font-size: 18px;
         margin: 32px 0;
       }
 
@@ -64,7 +64,7 @@
 
       .container {
         width: 100%;
-        max-width: 980px;
+        max-width: 1200px;
         margin: auto;
         box-sizing: border-box;
         padding-left: 16px;
@@ -125,7 +125,8 @@
       }
 
       .cover-pic {
-
+        background-size: cover;
+        position: relative;
       }
 
       .cover-pic-overlay {
@@ -150,121 +151,138 @@
       	text-align: center;
       }
 
+      section {
+        position: relative;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+      }
+
+
+      .desc {
+        width: 50%;
+        padding-top: 16px;
+        padding-left: 16px;
+      }
+
+      .img-div {
+        width: 50%;
+      }
+
+
+      /* In case I decide to add parallax effect....*/
+
+      /*@media( max-width: 600px) {*/
+        section {
+          display: block;
+        }
+
+        .desc {
+          width: 100%;
+        }
+
+        .img-div {
+          width: 100%;
+        }
+      /*}*/
     </style>
 
-	      <div class="img-div img-1 cover-pic">
+	      <div class="img-1 cover-pic">
 	      	<div class="cover-pic-overlay">
 		    <h1 class="overlay-heading">Social Initiatives</h1>	      		
 	      	</div>
 	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 979 400" class="bkg-svg" />
 	      </div>  	
 
-    <div class="container">
-      <h2>Ente Kulam</h2>
+  <div class="container">
 
 
-	      <p>
-	        On February 28, Kochi witnessed something very unique. More than 150 students of Govt. Model Engineering College, took part in the Ente Kulam Ernakulam project launched by District Collector M.G. Rajamanickam in association with Anbodu Kochi, a social media-based group. 
-	      </p>
+    <h2>Ente Kulam</h2>
 
-	      <p>
-	        Led by the Social Initiatives wing of Excel 2016, the students, and a group of volunteers took part in cleaning ponds at Kurumattam, Methala, Nellikuzhy, Pallikkara, Rayamangalam, Vattakkattupady, and Vengoor. The cleaning drive started at around 9 AM, and continued till the evening. The campaign was successful, with  the students being able to drive home the need for clean water bodies in all localities. They were also able to convince the locals to stop dumping waste into the ponds, marking the first step towards the conservation of these waterbodies.   
-	      </p>
-
-	      <div class="img-div img-2">
-	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 979 653" class="bkg-svg" />
-	      </div>    	
-
-	      <p>
-	        Sign boards provided by Anbodu Kochi were set up at all the venues.The accumulation of waste and dirt over the years had led to the clogging of most ponds in the district, rendering them useless. The project, a brainchild of the District Collector, is aimed at the revival and conservation of ponds and waterbodies.
-	      </p>
-
-	      <div class="img-div img-3">
-	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 979 653" class="bkg-svg" />
-	      </div>
-
-      <div class="divider"></div>
-      
-      <h2>Street Play</h2>
-
-	      <p>
-	        On the 27th of June, a street play was conducted by the students of Government Model Engineering College, Thrikkakara as a part of the Swachh Bharath Packhwada Mission conducted by Petronet LNG Ltd. with the idea “Shuchitwa Keralam, Haritha Keralam”, in association with Excel 2016.
-	      </p>
-
-	      <div class="img-div img-4">
-	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 735" class="bkg-svg" />
-	      </div>
-
-	      <p>
-	        The play was held at 5 locations in and around Vypin, namely Malippuram,Valappu, PuthuVypeen(ochanthuruthu), Murikkumpadam and Kaalamukku. The event was officially inaugurated by the CI of Malipuram and presided over by the president of the Vypeen panchayath . The play was conducted with a vision of enhancing awareness about cleanliness and waste management among the general public. It was held under the Prime Minister of India's undertaking, Swachh Bharath Pakhwada, and was blessed with the presence of a good number of spectators.
-	      </p>
-
-	      <div class="img-div img-5">
-	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 591" class="bkg-svg" />
-	      </div>
-
-	      <p>
-	        The street play was one among the many such initiatives taken up by the Petronet LNG Limited and the social initiatives team of Excel 2016 in order to educate and raise awareness in the society about socially relevant issues.
-	      </p>
-
-	      <div class="img-div img-6">
-	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 735" class="bkg-svg" />
-	      </div>
-
-      <div class="divider"></div>
-
-
-      <h2>Ibeto</h2>
-
-      <div class="btn-cntr">
-        <a target="_blank" href="http://ibeto.excelmec.org">
-          <paper-button raised>Go to site</paper-button>                  
-        </a>
+    <section>
+      <div class="desc">
+        <p>On February 28, Kochi witnessed something very unique. More than 150 students of Govt. Model Engineering College, took part in the Ente Kulam Ernakulam project launched by District Collector M.G. Rajamanickam in association with Anbodu Kochi, a social media-based group.</p>
+        <p>Led by the Social Initiatives wing of Excel 2016, the students, and a group of volunteers took part in cleaning ponds at Kurumattam, Methala, Nellikuzhy, Pallikkara, Rayamangalam, Vattakkattupady, and Vengoor. The cleaning drive started at around 9 AM, and continued till the evening. The campaign was successful, with  the students being able to drive home the need for clean water bodies in all localities. They were also able to convince the locals to stop dumping waste into the ponds, marking the first step towards the conservation of these waterbodies.</p>        
       </div>
+      <div class="img-div img-2">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 979 653" class="bkg-svg" />
+      </div>            
+    </section>
 
-	      <p>
-	        IBeTo or “Innovations for a Better Tomorrow” is the national level pursuit, hosted by Excel for extraordinary innovative minds with ideas capable of aiding social upliftment through technology.
-	      </p> 
+    <section>
+      <p class="desc">Sign boards provided by Anbodu Kochi were set up at all the venues.The accumulation of waste and dirt over the years had led to the clogging of most ponds in the district, rendering them useless. The project, a brainchild of the District Collector, is aimed at the revival and conservation of ponds and waterbodies.</p>
+      <div class="img-div img-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 979 653" class="bkg-svg" />
+      </div>      
+    </section>
 
-	      <div class="img-div img-7">
-	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 649" class="bkg-svg" />
-	      </div>
-	  	
-	      <p>
-	        IBeTo 2016 is the fifth edition of IBeTo which promises to be as exciting as ever and with a commitment to bring the trailblazers to the forefront and change tomorrow for the better.
+    <div class="divider"></div>
+    <h2>Street Play</h2>
 
-	        IBeTo 2016 was inaugrated by Kris Gopalakrishnan, Co-Founder of Infosys.
-	      </p>
-
-
-	      <div class="img-div img-8">
-	        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 649" class="bkg-svg" />
-	      </div>
-
-
-
-
+    <section>
+      <p class="desc">On the 27th of June, a street play was conducted by the students of Government Model Engineering College, Thrikkakara as a part of the Swachh Bharath Packhwada Mission conducted by Petronet LNG Ltd. with the idea “Shuchitwa Keralam, Haritha Keralam”, in association with Excel 2016.</p>
+      <div class="img-div img-4">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 735" class="bkg-svg" />
+      </div>      
+    </section>
 
 
+    <section>
+      <p class="desc">The play was held at 5 locations in and around Vypin, namely Malippuram,Valappu, PuthuVypeen(ochanthuruthu), Murikkumpadam and Kaalamukku. The event was officially inaugurated by the CI of Malipuram and presided over by the president of the Vypeen panchayath . The play was conducted with a vision of enhancing awareness about cleanliness and waste management among the general public. It was held under the Prime Minister of India's undertaking, Swachh Bharath Pakhwada, and was blessed with the presence of a good number of spectators.</p>
+      <div class="img-div img-5">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 591" class="bkg-svg" />
+      </div>      
+    </section>
 
-      <div class="divider"></div>
+    <section>
+      <p class="desc">The street play was one among the many such initiatives taken up by the Petronet LNG Limited and the social initiatives team of Excel 2016 in order to educate and raise awareness in the society about socially relevant issues.</p>
+      <div class="img-div img-6">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 735" class="bkg-svg" />
+      </div>      
+    </section>
 
+    <div class="divider"></div>
 
-      <h2>Ibeto Jr.</h2>
+    <h2>Ibeto</h2>
 
-      <div class="btn-cntr">
-        <a target="_blank" href="http://ibeto.excelmec.org/junior">
-          <paper-button raised>Go to site</paper-button>                  
-        </a>
-      </div>
-
-      <p>
-        IBeTo Junior is an initiative to encourage the imaginative science lovers, the budding engineers among school level students to pursue their creative ideas to completion. The best sixty budding entries will be favoured with technical guidance to help them through the development phase. Coming on the back of two great editions, IBeTo Junior has set a mark at a whole new level and promises to be an inspiration for the years to come.
-      </p>
-
-
-
+    <div class="btn-cntr">
+      <a target="_blank" href="http://ibeto.excelmec.org">
+        <paper-button raised>Go to site</paper-button>                  
+      </a>
     </div>
+
+
+
+    <section>
+      <p class="desc">IBeTo or “Innovations for a Better Tomorrow” is the national level pursuit, hosted by Excel for extraordinary innovative minds with ideas capable of aiding social upliftment through technology.</p> 
+      <div class="img-div img-7">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 649" class="bkg-svg" />
+      </div>      
+    </section>
+
+
+    <section>
+      <p class="desc">IBeTo 2016 is the fifth edition of IBeTo which promises to be as exciting as ever and with a commitment to bring the trailblazers to the forefront and change tomorrow for the better.IBeTo 2016 was inaugrated by Kris Gopalakrishnan, Co-Founder of Infosys.</p>
+      <div class="img-div img-8">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 649" class="bkg-svg" />
+      </div>      
+    </section>
+	  	
+    <div class="divider"></div>
+
+    <h2>Ibeto Jr.</h2>
+
+    <div class="btn-cntr">
+      <a target="_blank" href="http://ibeto.excelmec.org/junior">
+        <paper-button raised>Go to site</paper-button>                  
+      </a>
+    </div>
+
+    <section>
+      <p class="desc">IBeTo Junior is an initiative to encourage the imaginative science lovers, the budding engineers among school level students to pursue their creative ideas to completion. The best sixty budding entries will be favoured with technical guidance to help them through the development phase. Coming on the back of two great editions, IBeTo Junior has set a mark at a whole new level and promises to be an inspiration for the years to come.</p>      
+    </section>
+
+  </div>
 
 
 
