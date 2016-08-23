@@ -1,0 +1,47 @@
+<dom-module id="mapin-animation">
+  <template>
+    <style>
+
+    #map-note_1_ path,#map-note_2_ path,#map-note_3_ path,#map-note_4_ path,#map-note_5_ path,#map-note_6_ path,#map-note_6_ path,#map-note path{
+      animation: hop-animation 2s ease-in-out infinite;
+    }
+
+
+    #map-note_1_ ellipse,#map-note_2_ ellipse,#map-note_3_ ellipse,#map-note_4_ ellipse,#map-note_5_ ellipse,#map-note_6_ ellipse,#map-note_6_ ellipse,#map-note ellipse{
+      animation: circl-animation 2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    @keyframes hop-animation {
+
+     0% {
+      transform: translateY(0px);
+     }
+
+     50% {
+      transform: translateY(-10px);
+     }
+
+     100% {
+      transform: translateY(0px);
+     }
+    }
+   
+    @keyframes circl-animation {
+
+     0% {
+      transform: scale(1);
+     }
+
+     50% {
+      transform: scale(0.75);
+     }
+
+     100% {
+      transform: scale(1);
+     }
+    }
+    </style>
+  </template>
+</dom-module>
+
