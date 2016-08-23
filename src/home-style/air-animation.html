@@ -5,63 +5,132 @@
     #plane {
       animation: plane-animation 25s linear infinite;
       will-change: transform;
+      transform-origin: left center;
       position: absolute;
       width: 20%;
       top: 4vw;
       left: 50%;
     }
 
+    #toptop {
+      animation: chopper-animation 20s 15s linear infinite;
+      transform: translate(-15vw,0);
+    }
 
-@keyframes plane-animation {
+    #chirag {
+      animation: chopper-chirag-animation 100ms linear infinite;     
+    }
 
-     0% {
-      transform: translateX(0) rotate(0deg);
-     }
+    #bakchirag {
+      transform-origin: center;
+      animation: bakchirag-animation 100ms linear infinite;      
+      -moz-animation: chopper-chirag-animation 100ms linear infinite;      
+    }
 
-     10% {
-      transform: translateX(-12vw) rotate(3deg);
-     }
 
-     20% {
-      transform: translateX(-24vw) rotate(-3deg);
-     }
 
-     30% {
-      transform: translateX(-36vw) rotate(3deg);
-     }
+    @keyframes chopper-animation {
+      0% {
+        transform: translate(-10vw,-10vw);
+      }
+      100% {
+        transform: translate(110vw,-10vw);
+      }
+    }
 
-     40% {
-      transform: translateX(-48vw) rotate(-3deg);
-     }
 
-     50% {
-      transform: translateX(-60vw) rotate(3deg);
-     }
+ 
+    @keyframes chopper-chirag-animation {
+      0% {
+        opacity: 0;
+      }
 
-     60% {
-      transform: translateX(-72vw) rotate(-3deg);
-     }
+      50% {
+        opacity: 0;
+      }
+      50.001% {
+        opacity: 1;
+      }
 
-     60.001% {
-      transform: translateX(48vw) rotate(3deg);
-     }
+      100% {
+        opacity: 0;
+      }
+    }
 
-     70% {
-      transform: translateX(36vw) rotate(-3deg);
-     }
 
-     80% {
-      transform: translateX(24vw) rotate(3deg);
-     }
+    @keyframes bakchirag-animation {
+      0% {
+        transform: rotate(0deg);
+      }
 
-     90% {
-      transform: translateX(12vw) rotate(-3deg);
-     }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
 
-     100% {
-      transform: translateX(0) rotate(0deg);
-     }
-}
+
+    @keyframes plane-animation {
+
+         0% {
+          transform: translateX(0) rotate(0deg);
+          -moz-transform: translateX(0) rotate(0deg);
+         }
+
+         10% {
+          transform: translateX(-12vw) rotate(3deg);
+          -moz-transform: translateX(-12vw) rotate(0deg);
+         }
+
+         20% {
+          transform: translateX(-24vw) rotate(-3deg);
+          -moz-transform: translateX(-24vw) rotate(0deg);
+         }
+
+         30% {
+          transform: translateX(-36vw) rotate(3deg);
+          -moz-transform: translateX(-36vw) rotate(0deg);
+         }
+
+         40% {
+          transform: translateX(-48vw) rotate(-3deg);
+          -moz-transform: translateX(-48vw) rotate(0deg);
+         }
+
+         50% {
+          transform: translateX(-60vw) rotate(3deg);
+          -moz-transform: translateX(-60vw) rotate(0deg);
+         }
+
+         60% {
+          transform: translateX(-72vw) rotate(-3deg);
+          -moz-transform: translateX(-72vw) rotate(0deg);
+         }
+
+         60.001% {
+          transform: translateX(48vw) rotate(3deg);
+          -moz-transform: translateX(48vw) rotate(0deg);
+         }
+
+         70% {
+          transform: translateX(36vw) rotate(-3deg);
+          -moz-transform: translateX(36vw) rotate(0deg);
+         }
+
+         80% {
+          transform: translateX(24vw) rotate(3deg);
+          -moz-transform: translateX(24vw) rotate(0deg);
+         }
+
+         90% {
+          transform: translateX(12vw) rotate(-3deg);
+          -moz-transform: translateX(12vw) rotate(0deg);
+         }
+
+         100% {
+          transform: translateX(0) rotate(0deg);
+          -moz-transform: translateX(0) rotate(0deg);
+         }
+    }
 
    
     </style>
