@@ -1,0 +1,62 @@
+<dom-module id="truck-animation">
+  <template>
+    <style>
+
+    #truck_1_ {
+      animation: truck-animation 20s ease-in-out infinite;
+    }
+
+    #truck-items {
+      animation: truck-item-animation 20s ease-in-out infinite;
+    }
+
+
+    @keyframes truck-item-animation {
+
+     0% {
+      opacity: 1;
+     }
+
+     40% {
+      opacity: 1;
+     }
+
+
+     60% {
+      opacity: 0;
+     }
+
+
+     100% {
+      opacity: 0;
+     }
+    }
+
+
+    @keyframes truck-animation {
+
+     0% {
+      transform: translateX(-9vw) scaleX(1);
+     }
+
+     40% {
+      transform: translateX(35vw) scaleX(1);
+     }
+
+     60% {
+      transform: translateX(35vw) scaleX(1);
+     }
+
+     60.001% {
+      transform: translateX(42vw) scaleX(-1);
+     }
+
+     100% {
+      transform: translateX(0vw) scaleX(-1);
+     }
+    }
+   
+    </style>
+  </template>
+</dom-module>
+
