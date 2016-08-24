@@ -1,0 +1,38 @@
+<dom-module id="cro-animation">
+  <template>
+    <style>
+
+    #square-wave {
+      animation: wave-animation 10s ease-in-out infinite;
+      -moz-animation: none;
+      will-change: transform;
+      transform-origin: center;
+    }
+
+
+    #sine-wave {
+      animation: wave-animation 5s 5s ease-in-out infinite;
+      -moz-animation: none;
+      will-change: transform;
+      transform-origin: center;
+    }
+
+    @keyframes wave-animation {
+
+     0% {
+      transform: scaleY(1);
+     }
+
+     50% {
+      transform: scaleY(-1);
+     }
+
+     100% {
+      transform: scaleY(1);
+     }
+    }
+   
+    </style>
+  </template>
+</dom-module>
+
