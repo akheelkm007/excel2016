@@ -2,24 +2,37 @@
   <template>
     <style>
 
-    #circle4257 {
-      animation: bulb-animation 5s ease-in-out infinite;
+    #yellow-bulb-glow {
+      animation: bulb-animation 5s 4s linear infinite;
+    }
+
+
+    #green-bulb-glow {
+      animation: bulb-animation 4s 2s linear infinite;
+    }
+
+
+    #red-bulb-glow {
+      animation: bulb-animation 2s 3s linear infinite;
     }
 
     @keyframes bulb-animation {
 
-       0% {
-        fill: yellow;
-       }
+      0% {
+        opacity: 1;
+      }
 
-       50% {
-        fill: black;
-       }
+      50% {
+        opacity: 1;
+      }
 
-       100% {
-        fill: yellow;
-       }
+      50.001% {
+        opacity: 0;
+      }
 
+      100% {
+        opacity: 0;
+      }
     }
    
     </style>
