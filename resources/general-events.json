@@ -1,12 +1,12 @@
 [
 	{
-		"name":"Elequest-technical Treasure Hunt",
+		"name":"Elequest",
 		"icon" : "images/icons/Treasurehunt.png",
 		"link":"elequest-technical-treasure-hunt"
 	},
 	{
 		"name":"Tequiz",
-		"icon" : "images/icons/jersey.png",
+		"icon" : "images/icons/techquiz.png",
 		"link":"tequiz"
 	},
 	{
