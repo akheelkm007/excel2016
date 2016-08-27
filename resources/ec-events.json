@@ -1,5 +1,10 @@
 [
 	{
+		"name": "Techathon",
+		"icon" : "images/icons/jersey.png",
+		"link" : "techathon"
+	},	
+	{
 		"name":"Extrinsicity",
 		"icon" : "images/icons/Extrincity.png",
 		"link":"extrinsicity"
@@ -13,6 +18,11 @@
 		"name":"The Hurtlocker",
 		"icon" : "images/icons/image1.jpg",
 		"link":"hurtlocker"
+	},
+	{
+		"name":"Lifeline",
+		"icon" : "images/icons/lifeline.jpg",
+		"link":"lifeline"
 	}
 
 
