@@ -1,0 +1,272 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="xl-contacts">
+
+<style>
+	:host{
+		display: block;
+	}
+    h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+        color: rgba(0,0,0,0.65);
+    }
+
+    @media( min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+    }
+
+    a,a:hover,a:visited{
+        text-decoration: none;
+        color: black;
+    }
+
+    .container {
+        margin: auto;
+        width: 100%;
+        max-width: 980px;
+        background-color: white;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    @media(max-width: 600px) {
+        .container {
+          justify-content: center;
+        }
+
+    }
+
+    .person {
+        font-size: 20px;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 32px;
+        background-color: #e1e1e1;
+        padding: 3px;
+        border-radius: 3px;
+        transition: 150ms ease-in-out all;
+        box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+    }
+
+    .person:hover {
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
+    }
+
+    .photo {
+        width: 100%;
+    }
+
+    .person-text {
+        margin: 1px 0;
+        text-align: center;
+    }
+
+
+</style>
+<template>
+	<h1>Contacts</h1>
+	<div class="container">
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/davichan.jpg">
+            <p class="person-text">Anand M Davichan</p>
+            <p class="person-text">Chairman</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Abhishek Damodaran</p>
+            <p class="person-text">Secretary</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Divakar Bhat</p>
+            <p class="person-text">Joint Secretary</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Balram P Menon</p>
+            <p class="person-text">CS Tech Head</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/althaf.jpg">
+            <p class="person-text">Mohammed Althaf</p>
+            <p class="person-text">Non-Tech Head</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/abhi.jpg">
+            <p class="person-text">Abhijith Shyam</p>
+            <p class="person-text">EC Tech Head</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Sathyanarayan S</p>
+            <p class="person-text">Media Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Karthik Suresh</p>
+            <p class="person-text">Management Head</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Shamseer P</p>
+            <p class="person-text">Management Head</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Akheel K M</p>
+            <p class="person-text">Web Admin</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/shriram.jpg">
+            <p class="person-text">Shriram Pradeep</p>
+            <p class="person-text">Design Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Noel Abraham</p>
+            <p class="person-text">Content Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Shahzad Ali</p>
+            <p class="person-text">Marketing Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Karun Thomas John</p>
+            <p class="person-text">Marketing Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Nidhin Sankar</p>
+            <p class="person-text">Finance Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Anil Vignesh</p>
+            <p class="person-text">Conferences Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Ranjana Radhakrishnan</p>
+            <p class="person-text">Conferences Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Fiona Antony</p>
+            <p class="person-text">Talks Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/faby.jpg">
+            <p class="person-text">Fathima Nazrin</p>
+            <p class="person-text">Social Initiatives Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Vishnu J Prakash</p>
+            <p class="person-text">Publicity Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+
+        <div class="person">
+            <img class="photo" src="../images/contacts/akheel.jpg">
+            <p class="person-text">Ameer Suhail</p>
+            <p class="person-text">Publicity Manager</p>
+            <p class="person-text">9446304218</p>
+            <p class="person-text">akheel@excelmec.org</p>
+        </div>
+
+	</div>
+
+</template>
+
+<script>
+	Polymer({
+		'is':'xl-contacts'
+	});
+</script>
+</dom-module>
