@@ -7,13 +7,67 @@
       	width: 100%;
       	max-width: 980px;
       	background-color: white;
-      	/*box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);*/
       }
+
+      .mec-labs {
+      	background-image: url('../images/meclabs2.png');
+      	background-size: contain;
+      	background-repeat: no-repeat;
+      }
+
+      .bkg-img {
+      	width: 100%;
+      }
+
+      .content {
+      	width: 65%;
+      	margin: auto;
+      	text-align: center;
+      	font-size: 18px;
+      	padding-right: 16px;
+      	padding-left: 16px;
+      	box-sizing: border-box;
+      	transform: translateY(-100px);
+      }
+
+      @media( max-width: 600px) {
+      	.content {
+      		transform: none;
+      		width: 100%;
+      		text-align: none;
+      	}
+      }
+
+      h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+        color: rgba(0,0,0,0.65);      	
+      }
+
+      @media(min-width: 980px) {
+      	h1 {
+      		font-size: 56px;
+      	}
+      }
+
 </style>
 
 <template>
+
+	<h1>Exhibitions</h1>
 	<div class="container">
-		<div>
+
+		<img class="bkg-img" src="../images/exhibition/meclabs3.png">
+
+		<p class="content">Engineering isn’t exclusively limited to listening to lectures and jotting down notes. Get ready to dirty your hands and build projects with assistance from knowledgeable mentors. Effectuate your ideas into reality and get the platform to exhibit your project. An event exclusively for second year MECians.</p>
+
+		<img class="bkg-img" src="../images/exhibition/meclabs3.png">
+
+		<p class="content">With such enormous events going about, it’s easy to feel overwhelmed. Tech zone offers some relief with small technical games, short treasure hunts etc and can act as a much needed appetizer or dessert.</p>
+
+
+<!-- 		<div>
 			<h1>Mec Labs</h1>
 			<p>Engineering isn’t exclusively limited to listening to lectures and jotting down notes. Get ready to dirty your hands and build projects with assistance from knowledgeable mentors. Effectuate your ideas into reality and get the platform to exhibit your project.An event exclusively for second year MECians.</p>
 		</div>
@@ -21,6 +75,8 @@
 			<h1>Tech Zone</h1>
 			<p>With such enormous events going about, it’s easy to feel overwhelmed. Tech zone offers some relief with small technical games, short treasure hunts etc and can act as a much needed appetizer or dessert.</p>
 		</div>
+ -->
+
 	</div>
 </template>
 
