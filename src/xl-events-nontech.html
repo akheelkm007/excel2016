@@ -34,6 +34,7 @@
         text-align: center;
         font-weight: 400;
         font-size: 34px;
+        color: rgba(0,0,0,0.65);
       }
 
       h2 {
@@ -54,10 +55,6 @@
         max-width: 980px;
         background-color: white;
         /*box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);*/
-      }
-
-      h1 {
-      	font-weight: 600;
       }
 
 
@@ -111,32 +108,10 @@
           }
         },
 
-    ready : function () {
-
-      var list = this.$.list;
-      var ironPages = this.$.mainContent;
-      var _self = this;
-
-      fetch('resources/nontech-events.json').
-      then(function (response) {
-        // console.log(response.json());
-        return response.json();
-      }).
-      then(function (response) {
-        _self.data = response;
-        list.data = response;
-      })
-      .catch(function(err) {
-        console.log("err",err);
-      });
-    },
-
-
     _pageChanged: function() {
-      console.log('_pageChanged');
+
       var ironPages = this.$.mainContent;
       var page = this.routeData.page;
-      console.log('page', page);
       if (!page) {
         ironPages.selected = "list";
       }
