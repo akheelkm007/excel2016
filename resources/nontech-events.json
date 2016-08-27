@@ -28,10 +28,5 @@
 		"name": "Crime Scene Investigation 2k16",
 		"link": "crime-scene-investigation",
 		"icon" : "images/icons/Detective.png"
-	},
-	{
-		"name":"Papyrus Of Ani",
-		"link":"papyrus-of-ani",
-		"icon" : "images/icons/papyrus.jpg"
 	}
 ]

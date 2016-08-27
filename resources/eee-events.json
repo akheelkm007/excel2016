@@ -3,6 +3,11 @@
 		"name":"Lumiere",
 		"icon" : "images/icons/Lumiere.png",
 		"link":"lumiere"
+	},
+	{
+		"name":"Ultimate Engineer",
+		"icon" : "images/icons/jersey.png",
+		"link":"ultimate-engineer"
 	}
 	
 ]

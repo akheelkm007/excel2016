@@ -3,15 +3,15 @@
 		"name":"Elequest-technical Treasure Hunt",
 		"icon" : "images/icons/Treasurehunt.png",
 		"link":"elequest-technical-treasure-hunt"
-	},	
-	{
-		"name":"Tech Zone(sponsored By Geogit Technologies)",
-		"icon" : "images/icons/jersey.png",
-		"link":"tech-zone"
 	},
 	{
 		"name":"Tequiz",
 		"icon" : "images/icons/jersey.png",
 		"link":"tequiz"
+	},
+	{
+		"name":"Papyrus Of Ani",
+		"link":"papyrus-of-ani",
+		"icon" : "images/icons/papyrus.jpg"
 	}
 ]
