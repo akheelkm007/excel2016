@@ -9,6 +9,7 @@
     "src/xl-home.html",
     "src/xl-social.html",
     "src/xl-contacts.html",
-    "xl-exhibitions.html"
+    "src/xl-exhibitions.html",
+    "src/xl-talks.html"
   ]
 }
