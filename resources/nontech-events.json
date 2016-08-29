@@ -28,5 +28,20 @@
 		"name": "Crime Scene Investigation",
 		"link": "crime-scene-investigation",
 		"icon" : "images/icons/Detective.png"
+	},
+	{
+		"name": "Excelsior",
+		"link": "xlsior",
+		"icon" : "images/icons/Detective.png"
+	},
+	{
+		"name": "Third Eye Photography",
+		"link": "third-eye",
+		"icon" : "images/icons/Detective.png"
+	},
+	{
+		"name": "Spider Web",
+		"link": "spider-web",
+		"icon" : "images/icons/spiderWb.jpg"
 	}
 ]
