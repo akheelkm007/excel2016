@@ -17,7 +17,7 @@
 	{
 		"name": "Tiki Taka",
 		"link" : "tiki-taka",
-		"icon" : "images/icons/Soccer.png"
+		"icon" : "images/icons/jersey.png"
 	},
 	{
 		"name": "Treasure Hunt",
@@ -32,12 +32,12 @@
 	{
 		"name": "Excelsior",
 		"link": "xlsior",
-		"icon" : "images/icons/Detective.png"
+		"icon" : "images/icons/Generalquiz.png"
 	},
 	{
 		"name": "Third Eye Photography",
 		"link": "third-eye",
-		"icon" : "images/icons/Detective.png"
+		"icon" : "images/icons/3eye.jpg"
 	},
 	{
 		"name": "Spider Web",

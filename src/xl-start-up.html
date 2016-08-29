@@ -1,0 +1,81 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="xl-start-up">
+  <template>
+
+    <style>
+      :host {
+        display: block
+      }
+
+      h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+        color: rgba(0,0,0,0.65);
+      }
+
+      h2 {
+        font-weight: 400;
+      }
+
+
+      @media( min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+      .container {
+        width: 100%;
+        max-width: 980px;
+        margin: auto;
+      }
+
+      p {
+        font-size: 20px;
+        text-align: center;
+        background-color: #ebebeb;
+        margin: 0;
+        padding: 16px;
+        transform: translateY(-6px);
+        border-radius: 5px;
+      }
+
+      @media( max-width: 600px) {
+        p {
+          border-radius: 0;
+        }
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .title-image {
+        width: 100%;
+        margin-top: 32px;
+      }
+    </style>
+
+    <!-- <h1>Google Startup Weekend</h1> -->
+ 
+
+
+    <div class="container">
+        <img class="title-image" src="../images/startupfinal.png">
+        <p>Startup Weekend is part of the Techstars family of programs. Startup Weekend is a 54-hour event that allows anyone to turn an idea into reality. The event starts on Friday evening when participants pitch ideas. They then form teams around the top ideas and spend the rest of the weekend validating and building their idea, aided by local mentors. On Sunday evening, teams come together and pitch their newly-launched company to a panel of judges. Startup Weekend is powered by Google for Entrepreneurs.</p>
+
+        <p class="bold">Will be updated soon!!</p>
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer({
+      is: 'xl-start-up'
+    });
+  </script>
+
+</dom-module>
