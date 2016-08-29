@@ -278,6 +278,9 @@
 
           console.log('page : ',page);
 
+          if(page == undefined) {
+            location.href += "#/home/";
+          }
 
           if ( page != "home") {
 	          this.$.mainToolBar.style.backgroundColor = "#2696c2";
