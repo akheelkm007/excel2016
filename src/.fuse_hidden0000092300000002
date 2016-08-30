@@ -1,15 +1,17 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 
-
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 
 <link rel="import" href="list-events.html">
 
-<link rel="import" href="event-ultimateengg.html">
-<link rel="import" href="event-lumiere.html">
+<link rel="import" href="event-techathon.html">
+<link rel="import" href="event-extrinsicity.html">
+<link rel="import" href="event-circuimstance.html">
+<link rel="import" href="event-hurtlocker.html">
+<link rel="import" href="event-lifeline.html">
 
-<dom-module id="xl-events-eee">
+<dom-module id="xl-events-ec">
   <template>
 
     <style>
@@ -28,7 +30,6 @@
         font-size: 34px;
         color: rgba(0,0,0,0.65);
       }
-
 
       @media(min-width: 980px) {
         h1 {
@@ -52,33 +53,33 @@
       }
 
     </style>
-
-
-
     <app-location route="{{ route }}" use-hash-as-path></app-location>
     <app-route
         route="{{ route }}"
-        pattern="/competitions/eee-events/:path"
+        pattern="/competitions/ec-events/:path"
         data="{{ routeData }}"
         tail="{{ tailData }}">
     </app-route>
 
-    <div class="container">
+    <div class="container"> 
       <iron-pages attr-for-selected="name" selected="{{ page }}">
         <div name="">
-          <h1>Electrical</h1>
-          <list-events file="eee" name="" id="list"></list-events>
+          <h1>Electronics</h1>    
+          <list-events file="ec" id="list"></list-events>
         </div>
-        <event-ultimateengg name="ultimate-engineer"></event-ultimateengg>
-        <event-lumiere name="lumiere"></event-lumiere>
+        <event-techathon name="techathon"></event-techathon>
+        <event-extrinsicity name="extrinsicity"></event-extrinsicity>
+        <event-circuimstance name="circuimstance-online"></event-circuimstance>
+        <event-hurtlocker name="hurtlocker"></event-hurtlocker>
+        <event-lifeline name="lifeline"></event-lifeline>
       </iron-pages>
     </div>
   </template>
 
-  <script>;
+  <script>
 
     Polymer({
-      is: 'xl-events-eee',
+      is: 'xl-events-ec',
       properties: {
         page: {
           type: String,
