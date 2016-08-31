@@ -50,7 +50,7 @@
 
 	if (window.Promise) {
 		console.log('promises supported');
-    ga('send', 'event', 'Promises', 'Supported');
+    ga("send","event","Feature detection","promises","YES");
 	}
 
 	else {
@@ -59,14 +59,14 @@
         var p = document.createElement('script');
         p.src = 'resources/polyfill/promise.min.js';
         document.head.appendChild(p);
-		ga('send', 'event', 'Promises', 'Not supported');
+    ga("send","event","Feature detection","promises","NO");
 
 	}
 
 
     if(window.fetch) {
     	console.log('fetch API supported');
-    ga('send', 'event', 'Fetch API', 'Supported');
+    ga("send","event","Feature detection","fetch API","YES");
     }
 
     else {
@@ -75,17 +75,8 @@
         var f = document.createElement('script');
         f.src = 'resources/polyfill/fetch.min.js';
         document.head.appendChild(f);
-    ga('send', 'event', 'Fetch API', 'Not supported');
+    ga("send","event","Feature detection","fetch API","NO");
     }
-
-
-
-    // load pre-caching service worker
-    // if ('serviceWorker' in navigator) {
-    //   window.addEventListener('load', function() {
-    //     navigator.serviceWorker.register('/service-worker.js');
-    //   });
-    // }
 
   </script>
 
