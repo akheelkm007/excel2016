@@ -22,6 +22,14 @@
   ga('send', 'pageview');
 </script>
 
+<!-- Error Reporting -->
+<script>
+  window.onerror = function(message, file, lineNumber) {
+  ga('send','event','JS Error', message, 'URL: ' + document.location.href + '| File: ' + file + '| Line: ' + lineNumber, 0, {'nonInteraction': true});
+  }
+</script>
+
+
   <script>
     // setup Polymer options
     window.Polymer = {lazyRegister: true, dom: 'shadow'};
