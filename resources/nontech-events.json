@@ -43,5 +43,15 @@
 		"name": "Spider Web",
 		"link": "spider-web",
 		"icon" : "images/icons/spiderWb.jpg"
+	},
+	{
+		"name": "Dalal Bull",
+		"link": "dalal-bull",
+		"icon" : "images/icons/dalalbull.jpg"
+	},
+	{
+		"name": "Kryptos",
+		"link": "kryptos",
+		"icon": "images/icons/kryptos.png"
 	}
 ]
