@@ -1,0 +1,17 @@
+[
+	{
+		"name": "Anandam foundation",
+		"src" : "images/partners/computer.svg",
+		"type": "Theme song"
+	},
+	{
+		"name": "Cocepts inertia",
+		"src" : "images/partners/computer.svg",
+		"type": "Theme song"
+	},
+	{
+		"name": "Azeeza food products",
+		"src" : "images/partners/computer.svg",
+		"type":	"Food partner"
+	}
+]
