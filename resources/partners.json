@@ -45,11 +45,6 @@
 		"type":	" "		
 	},
 	{
-		"name": "Pathiri Restaraunt",
-		"src" : "images/partners/pathiri.png",
-		"type":	"Food partner"
-	},
-	{
 		"name": "Codeum Labs",
 		"src" : "images/partners/codeum.png",
 		"type": "Theme song"
