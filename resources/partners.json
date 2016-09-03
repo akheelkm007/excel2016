@@ -1,20 +1,72 @@
 [
 	{
-		"src" : "images/partners/computer.svg"
+		"name": "Geojit Technologies",
+		"src" : "images/partners/geojit.png",
+		"type": "Techzone sponsor"
 	},
 	{
-		"src" : "images/partners/computer.svg"
+		"name": "Acumen",
+		"src" : "images/partners/acumen.png",
+		"type": "Dalal Bull sponsor"
 	},
 	{
-		"src" : "images/partners/computer.svg"
+		"name": "Marikar Canon",
+		"src" : "images/partners/marikar.png",
+		"type": "Third Eye sponsor"
 	},
 	{
-		"src" : "images/partners/computer.svg"
+		"name": "Career Launcher",
+		"src" : "images/partners/career.png",
+		"type":	" "
 	},
 	{
-		"src" : "images/partners/computer.svg"
+		"name": "Powermech",
+		"src" : "images/partners/powermech.png",
+		"type":	" "
 	},
 	{
-		"src" : "images/partners/computer.svg"
+		"name": "Nice Chemicals",
+		"src" : "images/partners/nice.png",
+		"type":	" "
+	},
+	{
+		"name": "Technical Tadelinks",
+		"src" : "images/partners/ttl.png",
+		"type":	" "
+	},
+	{
+		"name": "Comptree",
+		"src" : "images/partners/comptree.png",
+		"type":	" "
+	},
+	{
+		"name": "State bank of Hyderabad",
+		"src" : "images/partners/sbh.png",
+		"type":	" "		
+	},
+	{
+		"name": "Azeeza food products",
+		"src" : "images/partners/computer.svg",
+		"type":	"Food partner"
+	},
+	{
+		"name": "Pathiri Restaraunt",
+		"src" : "images/partners/pathiri.png",
+		"type":	"Food partner"
+	},
+	{
+		"name": "Codeum Labs",
+		"src" : "images/partners/codeum.png",
+		"type": "Theme song"
+	},
+	{
+		"name": "Anandam foundation",
+		"src" : "images/partners/computer.svg",
+		"type": "Theme song"
+	},
+	{
+		"name": "Cocepts inertia",
+		"src" : "images/partners/computer.svg",
+		"type": "Theme song"
 	}
 ]

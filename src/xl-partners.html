@@ -30,7 +30,7 @@
       	width: 100%;
       	max-width: 980px;
       	background-color: white;
-      	box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+      	/*box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);*/
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -39,13 +39,32 @@
       }
 
       .logo {
-        width: 30%;
         background-color: green;
+        width: 100%;
+      }
+
+      .card{
+        padding: 5px;
+        width: 30%;
         margin-bottom: 32px;
+        text-align: center;
+        box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+        transition: box-shadow 0.3s;
+        background-color: #e1e1e1;
+      }
+
+      .card:hover{
+        box-shadow: 0 0 5px 5px rgba(0,0,0,0.2);
       }
 
       @media( max-width: 500px) {
-        .logo {
+        .card {
+          width: 90%;
+        }
+      }
+
+      @media(max-width: 800px){
+        .card{
           width: 40%;
         }
       }
@@ -57,7 +76,11 @@
 
       <div class="container">
         <template is="dom-repeat" items="{{partners}}">
-          <img src="{{item.src}}" class="logo">
+          <div class="card">
+            <img src="{{item.src}}" class="logo">
+            <h3>{{item.name}}</h3>
+            <p>{{item.type}}</p>
+          </div>
         </template>             
       </div>
 
