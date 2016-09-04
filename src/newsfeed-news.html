@@ -1,0 +1,140 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+<dom-module id="newsfeed-news">
+<style>
+	:host{
+		display: block;
+		width: 100%;
+	}
+	.container{
+		
+		display: block;
+		position: relative;
+	}
+
+	.card{
+		position: absolute;		
+		display: block;
+		border: 1px solid black;
+		text-align: center;
+	}
+	@media (max-width: 800px){
+		.card{
+			
+		}
+	}
+</style>
+<template>
+	<div class="container" id="container">
+		<div class="card">
+			<div class="card-contents">
+				<p>This is some content asjfabkjsfb	This is some content asjfabkjsfb1</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-contents">
+				<p>This is some content asjfabkjsfb	This is2</p>
+			</div>
+		</div>
+		<div class="card">
+			<p>This is some content asjfabkjsfb	This is3</p>
+		</div>
+		<div class="card">
+			<div class="card-contents">
+				<p>This is some content asjfabkjsfb	This is4</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-contents">
+				<p>This is some content asjfabkjsfb	This isThis is some content 5</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-contents">
+				<p>This is some content asjfabkjsfb	This isThis is some content asjfabkjsfb6</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-contents">
+				<p>This is some content asjfabkjsfb	This isThis is some content asjfabkjsfb7</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-contents">
+				<p>This is some content asjfabkjsfb	This is8</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-contents">
+				<p>This is some content asjfabkjsfb	This isThis is some content asjfabkjsfb9</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-contents">
+				<p>This is some content asjfabkjsfb	This isThis is some content asjfabkjsfb10</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-contents">
+				<p>This is some content asjfabkjsfb	This isThis is some content asjfabkjsfb11</p>
+			</div>
+		</div> 
+	</div>
+</template>
+<script>
+	Polymer({
+		is:'newsfeed-news',
+		ready: function(){
+			var children = this.$.container.children,contains,cardWidth;
+			var screenWidth = window.innerWidth;
+			var rowHeights = Array();
+			if(screenWidth>=980){
+				contains = 3;
+				cardWidth = (Math.round(950/contains));
+				container = 980;
+				left = (screenWidth-980)/2;
+			}
+			else if(screenWidth>600){
+				contains = 2;
+				cardWidth = (Math.round((screenWidth-20)/contains));
+				container = screenWidth;
+				left = 0;
+			}
+			else{
+				contains = 1;
+				cardWidth = (Math.round((screenWidth-10)/contains));
+				container = screenWidth;
+				left = Math.round((screenWidth-10-cardWidth)/2);
+			}
+			var child;
+			var position;
+			var minHeight,j;
+			for(i=0;i<children.length;++i){
+				child = children[i];
+				child.style.width = cardWidth+"px";
+				if(i>contains-1){
+					minHeight = rowHeights[0];
+					j=1;
+					position = 0;
+					while(j<contains){
+						if(rowHeights[j]<minHeight){
+							minHeight = rowHeights[j];
+							position = j;
+						}
+						j++;
+					}
+					child.style.left = left+5+((position)*cardWidth)+(position*10)+"px";
+					child.style.top = minHeight + 10 + "px";
+					rowHeights[position] = rowHeights[position]+child.offsetHeight+10;
+				}
+				else{
+					child.style.left = left+5+((i%contains)*cardWidth)+(i%contains*10)+"px";
+					rowHeights[i] = child.offsetHeight;
+				}
+			}
+		}
+	});
+</script>
+</dom-module>

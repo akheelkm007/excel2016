@@ -1,0 +1,32 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="newsfeed-news.html">
+
+<dom-module id="xl-newsfeed">
+<style>
+	:host {
+        display: block
+    }
+
+	h1 {
+	text-align: center;
+	font-weight: 400;
+	font-size: 34px;
+	}
+
+	@media( min-width: 980px) {
+		h1 {
+			font-size: 56px;
+		}
+	}
+</style>
+<template>
+	<h1>NewsFeed</h1>
+	<newsfeed-news></newsfeed-news>
+</template>
+<script>
+	Polymer({
+		is:'xl-newsfeed'
+	});
+</script>
+</dom-module>
