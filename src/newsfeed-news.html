@@ -5,8 +5,7 @@
 <dom-module id="newsfeed-news">
 <style>
 	:host{
-		display: block;
-		width: 100%;
+		
 	}
 	.container{
 		
@@ -17,24 +16,44 @@
 	.card{
 		position: absolute;		
 		display: block;
-		border: 1px solid black;
+		/*border: 1px solid black;*/
 		text-align: center;
+		transition: transform 1s;
+		transform: translateX(0)translateY(50px);
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 5px 0 rgba(0, 0, 0, 0.12),
+                  0 3px 1px -2px rgba(0, 0, 0, 0.2);
+	}
+	.animate{
+		transform: translateX(0)translateY(0);
 	}
 	@media (max-width: 800px){
 		.card{
 			
 		}
 	}
+	.card-contents{
+		display: block;
+		width: 100%;
+		
+		background-color: white;
+	}
+	.card-contents img{
+		width: inherit;
+	}
 </style>
 <template>
 	<div class="container" id="container">
-		<div class="card">
+		<!-- <div class="card">
 			<div class="card-contents">
-				<p>This is some content asjfabkjsfb	This is some content asjfabkjsfb1</p>
+				<img src="../images/icons/Soccer.png" >
+				<h2>Heading</h2>
+				<p>This is some content asfabkjsfb	This is some content asjfabkjsfb1</p>
 			</div>
 		</div>
 		<div class="card">
 			<div class="card-contents">
+				<img src="../images/icons/Soccer.png" >
 				<p>This is some content asjfabkjsfb	This is2</p>
 			</div>
 		</div>
@@ -80,13 +99,31 @@
 			<div class="card-contents">
 				<p>This is some content asjfabkjsfb	This isThis is some content asjfabkjsfb11</p>
 			</div>
-		</div> 
+		</div>  -->
 	</div>
 </template>
 <script>
 	Polymer({
 		is:'newsfeed-news',
 		ready: function(){
+			var self = this;
+			var jsonResp;
+	        fetch('resources/feed.json').
+	        then(function (response) {	        	
+	            return response.json();
+	        }).
+	        then(function (response){
+	        	// alert(response[0].title);
+	        	self.renderFeeds(self,response);
+	        	self.initPos();
+	        })
+	        .catch(function(err) {
+	          console.log("err",err);
+	        });
+	        // alert(jsonResp);
+			
+		},
+		initPos: function(){
 			var children = this.$.container.children,contains,cardWidth;
 			var screenWidth = window.innerWidth;
 			var rowHeights = Array();
@@ -133,6 +170,17 @@
 					child.style.left = left+5+((i%contains)*cardWidth)+(i%contains*10)+"px";
 					rowHeights[i] = child.offsetHeight;
 				}
+				children[i].classList.add('animate');
+			}
+		},
+		renderFeeds: function(self,response){
+			var i;
+			for(i=0;i<response.length;i++){
+				var div = document.createElement('DIV');
+	        	var htmlContent = "<div class=\"card-contents\"><img src="+response[i].image+"><h2>"+response[i].title+"</h2><p>"+response[i].description+"</p></div>";
+	        	div.innerHTML = htmlContent;
+	        	div.classList.add('card');
+	        	self.$.container.appendChild(div);
 			}
 		}
 	});
