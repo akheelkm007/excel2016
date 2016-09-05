@@ -151,96 +151,91 @@
     	is: 'xl-updates',
       ready : function () {
 
-      	var self = this;
-		self.cards = Array.from(self.shadowRoot.querySelectorAll('.card'));
-		self.containerDimensions = self.shadowRoot.querySelector('.container').getBoundingClientRect();
-		self.cardDimensions = [];
-		self.marginValue = 16;
-		self.ch1 = self.marginValue;
-		self.ch2 = self.marginValue;
-		self.ch3 = self.marginValue;
+        var self = this;
+    		self.cards = Array.from(self.shadowRoot.querySelectorAll('.card'));
+    		self.containerDimensions = self.shadowRoot.querySelector('.container').getBoundingClientRect();
+    		self.cardDimensions = [];
+    		self.marginValue = 16;
 
+        // ch1 --> height of column 1, value needed to position the next card in that column
+    		self.ch1 = self.marginValue;
+    		self.ch2 = self.marginValue;
+    		self.ch3 = self.marginValue;
 
+    		var timer = setInterval(function () {
+    			self.getCardDimensions();
+    			self.containerDimensions = self.shadowRoot.querySelector('.container').getBoundingClientRect();
+    			
+    			if (self.cards[0].height != 0 && self.containerDimensions.height != 0) {
+    				clearInterval(timer);
 
-		var timer = setInterval(function () {
-			self.getCardDimensions();
-			self.containerDimensions = self.shadowRoot.querySelector('.container').getBoundingClientRect();
-			
-			if (self.cards[0].height != 0 && self.containerDimensions.height != 0) {
-				clearInterval(timer);
-				self.relativeToAbsolute();
-				self.cards[0].offsetHeight;
-				self.animateToFinalPosition();
-			}
+    				self.relativeToAbsolute();
+    				self.cards[0].offsetHeight;
 
-		}, 100);
+            setTimeout(function () {
+              self.animateToFinalPosition();
+            }, 350)
+    			}
+
+    		}, 100);
 
       },
 
       getCardDimensions : function () {
 
       	var self = this;
-
-		self.cards.forEach(function (elem) {
-			self.cardDimensions.push(elem.getBoundingClientRect());
-		});
+    		self.cards.forEach(function (elem) {
+    			self.cardDimensions.push(elem.getBoundingClientRect());
+    		});
       	
       },
 
       relativeToAbsolute : function () {
 
       	var self = this;
+    		self.cards.forEach(function (elem, index) {
 
-      	console.log('this', this);
+    			if (index == 0) {
+    				console.log('self.cardDimensions[index].left',self.cardDimensions[index].left);
+    				console.log('self.containerDimensions.left', self.containerDimensions.left);
+    			}
 
-		self.cards.forEach(function (elem, index) {
-
-			if (index == 0) {
-				console.log('self.cardDimensions[index].left',self.cardDimensions[index].left);
-				console.log('self.containerDimensions.left', self.containerDimensions.left);
-			}
-
-			elem.style.left = (self.cardDimensions[index].left - self.containerDimensions.left)+"px";
-			elem.style.top = (self.cardDimensions[index].top - self.containerDimensions.top)+"px";
-			elem.style.position = "absolute";
-		});
+    			elem.style.left = (self.cardDimensions[index].left - self.containerDimensions.left)+"px";
+    			elem.style.top = (self.cardDimensions[index].top - self.containerDimensions.top)+"px";
+    			elem.style.position = "absolute";
+    		});
 
       },
 
       animateToFinalPosition : function () {
 
       	var self = this;
-
       	console.log('this', this);
 
+    		self.cards.forEach(function (elem, index) {
+    			elem.style.transition = "all 0.75s ease-in-out, box-shadow 0.15s ease-in-out";
+    			var topValue = '', leftValue = '';
 
-		self.cards.forEach(function (elem, index) {
+    			if (self.ch1 <= self.ch2 && self.ch1 <= self.ch3) {
+    				elem.style.left = "20px";
+    				elem.style.top = self.ch1+"px";
+    				self.ch1+= self.cardDimensions[index].height + self.marginValue;
+    			}
 
-			elem.style.transition = "all 0.75s ease-in-out";//, box-shadow 0.15s ease-in-out
-			var topValue = '', leftValue = '';
+    			else if( self.ch2 <= self.ch1 && self.ch2 <= self.ch3) {
+    				elem.style.left = "340px";
+    				elem.style.top = self.ch2+"px";
+    				self.ch2+= self.cardDimensions[index].height + self.marginValue;
 
+    			}
 
+    			else {
+    				elem.style.left = "660px";
+    				elem.style.top = self.ch3+"px";
+    				self.ch3+=self.cardDimensions[index].height + self.marginValue;
+    			}
 
-			if (self.ch1 <= self.ch2 && self.ch1 <= self.ch3) {
-				elem.style.left = "20px";
-				elem.style.top = self.ch1+"px";
-				self.ch1+= self.cardDimensions[index].height + self.marginValue;
-			}
-
-			else if( self.ch2 <= self.ch1 && self.ch2 <= self.ch3) {
-				elem.style.left = "340px";
-				elem.style.top = self.ch2+"px";
-				self.ch2+= self.cardDimensions[index].height + self.marginValue;
-
-			}
-
-			else {
-				elem.style.left = "660px";
-				elem.style.top = self.ch3+"px";
-				self.ch3+=self.cardDimensions[index].height + self.marginValue;
-			}
-
-		});
+    		});
       }
 
     });
