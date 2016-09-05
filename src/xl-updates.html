@@ -159,10 +159,8 @@
     		self.cardDimensions = [];
     		self.marginValue = 16;
 
-        // ch1 --> height of column 1, value needed to position the next card in that column
-    		self.ch1 = self.marginValue;
-    		self.ch2 = self.marginValue;
-    		self.ch3 = self.marginValue;
+        // column height
+    		self.colHeight = [self.marginValue,self.marginValue,self.marginValue];
 
     		var timer = setInterval(function () {
     			self.getCardDimensions();
@@ -216,26 +214,30 @@
 
     		self.cards.forEach(function (elem, index) {
     			elem.style.transition = "all 0.75s ease-in-out, box-shadow 0.15s ease-in-out";
-    			var topValue = '', leftValue = '';
 
-    			if (self.ch1 <= self.ch2 && self.ch1 <= self.ch3) {
-    				elem.style.left = "20px";
-    				elem.style.top = self.ch1+"px";
-    				self.ch1+= self.cardDimensions[index].height + self.marginValue;
-    			}
+          var colWithMinHeight = 0;
 
-    			else if( self.ch2 <= self.ch1 && self.ch2 <= self.ch3) {
-    				elem.style.left = "340px";
-    				elem.style.top = self.ch2+"px";
-    				self.ch2+= self.cardDimensions[index].height + self.marginValue;
+          self.colHeight.forEach(function (elem, index) {
+            if (elem <= self.colHeight[colWithMinHeight]) {
+              colWithMinHeight = index;
+            }
+          });
 
-    			}
+          switch (colWithMinHeight) {
+            case 0:
+              elem.style.left = "20px";
+              break;
+            case 1:
+              elem.style.left = "340px";
+              break;
+            case 2:
+              elem.style.left = "660px";
+              break;
+          }
 
-    			else {
-    				elem.style.left = "660px";
-    				elem.style.top = self.ch3+"px";
-    				self.ch3+=self.cardDimensions[index].height + self.marginValue;
-    			}
+          elem.style.top = self.colHeight[colWithMinHeight]+"px";
+          self.colHeight[colWithMinHeight] += self.cardDimensions[index].height + self.marginValue;
+
 
     		});
       }
