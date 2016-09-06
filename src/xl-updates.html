@@ -43,15 +43,17 @@
 
 
       .card {
+        position: absolute;
       	width: 300px;
       	box-sizing: border-box;
-		background: #eee;
-		border: 1px solid rgba(0,0,0,0.14);
-		box-shadow: 0 0 3px 2px rgba(0,0,0,0.14);
-		border-radius: 3px;
-		margin: auto;
-		margin-bottom: 32px;
-		will-change: transform;
+    		background: #eee;
+    		border: 1px solid rgba(0,0,0,0.14);
+    		box-shadow: 0 0 3px 2px rgba(0,0,0,0.14);
+    		border-radius: 3px;
+    		margin: auto;
+    		margin-bottom: 32px;
+    		will-change: transform;
+        opacity: 0;
       }
 
       .icon {
@@ -75,7 +77,7 @@
       }
 
       a:hover .card {
-      	box-shadow: 0 0 5px 4px rgba(0,0,0,0.2);
+      	box-shadow: 0 0 5px 4px rgba(0,0,0,0.12);
       }
 
       paper-button {
@@ -89,6 +91,31 @@
         text-align: center;
       }
 
+      @keyframes slide-in {
+        from {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @media( max-width: 980px) {
+        .container {
+          width: 660px;
+        }
+      }
+
+
+      @media( max-width: 600px) {
+        .container {
+          width: 340px;
+        }
+      }
+
     </style>
 
 
@@ -97,51 +124,60 @@
       <div class="container">
 
 
-		<a href="">
+		<a target="_blank" href="https://www.youtube.com/watch?v=KhQ_cTJcjgo">
 			<div class="card">
 				<img class="icon" src="../images/icons/ShortFilm.png">
 				<h2>Excel Theme Song Video</h2>
 			</div>      	
 		</a>
 
-		<a href="">
-	      	<div class="card">
-	      		<img class="icon" src="../images/icons/papyrus.jpg">
-	      		<h2>Papyrus of Ani</h2>
-	      		<p>Papyrus of Ani has started accepting abstracts.</p>
-	      	</div>
+		<a href="#/competitions/general-events/papyrus-of-ani">
+    	<div class="card">
+    		<img class="icon" src="../images/icons/papyrus.jpg">
+    		<h2>Papyrus of Ani</h2>
+    		<p>Papyrus of Ani has started accepting abstracts.</p>
+    	</div>
 		</a>
 
+    <a href="#/competitions/nontech-events/third-eye">
+      <div class="card">
+        <img class="icon" src="../images/icons/3eye.jpg">
+        <h2>Third Eye Photography</h2>
+        <p>First round has started.</p>
+      </div>      
+    </a>
 
-      	<div class="card">
-      		<img class="icon" src="../images/icons/3eye.jpg">
-      		<h2>Third Eye Photography</h2>
-      		<p>First round has started.</p>
-      	</div>
+    <a href="#/competitions/robo-events/robo-soccer">
+      <div class="card">
+        <img class="icon" src="../images/icons/Soccer.png">
+        <h2>RoboSoccer</h2>
+        <p>Register to participate</p>
+      </div>      
+    </a>
 
-      	<div class="card">
-      		<img class="icon" src="../images/icons/Soccer.png">
-      		<h2>RoboSoccer</h2>
-      		<p>Register to participate</p>
-      	</div>
+    <a href="#/competitions/robo-events/robo-war">
+      <div class="card">
+        <img class="icon" src="../images/icons/RoboWars.png">
+        <h2>RoboWar</h2>
+        <p>Register to participate</p>
+      </div>
+    </a>
 
-      	<div class="card">
-      		<img class="icon" src="../images/icons/RoboWars.png">
-      		<h2>RoboWar</h2>
-      		<p>Register to participate</p>
-      	</div>
+    <a target="_blank" href="https://play.google.com/store/apps/details?id=mec.mec.excel16">
+      <div class="card">
+        <img class="icon" src="../images/icons/android.png">
+        <h2>Excel Android app</h2>
+      </div>      
+    </a>
 
-      	<div class="card">
-      		<img class="icon" src="../images/icons/android.png">
-      		<h2>Excel Android app</h2>
-      	</div>
+    <a href="#/competitions/eee-events/ultimate-engineer">
+      <div class="card">
+        <img class="icon" src="../images/icons/ultimate.png">
+        <h2>Ultimate Engineer</h2>
+        <p>Online prelims has started</p>
+      </div>      
+    </a>
 
-
-      	<div class="card">
-      		<img class="icon" src="../images/icons/ultimate.png">
-      		<h2>Ultimate Engineer</h2>
-      		<p>Online prelims has started</p>
-      	</div>
 
       </div>
 
@@ -158,6 +194,14 @@
     		self.containerDimensions = self.shadowRoot.querySelector('.container').getBoundingClientRect();
     		self.cardDimensions = [];
     		self.marginValue = 16;
+        self.delay = 0.1;
+
+
+        window.addEventListener('resize', function () {
+          // self.getCardDimensions();
+          self.animateToFinalPosition(self);
+        });
+
 
         // column height
     		self.colHeight = [self.marginValue,self.marginValue,self.marginValue];
@@ -168,13 +212,7 @@
     			
     			if (self.cards[0].height != 0 && self.containerDimensions.height != 0) {
     				clearInterval(timer);
-
-    				self.relativeToAbsolute();
-    				self.cards[0].offsetHeight;
-
-            setTimeout(function () {
-              self.animateToFinalPosition();
-            }, 350)
+            self.animateToFinalPosition();
     			}
 
     		}, 100);
@@ -190,34 +228,41 @@
       	
       },
 
-      relativeToAbsolute : function () {
+      animateToFinalPosition : function (self) {
 
-      	var self = this;
+      	var self = this || self;
+
+        // column height
+        self.colHeight = [self.marginValue,self.marginValue,self.marginValue];
+        self.delay = 0.1;
+
+
+      	console.log('self', self);
+
+        var numberOfColumns = 3;
+        var viewportWidth = window.innerWidth;
+
+        console.log('viewportWidth',viewportWidth);
+
+        if (viewportWidth < 980) {
+          numberOfColumns = 2;
+        }
+
+
+        if (viewportWidth < 600) {
+          numberOfColumns = 1;
+        }
+
+        console.log('self.cards',self.cards);
+
+
     		self.cards.forEach(function (elem, index) {
-
-    			if (index == 0) {
-    				console.log('self.cardDimensions[index].left',self.cardDimensions[index].left);
-    				console.log('self.containerDimensions.left', self.containerDimensions.left);
-    			}
-
-    			elem.style.left = (self.cardDimensions[index].left - self.containerDimensions.left)+"px";
-    			elem.style.top = (self.cardDimensions[index].top - self.containerDimensions.top)+"px";
-    			elem.style.position = "absolute";
-    		});
-
-      },
-
-      animateToFinalPosition : function () {
-
-      	var self = this;
-      	console.log('this', this);
-
-    		self.cards.forEach(function (elem, index) {
-    			elem.style.transition = "all 0.75s ease-in-out, box-shadow 0.15s ease-in-out";
-
+          elem.style.transition = "all 0.35s ease-in-out, box-shadow 0.15s ease-in-out";
+          elem.style.animation = "slide-in 0.5s ease-in-out  forwards "+self.delay+"s";
+          self.delay += 0.1;
           var colWithMinHeight = 0;
 
-          self.colHeight.forEach(function (elem, index) {
+          self.colHeight.slice(0,numberOfColumns).forEach(function (elem, index) {
             if (elem <= self.colHeight[colWithMinHeight]) {
               colWithMinHeight = index;
             }
@@ -241,7 +286,6 @@
 
     		});
       }
-
     });
   </script>
 
