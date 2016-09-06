@@ -45,28 +45,8 @@
 		"type":	" "		
 	},
 	{
-		"name": "Azeeza food products",
-		"src" : "images/partners/computer.svg",
-		"type":	"Food partner"
-	},
-	{
-		"name": "Pathiri Restaraunt",
-		"src" : "images/partners/pathiri.png",
-		"type":	"Food partner"
-	},
-	{
 		"name": "Codeum Labs",
 		"src" : "images/partners/codeum.png",
-		"type": "Theme song"
-	},
-	{
-		"name": "Anandam foundation",
-		"src" : "images/partners/computer.svg",
-		"type": "Theme song"
-	},
-	{
-		"name": "Cocepts inertia",
-		"src" : "images/partners/computer.svg",
 		"type": "Theme song"
 	}
 ]
