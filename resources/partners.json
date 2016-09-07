@@ -48,5 +48,10 @@
 		"name": "Codeum Labs",
 		"src" : "images/partners/codeum.png",
 		"type": "Theme song"
+	},
+	{
+		"name": "Tata Consultancy Services",
+		"src" : "images/partners/tcs.png",
+		"type": " "
 	}
 ]
