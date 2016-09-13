@@ -1,0 +1,122 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="xl-workshops">
+<style>
+	.container {
+      	margin: auto;
+      	width: 100%;
+      	max-width: 980px;
+      	background-color: white;
+      }
+
+      .bkg-img {
+      	width: 100%;
+      }
+
+      .content {
+            color: rgba(0,0,0,0.65);
+      	width: 65%;
+      	margin: auto;
+      	text-align: center;
+      	font-size: 18px;
+      	padding: 16px;
+      	box-sizing: border-box;
+      	transform: translateY(-116px);
+      	box-shadow: 0 1px 3px 1px rgba(0,0,0,0.15);
+      }
+
+      @media( max-width: 600px) {
+      	.content {
+      		transform: none;
+      		width: 100%;
+      		text-align: none;
+          box-shadow: none;
+      	}
+      }
+
+      h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+        color: rgba(0,0,0,0.65);      	
+      }
+
+      h2 {
+      	text-align: center;
+      }
+
+      @media(min-width: 980px) {
+      	h1 {
+      		font-size: 56px;
+      	}
+      }
+
+      .banner {
+      	width: 100%;
+      }
+
+      p {
+      	font-size: 18px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      paper-button {
+        background-color: #4285f4;
+        color: white;
+      }
+
+
+      .btn-cntr {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+
+
+</style>
+
+<template>
+
+	<h1>Workshops</h1>
+	<div class="container">
+
+		<!-- <img class="banner" src="../images/workshops/bike.png"> -->
+		<h2>Motorcycle Overhauling Workshop</h2>
+
+		<p>Excel 2016, in association with Prigma EduTech services, presents a one-of-a-kind Motorcycle Overhauling Workshop on 1st and 2nd October 2016 right here at Govt. Model Engineering College. Here is the perfect platform for all the bike fanatics out there to brush up on the basics of the trade and to polish their knowledge on everything new on the road!</p>
+
+		<p>The highlights of the workshop include a demonstration of the complete dismantling of a 150cc motorcycle and a scooty and getting hands on experience on the working of 2 stroke and 4 stroke engines. There will also be a riveting lecture on advanced technologies in motorbikes, apart from a detailed discussion on Motorbike Assistance and Diagnostic and complete offline video assistance.</p>
+
+		<p>The workshop will cover the following topics:</p>
+		<ul>
+			<li>Body package - Fuel Tank, Cowling,Instrumentation Cluster, Base Frame</li>
+			<li>Engine - Ignition,cooling,Starting System, Lubrication System</li>
+			<li>Transmission - Clutch Assembly,Roller Cam Gear Shifter,Gear Box,Indexing Mechanism</li>
+			<li>Braking - Hydraulic Braking,ABS.</li>
+			<li>Drive Unit - Wheel Hub Assembly</li>
+		</ul>
+
+		<p>The participants will be provided with exclusive Training Material, followed by Authorised Certification at the end of the workshop. A lucky few will get the golden opportunity to be a Student Intern at PES.</p>
+
+		<p>The number seats is limited. So register quick!</p>
+
+	    <div class="btn-cntr">
+	      <a target="_blank" href="https://goo.gl/forms/">
+	        <paper-button raised>Register here</paper-button>                  
+	      </a>
+	    </div>
+
+	</div>
+</template>
+
+<script>
+	Polymer({
+		is: 'xl-workshops'
+	});
+</script>
+
+</dom-module>
