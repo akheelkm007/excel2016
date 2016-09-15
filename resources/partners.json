@@ -20,6 +20,11 @@
 		"type": "Techathon sponsor"
 	},
 	{
+		"name": "Sastra Robotics",
+		"src" : "images/sponsors/sastra.png",
+		"type": "Ultimate Engineer sponsor"
+	},
+	{
 		"name": "Career Launcher",
 		"src" : "images/partners/career.png",
 		"type":	" "
