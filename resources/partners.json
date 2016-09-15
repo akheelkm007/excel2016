@@ -15,6 +15,11 @@
 		"type": "Third Eye sponsor"
 	},
 	{
+		"name": "Gadgeon Smart Systems",
+		"src" : "images/partners/gadgeon.png",
+		"type": "Techathon sponsor"
+	},
+	{
 		"name": "Career Launcher",
 		"src" : "images/partners/career.png",
 		"type":	" "
