@@ -145,6 +145,11 @@
       };
 
     }
+    
+    a paper-item span{
+      /*z-index: -1;*/
+      padding-right: 15px;
+    }
 
 
     </style>
@@ -175,19 +180,19 @@
 				<paper-item paper-drawer-toggle>Schedule</paper-item>			
 			</a>
  -->      <a name="competitions" href="#/competitions/" tabindex="-1">
-        <paper-item paper-drawer-toggle>Competitions</paper-item>     
+        <paper-item paper-drawer-toggle   id="comp"><span id="comptext">Competitions</span><paper-badge for="comptext" label="[[compCount]]" id="compTag"></paper-badge></paper-item>     
       </a>
       <a name="exhibitions" href="#/exhibitions/" tabindex="-1">
         <paper-item paper-drawer-toggle>Exhibitions</paper-item>     
       </a>
       <a name="talks" href="#/talks/" tabindex="-1">
-        <paper-item paper-drawer-toggle>Talks</paper-item>
+        <paper-item paper-drawer-toggle  id="talk"><span id="talktext">Talks</span><paper-badge for="talktext" label="[[talkCount]]" id="talkTag"></paper-badge></paper-item>
       </a>
       <a name="start-up" href="#/start-up/" tabindex="-1">
         <paper-item paper-drawer-toggle>Google Startup Weekend</paper-item>
       </a>
       <a name="workshops" href="#/workshops/" tabindex="-1">
-        <paper-item paper-drawer-toggle>Workshops</paper-item>
+        <paper-item paper-drawer-toggle  id="work"><span id="worktext">Workshops</span><paper-badge for="worktext" label="[[workCount]]" id="workTag"></paper-badge></paper-item>
       </a>
       <a name="social" href="#/social/" tabindex="-1">
         <paper-item paper-drawer-toggle>Social Initiatives</paper-item>     
@@ -202,7 +207,7 @@
         <paper-item paper-drawer-toggle>Partners</paper-item>     
       </a>
       <a name="updates" href="#/updates" tabindex="-1">
-        <paper-item paper-drawer-toggle>Updates</paper-item>
+        <paper-item paper-drawer-toggle  id="updt"><span id="updttext">Updates</span><paper-badge for="updttext" label="[[updtCount]]" id="updtTag"></paper-badge></paper-item>
       </a>
 		</paper-menu>
 
@@ -221,7 +226,7 @@
 
         <paper-toolbar class="main" id="mainToolBar">
           <paper-icon-button icon="menu" id="hamburger" paper-drawer-toggle style="color:white;"></paper-icon-button>
-          <paper-badge for="hamburger" label="[[count]]" id="updateTag"></paper-badge>
+          <paper-badge for="hamburger" label="[[totalCount]]" id="updateTag"></paper-badge>
           <div class="title"></div>
           <a target="_blank" href="https://www.facebook.com/excelmec">
           <paper-icon-button src="../images/social-icons/share-facebook.svg"></paper-icon-button>           	
@@ -285,7 +290,10 @@
       },
 
       listeners:{
-        'hamburger.tap': 'setCount'
+        'comp.tap': 'register',
+        'talk.tap': 'register',
+        'work.tap': 'register',
+        'updt.tap': 'register',
       },
 
       observers: [
@@ -293,20 +301,52 @@
       ],
 
       ready:function(){
-        this.count = localStorage.getItem("update");
-        this.updateCount = 8;
-        if(this.count!=null)
-          this.count = this.updateCount - parseInt(this.count);
-        if(this.count==null||this.count==0)
-          this.$.updateTag.style.display="none";
-        if(this.count==null)
-          localStorage.setItem("update","0");
-        // localStorage.removeItem("update");
+        this.fields = Array('comp','talk','work','updt');
+        this.updates = {
+          'comp' : 4,
+          'talk' : 1,
+          'work' : 0,
+          'updt' : 0
+        };
+        var self = this;
+        this.totalCount = 0;
+        this.fields.forEach(function(field){
+          var fieldCount = parseInt(localStorage.getItem("xl"+field));
+          if(fieldCount!=null){
+            switch(field){
+              case "comp":
+                self.compCount = self.updates['comp'] - fieldCount;
+                fieldCount = self.compCount;
+                break;
+              case "work":
+                self.workCount = self.updates['work'] - fieldCount;
+                fieldCount = self.workCount;
+                break;
+              case "talk":
+                self.talkCount = self.updates['talk'] - fieldCount;
+                fieldCount = self.talkCount;
+                break;
+              case "updt":
+                self.updtCount = self.updates['updt'] - fieldCount;
+                fieldCount = self.updtCount;
+                break;
+            }
+            self.totalCount += fieldCount;
+            if(fieldCount==0)
+              self.shadowRoot.querySelector("#"+field).children[1].style.display = "none";
+          }
+        });
+        if(this.totalCount==0)
+          this.$.updateTag.style.display = "none";
       },
 
-      setCount : function(){
-        localStorage.setItem("update",this.updateCount);
-        this.$.updateTag.style.display="none";
+      register : function(e){
+        var elt = e.target;
+        if(elt.children.length<2)
+          elt = elt.parentNode;
+        localStorage.setItem("xl"+elt.id,this.updates[elt.id]);
+        elt.children[1].style.display = "none";
+        return;
       },
 
       _routePageChanged: function(page) {
