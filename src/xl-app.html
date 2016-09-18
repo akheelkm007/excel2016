@@ -17,6 +17,7 @@
 <link rel="import" href="../bower_components/paper-menu/paper-menu.html">
 <link rel="import" href="../bower_components/paper-item/paper-item.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-badge/paper-badge.html">
 
 <link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
 
@@ -192,7 +193,7 @@
         <paper-item paper-drawer-toggle>Social Initiatives</paper-item>     
       </a>
       <a name="gallery" href="#/gallery" tabindex="-1">
-        <paper-item paper-drawer-toggle>Gallery</paper-item>     
+        <paper-item paper-drawer-toggle>Gallery</paper-item>   
       </a>
       <a name="gallery" href="#/contacts" tabindex="-1">
         <paper-item paper-drawer-toggle>Contacts</paper-item>     
@@ -201,7 +202,7 @@
         <paper-item paper-drawer-toggle>Partners</paper-item>     
       </a>
       <a name="updates" href="#/updates" tabindex="-1">
-        <paper-item paper-drawer-toggle>Updates</paper-item>     
+        <paper-item paper-drawer-toggle>Updates</paper-item>
       </a>
 		</paper-menu>
 
@@ -219,7 +220,8 @@
        <!-- mode="waterfall"> -->
 
         <paper-toolbar class="main" id="mainToolBar">
-          <paper-icon-button icon="menu" paper-drawer-toggle style="color:white;"></paper-icon-button>
+          <paper-icon-button icon="menu" id="hamburger" paper-drawer-toggle style="color:white;"></paper-icon-button>
+          <paper-badge for="hamburger" label="[[count]]" id="updateTag"></paper-badge>
           <div class="title"></div>
           <a target="_blank" href="https://www.facebook.com/excelmec">
           <paper-icon-button src="../images/social-icons/share-facebook.svg"></paper-icon-button>           	
@@ -282,9 +284,30 @@
 
       },
 
+      listeners:{
+        'hamburger.tap': 'setCount'
+      },
+
       observers: [
         '_routePageChanged(routeData.page)'
       ],
+
+      ready:function(){
+        this.count = localStorage.getItem("update");
+        this.updateCount = 8;
+        if(this.count!=null)
+          this.count = this.updateCount - parseInt(this.count);
+        if(this.count==null||this.count==0)
+          this.$.updateTag.style.display="none";
+        if(this.count==null)
+          localStorage.setItem("update","0");
+        // localStorage.removeItem("update");
+      },
+
+      setCount : function(){
+        localStorage.setItem("update",this.updateCount);
+        this.$.updateTag.style.display="none";
+      },
 
       _routePageChanged: function(page) {
 
