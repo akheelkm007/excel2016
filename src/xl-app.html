@@ -180,19 +180,19 @@
 				<paper-item paper-drawer-toggle>Schedule</paper-item>			
 			</a>
  -->      <a name="competitions" href="#/competitions/" tabindex="-1">
-        <paper-item paper-drawer-toggle   id="comp"><span id="comptext">Competitions</span><paper-badge for="comptext" label="{{compCount}}" id="compTag"></paper-badge></paper-item>     
+        <paper-item paper-drawer-toggle   id="comp"><span paper-drawer-toggle id="comptext">Competitions</span><paper-badge paper-drawer-toggle for="comptext" label="{{compCount}}" id="compTag"></paper-badge></paper-item>     
       </a>
       <a name="exhibitions" href="#/exhibitions/" tabindex="-1">
         <paper-item paper-drawer-toggle>Exhibitions</paper-item>     
       </a>
       <a name="talks" href="#/talks/" tabindex="-1">
-        <paper-item paper-drawer-toggle  id="talk"><span id="talktext">Talks</span><paper-badge for="talktext" label="{{talkCount}}" id="talkTag"></paper-badge></paper-item>
+        <paper-item paper-drawer-toggle  id="talk"><span id="talktext" paper-drawer-toggle>Talks</span><paper-badge paper-drawer-toggle for="talktext" label="{{talkCount}}" id="talkTag"></paper-badge></paper-item>
       </a>
       <a name="start-up" href="#/start-up/" tabindex="-1">
         <paper-item paper-drawer-toggle>Google Startup Weekend</paper-item>
       </a>
       <a name="workshops" href="#/workshops/" tabindex="-1">
-        <paper-item paper-drawer-toggle  id="work"><span id="worktext">Workshops</span><paper-badge for="worktext" label="{{workCount}}" id="workTag"></paper-badge></paper-item>
+        <paper-item paper-drawer-toggle  id="work"><span id="worktext" paper-drawer-toggle>Workshops</span><paper-badge paper-drawer-toggle for="worktext" label="{{workCount}}" id="workTag"></paper-badge></paper-item>
       </a>
       <a name="social" href="#/social/" tabindex="-1">
         <paper-item paper-drawer-toggle>Social Initiatives</paper-item>     
@@ -207,7 +207,7 @@
         <paper-item paper-drawer-toggle>Partners</paper-item>     
       </a>
       <a name="updates" href="#/updates" tabindex="-1">
-        <paper-item paper-drawer-toggle  id="updt"><span id="updttext">Updates</span><paper-badge for="updttext" label="{{updtCount}}" id="updtTag"></paper-badge></paper-item>
+        <paper-item paper-drawer-toggle  id="updt"><span paper-drawer-toggle id="updttext">Updates</span><paper-badge paper-drawer-toggle for="updttext" label="{{updtCount}}" id="updtTag"></paper-badge></paper-item>
       </a>
 		</paper-menu>
 
@@ -303,10 +303,10 @@
       ready:function(){
         this.fields = Array('comp','talk','work','updt');
         this.updates = {
-          'comp' : 1,
-          'talk' : 1,
+          'comp' : 2,
+          'talk' : 2,
           'work' : 3,
-          'updt' : 0
+          'updt' : 3
         };
         var self = this;
         this.totalCount = 0;
