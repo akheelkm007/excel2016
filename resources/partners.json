@@ -30,6 +30,16 @@
 		"type": "Robotics Events and Components sponsor"
 	},
 	{
+		"name": "Technical Hands",
+		"src" : "images/partners/technicalhands.png",
+		"type": "Electrical equipment partner"
+	},
+	{
+		"name": "McFadyen",
+		"src" : "images/sponsors/mcfadyen.png",
+		"type": "Commerce Ninja sponsor"
+	},
+	{
 		"name": "Career Launcher",
 		"src" : "images/partners/career.png",
 		"type":	" "
