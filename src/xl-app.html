@@ -298,10 +298,8 @@
       ],
 
       ready:function(){
-        // this.fields = Array('comp','talk','work','updt');
-        this.updatesCount = 7;
+        this.updatesCount = 2;
         var localCount = localStorage.getItem("xlupdate");
-        // alert(localCount);
         this.updateBadgeCount = 0;
         if(localCount!=null){
           localCount = parseInt(localCount);          
@@ -326,8 +324,7 @@
         if(elt.children.length<2)
           elt = elt.parentNode;
         localStorage.setItem("xlupdate",this.updatesCount);
-        this.$.menuBadge.style.display = "none";
-        this.$.navBadge.style.display = "none";
+        this.hideBadges();
       },
 
       _routePageChanged: function(page) {
