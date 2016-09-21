@@ -25,6 +25,11 @@
 		"type": "Ultimate Engineer sponsor"
 	},
 	{
+		"name": "SP Robotics Works",
+		"src" : "images/sponsors/SP.png",
+		"type": "Robotics Events sponsor"
+	},
+	{
 		"name": "Career Launcher",
 		"src" : "images/partners/career.png",
 		"type":	" "
