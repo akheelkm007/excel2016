@@ -1,5 +1,10 @@
 [
 	{
+		"name":"Commerce Ninja",
+		"icon":"images/icons/commerceText.png",
+		"link":"commerceninja"
+	},
+	{
 		"name":"HackMaster",
 		"icon":"images/icons/hackmaster.png",
 		"link":"hackmaster"

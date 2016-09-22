@@ -1,0 +1,201 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="event-comninja">
+<template>
+	<style>
+		:host{
+			display: block;
+		}
+
+    :host {
+      margin-top: 32px;
+    }
+
+      h2,h3 {
+      	font-weight: 400;
+      }
+
+      /*a {
+        text-decoration: none;
+        color: inherit;
+      }*/
+
+      paper-button {
+        background-color: #4285f4;
+        color: white;
+      }
+
+
+      .btn-cntr {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        height: 70px;
+        width: 100%;
+        margin-bottom: 40px;
+      }
+
+      .icon {
+        width: 70px;
+        height: 70px;
+        padding-left: 16px;
+      }
+
+      .event-name {
+        font-size: 34px;
+        padding-left: 16px;
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0;
+        /*text-align: center;*/
+      }
+
+      .description {
+        margin-bottom: 50px;
+      }
+
+      section {
+        display: flex;
+        margin-bottom: 32px;
+      }
+
+      section div {
+        padding-top: 16px;
+        padding-left: 16px;
+      }
+
+      .padd-top {
+        padding-top: 16px;
+      }
+
+      .section-icon {
+        height: 160px;
+      }
+
+      .contacts {
+        padding-right: 16px;
+        padding-bottom: 16px;
+        background-color: #fdf9f6;
+        border-radius: 12px;
+        border-left: 10px solid #d3d2be;
+        flex: 1;
+      }
+
+     /* a.file{
+        color: blue;
+      }
+
+      .file:hover{
+        text-decoration: underline;
+      }*/
+
+      @media( max-width: 600px) {
+        h2,h3,p {
+          padding: 0 16px;
+        }
+
+        section {
+          display: block;
+        }
+
+        section div {
+          padding-left: 0;
+        }
+      }
+	</style>
+
+	<div class="title">
+    <img class="icon" src="../images/icons-small/commerceSmallText.png">
+		<p class="event-name">Commerce Ninja</p>
+	</div>
+	<div class="description">
+    <h2>E-commerce Development Challenge</h2>
+    <p>Ever had the passion to build something that's innovative and useful in today's context? Well, if you have, gear in. Form a team and build on the below mentioned concept. Things to be done:</p>
+    <h3>The challenge:</h3>
+		<p>Help Chris build an online store.</p>
+    <p>Chris owns a shoe store and wishes to start an online store. His usual customers buy from the store promotions. These promotions are based on new arrivals, best sellers, clearance etc.</p>
+
+    <p>Event Brochure: Please download the event brochure from <a target="_blank" href="https://drive.google.com/file/d/0Bxwz4HctcqhETUUxR3JobUJhTWc/view">this</a> link, to refer for more details.</p>
+
+    <p>The event requires participants to build a website that will have landing pages for the different promotions. The user should be able to search for shoes on the site. On clicking on the desired shoe model the user should be directed to the details page. The user should go through the checkout process from there.</p>
+
+    <h2>Event Description</h2>
+    <ol>
+      <li>Register your team by filling in the <a target="_blank" href="https://drive.google.com/file/d/0Bxwz4HctcqhEUHR0TU5XeVJOTXM/view">form</a> and by mailing it to excel@mec.ac.in, along with the resumes of all the team members, everything compressed into a single file. Complete the registration process before 5 PM, 25th September, 2016.</li>
+      <li>Duration of the event is 12 days. Last day for submission of prototypes is 3rd Oct 2016, please send the entries to contest@mcfadyen.com</li>
+      <li>The event comprises of 3 stages:
+        <ul>
+          <li>First Stage - Create a prototype (Deadline: 8 PM, 3rd October 2016) : A concept will be provided to the teams for which they will have to develop a prototype (working model). They also need to make a presentation on the subject which should contain the workflow, technologies used, known issues, etc. (creativity is the key here!). Database connectivity is a plus but not mandatory. The prototype has to be submitted using GIT. Note - The presentations need not be submitted in GIT. You can Wow us on the event day.</li>
+          <li>Second Stage - Presentation (20 mins) : The shortlisted teams will have to present the project workflow. Every team member should get a role in this presentation. The teams may use any visual representations like Powerpoint presentations or Charts.  This will be followed by a Q&amp;A session.</li>
+          <li>Third Stage - Enact scenario (10 mins prep time, 10 mins enact time). For the final stage, the shortlisted teams will have to enact a scenario. The scenarios will be based on vendor-customer interactions. When one team acts as the customer, the other would act as the vendor. Negotiation skills, temperament and ability to handle situations would be keenly observed in this round, based on which the final winner would be decided.</li>
+        </ul>
+      </li>
+      <li>This event is a platform for McFadyen to identify talents who wish to pursue a career in Web technologies.</li>
+      <h2>Deadlines:</h2>
+      <ul>
+        <li>Registration process should be completed before 5 PM, 25th September, 2016.</li>
+        <li>Last day for submission of prototypes is 3rd October, 2016.</li>
+        <li>Second stage and third stage will be held at the college on the 7th of October, 2016.</li>
+      </ul>
+    </ol>
+	</div>
+
+
+	<section>
+		<img class="section-icon" src="../images/content/rules.png">
+		<div class="padd-top">
+			<p>&#10003; Each team can have three to five members.</p>
+      <p>&#10003; It is not mandatory that the team members should be from the same college.</p>
+      <p>&#10003; Participants will have to code using HTML5, CSS3 and Javascript. Using Bootstrap or an MVC framework would earn extra points.</p>
+      <p>&#10003; Teams should use GIT (Version Control System) to submit their prototypes.</p>
+      <p>&#10003; The students can use the internet for reference, feel free to explore to the best.</p>
+      <p>&#10003; Systems and devices will not be provided. Candidates should bring their own laptops and devices.</p>
+      <p>&#10003; Rules are subject to change at any point in time. All rules will be explained at the event.</p>
+      <p>&#10003; Decision of the judges will be final.</p>
+      <p>&#10003; Please fill the attached team information page and attach the resumes of the participants.</p>
+		</div>
+	</section>
+
+  <section>
+    <img class="section-icon" src="../images/content/prize.png">
+    <div>
+        <h3>Price pool</h3>
+        <h3>30K</h3>
+    </div>
+  </section>
+
+  <section>
+      <img class="section-icon" src="../images/sponsors/mcfadyen.png">
+      <div>
+      <h3>Event sponsored by McFadyen</h3>
+      </div>
+    </section>
+
+	<section>
+		<img class="section-icon" src="../images/content/phone.png">
+		<div class="padd-top contacts">
+			<div>
+				<p>&#9679; Jijo Thomas John</p>
+        <p>+91-9496059017</p>
+			</div>
+      <div>
+        <p>&#9679; Rhea Jackson</p>
+        <p>+91-9446358698</p>
+      </div>
+		</div>
+	</section>
+
+</template>
+<script>
+	Polymer({
+		is : 'event-comninja'
+	});
+</script>
+</dom-module>
