@@ -40,6 +40,21 @@
 		"type": "Commerce Ninja sponsor"
 	},
 	{
+		"name": "Cinema Pranthan",
+		"src" : "images/partners/cinema.png",
+		"type": ""
+	},
+	{
+		"name": "Ebco Technical Trade Links",
+		"src" : "images/partners/ebco.png",
+		"type": ""
+	},
+	{
+		"name": "Calpine Group",
+		"src" : "images/partners/calpinegrp.png",
+		"type": ""
+	},
+	{
 		"name": "Career Launcher",
 		"src" : "images/partners/career.png",
 		"type":	" "

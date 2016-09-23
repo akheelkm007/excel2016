@@ -298,7 +298,7 @@
       ],
 
       ready:function(){
-        this.updatesCount = 2;
+        this.updatesCount = 9;
         var localCount = localStorage.getItem("xlupdate");
         this.updateBadgeCount = 0;
         if(localCount!=null){
@@ -306,7 +306,7 @@
           this.updateBadgeCount = this.updatesCount - localCount;
         }
         else{
-          this.hideBadges();
+          this.updateBadgeCount = this.updatesCount - 9;
           localStorage.setItem("xlupdate",this.updatesCount);
         }
         if(this.updateBadgeCount==0){
