@@ -151,6 +151,15 @@
       padding-right: 15px;
     }
 
+    @media(max-width: 380px) {
+	    .title {
+	    	display: none;
+	    }
+
+	}
+
+
+
 
     </style>
 
@@ -188,9 +197,11 @@
       <a name="talks" href="#/talks/" tabindex="-1">
         <paper-item paper-drawer-toggle  id="talk">Talks</paper-item>
       </a>
-      <a name="start-up" href="#/start-up/" tabindex="-1">
+
+<!--       <a name="start-up" href="#/start-up/" tabindex="-1">
         <paper-item paper-drawer-toggle>Google Startup Weekend</paper-item>
-      </a>
+      </a> -->
+
       <a name="workshops" href="#/workshops/" tabindex="-1">
         <paper-item paper-drawer-toggle  id="work">Workshops</paper-item>
       </a>
@@ -227,7 +238,9 @@
         <paper-toolbar class="main" id="mainToolBar">
           <paper-icon-button icon="menu" id="hamburger" paper-drawer-toggle style="color:white;"></paper-icon-button>
           <paper-badge for="hamburger" label="[[updateBadgeCount]]" id="menuBadge"></paper-badge>
+
           <div class="title"></div>
+
           <a target="_blank" href="https://www.facebook.com/excelmec">
           <paper-icon-button src="../images/social-icons/share-facebook.svg"></paper-icon-button>           	
           </a>
