@@ -1,47 +1,728 @@
 [
+
     {
-    	"name": "Event1",
+        "name": "Untitled",
         "day" : "1",
-    	"date": "5/10/2016",
-    	"department": "cs",
-    	"type":"online",
+        "date": "6th Oct",
+        "department": "tk",
+        "venue": "Amphi Theatre",
+        "time": "5:30pm-8:30pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+    	"name": "Neural Networks Workshop",
+        "day" : "1",
+    	"date": "6th Oct",
+    	"department": "ws",
+        "time": "10.00am-4.00pm",
+        "venue": "Media Hall",
+    	"timefilter":  "m",
         "cover": "images/icons/anonymous.png"
     },
 
     {
-    	"name": "Event2",
-        "day" : "2",
-    	"date": "5/10/2016",
-    	"department": "ec",
-    	"type":"offline",
+    	"name": "Funzone",
+        "day" : "1",
+    	"date": "6th Oct",
+    	"department": "ot",
+        "venue": "Ground",
+        "time": "10:00am-1:00pm;2:00pm-4:30pm",
+    	"timefilter": "ma",
         "cover": "images/icons/coding.png"
     },
 
     {
-    	"name": "Event3",
-        "day" : "3",
-    	"date": "5/10/2016",
-    	"department": "cs",
-    	"type":"offline",
-        "cover": "images/icons/hackathon.png"
+        "name": "Gamezone",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "ot",
+        "venue": "Room no: 309,310",
+        "time": "10:00am-4:30pm",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
     },
 
     {
-        "name": "Event4",
+        "name": "Tiki Taka",
         "day" : "1",
-        "date": "5/10/2016",
-        "department": "cs",
-        "type":"offline",
-        "cover": "images/icons/lightbulb.png"
+        "date": "6th Oct",
+        "department": "ot",
+        "venue": "Near Volleyball Court",
+        "time": "10:00am-5:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/jersey.png"
     },
 
     {
-        "name": "Event5",
+        "name": "Spider Web(prelims)",
         "day" : "1",
-        "date": "5/10/2016",
+        "date": "6th Oct",
+        "department": "ot",
+        "venue": "Room no: 503,501,515",
+        "time": "11:00am-12:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/spiderWb.jpg"
+    },
+
+    {
+        "name": "Spider Web(finals)",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "ot",
+        "venue": "Volleyball Court",
+        "time": "1:00pm-4:30pm",
+        "timefilter":"a",
+        "cover": "images/icons/spiderWb.jpg"
+    },
+
+    {
+        "name": "Papyrus of Ani",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "ot",
+        "venue": "M-Tech Mechanical lab",
+        "time": "10:00am-5:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Defacto(prelims)",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "ot",
+        "venue": "Auditorium",
+        "time": "11:00am-12:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/defacto.png"
+    },
+
+    {
+        "name": "Defacto(finals)",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "ot",
+        "venue": "Auditorium",
+        "time": "2:00pm-4:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/defacto.png"
+    },
+
+    {
+        "name": "Extrinsicity(prelims)",
+        "day" : "1",
+        "date": "6th Oct",
         "department": "ec",
-        "type":"offline",
-        "cover": "images/icons/anonymous.png"
+        "venue": "Room no: 501,503,515",
+        "time": "12:00pm-1:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Extrinsicity(finals)",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "ec",
+        "venue": "Test Lab, Circuits Lab",
+        "time": "2:00pm-5:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Robowar(prelims)",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "rb",
+        "venue": "Amphi Theatre",
+        "time": "10:00am-2:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Robowar(finals)",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "rb",
+        "venue": "Amphi Theatre",
+        "time": "2:30pm-4:30pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Mec Labs",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "ec",
+        "venue": "Ground",
+        "time": "10:30am-3:00pm",
+        "timefilter": "ex",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Tech Zone",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "ot",
+        "venue": "Graphics Hall",
+        "time": "10:00am-4:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Algorithm(prelims)",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "cs",
+        "venue": "Room no: 301,314,315",
+        "time": "11:00am-12:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Algorithm(finals)",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "cs",
+        "venue": "Computer center 1",
+        "time": "1:30pm-4:30pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "So you think you can code(prelims)",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "cs",
+        "venue": "Room no: 509,510,511",
+        "time": "10:30am-11:00am",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "So you think you can code(finals)",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "cs",
+        "venue": "Computer center 2",
+        "time": "12:00pm-4:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "So you think you can code(finals)",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "cs",
+        "venue": "Computer center 2",
+        "time": "12:00pm-4:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": ".Issue!",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "tk",
+        "venue": "Amphi Theatre",
+        "time": "4:00pm-6:00pm",
+        "timefilter": "e",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "E-Nights",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Amphi Theatre",
+        "time": "6:30pm-8:30pm",
+        "timefilter": "e",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Neural Networks Workshop",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ws",
+        "venue": "Media Hall",
+        "time": "10:00am-4:00pm",
+        "timefilter": "ws",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Funzone",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Ground",
+        "time": "10:00am-1:00pm;2:00pm-4:30pm",
+        "timefilter": "ma",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Gamezone",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Room no: 309,310",
+        "time": "10:00am-4:30pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Tiki Taka",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Near Volleyball Computer",
+        "time": "10:00am-5:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Crime Scene Investigation(prelims)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Room no: 501,503,515",
+        "time": "10:00am-11:30pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Crime Scene Investigation(intermediate)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "M-Tech Mechanical Lab",
+        "time": "12:30pm-1:30pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Crime Scene Investigation(finals)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Machines Lab",
+        "time": "2:00pm-3:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Kluge(prelims)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Room no: 501,503,515",
+        "time": "9:30pm-10:30pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Kluge(intermediate)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Amphi Theatre",
+        "time": "11:30am-12:30pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Kluge(finals)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Amphi Theatre",
+        "time": "12:30pm-2:15pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Paintball",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Ground",
+        "time": "10:00am-3:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Tequiz(prelims)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Auditorium",
+        "time": "11:00am-12:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Tequiz(finals)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ot",
+        "venue": "Auditorium",
+        "time": "12:30pm-2:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Lumiere(prelims)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ee",
+        "venue": "Room no: 509,510,511",
+        "time": "10:00am-11:00am",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Lumiere(intermediate)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ee",
+        "venue": "Seminar Hall",
+        "time": "12:00pm-2:15pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Lumiere(finals)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ee",
+        "venue": "Electrical Workshop",
+        "time": "2:30pm-3:30pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Techathon(finals)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ec",
+        "venue": "VLSI Lab",
+        "time": "8:30am-7:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Tech zone",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ex",
+        "venue": "Graphics Hall",
+        "time": "10:00am-4:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "IBeTo Juniors",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ex",
+        "venue": "Ground",
+        "time": "10:00am-3:00pm",
+        "timefilter": "ma",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "4x120(prelims)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "cs",
+        "venue": "Room no: 301,314,315",
+        "time": "10:00am-11:00am",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "4x120(finals)",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "cs",
+        "venue": "Computer center 1",
+        "time": "12:00pm-2:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "App Genius",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "cs",
+        "venue": "Computer center 2",
+        "time": "11:00am-3:30pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Live Concert",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ot",
+        "venue": "Ground",
+        "time": "6:30pm-8:30pm",
+        "timefilter": "e",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Philips",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "tk",
+        "venue": "Media Hall",
+        "time": "10:00am-12:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/Extrincity.png"
+    },
+
+    {
+        "name": "Funzone",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ot",
+        "venue": "Volleyball Court",
+        "time": "10:00am-1:00pm;2:00pm-4:30pm",
+        "timefilter": "ma",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Treasue Hunt(prelims)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ot",
+        "venue": "Room no: 501,503,515",
+        "time": "10:30am-11:30am",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Treasue Hunt(finals)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ot",
+        "venue": "All Around College",
+        "time": "12:00pm-3:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Best Manager(prelims)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ot",
+        "venue": "Room no: 501,503,515",
+        "time": "9:30pm-10:30am",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Best Manager(The boardroom)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ot",
+        "venue": "M-Tech Mechanical Lab",
+        "time": "11:30am-1:00am",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Best Manager(Devil's Advocate)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ot",
+        "venue": "Room no: 301,314,315",
+        "time": "1:30pm-2:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Best Manager(finals)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "cs",
+        "venue": "Auditorium",
+        "time": "2:45pm-4:45pm",
+        "timefilter": "a",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Instant Photography",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ot",
+        "venue": "Room no: 309",
+        "time": "10:00am-1:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Instant Photography",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ot",
+        "venue": "Media Hall",
+        "time": "1:00pm-2:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Excelsior(prelims)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ot",
+        "venue": "Auditorium",
+        "time": "10:00am-11:00am",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Excelsior(finals)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ot",
+        "venue": "Auditorium",
+        "time": "11:30am-1:30pm",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Ultimate Engineer",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ee",
+        "venue": "Seminar Hall",
+        "time": "9:30am-4:00pm",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Hurt Locker(prelims)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ec",
+        "venue": "Room no: 301,314,315",
+        "time": "10:30am-11:30am",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Hurt Locker(finals)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ec",
+        "venue": "Communications Lab and Digital Lab",
+        "time": "12:30am-3:30pm",
+        "timefilter": "a",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Robo Soccer",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "rb",
+        "venue": "Amphi Theatre",
+        "time": "9:30am-3:30pm",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Life Line(finals)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ec",
+        "venue": "Biomedical Lab",
+        "time": "11:30am-2:30pm",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Tech Zone",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ex",
+        "venue": "Graphics Hall",
+        "time": "10:00am-3:00pm",
+        "timefilter": "ma",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Lord of the Code(prelims)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "cs",
+        "venue": "Room no: 503,510,511",
+        "time": "11:30am-2:30pm",
+        "timefilter": "m",
+        "cover": "images/icons/coding.png"
+    },
+
+    {
+        "name": "Lord of the Code(finals)",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "cs",
+        "venue": "Computer Ceter 2",
+        "time": "1:00pm-3:00pm",
+        "timefilter": "a",
+        "cover": "images/icons/coding.png"
     }
-    
 ]

@@ -2,96 +2,133 @@
 	{
 		"name": "Geojit Technologies",
 		"src" : "images/partners/geojit.png",
+		"link": "http://www.geojitbnpparibas.com/",
 		"type": "Techzone sponsor"
 	},
 	{
 		"name": "Acumen",
 		"src" : "images/partners/acumen.png",
+		"link": "http://contentlinks.dionglobal.in/acumen/",
 		"type": "Dalal Bull sponsor"
 	},
 	{
 		"name": "Marikar Canon",
 		"src" : "images/partners/marikar.png",
+		"link": "http://marikarcanon.com/",
 		"type": "Third Eye sponsor"
 	},
 	{
 		"name": "Gadgeon Smart Systems",
 		"src" : "images/partners/gadgeon.png",
+		"link": "https://www.gadgeon.com/",
 		"type": "Techathon sponsor"
 	},
 	{
 		"name": "Sastra Robotics",
 		"src" : "images/sponsors/sastra.png",
+		"link": "http://www.sastrarobotics.com/",
 		"type": "Ultimate Engineer sponsor"
 	},
 	{
 		"name": "SP Robotics Works",
 		"src" : "images/sponsors/SP.png",
+		"link": "http://www.sproboticworks.com/",
 		"type": "Robotics Events and Components sponsor"
 	},
 	{
 		"name": "Technical Hands",
 		"src" : "images/partners/technicalhands.png",
+		"link": "http://www.technicalhands.com/",
 		"type": "Electrical equipment partner"
 	},
 	{
 		"name": "McFadyen",
 		"src" : "images/sponsors/mcfadyen.png",
+		"link": "http://mcfadyen.com/",
 		"type": "Commerce Ninja sponsor"
+	},
+	{
+		"name": "Wtzup City",
+		"src" : "images/partners/wtzup.png",
+		"link": "http://www.wtzupcity.com/",
+		"type": "Online Partner"
+	},
+	{
+		"name": "Prigma Edutech Services",
+		"src" : "images/partners/prigma.png",
+		"link": "http://www.prigma.co.in/",
+		"type": "Workshop Partner"
+	},
+	{
+		"name": "HT India Labs",
+		"src" : "images/partners/indialabs.png",
+		"link": "http://htindialabs.com/",
+		"type": "Workshop Partner"
+	},
+	{
+		"name": "Codeum Labs",
+		"src" : "images/partners/codeum.png",
+		"link": "http://www.codeumlabs.com/",
+		"type": "Theme Song Parnter"
 	},
 	{
 		"name": "Cinema Pranthan",
 		"src" : "images/partners/cinema.png",
+		"link": "http://www.cinemapranthan.com/",
 		"type": ""
 	},
 	{
 		"name": "Ebco Technical Trade Links",
 		"src" : "images/partners/ebco.png",
+		"link": "https://ebco.in/",
 		"type": ""
 	},
 	{
 		"name": "Calpine Group",
 		"src" : "images/partners/calpinegrp.png",
+		"link": "http://www.calpinetech.com/",
 		"type": ""
 	},
 	{
 		"name": "Career Launcher",
 		"src" : "images/partners/career.png",
+		"link": "http://www.careerlauncher.com/",
 		"type":	" "
 	},
 	{
 		"name": "Powermech",
 		"src" : "images/partners/powermech.png",
+		"link": "http://www.powermechprojects.in/",
 		"type":	" "
 	},
 	{
 		"name": "Nice Chemicals",
 		"src" : "images/partners/nice.png",
+		"link": "http://nicechemicals.com/",
 		"type":	" "
 	},
 	{
 		"name": "Technical Tadelinks",
 		"src" : "images/partners/ttl.png",
+		"link": "http://www.technicaltradelinks.com/",
 		"type":	" "
 	},
 	{
 		"name": "Comptree",
 		"src" : "images/partners/comptree.png",
+		"link": "http://comptree.in/",
 		"type":	" "
 	},
 	{
 		"name": "State bank of Hyderabad",
 		"src" : "images/partners/sbh.png",
+		"link": "https://www.sbhyd.com/",
 		"type":	" "		
-	},
-	{
-		"name": "Codeum Labs",
-		"src" : "images/partners/codeum.png",
-		"type": "Theme song"
 	},
 	{
 		"name": "Tata Consultancy Services",
 		"src" : "images/partners/tcs.png",
+		"link": "http://www.tcs.com",
 		"type": " "
 	}
 ]

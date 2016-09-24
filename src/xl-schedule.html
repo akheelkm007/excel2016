@@ -107,15 +107,24 @@
     }
 
     paper-radio-button{
-      display: flex;
+      /*display: flex;*/
       text-align: left;
     }
 
     .department-filter{
       flex-grow: 6;
     }
+    .categories{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
     .type-filter{
-      flex-grow: 6;
+      /*flex-grow: 6;*/
+    }
+    .type-group{
+      display: flex;
+      flex-wrap: wrap;
     }
     .revert{
       color: #ff3838;
@@ -139,7 +148,7 @@
     }
     .event-image img{
       border-radius: 100%;
-      width: 100px; 
+      width: 100px;
       height: 100px;
       vertical-align: middle;
     }
@@ -195,7 +204,7 @@
     }
 
     .filter-group{
-      display: flex;
+      display: block;
     }
 
     .fab-filter-close{
@@ -302,7 +311,7 @@
         padding: 0;
       }
       .type-filter{
-        display: flex ;
+        /*display: : flex ;*/
         font-size: 15px;
         padding: 0;
       }
@@ -328,7 +337,7 @@
       --paper-item-selected-weight: normal;
     }
 
-    #onlineBox,#offlineBox{
+    #mng,#evn,#afn{
       --paper-checkbox-checked-color : #006064;
     }
     paper-radio-group>paper-radio-button{
@@ -352,29 +361,38 @@
         </paper-button>
         </div>
       <div class="filter-group">
-      <paper-listbox class="department-filter">
-        <paper-item style="color:black">
-          <paper-item-body>
-            <div id="departments">Departments:</div>
-          </paper-item-body>
-        </paper-item>
-        <paper-item>
-          <paper-radio-group aria-labelledby="departments" attr-for-selected="value" selected="{{selectedFilter}}" id="departmentFilter" >
-            <paper-radio-button value="all">All Departments</paper-radio-button>
-            <paper-radio-button value="cs">Computer Science</paper-radio-button>
-            <paper-radio-button value="ec">Electronics and Communication</paper-radio-button>
-          </paper-radio-group>
-        </paper-item>
-      </paper-listbox>
-      <paper-listbox class="type-filter">
-        <paper-item>
-          <paper-item-body>
-            <div>Event Type:</div>
-          </paper-item-body>
-        </paper-item>
-        <paper-item><paper-checkbox value="online" id="onlineBox" checked>Online Events</paper-checkbox></paper-item>
-        <paper-item><paper-checkbox value="offline" id="offlineBox" checked>Offline Events</paper-checkbox></paper-item>
-      </paper-listbox>
+        <paper-listbox class="department-filter">
+          <paper-item style="color:black">
+            <paper-item-body>
+              <div id="departments">Categories:</div>
+            </paper-item-body>
+          </paper-item>
+          <paper-item>
+            <paper-radio-group aria-labelledby="departments" attr-for-selected="value" selected="{{selectedFilter}}" id="departmentFilter" class="categories">
+              <paper-radio-button value="all">All Categories</paper-radio-button>
+              <paper-radio-button value="cs">Computer Science</paper-radio-button>
+              <paper-radio-button value="ec">Electronics</paper-radio-button>
+              <paper-radio-button value="ee">Electrical</paper-radio-button>
+              <paper-radio-button value="ex">Exhibitions</paper-radio-button>
+              <paper-radio-button value="ws">Workshops</paper-radio-button>
+              <paper-radio-button value="rb">Robotics</paper-radio-button>
+              <paper-radio-button value="tk">Talks</paper-radio-button>
+              <paper-radio-button value="ot">Others</paper-radio-button>
+            </paper-radio-group>
+          </paper-item>
+        </paper-listbox>
+        <paper-listbox class="type-filter">
+          <paper-item>
+            <paper-item-body>
+              <div>Time:</div>
+            </paper-item-body>
+          </paper-item>
+          <div class="type-group"> 
+            <paper-item><paper-checkbox  id="mng" checked>Morning</paper-checkbox></paper-item>
+            <paper-item><paper-checkbox  id="afn" checked>Afternoon</paper-checkbox></paper-item>
+            <paper-item><paper-checkbox  id="evn" checked>Evening</paper-checkbox></paper-item>
+          </div>
+        </paper-listbox>
       </div>
       <paper-button class="revert-buttons revert" noink id="resetButton">Reset</paper-button>
     </paper-material>
@@ -387,7 +405,6 @@
                 <paper-tab>Day 1</paper-tab>
                 <paper-tab>Day 2</paper-tab>
                 <paper-tab>Day 3</paper-tab>
-                <paper-tab>Day 4</paper-tab>
               </paper-tabs>
             </div>
           </div>
@@ -400,8 +417,8 @@
             <div class="event-desc">
                 <span>{{item.name}}</span>
                 <div class="event-detail">
-                  <span>Venue</span>
-                  <span>9am</span>
+                  <span>{{item.venue}}</span>
+                  <span>{{item.time}}</span>
                 </div>
             </div>
             <div class="event-date"><span>{{item.date}}</span></div>              
@@ -422,8 +439,9 @@
         'dayFilter.click' : 'refreshFilter',
         'resetButton.tap' : 'resetFilter',
         'departmentFilter.click' : 'refreshFilter',
-        'onlineBox.tap' : 'refreshFilter',
-        'offlineBox.tap' : 'refreshFilter',
+        'evn.tap' : 'refreshFilter',
+        'afn.tap' : 'refreshFilter',
+        'mng.tap' : 'refreshFilter',
         'filterButton.click' : 'showFilter',
         'filterClose.click' : 'hideFilter',
       },
@@ -446,6 +464,7 @@
               this.selectedDay = "0";
               this.icon = "filter-list";
               this.nonEmpty = false;
+              this.try=false;
      },
 
      computeFilter: function(item){
@@ -453,19 +472,26 @@
               var _department = _self.selectedFilter;
               var _scheduleItem = item;
               var _day;
+              var _time = item.timefilter;
               if(this.selectedDay == "0")
                 _day = item.day;
               else
                 _day = this.selectedDay;
 
               //Check if online and offline checkboxes are ticked
-              var onlineState = (_self.$.onlineBox.checked) ? "online" : "not online";
-              var offlineState = (_self.$.offlineBox.checked) ? "offline" : "not offline";
+              var morning = (_self.$.mng.checked) ? "m" : "!m";
+              var evening = (_self.$.evn.checked) ? "e" : "!e";
+              var afternoon = (_self.$.afn.checked) ? "a" : "!a";
               //if event type (online or offline) does not match either of the checked boxes, return false
 
-              if (!(_scheduleItem.type === onlineState || _scheduleItem.type === offlineState)) {
+              // if (!(_scheduleItem.type === onlineState || _scheduleItem.type === offlineState)) {
+              //   return false;
+              // }
+              if(this.try==false)
+                alert(typeof(_time));
+              this.try=true;
+              if(!(_time.includes(morning)||_time.includes(afternoon)||_time.includes(evening)))
                 return false;
-              }
 
               //if no or all department(s) specified, return true
               if(!_department || _department === "all"){
@@ -502,8 +528,8 @@
 
      resetFilter : function(){
         this.selectedFilter = "all";
-        this.$.onlineBox.checked = true;
-        this.$.offlineBox.checked = true;
+        // this.$.onlineBox.checked = true;
+        // this.$.offlineBox.checked = true;
         this.refreshFilter();
      },
      noResults : function(){
