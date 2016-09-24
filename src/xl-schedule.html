@@ -351,7 +351,8 @@
     <div class="card" id='card'>
       <div class="header-panel-container">
         <paper-button class="fab-filter" id="filterButton">
-          <iron-icon icon="{{icon}}"></iron-icon>
+          <!-- <iron-icon icon="{{icon}}"></iron-icon> -->
+          <span>FILTERS</span>
         </paper-button> 
         <paper-material class="newfilter" id="filterList" elevation="5">
         <div class="filter-header">
@@ -464,7 +465,6 @@
               this.selectedDay = "0";
               this.icon = "filter-list";
               this.nonEmpty = false;
-              this.try=false;
      },
 
      computeFilter: function(item){
@@ -487,9 +487,7 @@
               // if (!(_scheduleItem.type === onlineState || _scheduleItem.type === offlineState)) {
               //   return false;
               // }
-              if(this.try==false)
-                alert(typeof(_time));
-              this.try=true;
+              
               if(!(_time.includes(morning)||_time.includes(afternoon)||_time.includes(evening)))
                 return false;
 
