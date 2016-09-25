@@ -33,5 +33,10 @@
 		"name":"App Genius",
 		"icon":"images/icons/android.png",
 		"link":"appgenius"
+	},
+	{
+		"name":"bin bash",
+		"icon":"images/icons/binbash.png",
+		"link":"binbash"
 	}
 ]
