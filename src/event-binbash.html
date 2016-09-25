@@ -1,0 +1,170 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="event-binbash">
+  <template>
+    <style>
+      :host {
+        display: block
+      }
+
+    :host {
+      margin-top: 32px;
+    }
+
+      h2,h3 {
+        font-weight: 400;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      paper-button {
+        background-color: #4285f4;
+        color: white;
+      }
+
+
+      .btn-cntr {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        height: 70px;
+        width: 100%;
+        margin-bottom: 40px;
+      }
+
+      .icon {
+        width: 70px;
+        height: 70px;
+        padding-left: 16px;
+      }
+
+      .event-name {
+        font-size: 34px;
+        padding-left: 16px;
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0;
+        /*text-align: center;*/
+      }
+
+      .description {
+        margin-bottom: 50px;
+      }
+
+      section {
+        display: flex;
+        margin-bottom: 32px;
+      }
+
+      section div {
+        padding-top: 16px;
+        padding-left: 16px;
+      }
+
+      .padd-top {
+        padding-top: 16px;
+      }
+
+      .section-icon {
+        height: 160px;
+      }
+
+      .contacts {
+        padding-right: 16px;
+        padding-bottom: 16px;
+        background-color: #fdf9f6;
+        border-radius: 12px;
+        border-left: 10px solid #d3d2be;
+        flex: 1;
+      }
+
+
+
+      @media( max-width: 600px) {
+        h2,h3,p {
+          padding: 0 16px;
+        }
+
+        section {
+          display: block;
+        }
+
+        section div {
+          padding-left: 0;
+        }
+      }
+    </style>
+
+
+
+    <div class="title">
+    <img class="icon" src="../images/icons-small/bestSmall.png">
+    <p class="event-name">bin bash</p>
+    </div>
+
+    <div class="description">
+        <p>“The Linux philosophy is 'Laugh in the face of danger'. Oops. Wrong One. 'Do it yourself'. Yes, that's it.”  - Linus Torvalds</p>
+        <p>#!/bin/bash is an individual online scripting competition that tests your knowledge on Shell scripting. Let’s go old school and start scripting away our troubles.</p>        
+    </div>
+
+    <section>
+        <h2>Event Format</h2>
+        <ul>
+            <li>There will a total of 25 questions divided into 5 levels.</li>
+            <li>The participant can move to the next level only after completing previous levels.</li>
+            <li>A live leaderboard will be maintained where the participant can check his/her rankings.</li>
+        </ul>
+    </section>
+
+    <section>
+        <img class="section-icon" src="../images/content/rules.png">
+        <div class="padd-top">
+            <p>&#10003; This is strictly an individual online event.</p>
+            <p>&#10003; Registration is required for participation and there should be no duplicate accounts.</p>
+            <p>&#10003; Attacking or flooding the server or writing malicious scripts will lead to disqualification.</p>
+            <p>&#10003; Participants suspected of using unfair means WILL BE disqualified without notice.</p>
+            <p>&#10003; The decisions and judgement of the coordinators will be final.</p>           
+            <p>&#10003; Rules are subject to change at any point in time.</p>            
+        </div>
+    </section>
+
+
+    <section>
+        <img class="section-icon" src="../images/content/phone.png">
+        <div class="contacts padd-top">
+            <div>
+                <p>&#9679; Aishwarya </p>
+                <p>+91 9495747774 </p>
+            </div>
+
+            <div>
+                <p>&#9679; Doyle Fermi</p>
+                <p>+91 9400440519</p>                
+            </div>
+        </div>        
+    </section>
+
+
+
+
+
+  </template>
+
+  <script>
+
+    Polymer({
+      is: 'event-binbash'
+    });
+  </script>
+
+</dom-module>
