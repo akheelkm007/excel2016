@@ -1,0 +1,89 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="xl-gamezone">
+<style include="shared-styles">
+	:host{
+		display: block;
+	}
+	h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+    }
+
+	@media( min-width: 980px) {
+		h1 {
+			font-size: 56px;
+		}
+	}
+	paper-card p{
+		margin:  15px;
+	}
+	paper-card div.card-header{
+		font-size: 25px;
+		margin: 15px;
+	}
+	.container paper-card{
+		margin: auto;
+		width: 460px;
+		display: block;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	.container{
+		display: flex;
+		flex-wrap: wrap;
+		max-width: 980px;
+		margin: auto;
+	}
+	.btn-cntr {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
+    paper-button{
+    	margin: 15px;
+    	color: #4285f4;
+    }
+    @media(max-width: 600px){
+    	.container paper-card{
+    		width: 90%;
+    	}
+    }
+</style>
+<template>
+	<h1>Game Zone</h1>
+	<div class="container">
+		<paper-card elevation="4" image="../images/icons/cs.jpg">
+			<div class="card-header">Counter Strike 1.6</div>
+			<p>Are you the master of the 'dust', 'inferno', and all the other maps in *Counter Strike*? If so here is your chance to plant bombs or defuse them, to be the terrorists or the counter terrorists, to take hostages, or to rescue hostages. Aim for those head shots, rack up those kills, and lead your team to victory. Let the games begin!</p>
+		</paper-card>
+		<paper-card elevation="4" image="../images/icons/dota.jpg">
+			<div class="card-header">Dota 2</div>
+			<p>The Dire and the Radiant engage in an all out battle to destroy the opponent’s ‘Ancients’. Catch the action live and be a part of it. The best teams in the nation will fight it out against each other to be the ultimate champions of *DOTA 2*. If you what it takes, then come and prove that your team is superior in teamplay, strategy and innovation. Let your ‘Heroes’ do the talking and destroy your enemy’s defenses. Let the battle of the Ancients begin!</p>
+			<a target="_blank" href="http://excelmec.org/maelstrom/">
+			  <paper-button>Dota Maelstrom</paper-button>                  
+			</a>
+		</paper-card>
+		<paper-card elevation="4" image="../images/icons/paintball.jpg">
+			<div class="card-header">Paintball</div>
+			<p>Tired of those same old first person shooter games? Want to experience the thrill and exhilaration of warfare? Want to shoot real guns? Wait, what? You don't wanna risk your life? Hmm, that's no fun, but hey, try Paintball! Make your way to MEC on the 7th of October 2016, and you can experience all the above in a safe and fun setting!Paintball at Excel 2016!</p>
+		</paper-card>
+		<paper-card elevation="4" image="../images/icons/fifa1.jpg">
+			<div class="card-header">Fifa 11</div>
+			<p>Experience the emotions of scoring great goals. If you consider yourself a master of the game. If you have a craving for the tension when chances are created, and the thrill of hitting the back of the net, then come and be the champions of *FIFA 11* at Excel 2016 Game Zone!</p>
+		</paper-card>
+	</div>
+</template>
+<script>
+	Polymer({
+		is : 'xl-gamezone'
+	});
+</script>
+</dom-module>

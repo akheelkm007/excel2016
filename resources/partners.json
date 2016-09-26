@@ -1,5 +1,11 @@
 [
 	{
+		"name": "Sapient",
+		"src" : "images/partners/sapient.png",
+		"link": "http://www.sapientnitro.com/",
+		"type": "Title Sponsor"
+	},
+	{
 		"name": "Geojit Technologies",
 		"src" : "images/partners/geojit.png",
 		"link": "http://www.geojitbnpparibas.com/",
