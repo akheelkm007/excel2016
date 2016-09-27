@@ -1,0 +1,437 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+
+<link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../bower_components/paper-spinner/paper-spinner.html">
+
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/iron-scroll-threshold/iron-scroll-threshold.html">
+
+<link rel="import" href="../bower_components/paper-menu/paper-menu.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-badge/paper-badge.html">
+
+<link rel="import" href="../bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+
+<dom-module id="xl-app">
+
+  <template>
+
+    <style is="custom-style">
+
+      :host {
+        display: block;
+        --primary-color: #4285f4;
+        --app-secondary-color: black;
+      }
+
+      paper-item {
+        --paper-item-focused:{
+            background: darkgrey ;
+        };   
+      }
+      paper-menu {
+        --paper-menu-selected-item: {
+        };
+      }
+
+      paper-item:hover {
+        background: rgba(180,227,250,0.5);
+      }
+
+      paper-icon-button {
+        --paper-icon-button-ink-color: white;      	
+      }
+
+
+	   a {
+    	font-weight: 500;
+    	text-decoration: none;
+    	color: inherit;
+     }
+
+      .drawer {
+      	 height: calc(64px * 3);
+      }
+
+      .drawer-list {
+        margin: 0 20px;
+      }
+      .drawer-list a {
+        display: block;
+        padding: 0 16px;
+        line-height: 40px;
+        text-decoration: none;
+        color: var(--app-secondary-color);
+      }
+      .drawer-list a.iron-selected {
+        color: black;
+        font-weight: bold;
+      }
+      .drawer-list a.subroute {
+        padding-left: 32px;
+      }
+
+      .nav-tool-bottom {
+      	padding-bottom: 16px;
+      }
+
+      .toolbar-img {
+    	 width: 100%;
+    	 position: absolute;
+		   left: 0;
+		   top: 0;
+  	  }
+
+      paper-toolbar.drawer {
+      --paper-toolbar-background: #45aed6;
+  		color: black;
+      }
+
+      paper-toolbar.main {
+      --paper-toolbar-background: #b4e3fa;
+      --paper-toolbar-background: transparent;
+      color: white;
+      }
+
+
+      .transition {
+      	will-change: transform;
+        transition : 300ms ease-in-out;        
+      }
+
+      .fade-out {
+        opacity: 0;
+        transform: translateY(300px);
+      }
+
+      .fade-in {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+
+      .inline {
+        display: inline-block;
+      }
+
+      .social-divider {
+        border-left: 1px solid rgba(255,255,255,0.15);
+        height:60%;
+      }
+
+  paper-scroll-header-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      /* background for toolbar when it is at its full size */
+      --paper-scroll-header-panel-full-header: {
+      	background-color: #b4e3fa;
+      };
+
+      /* background for toolbar when it is condensed */
+      --paper-scroll-header-panel-condensed-header: {
+        background-color: #2696c2;
+      };
+
+    }
+    
+    a paper-item span{
+      /*z-index: -1;*/
+      padding-right: 15px;
+    }
+
+    @media(max-width: 380px) {
+	    .title {
+	    	display: none;
+	    }
+
+	}
+
+
+
+
+    </style>
+
+    <app-location route="{{route}}" use-hash-as-path></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+    <paper-drawer-panel force-narrow>
+
+      <paper-header-panel mode="seamed" drawer>
+        <paper-toolbar class="tall drawer">
+        	<img src="../images/excel-nav-logo.png" class="toolbar-img">
+          <div class="bottom nav-tool-bottom">
+          </div>
+        </paper-toolbar>
+        <div>
+
+		<paper-menu selected="[[page]]" attr-for-selected="name" role="navigation" activate-event="click"  tabindex="0">
+
+      <a name="home" href="#/home/" tabindex="-1">
+        <paper-item paper-drawer-toggle>Home</paper-item>     
+      </a>
+<!-- 			<a name="schedule" href="#/schedule/" tabindex="-1">
+				<paper-item paper-drawer-toggle>Schedule</paper-item>			
+			</a>
+ -->      <a name="competitions" href="#/competitions/" tabindex="-1">
+        <paper-item paper-drawer-toggle   id="comp">Competitions</paper-item>     
+      </a>
+      <a name="exhibitions" href="#/exhibitions/" tabindex="-1">
+        <paper-item paper-drawer-toggle>Exhibitions</paper-item>     
+      </a>
+      <a name="talks" href="#/talks/" tabindex="-1">
+        <paper-item paper-drawer-toggle  id="talk">Talks</paper-item>
+      </a>
+
+<!--       <a name="start-up" href="#/start-up/" tabindex="-1">
+        <paper-item paper-drawer-toggle>Google Startup Weekend</paper-item>
+      </a> -->
+
+      <a name="workshops" href="#/workshops/" tabindex="-1">
+        <paper-item paper-drawer-toggle  id="work">Workshops</paper-item>
+      </a>
+      <a name="social" href="#/social/" tabindex="-1">
+        <paper-item paper-drawer-toggle>Social Initiatives</paper-item>     
+      </a>
+      <a name="gallery" href="#/gallery" tabindex="-1">
+        <paper-item paper-drawer-toggle>Gallery</paper-item>   
+      </a>
+      <a name="gallery" href="#/contacts" tabindex="-1">
+        <paper-item paper-drawer-toggle>Contacts</paper-item>     
+      </a>
+      <a name="partners" href="#/partners" tabindex="-1">
+        <paper-item paper-drawer-toggle>Partners</paper-item>     
+      </a>
+      <a name="updates" href="#/updates" tabindex="-1">
+        <paper-item paper-drawer-toggle  id="updt"><span paper-drawer-toggle id="updttext">Updates</span><paper-badge paper-drawer-toggle for="updttext" label="{{updateBadgeCount}}" id="navBadge"></paper-badge></paper-item>
+      </a>
+		</paper-menu>
+
+
+
+
+        </div>
+      </paper-header-panel>
+
+
+      <paper-scroll-header-panel main condenses keep-condensed-header 
+      header-height="68"
+      condensed-header-height="56">
+       <!--   -->
+       <!-- mode="waterfall"> -->
+
+        <paper-toolbar class="main" id="mainToolBar">
+          <paper-icon-button icon="menu" id="hamburger" paper-drawer-toggle style="color:white;"></paper-icon-button>
+          <paper-badge for="hamburger" label="[[updateBadgeCount]]" id="menuBadge"></paper-badge>
+
+          <div class="title"></div>
+
+          <img src="../images/sponsors/sapient-logo.png" style="padding-left:16px;height:35px;">          
+
+          <a target="_blank" href="https://www.facebook.com/excelmec">
+          <paper-icon-button src="../images/social-icons/share-facebook.svg"></paper-icon-button>           	
+          </a>
+          <div class="social-divider"></div>
+          <a target="_blank" href="https://plus.google.com/115187532143754007288">
+	          <paper-icon-button src="../images/social-icons/share-gplus.svg"></paper-icon-button>           	
+          </a>
+          <div class="social-divider"></div>
+    	  <a target="_blank" href="https://twitter.com/excelmec">
+	          <paper-icon-button src="../images/social-icons/share-twitter.svg"></paper-icon-button>     	  	
+    	  </a>
+          <div class="social-divider"></div>
+    	  <a target="_blank" href="http://mec.ac.in">
+               <img src="../images/college.png" style="padding-left:16px;height:35px;">
+    	  </a>
+        </paper-toolbar>
+
+		    <div>
+		    	<iron-pages role="main" selected="[[page]]" attr-for-selected="name" id="mainContent">
+		    		<xl-home name="home"></xl-home>
+		      		<xl-schedule name="schedule"></xl-schedule>
+		      		<xl-competitions name="competitions" id="competitions"></xl-competitions>
+		      		<xl-talks name="talks" id="talks"></xl-talks>
+		      		<xl-gallery name="gallery"></xl-gallery>
+		      		<xl-partners name="partners"></xl-partners>
+              <xl-social name="social"></xl-social>
+              <xl-contacts name="contacts"></xl-contacts>
+              <xl-exhibitions name="exhibitions"></xl-exhibitions>
+              <xl-start-up name="start-up"></xl-start-up>
+              <xl-updates name="updates"></xl-updates>
+              <xl-workshops name="workshops"></xl-workshops>
+				</iron-pages>
+			</div>
+
+
+      </paper-scroll-header-panel>
+
+
+
+
+    </paper-drawer-panel>
+
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'xl-app',
+
+      properties: {
+
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged'
+        },
+
+      },
+
+      listeners:{
+        'updt.tap': 'register',
+      },
+
+      observers: [
+        '_routePageChanged(routeData.page)'
+      ],
+
+      ready:function(){
+        this.updatesCount = 9;
+        var localCount = localStorage.getItem("xlupdate");
+        this.updateBadgeCount = 0;
+        if(localCount!=null){
+          localCount = parseInt(localCount);          
+          this.updateBadgeCount = this.updatesCount - localCount;
+        }
+        else{
+          this.updateBadgeCount = this.updatesCount - 9;
+          localStorage.setItem("xlupdate",this.updatesCount);
+        }
+        if(this.updateBadgeCount==0){
+          this.hideBadges();
+        }
+        // localStorage.removeItem("xlupdate");
+      },
+
+      hideBadges : function(){
+        this.$.menuBadge.style.display = "none";
+        this.$.navBadge.style.display = "none";
+      },
+      register : function(e){
+        var elt = e.target;
+        if(elt.children.length<2)
+          elt = elt.parentNode;
+        localStorage.setItem("xlupdate",this.updatesCount);
+        this.hideBadges();
+      },
+
+      _routePageChanged: function(page) {
+
+          console.log('page : ',page);
+
+          if(page == undefined) {
+            location.href += "#/home/";
+          }
+
+          if ( page != "home") {
+	          this.$.mainToolBar.style.backgroundColor = "#2696c2";
+          }
+
+          else {
+	          this.$.mainToolBar.style.backgroundColor = "inherit";
+          }
+
+          if(page == undefined) {
+            this.$.mainToolBar.style.backgroundColor = "inherit";
+          }
+
+          var x = this.$.mainContent;
+          var old = x.selectedItem;
+          var competitions = this.$.competitions;
+          var talks = this.$.talks;
+
+          if (!old) { //Initial loading of the page. No need of exit animation
+            this.page = page || 'home';
+            return;
+          }
+
+          old.classList.add("transition");
+          old.classList.add("fade-out");
+          old.classList.remove("fade-in");
+
+
+
+          this.importHref(
+            this.resolveUrl('xl-' + page + '.html'), function() { 
+
+              this.page = page;
+              var x = this.$.mainContent;
+              var elem = x.selectedItem;
+
+
+              //Set to the faded out position
+              elem.classList.add("fade-out");
+              elem.classList.remove("fade-in");
+              elem.classList.remove("transition");
+              elem.getBoundingClientRect();
+
+
+              //Fade the page in
+              elem.classList.add("fade-in");
+              elem.classList.add("transition");
+
+            }, null, true);
+
+
+          // setTimeout(function () {
+          //   if (x.selectedItem === old && old != competitions && old != talks) {
+          //     console.log('show spinner:');
+          //     x.selected = "spinner";
+          //   } 
+          // }, 800);
+
+      },
+
+      _pageChanged: function(page) {
+        // load page import on demand.
+        this.importHref(
+          this.resolveUrl('xl-' + page + '.html'), function() { 
+            
+            //For the initial load
+            var x = this.$.mainContent;
+            var elem = x.selectedItem;
+
+            //Set to the faded out position
+            elem.classList.add("fade-out");
+            elem.getBoundingClientRect();
+            
+
+            //Fade the page in
+            elem.classList.add("fade-in");
+            elem.classList.add("transition");
+
+          }, null, true);
+   }
+
+    });
+
+  </script>
+
+</dom-module>
