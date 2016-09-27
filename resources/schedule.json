@@ -8,7 +8,7 @@
         "venue": "Amphi Theatre",
         "time": "5:30pm-8:30pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/UntitledSched.png"
     },
 
     {
@@ -19,7 +19,7 @@
         "time": "10.00am-4.00pm",
         "venue": "Media Hall",
     	"timefilter":  "m",
-        "cover": "images/icons/anonymous.png"
+        "cover": "images/schedule/neuralnetworksched.png"
     },
 
     {
@@ -30,7 +30,7 @@
         "venue": "Ground",
         "time": "10:00am-1:00pm;2:00pm-4:30pm",
     	"timefilter": "ma",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/funzone.png"
     },
 
     {
@@ -41,7 +41,7 @@
         "venue": "Room no: 309,310",
         "time": "10:00am-4:30pm",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/gamezone.png"
     },
 
     {
@@ -52,7 +52,7 @@
         "venue": "Near Volleyball Court",
         "time": "10:00am-5:00pm",
         "timefilter": "m",
-        "cover": "images/icons/jersey.png"
+        "cover": "images/schedule/tikitaka.png"
     },
 
     {
@@ -63,7 +63,7 @@
         "venue": "Room no: 503,501,515",
         "time": "11:00am-12:00pm",
         "timefilter": "m",
-        "cover": "images/icons/spiderWb.jpg"
+        "cover": "images/schedule/spiderweb.png"
     },
 
     {
@@ -74,7 +74,7 @@
         "venue": "Volleyball Court",
         "time": "1:00pm-4:30pm",
         "timefilter":"a",
-        "cover": "images/icons/spiderWb.jpg"
+        "cover": "images/schedule/spiderweb.png"
     },
 
     {
@@ -85,7 +85,7 @@
         "venue": "M-Tech Mechanical lab",
         "time": "10:00am-5:00pm",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/papyrus.png"
     },
 
     {
@@ -96,7 +96,7 @@
         "venue": "Auditorium",
         "time": "11:00am-12:00pm",
         "timefilter": "m",
-        "cover": "images/icons/defacto.png"
+        "cover": "images/schedule/defacto.png"
     },
 
     {
@@ -107,7 +107,7 @@
         "venue": "Auditorium",
         "time": "2:00pm-4:00pm",
         "timefilter": "a",
-        "cover": "images/icons/defacto.png"
+        "cover": "images/schedule/defacto.png"
     },
 
     {
@@ -118,7 +118,7 @@
         "venue": "Room no: 501,503,515",
         "time": "12:00pm-1:00pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/extrincity.png"
     },
 
     {
@@ -129,7 +129,7 @@
         "venue": "Test Lab, Circuits Lab",
         "time": "2:00pm-5:00pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/extrincity.png"
     },
 
     {
@@ -140,7 +140,7 @@
         "venue": "Amphi Theatre",
         "time": "10:00am-2:00pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/robowar.png"
     },
 
     {
@@ -151,7 +151,7 @@
         "venue": "Amphi Theatre",
         "time": "2:30pm-4:30pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/robowar.png"
     },
 
     {
@@ -162,7 +162,7 @@
         "venue": "Ground",
         "time": "10:30am-3:00pm",
         "timefilter": "ex",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/meclabs.png"
     },
 
     {
@@ -173,7 +173,7 @@
         "venue": "Graphics Hall",
         "time": "10:00am-4:00pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/techzone.png"
     },
 
     {
@@ -184,7 +184,7 @@
         "venue": "Room no: 301,314,315",
         "time": "11:00am-12:00pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/algo.png"
     },
 
     {
@@ -195,7 +195,7 @@
         "venue": "Computer center 1",
         "time": "1:30pm-4:30pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/algo.png"
     },
 
     {
@@ -206,7 +206,7 @@
         "venue": "Room no: 509,510,511",
         "time": "10:30am-11:00am",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/so-u-code.png"
     },
 
     {
@@ -217,18 +217,7 @@
         "venue": "Computer center 2",
         "time": "12:00pm-4:00pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
-    },
-
-    {
-        "name": "So you think you can code(finals)",
-        "day" : "1",
-        "date": "6th Oct",
-        "department": "cs",
-        "venue": "Computer center 2",
-        "time": "12:00pm-4:00pm",
-        "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/so-u-code.png"
     },
 
     {
@@ -239,7 +228,7 @@
         "venue": "Amphi Theatre",
         "time": "4:00pm-6:00pm",
         "timefilter": "e",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/issue.png"
     },
 
     {
@@ -250,7 +239,7 @@
         "venue": "Amphi Theatre",
         "time": "6:30pm-8:30pm",
         "timefilter": "e",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/e-night.png"
     },
 
     {
@@ -261,7 +250,7 @@
         "venue": "Media Hall",
         "time": "10:00am-4:00pm",
         "timefilter": "ws",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/neuralnetworksched.png"
     },
 
     {
@@ -272,7 +261,7 @@
         "venue": "Ground",
         "time": "10:00am-1:00pm;2:00pm-4:30pm",
         "timefilter": "ma",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/funzone.png"
     },
 
     {
@@ -283,7 +272,7 @@
         "venue": "Room no: 309,310",
         "time": "10:00am-4:30pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/gamezone.png"
     },
 
     {
@@ -294,7 +283,7 @@
         "venue": "Near Volleyball Computer",
         "time": "10:00am-5:00pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/tikitaka.png"
     },
 
     {
@@ -305,7 +294,7 @@
         "venue": "Room no: 501,503,515",
         "time": "10:00am-11:30pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/csi.png"
     },
 
     {
@@ -316,7 +305,7 @@
         "venue": "M-Tech Mechanical Lab",
         "time": "12:30pm-1:30pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/csi.png"
     },
 
     {
@@ -327,7 +316,7 @@
         "venue": "Machines Lab",
         "time": "2:00pm-3:00pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/csi.png"
     },
 
     {
@@ -338,7 +327,7 @@
         "venue": "Room no: 501,503,515",
         "time": "9:30pm-10:30pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/kluge.png"
     },
 
     {
@@ -349,7 +338,7 @@
         "venue": "Amphi Theatre",
         "time": "11:30am-12:30pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/kluge.png"
     },
 
     {
@@ -360,7 +349,7 @@
         "venue": "Amphi Theatre",
         "time": "12:30pm-2:15pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/kluge.png"
     },
 
     {
@@ -371,7 +360,7 @@
         "venue": "Ground",
         "time": "10:00am-3:00pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/paint.png"
     },
 
     {
@@ -382,7 +371,7 @@
         "venue": "Auditorium",
         "time": "11:00am-12:00pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/techquiz.png"
     },
 
     {
@@ -393,7 +382,7 @@
         "venue": "Auditorium",
         "time": "12:30pm-2:00pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/techquiz.png"
     },
 
     {
@@ -404,7 +393,7 @@
         "venue": "Room no: 509,510,511",
         "time": "10:00am-11:00am",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/lumiere.png"
     },
 
     {
@@ -415,7 +404,7 @@
         "venue": "Seminar Hall",
         "time": "12:00pm-2:15pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/lumiere.png"
     },
 
     {
@@ -426,7 +415,7 @@
         "venue": "Electrical Workshop",
         "time": "2:30pm-3:30pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/lumiere.png"
     },
 
     {
@@ -437,7 +426,7 @@
         "venue": "VLSI Lab",
         "time": "8:30am-7:00pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/techathon.png"
     },
 
     {
@@ -448,7 +437,7 @@
         "venue": "Graphics Hall",
         "time": "10:00am-4:00pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/techzone.png"
     },
 
     {
@@ -459,7 +448,7 @@
         "venue": "Ground",
         "time": "10:00am-3:00pm",
         "timefilter": "ma",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/ibetojnr.png"
     },
 
     {
@@ -470,7 +459,7 @@
         "venue": "Room no: 301,314,315",
         "time": "10:00am-11:00am",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/4x120.png"
     },
 
     {
@@ -481,7 +470,7 @@
         "venue": "Computer center 1",
         "time": "12:00pm-2:00pm",
         "timefilter": "a",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/4x120.png"
     },
 
     {
@@ -492,7 +481,7 @@
         "venue": "Computer center 2",
         "time": "11:00am-3:30pm",
         "timefilter": "m",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/android.png"
     },
 
     {
@@ -503,7 +492,7 @@
         "venue": "Ground",
         "time": "6:30pm-8:30pm",
         "timefilter": "e",
-        "cover": "images/icons/Extrincity.png"
+        "cover": "images/schedule/proshow.png"
     },
 
     {
@@ -525,7 +514,7 @@
         "venue": "Volleyball Court",
         "time": "10:00am-1:00pm;2:00pm-4:30pm",
         "timefilter": "ma",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/funzone.png"
     },
 
     {
@@ -536,7 +525,7 @@
         "venue": "Room no: 501,503,515",
         "time": "10:30am-11:30am",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/treasurehunt.png"
     },
 
     {
@@ -547,7 +536,7 @@
         "venue": "All Around College",
         "time": "12:00pm-3:00pm",
         "timefilter": "a",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/treasurehunt.png"
     },
 
     {
@@ -558,7 +547,7 @@
         "venue": "Room no: 501,503,515",
         "time": "9:30pm-10:30am",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/bestmanager.png"
     },
 
     {
@@ -569,7 +558,7 @@
         "venue": "M-Tech Mechanical Lab",
         "time": "11:30am-1:00am",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/bestmanager.png"
     },
 
     {
@@ -580,7 +569,7 @@
         "venue": "Room no: 301,314,315",
         "time": "1:30pm-2:00pm",
         "timefilter": "a",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/bestmanager.png"
     },
 
     {
@@ -591,7 +580,7 @@
         "venue": "Auditorium",
         "time": "2:45pm-4:45pm",
         "timefilter": "a",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/bestmanager.png"
     },
 
     {
@@ -602,7 +591,7 @@
         "venue": "Room no: 309",
         "time": "10:00am-1:00pm",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/instantp.png"
     },
 
     {
@@ -613,7 +602,7 @@
         "venue": "Media Hall",
         "time": "1:00pm-2:00pm",
         "timefilter": "a",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/instantp.png"
     },
 
     {
@@ -624,7 +613,7 @@
         "venue": "Auditorium",
         "time": "10:00am-11:00am",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/general quiz.png"
     },
 
     {
@@ -635,7 +624,7 @@
         "venue": "Auditorium",
         "time": "11:30am-1:30pm",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/general quiz.png"
     },
 
     {
@@ -646,7 +635,7 @@
         "venue": "Seminar Hall",
         "time": "9:30am-4:00pm",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/ultengineer.png"
     },
 
     {
@@ -657,7 +646,7 @@
         "venue": "Room no: 301,314,315",
         "time": "10:30am-11:30am",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/bobmdefuse.png"
     },
 
     {
@@ -668,7 +657,7 @@
         "venue": "Communications Lab and Digital Lab",
         "time": "12:30am-3:30pm",
         "timefilter": "a",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/bobmdefuse.png"
     },
 
     {
@@ -679,7 +668,7 @@
         "venue": "Amphi Theatre",
         "time": "9:30am-3:30pm",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/soccer.png"
     },
 
     {
@@ -690,7 +679,7 @@
         "venue": "Biomedical Lab",
         "time": "11:30am-2:30pm",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/lifeline.png"
     },
 
     {
@@ -701,7 +690,7 @@
         "venue": "Graphics Hall",
         "time": "10:00am-3:00pm",
         "timefilter": "ma",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/techzone.png"
     },
 
     {
@@ -712,7 +701,7 @@
         "venue": "Room no: 503,510,511",
         "time": "11:30am-2:30pm",
         "timefilter": "m",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/lordofcode.png"
     },
 
     {
@@ -723,6 +712,6 @@
         "venue": "Computer Ceter 2",
         "time": "1:00pm-3:00pm",
         "timefilter": "a",
-        "cover": "images/icons/coding.png"
+        "cover": "images/schedule/lordofcode.png"
     }
 ]

@@ -59,8 +59,8 @@
       }
     .card {
         margin: auto;
-        margin-top: 24px;
-        margin-bottom: 24px;
+        padding-top: 24px;
+        padding-bottom: 24px;
         background-color: #fff;
         color: #757575;
         width: 70%;
@@ -160,10 +160,10 @@
 
     .fab-filter{
       position: absolute;
-      z-index: 999;
       transition: background 0.5s;
       background-color: #4285f4;
       right: 0;
+      z-index: 9;
       color: white;
       background-color: transparent;
       margin:0;
@@ -192,7 +192,7 @@
 
     .filter-header{
       height: 80px;
-      background-color: #006064;
+      background-color: #00BCD4;
       display: flex;
       text-align: left;
       position: relative;
@@ -346,8 +346,23 @@
     paper-fab{
       --background: #4285f4; 
     }
+    .overlay{
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.3s;
+    }
+    .overlay-attach{
+      z-index: 99;
+      opacity: 0.5;
+    }
   </style>
   <div>
+    <div id="overlay" class="overlay"></div>
     <div class="card" id='card'>
       <div class="header-panel-container">
         <paper-button class="fab-filter" id="filterButton">
@@ -519,9 +534,11 @@
 
      showFilter : function(){
         this.$.filterList.classList.add('toggle');
+        this.$.overlay.classList.add('overlay-attach');
      },
      hideFilter : function(){
         this.$.filterList.classList.remove('toggle');
+        this.$.overlay.classList.remove('overlay-attach');
      },
 
      resetFilter : function(){
