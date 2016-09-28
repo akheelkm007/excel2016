@@ -202,10 +202,12 @@
       <a name="home" href="#/home/" tabindex="-1">
         <paper-item paper-drawer-toggle>Home</paper-item>     
       </a>
-<!-- 			<a name="schedule" href="#/schedule/" tabindex="-1">
+
+ 			<a name="schedule" href="#/schedule/" tabindex="-1">
 				<paper-item paper-drawer-toggle>Schedule</paper-item>			
 			</a>
- -->      <a name="competitions" href="#/competitions/" tabindex="-1">
+ 
+       <a name="competitions" href="#/competitions/" tabindex="-1">
         <paper-item paper-drawer-toggle   id="comp">Competitions</paper-item>     
       </a>
       <a name="exhibitions" href="#/exhibitions/" tabindex="-1">
@@ -336,7 +338,7 @@
       ],
 
       ready:function(){
-        this.updatesCount = 16;
+        this.updatesCount = 17;
         var localCount = localStorage.getItem("xlupdate");
         this.updateBadgeCount = 0;
         if(localCount!=null){
