@@ -158,7 +158,24 @@
 
 	}
 
+    @media( max-width: 420px) {
+      .tw-icon,.social-divider {
+        display: none;
+      }
+    }
 
+    @media( max-width: 380px) {
+      .gp-icon,.social-divider {
+        display: none;
+      }
+    }
+
+
+    @media( max-width: 340px) {
+      .fb-icon,.gp-icon,.tw-icon,.social-divider {
+        display: none;
+      }
+    }
 
 
     </style>
@@ -245,15 +262,15 @@
           <div class="title"></div>
 
           <a target="_blank" href="https://www.facebook.com/excelmec">
-          <paper-icon-button src="../images/social-icons/share-facebook.svg"></paper-icon-button>           	
+          <paper-icon-button class="fb-icon" src="../images/social-icons/share-facebook.svg"></paper-icon-button>           	
           </a>
           <div class="social-divider"></div>
           <a target="_blank" href="https://plus.google.com/115187532143754007288">
-	          <paper-icon-button src="../images/social-icons/share-gplus.svg"></paper-icon-button>           	
+	          <paper-icon-button class="gp-icon" src="../images/social-icons/share-gplus.svg"></paper-icon-button>           	
           </a>
           <div class="social-divider"></div>
     	  <a target="_blank" href="https://twitter.com/excelmec">
-	          <paper-icon-button src="../images/social-icons/share-twitter.svg"></paper-icon-button>     	  	
+	          <paper-icon-button class="tw-icon" src="../images/social-icons/share-twitter.svg"></paper-icon-button>     	  	
     	  </a>
           <div class="social-divider"></div>
     	  <a target="_blank" href="http://mec.ac.in">
