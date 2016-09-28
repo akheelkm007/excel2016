@@ -23,6 +23,17 @@
     },
 
     {
+        "name": "Guest Lectures",
+        "day" : "1",
+        "date": "6th Oct",
+        "department": "tk",
+        "venue": "Auditorium",
+        "time": "12:30pm-1:15pm",
+        "timefilter": "m",
+        "cover": "images/schedule/guest.png"
+    },
+
+    {
     	"name": "Funzone",
         "day" : "1",
     	"date": "6th Oct",
@@ -160,7 +171,7 @@
         "date": "6th Oct",
         "department": "ec",
         "venue": "Room no: 301,314,315",
-        "time": "2:30pm-4:30pm",
+        "time": "10:00am-11:00am",
         "timefilter": "a",
         "cover": "images/schedule/elequest.png"
     },
@@ -284,6 +295,17 @@
         "time": "10:00am-3:30pm",
         "timefilter": "ws",
         "cover": "images/schedule/neuralnetworksched.png"
+    },
+
+    {
+        "name": "Guest Lectures",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "tk",
+        "venue": "Auditorium",
+        "time": "1:30pm-2:15pm",
+        "timefilter": "m",
+        "cover": "images/schedule/guest.png"
     },
 
     {
