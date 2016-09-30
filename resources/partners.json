@@ -78,6 +78,12 @@
 		"type": "Theme Song Parnter"
 	},
 	{
+		"name": "FullContact",
+		"src" : "images/partners/fc.png",
+		"link": "https://www.fullcontact.com/about/careers/?utm_source=Excel_Kochi",
+		"type": "Exclusive Parnter"
+	},
+	{
 		"name": "Cinema Pranthan",
 		"src" : "images/partners/cinema.png",
 		"link": "http://www.cinemapranthan.com/",
