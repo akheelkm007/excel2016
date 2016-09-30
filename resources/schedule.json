@@ -28,7 +28,7 @@
         "date": "6th Oct",
         "department": "tk",
         "venue": "Auditorium",
-        "time": "12:30pm-1:15pm",
+        "time": "12:00pm-1:00pm",
         "timefilter": "m",
         "cover": "images/schedule/guest.png"
     },
@@ -105,7 +105,7 @@
         "date": "6th Oct",
         "department": "ot",
         "venue": "Auditorium",
-        "time": "11:00am-12:00pm",
+        "time": "10:00am-11:00am",
         "timefilter": "m",
         "cover": "images/schedule/defacto.png"
     },
@@ -204,7 +204,7 @@
         "date": "6th Oct",
         "department": "ex",
         "venue": "Ground",
-        "time": "10:30am-3:00pm",
+        "time": "10:00am-3:00pm",
         "timefilter": "ex",
         "cover": "images/schedule/meclabs.png"
     },
@@ -237,7 +237,7 @@
         "date": "6th Oct",
         "department": "cs",
         "venue": "Computer center 1",
-        "time": "1:30pm-4:30pm",
+        "time": "1:30pm-4:00pm",
         "timefilter": "a",
         "cover": "images/schedule/algo.png"
     },
@@ -248,7 +248,7 @@
         "date": "6th Oct",
         "department": "cs",
         "venue": "Room no: 509,510,511",
-        "time": "10:30am-11:00am",
+        "time": "10:00am-11:00am",
         "timefilter": "m",
         "cover": "images/schedule/so-u-code.png"
     },
@@ -286,14 +286,26 @@
         "cover": "images/schedule/issue.png"
     },
 
+
+    {
+        "name": "Biomedical Devices Workshop",
+        "day" : "2",
+        "date": "7th Oct",
+        "department": "ws",
+        "venue": "Media Hall",
+        "time": "12:00pm-1:00pm",
+        "timefilter": "e",
+        "cover": "images/schedule/talks.png"
+    },
+
     {
         "name": "Neural Networks Workshop",
         "day" : "2",
         "date": "7th Oct",
         "department": "ws",
         "venue": "Media Hall",
-        "time": "10:00am-3:30pm",
-        "timefilter": "ws",
+        "time": "9:00am-11:30am;1:15pm:3.30pm",
+        "timefilter": "ma",
         "cover": "images/schedule/neuralnetworksched.png"
     },
 
@@ -303,7 +315,7 @@
         "date": "7th Oct",
         "department": "tk",
         "venue": "Auditorium",
-        "time": "1:30pm-2:15pm",
+        "time": "2:00pm-3:00pm",
         "timefilter": "m",
         "cover": "images/schedule/guest.png"
     },
@@ -347,7 +359,7 @@
         "date": "7th Oct",
         "department": "ot",
         "venue": "Room no: 501,503,515",
-        "time": "10:03am-11:30pm",
+        "time": "10:30am-11:30pm",
         "timefilter": "m",
         "cover": "images/schedule/csi.png"
     },
@@ -369,7 +381,7 @@
         "date": "7th Oct",
         "department": "ot",
         "venue": "Machines Lab",
-        "time": "2:30pm-3:00pm",
+        "time": "2:30pm-3:30pm",
         "timefilter": "a",
         "cover": "images/schedule/csi.png"
     },
@@ -573,7 +585,7 @@
     },
 
     {
-        "name": "Full Contact",
+        "name": "Machine Learning workshop by Full Contact",
         "day" : "3",
         "date": "8th Oct",
         "department": "tk",
@@ -589,7 +601,7 @@
         "date": "8th Oct",
         "department": "tk",
         "venue": "Media Hall",
-        "time": "2:30pm-3:15pm",
+        "time": "2:30pm-3:30pm",
         "timefilter": "m",
         "cover": "images/schedule/guest.png"
     },
@@ -666,13 +678,13 @@
         "date": "8th Oct",
         "department": "ot",
         "venue": "Auditorium",
-        "time": "2:30pm-4:00pm",
+        "time": "2:15pm-4:00pm",
         "timefilter": "a",
         "cover": "images/schedule/bestmanager.png"
     },
 
     {
-        "name": "Instant Photography",
+        "name": "Instant Photography  (Workshop)",
         "day" : "3",
         "date": "8th Oct",
         "department": "ot",
