@@ -1,5 +1,10 @@
 [
 	{
+		"name":"So You Think You Can Code",
+		"icon":"images/icons/binbash.png",
+		"link":"sytycc"
+	},
+	{
 		"name":"Commerce Ninja",
 		"icon":"images/icons/commerceText.png",
 		"link":"commerceninja"

@@ -1,0 +1,182 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="event-sytycc">
+<template>
+	<style>
+		:host{
+			display: block;
+		}
+
+    :host {
+      margin-top: 32px;
+    }
+
+      h2,h3 {
+      	font-weight: 400;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      paper-button {
+        background-color: #4285f4;
+        color: white;
+      }
+
+
+      .btn-cntr {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+
+      .title {
+        display: flex;
+        align-items: center;
+        height: 70px;
+        width: 100%;
+        margin-bottom: 40px;
+      }
+
+      .icon {
+        width: 70px;
+        height: 70px;
+        padding-left: 16px;
+      }
+
+      .event-name {
+        font-size: 34px;
+        padding-left: 16px;
+        font-weight: 600;
+      }
+
+      p {
+        margin: 0;
+        /*text-align: center;*/
+      }
+
+      .description {
+        margin-bottom: 50px;
+      }
+
+      section {
+        display: flex;
+        margin-bottom: 32px;
+      }
+
+      section div {
+        padding-top: 16px;
+        padding-left: 16px;
+      }
+
+      .padd-top {
+        padding-top: 16px;
+      }
+
+      .section-icon {
+        height: 160px;
+      }
+
+      .contacts {
+        padding-right: 16px;
+        padding-bottom: 16px;
+        background-color: #fdf9f6;
+        border-radius: 12px;
+        border-left: 10px solid #d3d2be;
+        flex: 1;
+      }
+
+
+
+      @media( max-width: 600px) {
+        h2,h3,p {
+          padding: 0 16px;
+        }
+
+        section {
+          display: block;
+        }
+
+        section div {
+          padding-left: 0;
+        }
+      }
+	</style>
+
+	<div class="title">
+    <img class="icon" src="../images/icons-small/spiderwebSmall.png">
+		<p class="event-name">So You Think You Can Code</p>
+	</div>
+	<div class="description">
+		<p>Get ready to show off your coding skills at ‘So you think you can code’. Defying the usual norms, this event will challenge you, surprise you and test you till you break or fight back! Get –Set- code!</p>
+	</div>
+
+	<section>
+        <img class="section-icon" src="../images/content/round1.png">
+        <div>
+          <h3>Preliminary round</h3>
+          <ul>
+            <li>Participation in teams of 2.</li>
+            <li>30 MCQ Questions to be solved in 30 minutes.</li>
+            <li>Shortlist 8 teams.</li>
+          </ul>
+        </div>
+  </section>
+  <section>
+        <img class="section-icon" src="../images/content/round2.png">
+        <div>
+          <h3>Final round</h3>
+          <h4>Stage 1:Debugging</h4>
+          <p>All 16 participants are asked to debug a code in 15 min. Top 8 move on to next stage.</p>
+          <h4>Stage 2: Rapid Coding</h4>
+          <p>The 8 participants are given 5 coding questions to be completed in 30 minutes. The top 4 who complete most number of questions accurately move to next stage.</p>
+          <h4>Stage 3: Coding</h4>
+          <p>The final 4 participants are asked to solve a single problem in 30 minutes.</p>
+        </div>
+  </section>
+
+	<section>
+		<img class="section-icon" src="../images/content/rules.png">
+		<div class="padd-top">
+			<p>&#10003; It is not mandatory that the team members should be from the same college.</p>
+      <p>&#10003; Participants will need to know C, C++, Java, Python.</p>
+      <p>&#10003; The participants of a team will not be allowed to communicate with one another in the final round.</p>
+      <p>&#10003; Use of mobile phones will not be allowed during the event.</p>
+      <p>&#10003; The time received by each participant for coding depends on the cycle (Refer Event Format).</p>
+      <p>&#10003; The team that codes the most optimal solution in the shortest time will be declared as winners.</p>
+      <p>&#10003; Programs with least complexity would be given preference.</p>
+      <p>&#10003; The decision of the judges will be final.</p>
+		</div>
+	</section>
+
+  <section>
+    <img class="section-icon" src="../images/content/prize.png">
+    <div>
+        <h3>Price pool</h3>
+        <h3>9k</h3>
+    </div>
+  </section>
+
+	<section>
+		<img class="section-icon" src="../images/content/phone.png">
+		<div class="padd-top contacts">
+			<div>
+				<p>&#9679; Jose Antony</p>
+        <p>+91 9496863403, joseantony.mec@gmail.com</p>
+			</div>
+      <div>
+        <p>&#9679; Aishwarya Ashokkumar</p>
+        <p>+91 9495747774, aishwaryaashokkumar.mec@gmail.com</p>
+      </div>
+		</div>
+	</section>
+
+</template>
+<script>
+	Polymer({
+		is : 'event-sytycc'
+	});
+</script>
+</dom-module>
