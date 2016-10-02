@@ -25,6 +25,7 @@
 
     :host{
       display: block;
+      min-height: calc(100vh - 64px);
     }
 
     paper-header-panel{
@@ -263,6 +264,9 @@
     }
 
     @media (max-width: 700px){
+      :host{
+        min-height: calc(100vh - 56px);
+      }
       .event-image img{
         border-radius: 100%;
         width: 50px; 
