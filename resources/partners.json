@@ -84,6 +84,12 @@
 		"type": "Exclusive Parnter"
 	},
 	{
+		"name": "Radio Mirchi",
+		"src" : "images/partners/radio-logo.png",
+		"link": "http://www.radiomirchi.com/",
+		"type": "Radio Parnter"
+	},
+	{
 		"name": "Cinema Pranthan",
 		"src" : "images/partners/cinema.png",
 		"link": "http://www.cinemapranthan.com/",

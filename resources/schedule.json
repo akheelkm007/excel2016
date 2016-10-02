@@ -12,13 +12,13 @@
     },
 
     {
-    	"name": "Neural Networks Workshop",
+        "name": "Neural Networks Workshop",
         "day" : "1",
-    	"date": "6th Oct",
-    	"department": "ws",
+        "date": "6th Oct",
+        "department": "ws",
         "time": "10.00am-4.00pm",
         "venue": "Media Hall",
-    	"timefilter":  "m",
+        "timefilter":  "m",
         "cover": "images/schedule/neuralnetworksched.png"
     },
 
@@ -34,13 +34,13 @@
     },
 
     {
-    	"name": "Funzone",
+        "name": "Funzone",
         "day" : "1",
-    	"date": "6th Oct",
-    	"department": "ot",
+        "date": "6th Oct",
+        "department": "ot",
         "venue": "Ground",
         "time": "10:00am-1:00pm;2:00pm-4:30pm",
-    	"timefilter": "ma",
+        "timefilter": "ma",
         "cover": "images/schedule/funzone.png"
     },
 
@@ -270,7 +270,7 @@
         "date": "6th Oct",
         "department": "ec",
         "venue": "Room no: 101,102",
-        "time": "10:00am-1:00pm",
+        "time": "10:00am-4:00pm",
         "timefilter": "ex",
         "cover": "images/schedule/meclabs.png"
     },
@@ -568,7 +568,7 @@
         "date": "7th Oct",
         "department": "ec",
         "venue": "Room no: 101,102",
-        "time": "10:00am-1:00pm",
+        "time": "10:00am-4:00pm",
         "timefilter": "ex",
         "cover": "images/schedule/meclabs.png"
     },
@@ -810,7 +810,7 @@
         "date": "8th Oct",
         "department": "cs",
         "venue": "Room no: 509,510,511",
-        "time": "11:30am-2:30pm",
+        "time": "11:30am-12:30pm",
         "timefilter": "m",
         "cover": "images/schedule/lordofcode.png"
     },
@@ -824,5 +824,17 @@
         "time": "1:00pm-3:00pm",
         "timefilter": "a",
         "cover": "images/schedule/lordofcode.png"
+    },
+
+    {
+        "name": "Biomedical Exhibitions",
+        "day" : "3",
+        "date": "8th Oct",
+        "department": "ec",
+        "venue": "Room no: 101,102",
+        "time": "10:00am-4:00pm",
+        "timefilter": "ex",
+        "cover": "images/schedule/meclabs.png"
     }
+
 ]
