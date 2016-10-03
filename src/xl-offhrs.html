@@ -1,0 +1,178 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="xl-offhrs">
+<style>
+  .container {
+        margin: auto;
+        width: 100%;
+        max-width: 980px;
+        background-color: white;
+      }
+
+      .bkg-img {
+        width: 100%;
+      }
+
+      .content {
+            color: rgba(0,0,0,0.65);
+        width: 65%;
+        margin: auto;
+        text-align: center;
+        font-size: 18px;
+        padding: 16px;
+        box-sizing: border-box;
+        transform: translateY(-116px);
+        box-shadow: 0 1px 3px 1px rgba(0,0,0,0.15);
+      }
+
+      @media( max-width: 800px){
+        .container{
+          width: 80%;
+        }
+      }
+
+      @media( max-width: 600px) {
+        .content {
+          transform: none;
+          width: 100%;
+          text-align: none;
+          box-shadow: none;
+        }
+
+        .container{
+          width: 90%;
+        }
+      }
+
+      
+
+      h1 {
+        text-align: center;
+        font-weight: 400;
+        font-size: 34px;
+        color: rgba(0,0,0,0.65);        
+      }
+
+      h2 {
+        text-align: center;
+      }
+
+      @media(min-width: 980px) {
+        h1 {
+          font-size: 56px;
+        }
+      }
+
+      .banner {
+        width: 100%;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      paper-button {
+        background-color: #4285f4;
+        color: white;
+      }
+
+
+      .btn-cntr {
+        margin-top: 32px;
+        margin-bottom: 32px;
+        text-align: center;
+      }
+
+      .divider {
+        width: 80%;
+        height: 1px;
+        background: radial-gradient(ellipse at 50% 84%, rgba(0,0,0,0.6) 0,rgba(255,255,255,0) 70%);
+        margin: auto;
+        margin-top: 56px;
+        margin-bottom: 56px;
+      }
+
+      .fc-logo {
+        height: 80px;
+        padding: 8px;
+      }
+
+      .fc-cntr {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .fc-cntr h2 {
+        line-height: 80px;
+        padding: 0px;  
+        margin: 0;
+      }
+
+      @media( max-width: 460px) {
+        .fc-cntr {
+          display: block;
+        }
+
+        .fc-logo {
+          display: block;
+          margin: auto;
+        }
+      }
+
+      .tp {
+        font-weight: 300;
+      }
+
+      .linky-text {
+        color: #0f5ffa;
+      }
+
+      .linky-text:hover {
+        text-decoration: underline;
+      }
+
+</style>
+
+<template>
+
+  <h1>OFFICE HOURS</h1>
+  <div class="container">
+    <p>Keen in interacting with the industry experts? As an add-on, also get an opportunity to get recruited.</p>
+
+
+    <div class="fc-cntr">
+      <a target="_blank" href="https://www.fullcontact.com/about/careers/?utm_source=Excel_Kochi">
+        <img class="fc-logo" src="../images/partners/fullcontact-logo.jpg">      
+      </a>
+      <h2> presents Office Hours </h2>
+    </div>
+
+    <p>Visit MEC placement cell room on the 6th and 7th of October at the below mentioned timings and directly interact with the officials from 
+    <a class="linky-text" target="_blank" href="https://www.fullcontact.com/about/careers/?utm_source=Excel_Kochi">
+    FullContact 
+    </a>
+    . Get mentored in your areas of interest. If they find that you are smart enough, you may find yourself in an interview for a job position at FullContact. So hop-in, show your mettle and get hired !!</p>
+
+    <h3 class="tp">Venue: MEC placement cell room</h3>
+    <h3 class="tp">Time : 6th October - 11:30 AM to 5 PM and 7th October - 9 AM to 1 PM</h3>
+
+    <h3>Contacts</h3>
+    <p>Karun Thomas John - +91 8547 148 335</p>
+    <p>Arjun K Shenoy- +91 8129 953 172</p>
+
+  </div>
+</template>
+
+<script>
+  Polymer({
+    is: 'xl-offhrs'
+  });
+</script>
+
+</dom-module> 
