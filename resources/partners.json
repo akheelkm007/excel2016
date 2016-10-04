@@ -90,6 +90,12 @@
 		"type": "Radio Parnter"
 	},
 	{
+		"name": "Kerala Financial Corporation",
+		"src" : "images/partners/kfc-logo.png",
+		"link": "http://www.kfc.org/",
+		"type": "Ibeto Sponsor"
+	},
+	{
 		"name": "Cinema Pranthan",
 		"src" : "images/partners/cinema.png",
 		"link": "http://www.cinemapranthan.com/",
