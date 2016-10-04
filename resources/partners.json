@@ -75,25 +75,37 @@
 		"name": "Codeum Labs",
 		"src" : "images/partners/codeum.png",
 		"link": "http://www.codeumlabs.com/",
-		"type": "Theme Song Parnter"
+		"type": "Theme Song Partner"
 	},
 	{
 		"name": "FullContact",
 		"src" : "images/partners/fc.png",
 		"link": "https://www.fullcontact.com/about/careers/?utm_source=Excel_Kochi",
-		"type": "Exclusive Parnter"
+		"type": "Exclusive Partner"
 	},
 	{
 		"name": "Radio Mirchi",
 		"src" : "images/partners/radio-logo.png",
 		"link": "http://www.radiomirchi.com/",
-		"type": "Radio Parnter"
+		"type": "Radio Partner"
 	},
 	{
 		"name": "Kerala Financial Corporation",
 		"src" : "images/partners/kfc-logo.png",
 		"link": "http://www.kfc.org/",
 		"type": "Ibeto Sponsor"
+	},
+	{
+		"name": "Flowers TV",
+		"src" : "images/sponsors/flower-logo.png",
+		"link": "http://www.flowerstv.in/",
+		"type": "Channel Partner"
+	},
+	{
+		"name": "Media One",
+		"src" : "images/sponsors/media-one.jpg",
+		"link": "http://www.mediaonetv.in/",
+		"type": "Online Promoter"
 	},
 	{
 		"name": "Cinema Pranthan",
