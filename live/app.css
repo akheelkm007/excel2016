@@ -1,0 +1,92 @@
+html,body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Roboto,Arial,sans-serif;
+	overflow: hidden;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.title {
+	line-height: 104px;
+	margin: 0;
+	font-weight: 300;
+}
+
+.logo {
+	padding: 8px;
+}
+
+.sub-heading {
+	text-align: center;
+	font-weight: 300;
+	margin: 0;
+	line-height: 50px;
+}
+
+.hide {
+	display: none;
+}
+
+.slide-cntr {
+	height: calc( 100vh - 170px);
+	position: relative;
+}
+
+.slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	transition: opacity 0.7s ease-in-out;
+	will-change: opacity;
+}
+
+
+
+.visible {
+	opacity: 1;
+}
+
+.slide-img {
+	max-height: 100%;
+	max-width: 100%;
+	display: block;
+	margin: auto;
+}
+
+.card {
+	padding: 16px;
+	box-sizing: border-box;
+	width: 150px;
+	background-color: #e1e1e1;
+	border-radius: 5px;
+    box-shadow: 0 0 5px 0px rgba(0,0,0,0.2);
+    margin: 16px;
+}
+
+.card-cntr {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.name {
+	text-align: center;
+	font-weight: 300;
+}
+
+.card p {
+	text-align: center;
+}

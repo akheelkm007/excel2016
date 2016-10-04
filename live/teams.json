@@ -1,0 +1,48 @@
+[
+	{
+		"name" : "Event Name 1",
+		"people" : [
+			{
+				"name" : "Akheel K M",
+				"excelid" : "EX1234"
+			},
+			{
+				"name" : "Akheel K M",
+				"excelid" : "EX1234"
+			},
+			{
+				"name" : "Akheel K M",
+				"excelid" : "EX1234"
+			},
+			{
+				"name" : "Akheel K M",
+				"excelid" : "EX1234"
+			}
+
+		]
+	},
+
+	{
+		"name" : "Event Name 2",
+		"people" : [
+			{
+				"name" : "Akheel2 K M",
+				"excelid" : "EX2234"
+			},
+			{
+				"name" : "Akheel2 K M",
+				"excelid" : "EX2234"
+			},
+			{
+				"name" : "Akheel2 K M",
+				"excelid" : "EX2234"
+			},
+			{
+				"name" : "Akheel2 K M",
+				"excelid" : "EX2234"
+			}
+
+		]
+	}
+
+]
