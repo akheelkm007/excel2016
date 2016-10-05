@@ -4,6 +4,7 @@
 	<title>Live | Excel 2016</title>
 	<link rel="stylesheet" type="text/css" href="app.css">
 	<script src="app.js" defer></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
 
@@ -16,22 +17,36 @@
 <h2 class="sub-heading hide">Selected teams</h2>
 
 <div class="slide-cntr">
+	<div class="loadbar"></div>
+	<div class="slide-block">
+	</div>
+	<div class="event-block">
+		<div class="header">
+			<h2>Announced Event Results</h2>
+			<hr>
+		</div>
+	</div>
 </div>
 
 <template id="ad-template">
-	<div class="slide">
+	<div class="ads slide">
 		<img class="slide-img" src="">
-	</div>		
+	</div>
+</template>
+
+<template id="list-events">
+	<div class="event-list">
+		<img src="">
+		<p></p>
+	</div>
 </template>
 
 <template id="teams-template">
 	<div class="slide teams">
 		<h2 class="name"></h2>
-		<div class="card-cntr">
-			
+		<div class="card-cntr">			
 		</div>
-	</div>		
-	
+	</div>
 </template>
 
 <template id="person-template">
