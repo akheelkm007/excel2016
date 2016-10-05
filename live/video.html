@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		html,body {
+			margin: 0;
+			padding: 0;
+		}
+
+		video {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+	</style>
+</head>
+<body>
+
+<video src="videos/1.mp4" autoplay controls></video>
+
+
+<script>
+
+	const player = document.querySelector('video');
+	var currentVideo = 1;
+
+	player.addEventListener('ended',nextVideo,false);
+
+    function nextVideo() {
+        console.log('ended');
+        currentVideo += 1;
+        player.src = "videos/"+currentVideo+".mp4";
+    }
+</script>
+
+</body>
+</html>

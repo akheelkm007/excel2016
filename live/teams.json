@@ -1,6 +1,7 @@
 [
 	{
 		"name" : "Event Name 1",
+		"icon" : "images/spiderwebSmall.png",
 		"people" : [
 			{
 				"name" : "Akheel K M",
@@ -23,6 +24,7 @@
 	},
 	{
 		"name" : "Event Name 3",
+		"icon" : "images/spiderwebSmall.png",
 		"people" : [
 			{
 				"name" : "Akheel K M",
@@ -45,6 +47,7 @@
 	},
 	{
 		"name" : "Event Name 4",
+		"icon" : "images/spiderwebSmall.png",
 		"people" : [
 			{
 				"name" : "Akheel K M",
@@ -67,6 +70,7 @@
 	},
 	{
 		"name" : "Event Name 5",
+		"icon" : "images/spiderwebSmall.png",
 		"people" : [
 			{
 				"name" : "Akheel K M",
@@ -89,6 +93,7 @@
 	},
 	{
 		"name" : "Event Name 6",
+		"icon" : "images/spiderwebSmall.png",
 		"people" : [
 			{
 				"name" : "Akheel K M",
@@ -111,6 +116,7 @@
 	},
 	{
 		"name" : "Event Name 7",
+		"icon" : "images/spiderwebSmall.png",
 		"people" : [
 			{
 				"name" : "Akheel K M",
@@ -134,6 +140,7 @@
 
 	{
 		"name" : "Event Name 2",
+		"icon" : "images/spiderwebSmall.png",
 		"people" : [
 			{
 				"name" : "Akheel2 K M",

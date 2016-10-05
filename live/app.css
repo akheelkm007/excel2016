@@ -20,13 +20,8 @@ header {
 	top: 0;
 	height: 4px;
 	z-index: 99;
-	/*opacity: 0;*/
-	/*width: 0%;*/
 	box-shadow: 0px 2px 5px rgba(255,0,0,0.5);	
-	/*transition: width 2s ease-in-out;*/
 	position: absolute;
-	/*animation: progress 5s ease-out 0s infinite;*/
-	/*animation-delay: s;*/
 }
 
 .highlight{

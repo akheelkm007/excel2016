@@ -60,6 +60,7 @@ function generateTeamSlides() {
 	teamData.forEach( event => {
 		eventName.textContent = event.name;
 		eventArray.push(event.name);
+		eventList.children[0].src = event.icon;
 		eventList.children[1].textContent = event.name;
 		var eventClone = document.importNode(eventTemplate.content,true);
 		var teamClone = document.importNode(teamTemplate.content, true);
