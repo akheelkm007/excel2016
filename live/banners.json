@@ -4,7 +4,7 @@
 	},
 
 	{
-		"url" : "banners/calpine.png"
+		"url" : "banners/Calpine.jpg"
 	},
 
 	{
@@ -40,7 +40,11 @@
 	},
 
 	{
-		"url" : "banners/vandalay.png"
+		"url" : "banners/Geojit.jpg"
+	},
+
+	{
+		"url" : "banners/vandala.jpg"
 	}
 
 ]
